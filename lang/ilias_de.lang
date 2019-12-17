@@ -1,0 +1,24 @@
+config_configuration#:#Konfiguration
+config_configuration_saved#:#Konfiguration gespeichert
+config_roles#:#Rollen
+config_roles_menu#:#Menü-Rollen
+config_roles_info#:#Nur für die ausgewählten Rollen anzeigen
+config_save#:#Speichern
+plugin_generator_generate#:#Generieren
+plugin_generator_install_steps#:#Installations-Schritte
+plugin_generator_install_steps_1#:#Im ILIAS-Root-Verzeichnis beginnen\nEs wird angenommen das generierte Plugin %1$s wurde in Ihrem Download-Ordner %2$s heruntergladen - ansonst bitte Befehle unten anpassen
+plugin_generator_install_steps_2#:#Folgende Befehle ausführen
+plugin_generator_install_steps_3#:#Das Plugin in den ILIAS-Plugin-Administration aktualisieren und aktivieren
+plugin_generator_install_steps_4#:#Nach %s's im Plugin-Code suchen\nMöglicherweise können Sie einige Dateien entfernen (Z. Bsp. Konfiguration) abhängig Ihrer Benutzung\nAuch das Initial-Readme überschreiben
+plugin_generator_namespace#:#Namespace
+plugin_generator_namespace_info#:#Nur Buchstaben oder Backslashes - __PLUGIN_NAME__ als Platzhalter für Plugin-Name
+plugin_generator_plugin_id#:#Plugin-ID
+plugin_generator_plugin_id_info#:#Nur Kleinbuchstaben oder Zahlen - Mit einem Kleinbuchstaben beginnen - Repository-Objekte nur 4 Zeichen und mit x beginnen
+plugin_generator_plugin_name#:#Plugin-Name
+plugin_generator_plugin_name_info#:#Nur Buchstaben oder Zahlen - Mit einem Grossbuchstaben beginnen
+plugin_generator_plugin_slot#:#Plugin-Slot
+plugin_generator_project_key#:#Projekt-Key
+plugin_generator_project_key_info#:#Jira, ...
+plugin_generator_responsible_email#:#Responsible-Name
+plugin_generator_responsible_name#:#Responsible-Email
+plugin_generator_title#:#Plugin-Generator

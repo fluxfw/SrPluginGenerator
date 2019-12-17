@@ -1,0 +1,4 @@
+cmd_insert#:#Insert __PLUGIN_NAME__
+config_configuration#:#Configuration
+config_configuration_saved#:#Configuration saved
+config_save#:#Save

@@ -1,0 +1,27 @@
+obj___PLUGIN_ID__#:#__PLUGIN_NAME__
+obj___PLUGIN_ID___duplicate#:#__PLUGIN_NAME__ kopieren
+objs___PLUGIN_ID__#:#__PLUGIN_NAME__'s
+objs___PLUGIN_ID___duplicate#:#__PLUGIN_NAME__'s kopieren
+rbac_create___PLUGIN_ID__#:#__PLUGIN_NAME__ anlegen
+__PLUGIN_ID___add#:#Hinzufügen
+__PLUGIN_ID___delete#:#Löschen
+__PLUGIN_ID___edit_permission#:#Rechte bearbeiten
+__PLUGIN_ID___new#:#__PLUGIN_NAME__ anlegen
+__PLUGIN_ID___read#:#Lesen
+__PLUGIN_ID___visible#:#Sichtbar
+__PLUGIN_ID___write#:#Bearbeiten
+config_configuration#:#Konfiguration
+config_configuration_saved#:#Konfiguration gespeichert
+config_save#:#Speichern
+object_manage_contents#:#Bearbeiten
+object_offline#:#Offline
+object_permission_denied#:#Zugriff verweigert
+object_show_contents#:#Inhalte
+object_status#:#Status
+settings_cancel#:#Abbrechen
+settings_description#:#Beschreibung
+settings_online#:#Online
+settings_save#:#Speichern
+settings_saved#:#Einstellungen gespeichert
+settings_settings#:#Einstellungen
+settings_title#:#Titel
