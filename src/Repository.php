@@ -51,16 +51,14 @@ final class Repository
 
 
     /**
-     * @param string $roles_key
-     *
      * @return bool
      */
-    public function currentUserHasRole(string $roles_key) : bool
+    public function currentUserHasRole() : bool
     {
         $user_id = $this->ilias()->users()->getUserId();
 
         $user_roles = self::dic()->rbacreview()->assignedGlobalRoles($user_id);
-        $config_roles = Config::getField($roles_key);
+        $config_roles = Config::getField(Config::KEY_ROLES);
 
         foreach ($user_roles as $user_role) {
             if (in_array($user_role, $config_roles)) {

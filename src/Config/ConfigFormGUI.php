@@ -62,13 +62,7 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
     protected function initFields()/*: void*/
     {
         $this->fields = [
-            Config::KEY_ROLES      => [
-                self::PROPERTY_CLASS    => ilMultiSelectInputGUI::class,
-                self::PROPERTY_REQUIRED => true,
-                self::PROPERTY_OPTIONS  => self::srPluginGenerator()->ilias()->roles()->getAllRoles(),
-                "enableSelectAll"       => true
-            ],
-            Config::KEY_ROLES_MENU => [
+            Config::KEY_ROLES => [
                 self::PROPERTY_CLASS    => ilMultiSelectInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
                 self::PROPERTY_OPTIONS  => self::srPluginGenerator()->ilias()->roles()->getAllRoles(),
@@ -103,7 +97,6 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
     {
         switch ($key) {
             case Config::KEY_ROLES:
-            case Config::KEY_ROLES_MENU:
                 if ($value[0] === "") {
                     array_shift($value);
                 }
