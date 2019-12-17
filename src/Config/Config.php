@@ -20,13 +20,11 @@ class Config extends ActiveRecordConfig
     const TABLE_NAME = "srplgen_config";
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const KEY_ROLES = "roles";
-    const KEY_ROLES_MENU = "roles_menu";
     /**
      * @var array
      */
     protected static $fields
         = [
-            self::KEY_ROLES      => [self::TYPE_JSON, []],
-            self::KEY_ROLES_MENU => [self::TYPE_JSON, []]
+            self::KEY_ROLES => [self::TYPE_JSON, []]
         ];
 }

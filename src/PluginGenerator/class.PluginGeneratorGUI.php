@@ -4,7 +4,6 @@ namespace srag\Plugins\SrPluginGenerator\PluginGenerator;
 
 use ilSrPluginGeneratorPlugin;
 use srag\DIC\SrPluginGenerator\DICTrait;
-use srag\Plugins\SrPluginGenerator\Config\Config;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -45,7 +44,7 @@ class PluginGeneratorGUI
      */
     public function executeCommand()/*: void*/
     {
-        if (!self::SrPluginGenerator()->currentUserHasRole(Config::KEY_ROLES)) {
+        if (!self::SrPluginGenerator()->currentUserHasRole()) {
             die();
         }
 

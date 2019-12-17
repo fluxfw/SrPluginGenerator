@@ -1,7 +1,6 @@
 config_configuration#:#Konfiguration
 config_configuration_saved#:#Konfiguration gespeichert
 config_roles#:#Rollen
-config_roles_menu#:#Menü-Rollen
 config_roles_info#:#Nur für die ausgewählten Rollen anzeigen
 config_save#:#Speichern
 plugin_generator_generate#:#Generieren

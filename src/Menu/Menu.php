@@ -5,7 +5,6 @@ namespace srag\Plugins\SrPluginGenerator\Menu;
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
 use ilSrPluginGeneratorPlugin;
 use srag\DIC\SrPluginGenerator\DICTrait;
-use srag\Plugins\SrPluginGenerator\Config\Config;
 use srag\Plugins\SrPluginGenerator\PluginGenerator\PluginGeneratorGUI;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
@@ -39,7 +38,7 @@ class Menu extends AbstractStaticPluginMainMenuProvider
                     return self::plugin()->getPluginObject()->isActive();
                 })
                 ->withVisibilityCallable(function () : bool {
-                    return (self::srPluginGenerator()->currentUserHasRole(Config::KEY_ROLES) && self::srPluginGenerator()->currentUserHasRole(Config::KEY_ROLES_MENU));
+                    return self::srPluginGenerator()->currentUserHasRole();
                 })
         ];
     }
