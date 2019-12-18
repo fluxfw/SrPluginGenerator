@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrPluginGenerator\PluginGenerator;
+namespace srag\Plugins\SrPluginGenerator\Generator;
 
 use ilLog;
 use ilSrPluginGeneratorPlugin;
@@ -11,7 +11,7 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 /**
  * Class Generator
  *
- * @package srag\Plugins\SrPluginGenerator\PluginGenerator
+ * @package srag\Plugins\SrPluginGenerator\Generator
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -109,7 +109,7 @@ class Generator
 
         $this->temp_name = ilUtil::randomhash();
 
-        $this->temp_base_dir = self::srPluginGenerator()->pluginGenerator()->getTempFolder() . "/" . $this->temp_name;
+        $this->temp_base_dir = self::srPluginGenerator()->generator()->getTempFolder() . "/" . $this->temp_name;
 
         $this->temp_dir = $this->temp_base_dir . "/" . $this->options->getPluginSlot() . "/" . $this->options->getPluginName();
 
@@ -218,7 +218,7 @@ class Generator
      */
     protected function runComposerUpdate()/*: void*/
     {
-        $composer_home = self::srPluginGenerator()->pluginGenerator()->getDataFolder() . "/composer";
+        $composer_home = self::srPluginGenerator()->generator()->getDataFolder() . "/composer";
 
         ilUtil::makeDirParents($composer_home);
 
@@ -244,7 +244,7 @@ class Generator
     {
         $client_ip = $_SERVER["HTTP_X_FORWARDED_FOR"] ?? $_SERVER["REMOTE_ADDR"];
 
-        $log = new ilLog(self::srPluginGenerator()->pluginGenerator()->getDataFolder(), "generator.log", ilSrPluginGeneratorPlugin::PLUGIN_ID);
+        $log = new ilLog(self::srPluginGenerator()->generator()->getDataFolder(), "generator.log", ilSrPluginGeneratorPlugin::PLUGIN_ID);
 
         $log->write($client_ip . " " . json_encode($this->options, JSON_UNESCAPED_SLASHES));
     }

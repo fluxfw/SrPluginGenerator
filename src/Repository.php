@@ -6,7 +6,7 @@ use ilSrPluginGeneratorPlugin;
 use srag\DIC\SrPluginGenerator\DICTrait;
 use srag\Plugins\SrPluginGenerator\Access\Ilias;
 use srag\Plugins\SrPluginGenerator\Config\Config;
-use srag\Plugins\SrPluginGenerator\PluginGenerator\Repository as PluginGeneratorRepository;
+use srag\Plugins\SrPluginGenerator\Generator\Repository as GeneratorRepository;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -76,7 +76,16 @@ final class Repository
     public function dropTables()/*:void*/
     {
         self::dic()->database()->dropTable(Config::TABLE_NAME, false);
-        $this->pluginGenerator()->dropTables();
+        $this->generator()->dropTables();
+    }
+
+
+    /**
+     * @return GeneratorRepository
+     */
+    public function generator() : GeneratorRepository
+    {
+        return GeneratorRepository::getInstance();
     }
 
 
@@ -95,15 +104,6 @@ final class Repository
     public function installTables()/*:void*/
     {
         Config::updateDB();
-        $this->pluginGenerator()->installTables();
-    }
-
-
-    /**
-     * @return PluginGeneratorRepository
-     */
-    public function pluginGenerator() : PluginGeneratorRepository
-    {
-        return PluginGeneratorRepository::getInstance();
+        $this->generator()->installTables();
     }
 }

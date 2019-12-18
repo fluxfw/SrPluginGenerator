@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrPluginGenerator\PluginGenerator;
+namespace srag\Plugins\SrPluginGenerator\Generator;
 
 use ilSrPluginGeneratorPlugin;
 use ilUtil;
@@ -10,7 +10,7 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 /**
  * Class Repository
  *
- * @package srag\Plugins\SrPluginGenerator\PluginGenerator
+ * @package srag\Plugins\SrPluginGenerator\Generator
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -73,6 +73,15 @@ final class Repository
     public function getDataFolder() : string
     {
         return CLIENT_DATA_DIR . "/" . ilSrPluginGeneratorPlugin::PLUGIN_ID;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getLink() : string
+    {
+        return ILIAS_HTTP_PATH . "/goto.php?target=uihk_" . ilSrPluginGeneratorPlugin::PLUGIN_ID;
     }
 
 

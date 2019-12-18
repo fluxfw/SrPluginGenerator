@@ -5,7 +5,7 @@ namespace srag\Plugins\SrPluginGenerator\Menu;
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
 use ilSrPluginGeneratorPlugin;
 use srag\DIC\SrPluginGenerator\DICTrait;
-use srag\Plugins\SrPluginGenerator\PluginGenerator\PluginGeneratorGUI;
+use srag\Plugins\SrPluginGenerator\Generator\PluginGeneratorGUI;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -33,7 +33,7 @@ class Menu extends AbstractStaticPluginMainMenuProvider
         return [
             $this->mainmenu->topLinkItem($this->if->identifier(ilSrPluginGeneratorPlugin::PLUGIN_ID))
                 ->withTitle(self::plugin()->translate("title", PluginGeneratorGUI::LANG_MODULE))
-                ->withAction(ILIAS_HTTP_PATH . "/goto.php?target=uihk_" . ilSrPluginGeneratorPlugin::PLUGIN_ID)
+                ->withAction(self::srPluginGenerator()->generator()->getLink())
                 ->withAvailableCallable(function () : bool {
                     return self::plugin()->getPluginObject()->isActive();
                 })
