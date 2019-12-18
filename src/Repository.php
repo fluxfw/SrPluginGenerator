@@ -81,6 +81,15 @@ final class Repository
 
 
     /**
+     * @return GeneratorRepository
+     */
+    public function generator() : GeneratorRepository
+    {
+        return GeneratorRepository::getInstance();
+    }
+
+
+    /**
      * @return Ilias
      */
     public function ilias() : Ilias
@@ -96,14 +105,5 @@ final class Repository
     {
         Config::updateDB();
         $this->generator()->installTables();
-    }
-
-
-    /**
-     * @return GeneratorRepository
-     */
-    public function generator() : GeneratorRepository
-    {
-        return GeneratorRepository::getInstance();
     }
 }
