@@ -1,7 +1,7 @@
 <?php
 
 use srag\DIC\SrPluginGenerator\DICTrait;
-use srag\Plugins\SrPluginGenerator\PluginGenerator\PluginGeneratorGUI;
+use srag\Plugins\SrPluginGenerator\Generator\PluginGeneratorGUI;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -41,7 +41,7 @@ class ilSrPluginGeneratorUIHookGUI extends ilUIHookPluginGUI
             self::dic()->ctrl()->setTargetScript("ilias.php"); // Fix ILIAS 5.3 bug
             self::dic()->ctrl()->initBaseClass(ilUIPluginRouterGUI::class); // Fix ILIAS bug
 
-            self::dic()->ctrl()->redirectByClass([ilUIPluginRouterGUI::class, PluginGeneratorGUI::class], PluginGeneratorGUI::CMD_GENERATE_FORM);
+            self::dic()->ctrl()->redirectByClass([ilUIPluginRouterGUI::class, PluginGeneratorGUI::class], PluginGeneratorGUI::CMD_FILL);
         }
     }
 }

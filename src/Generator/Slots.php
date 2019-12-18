@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrPluginGenerator\PluginGenerator;
+namespace srag\Plugins\SrPluginGenerator\Generator;
 
 use ilSrPluginGeneratorPlugin;
 use srag\DIC\SrPluginGenerator\DICTrait;
@@ -9,7 +9,7 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 /**
  * Class Slots
  *
- * @package srag\Plugins\SrPluginGenerator\PluginGenerator
+ * @package srag\Plugins\SrPluginGenerator\Generator
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

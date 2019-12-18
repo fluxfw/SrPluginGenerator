@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrPluginGenerator\PluginGenerator;
+namespace srag\Plugins\SrPluginGenerator\Generator;
 
 use ilEMailInputGUI;
 use ilSelectInputGUI;
@@ -13,7 +13,7 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 /**
  * Class GeneratorFormGUI
  *
- * @package srag\Plugins\SrPluginGenerator\PluginGenerator
+ * @package srag\Plugins\SrPluginGenerator\Generator
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -89,7 +89,7 @@ class GeneratorFormGUI extends ObjectPropertyFormGUI
             "plugin_slot"       => [
                 self::PROPERTY_CLASS    => ilSelectInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
-                self::PROPERTY_OPTIONS  => ["" => ""] + self::srPluginGenerator()->pluginGenerator()->slots()->getSlots()
+                self::PROPERTY_OPTIONS  => ["" => ""] + self::srPluginGenerator()->generator()->slots()->getSlots()
             ],
             "namespace"         => [
                 self::PROPERTY_CLASS    => ilTextInputGUI::class,
