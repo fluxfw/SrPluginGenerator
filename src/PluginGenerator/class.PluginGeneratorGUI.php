@@ -44,6 +44,8 @@ class PluginGeneratorGUI
      */
     public function executeCommand()/*: void*/
     {
+        $this->options = self::srPluginGenerator()->pluginGenerator()->factory()->newOptionsInstance();
+
         if (!self::SrPluginGenerator()->currentUserHasRole()) {
             die();
         }
@@ -75,7 +77,7 @@ class PluginGeneratorGUI
      */
     protected function setTabs()/*: void*/
     {
-        $this->options = self::srPluginGenerator()->pluginGenerator()->factory()->newOptionsInstance();
+
     }
 
 

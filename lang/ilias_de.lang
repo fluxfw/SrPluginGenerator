@@ -18,6 +18,6 @@ plugin_generator_plugin_name_info#:#Nur Buchstaben oder Zahlen - Mit einem Gross
 plugin_generator_plugin_slot#:#Plugin-Slot
 plugin_generator_project_key#:#Projekt-Key
 plugin_generator_project_key_info#:#Jira, ...
-plugin_generator_responsible_email#:#Responsible-Name
-plugin_generator_responsible_name#:#Responsible-Email
+plugin_generator_responsible_email#:#Responsible-Email
+plugin_generator_responsible_name#:#Responsible-Name
 plugin_generator_title#:#Plugin-Generator
