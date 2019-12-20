@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'SrPluginGeneratorRemoveDataConfirm' => $baseDir . '/classes/uninstall/class.SrPluginGeneratorRemoveDataConfirm.php',
     'ilSrPluginGeneratorConfigGUI' => $baseDir . '/classes/class.ilSrPluginGeneratorConfigGUI.php',
     'ilSrPluginGeneratorPlugin' => $baseDir . '/classes/class.ilSrPluginGeneratorPlugin.php',
     'ilSrPluginGeneratorUIHookGUI' => $baseDir . '/classes/class.ilSrPluginGeneratorUIHookGUI.php',
@@ -120,9 +119,8 @@ return array(
     'srag\\Plugins\\SrPluginGenerator\\Menu\\Menu' => $baseDir . '/src/Menu/Menu.php',
     'srag\\Plugins\\SrPluginGenerator\\Repository' => $baseDir . '/src/Repository.php',
     'srag\\Plugins\\SrPluginGenerator\\Utils\\SrPluginGeneratorTrait' => $baseDir . '/src/Utils/SrPluginGeneratorTrait.php',
-    'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\AbstractPluginUninstallTrait' => $vendorDir . '/srag/removeplugindataconfirm/src/AbstractPluginUninstallTrait.php',
-    'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\AbstractRemovePluginDataConfirm' => $vendorDir . '/srag/removeplugindataconfirm/src/AbstractRemovePluginDataConfirm.php',
-    'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\Exception\\RemovePluginDataConfirmException' => $vendorDir . '/srag/removeplugindataconfirm/src/Exception/RemovePluginDataConfirmException.php',
+    'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\BasePluginUninstallTrait' => $vendorDir . '/srag/removeplugindataconfirm/src/BasePluginUninstallTrait.php',
     'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\PluginUninstallTrait' => $vendorDir . '/srag/removeplugindataconfirm/src/PluginUninstallTrait.php',
+    'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\RemovePluginDataConfirmCtrl' => $vendorDir . '/srag/removeplugindataconfirm/src/class.RemovePluginDataConfirmCtrl.php',
     'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\RepositoryObjectPluginUninstallTrait' => $vendorDir . '/srag/removeplugindataconfirm/src/RepositoryObjectPluginUninstallTrait.php',
 );

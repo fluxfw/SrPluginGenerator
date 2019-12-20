@@ -9,7 +9,7 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\' => 47,
+            'srag\\RemovePluginDataConfirm\\' => 29,
             'srag\\Plugins\\SrPluginGenerator\\' => 31,
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\SrPluginGenerator\\' => 27,
@@ -19,7 +19,7 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\' => 
+        'srag\\RemovePluginDataConfirm\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
@@ -46,7 +46,6 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
     );
 
     public static $classMap = array (
-        'SrPluginGeneratorRemoveDataConfirm' => __DIR__ . '/../..' . '/classes/uninstall/class.SrPluginGeneratorRemoveDataConfirm.php',
         'ilSrPluginGeneratorConfigGUI' => __DIR__ . '/../..' . '/classes/class.ilSrPluginGeneratorConfigGUI.php',
         'ilSrPluginGeneratorPlugin' => __DIR__ . '/../..' . '/classes/class.ilSrPluginGeneratorPlugin.php',
         'ilSrPluginGeneratorUIHookGUI' => __DIR__ . '/../..' . '/classes/class.ilSrPluginGeneratorUIHookGUI.php',
@@ -160,10 +159,9 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
         'srag\\Plugins\\SrPluginGenerator\\Menu\\Menu' => __DIR__ . '/../..' . '/src/Menu/Menu.php',
         'srag\\Plugins\\SrPluginGenerator\\Repository' => __DIR__ . '/../..' . '/src/Repository.php',
         'srag\\Plugins\\SrPluginGenerator\\Utils\\SrPluginGeneratorTrait' => __DIR__ . '/../..' . '/src/Utils/SrPluginGeneratorTrait.php',
-        'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\AbstractPluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/AbstractPluginUninstallTrait.php',
-        'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\AbstractRemovePluginDataConfirm' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/AbstractRemovePluginDataConfirm.php',
-        'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\Exception\\RemovePluginDataConfirmException' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/Exception/RemovePluginDataConfirmException.php',
+        'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\BasePluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/BasePluginUninstallTrait.php',
         'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\PluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/PluginUninstallTrait.php',
+        'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\RemovePluginDataConfirmCtrl' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/class.RemovePluginDataConfirmCtrl.php',
         'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\RepositoryObjectPluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/RepositoryObjectPluginUninstallTrait.php',
     );
 

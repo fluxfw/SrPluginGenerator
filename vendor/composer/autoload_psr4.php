@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\' => array($vendorDir . '/srag/removeplugindataconfirm/src'),
+    'srag\\RemovePluginDataConfirm\\' => array($vendorDir . '/srag/removeplugindataconfirm/src'),
     'srag\\Plugins\\SrPluginGenerator\\' => array($baseDir . '/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
     'srag\\DIC\\SrPluginGenerator\\' => array($vendorDir . '/srag/dic/src'),

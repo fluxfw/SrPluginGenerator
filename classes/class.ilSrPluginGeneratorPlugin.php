@@ -21,7 +21,6 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
     const PLUGIN_ID = "srplugingenerator";
     const PLUGIN_NAME = "SrPluginGenerator";
     const PLUGIN_CLASS_NAME = self::class;
-    const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = SrPluginGeneratorRemoveDataConfirm::class;
     /**
      * @var self|null
      */
