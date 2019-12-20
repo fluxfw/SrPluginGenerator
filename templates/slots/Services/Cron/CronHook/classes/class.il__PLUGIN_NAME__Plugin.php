@@ -19,7 +19,6 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     const PLUGIN_ID = "__PLUGIN_ID__";
     const PLUGIN_NAME = "__PLUGIN_NAME__";
     const PLUGIN_CLASS_NAME = self::class;
-    const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = __PLUGIN_NAME__RemoveDataConfirm::class;
     /**
      * @var self|null
      */
