@@ -27,18 +27,16 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     const CMD_SETTINGS = "settings";
     const CMD_SETTINGS_STORE = "settingsStore";
     const CMD_SHOW_CONTENTS = "showContents";
+    const LANG_MODULE_OBJECT = "object";
+    const LANG_MODULE_SETTINGS = "settings";
     const TAB_CONTENTS = "contents";
     const TAB_PERMISSIONS = "perm_settings";
     const TAB_SETTINGS = "settings";
     const TAB_SHOW_CONTENTS = "show_contents";
-    const LANG_MODULE_OBJECT = "object";
-    const LANG_MODULE_SETTINGS = "settings";
     /**
-     * Fix autocomplete (Defined in parent)
-     *
      * @var ilObj__PLUGIN_NAME__
      */
-    var $object;
+    public $object;
 
 
     /**

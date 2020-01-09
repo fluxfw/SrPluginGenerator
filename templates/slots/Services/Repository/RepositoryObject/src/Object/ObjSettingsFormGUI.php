@@ -4,6 +4,7 @@ namespace __NAMESPACE__\Object;
 
 use il__PLUGIN_NAME__Plugin;
 use ilCheckboxInputGUI;
+use ilObj__PLUGIN_NAME__;
 use ilObj__PLUGIN_NAME__GUI;
 use ilTextAreaInputGUI;
 use ilTextInputGUI;
@@ -22,6 +23,18 @@ class ObjSettingsFormGUI extends ObjectPropertyFormGUI
 
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const LANG_MODULE = ilObj__PLUGIN_NAME__GUI::LANG_MODULE_SETTINGS;
+
+
+    /**
+     * ObjSettingsFormGUI constructor
+     *
+     * @param ilObj__PLUGIN_NAME__GUI $parent
+     * @param ilObj__PLUGIN_NAME__    $object
+     */
+    public function __construct(ilObj__PLUGIN_NAME__GUI $parent, ilObj__PLUGIN_NAME__ $object)
+    {
+        parent::__construct($parent, $object);
+    }
 
 
     /**
