@@ -1,6 +1,6 @@
 <?php
 
-namespace __NAMESPACE__\Object;
+namespace __NAMESPACE__\ObjectSettings;
 
 use ActiveRecord;
 use arConnector;
@@ -8,18 +8,17 @@ use il__PLUGIN_NAME__Plugin;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
 /**
- * Class Obj__VERSION_COMMENT__
+ * Class ObjectSettings__VERSION_COMMENT__
  *
- * @package __NAMESPACE__\Object
+ * @package __NAMESPACE__\ObjectSettings
  *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- * @author  __RESPONSIBLE_NAME__ <__RESPONSIBLE_EMAIL__>
+ * __AUTHOR_COMMENT__
  */
-class Obj extends ActiveRecord
+class ObjectSettings extends ActiveRecord
 {
 
     use DICTrait;
-    const TABLE_NAME = "rep_robj___PLUGIN_ID___obj";
+    const TABLE_NAME = "rep_robj___PLUGIN_ID___set";
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
 
 
@@ -48,7 +47,7 @@ class Obj extends ActiveRecord
      *
      * @return self|null
      */
-    public static function getObjectById(int $obj_id)/*: ?self*/
+    public static function getObjectSettingsById(int $obj_id)/*: ?self*/
     {
         /**
          * @var self|null $object
@@ -84,12 +83,12 @@ class Obj extends ActiveRecord
 
 
     /**
-     * Obj constructor
+     * ObjectSettings constructor
      *
      * @param int              $primary_key_value
      * @param arConnector|null $connector
      */
-    public function __construct($primary_key_value = 0, arConnector $connector = null)
+    public function __construct(/*int*/ $primary_key_value = 0, arConnector $connector = null)
     {
         parent::__construct($primary_key_value, $connector);
     }
@@ -100,9 +99,8 @@ class Obj extends ActiveRecord
      *
      * @return mixed|null
      */
-    public function sleep(/*string*/
-        $field_name
-    ) {
+    public function sleep(/*string*/ $field_name)
+    {
         $field_value = $this->{$field_name};
 
         switch ($field_name) {
@@ -122,10 +120,8 @@ class Obj extends ActiveRecord
      *
      * @return mixed|null
      */
-    public function wakeUp(/*string*/
-        $field_name,
-        $field_value
-    ) {
+    public function wakeUp(/*string*/ $field_name, $field_value)
+    {
         switch ($field_name) {
             case "obj_id":
                 return intval($field_value);

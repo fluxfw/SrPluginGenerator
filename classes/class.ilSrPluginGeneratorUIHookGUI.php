@@ -27,7 +27,7 @@ class ilSrPluginGeneratorUIHookGUI extends ilUIHookPluginGUI
 
 
     /**
-     *
+     * @inheritDoc
      */
     public function gotoHook()/*: void*/
     {

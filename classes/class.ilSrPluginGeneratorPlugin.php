@@ -50,7 +50,7 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getPluginName() : string
     {
@@ -59,7 +59,7 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function promoteGlobalScreenProvider() : AbstractStaticPluginMainMenuProvider
     {
@@ -68,9 +68,9 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
-    public function updateLanguages($a_lang_keys = null)
+    public function updateLanguages(/*?array*/ $a_lang_keys = null)/*:void*/
     {
         parent::updateLanguages($a_lang_keys);
 
@@ -80,7 +80,7 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function deleteData()/*: void*/
     {

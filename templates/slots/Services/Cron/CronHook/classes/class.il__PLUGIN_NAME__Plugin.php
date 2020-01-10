@@ -48,7 +48,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getPluginName() : string
     {
@@ -57,7 +57,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
 
 
     /**
-     * @return ilCronJob[]
+     * @inheritDoc
      */
     public function getCronJobInstances() : array
     {
@@ -66,11 +66,9 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
 
 
     /**
-     * @param string $a_job_id
-     *
-     * @return ilCronJob|null
+     * @inheritDoc
      */
-    public function getCronJobInstance($a_job_id)/*: ?ilCronJob*/
+    public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
     {
         switch ($a_job_id) {
             case Job::CRON_JOB_ID:
@@ -83,9 +81,9 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
-    public function updateLanguages($a_lang_keys = null)
+    public function updateLanguages(/*?array*/ $a_lang_keys = null)/*:void*/
     {
         parent::updateLanguages($a_lang_keys);
 
@@ -95,7 +93,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function deleteData()/*: void*/
     {

@@ -12,8 +12,7 @@ use srag\DIC\__PLUGIN_NAME__\DICTrait;
  *
  * @package __NAMESPACE__\Job
  *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- * @author  __RESPONSIBLE_NAME__ <__RESPONSIBLE_EMAIL__>
+ * __AUTHOR_COMMENT__
  */
 class Job extends ilCronJob
 {
@@ -33,9 +32,7 @@ class Job extends ilCronJob
 
 
     /**
-     * Get id
-     *
-     * @return string
+     * @inheritDoc
      */
     public function getId() : string
     {
@@ -44,7 +41,7 @@ class Job extends ilCronJob
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getTitle() : string
     {
@@ -53,7 +50,7 @@ class Job extends ilCronJob
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getDescription() : string
     {
@@ -62,9 +59,7 @@ class Job extends ilCronJob
 
 
     /**
-     * Is to be activated on "installation"
-     *
-     * @return boolean
+     * @inheritDoc
      */
     public function hasAutoActivation() : bool
     {
@@ -73,9 +68,7 @@ class Job extends ilCronJob
 
 
     /**
-     * Can the schedule be configured?
-     *
-     * @return boolean
+     * @inheritDoc
      */
     public function hasFlexibleSchedule() : bool
     {
@@ -84,9 +77,7 @@ class Job extends ilCronJob
 
 
     /**
-     * Get schedule type
-     *
-     * @return int
+     * @inheritDoc
      */
     public function getDefaultScheduleType() : int
     {
@@ -95,20 +86,16 @@ class Job extends ilCronJob
 
 
     /**
-     * Get schedule value
-     *
-     * @return int|array
+     * @inheritDoc
      */
-    public function getDefaultScheduleValue()
+    public function getDefaultScheduleValue()/*:?int*/
     {
         return null;
     }
 
 
     /**
-     * Run job
-     *
-     * @return ilCronJobResult
+     * @inheritDoc
      */
     public function run() : ilCronJobResult
     {

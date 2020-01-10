@@ -1,13 +1,12 @@
 <?php
 
-use __NAMESPACE__\Object\ObjSettingsFormGUI;
+use __NAMESPACE__\ObjectSettings\ObjectSettingsFormGUI;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
 /**
  * Class ilObj__PLUGIN_NAME__GUI__VERSION_COMMENT__
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- * @author            __RESPONSIBLE_NAME__ <__RESPONSIBLE_EMAIL__>
+ * __AUTHOR_COMMENT__
  *
  * @ilCtrl_isCalledBy ilObj__PLUGIN_NAME__GUI: ilRepositoryGUI
  * @ilCtrl_isCalledBy ilObj__PLUGIN_NAME__GUI: ilObjPluginDispatchGUI
@@ -27,22 +26,20 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     const CMD_SETTINGS = "settings";
     const CMD_SETTINGS_STORE = "settingsStore";
     const CMD_SHOW_CONTENTS = "showContents";
+    const LANG_MODULE_OBJECT = "object";
+    const LANG_MODULE_SETTINGS = "settings";
     const TAB_CONTENTS = "contents";
     const TAB_PERMISSIONS = "perm_settings";
     const TAB_SETTINGS = "settings";
     const TAB_SHOW_CONTENTS = "show_contents";
-    const LANG_MODULE_OBJECT = "object";
-    const LANG_MODULE_SETTINGS = "settings";
     /**
-     * Fix autocomplete (Defined in parent)
-     *
      * @var ilObj__PLUGIN_NAME__
      */
-    var $object;
+    public $object;
 
 
     /**
-     *
+     * @inheritDoc
      */
     protected function afterConstructor()/*: void*/
     {
@@ -51,7 +48,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public final function getType() : string
     {
@@ -127,13 +124,10 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @param string $a_new_type
-     *
-     * @return ilPropertyFormGUI
+     * @inheritDoc
      */
-    public function initCreateForm(/*string*/
-        $a_new_type
-    ) : ilPropertyFormGUI {
+    public function initCreateForm(/*string*/ $a_new_type) : ilPropertyFormGUI
+    {
         $form = parent::initCreateForm($a_new_type);
 
         return $form;
@@ -141,11 +135,11 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
+     * @inheritDoc
+     *
      * @param ilObj__PLUGIN_NAME__ $a_new_object
      */
-    public function afterSave(/*ilObj__PLUGIN_NAME__*/
-        ilObject $a_new_object
-    )/*: void*/
+    public function afterSave(/*ilObj__PLUGIN_NAME__*/ ilObject $a_new_object)/*: void*/
     {
         parent::afterSave($a_new_object);
     }
@@ -176,11 +170,11 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @return ObjSettingsFormGUI
+     * @return ObjectSettingsFormGUI
      */
-    protected function getSettingsForm() : ObjSettingsFormGUI
+    protected function getSettingsForm() : ObjectSettingsFormGUI
     {
-        $form = new ObjSettingsFormGUI($this, $this->object);
+        $form = new ObjectSettingsFormGUI($this, $this->object);
 
         return $form;
     }
@@ -262,7 +256,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getAfterCreationCmd() : string
     {
@@ -271,7 +265,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getStandardCmd() : string
     {

@@ -3,7 +3,7 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use __NAMESPACE__\Config\Config;
-use __NAMESPACE__\Object\Obj;
+use __NAMESPACE__\ObjectSettings\ObjectSettings;
 use srag\DIC\__PLUGIN_NAME__\Util\LibraryLanguageInstaller;
 use srag\RemovePluginDataConfirm\__PLUGIN_NAME__\RepositoryObjectPluginUninstallTrait;
 
@@ -48,7 +48,7 @@ class il__PLUGIN_NAME__Plugin extends ilRepositoryObjectPlugin
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getPluginName() : string
     {
@@ -57,9 +57,9 @@ class il__PLUGIN_NAME__Plugin extends ilRepositoryObjectPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
-    public function updateLanguages($a_lang_keys = null)
+    public function updateLanguages(/*?array*/ $a_lang_keys = null)/*:void*/
     {
         parent::updateLanguages($a_lang_keys);
 
@@ -69,11 +69,11 @@ class il__PLUGIN_NAME__Plugin extends ilRepositoryObjectPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function deleteData()/*: void*/
     {
         self::dic()->database()->dropTable(Config::TABLE_NAME, false);
-        self::dic()->database()->dropTable(Obj::TABLE_NAME, false);
+        self::dic()->database()->dropTable(ObjectSettings::TABLE_NAME, false);
     }
 }
