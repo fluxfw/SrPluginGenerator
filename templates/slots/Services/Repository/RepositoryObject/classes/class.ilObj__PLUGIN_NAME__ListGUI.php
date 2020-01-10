@@ -26,7 +26,7 @@ class ilObj__PLUGIN_NAME__ListGUI extends ilObjectPluginListGUI
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getGuiClass() : string
     {
@@ -35,7 +35,7 @@ class ilObj__PLUGIN_NAME__ListGUI extends ilObjectPluginListGUI
 
 
     /**
-     * @return array
+     * @inheritDoc
      */
     public function initCommands() : array
     {
@@ -77,7 +77,7 @@ class ilObj__PLUGIN_NAME__ListGUI extends ilObjectPluginListGUI
 
 
     /**
-     * @return array
+     * @inheritDoc
      */
     public function getProperties() : array
     {
@@ -96,7 +96,7 @@ class ilObj__PLUGIN_NAME__ListGUI extends ilObjectPluginListGUI
 
 
     /**
-     *
+     * @inheritDoc
      */
     public function initType()/*: void*/
     {

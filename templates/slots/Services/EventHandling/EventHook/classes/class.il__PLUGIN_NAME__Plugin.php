@@ -47,7 +47,7 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getPluginName() : string
     {
@@ -56,22 +56,16 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
 
 
     /**
-     * @param string $a_component
-     * @param string $a_event
-     * @param array  $a_parameter
+     * @inheritDoc
      */
-    public function handleEvent(/*string*/
-        $a_component, /*string*/
-        $a_event,/*array*/
-        $a_parameter
-    )/*: void*/
+    public function handleEvent(/*string*/ $a_component, /*string*/ $a_event, /*array*/ $a_parameter)/*: void*/
     {
         // TODO: Implement handleEvent
     }
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function updateLanguages($a_lang_keys = null)
     {
@@ -83,7 +77,7 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function deleteData()/*: void*/
     {

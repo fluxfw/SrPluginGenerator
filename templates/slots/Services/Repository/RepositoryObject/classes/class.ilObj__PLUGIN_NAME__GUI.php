@@ -39,7 +39,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     *
+     * @inheritDoc
      */
     protected function afterConstructor()/*: void*/
     {
@@ -48,7 +48,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public final function getType() : string
     {
@@ -124,9 +124,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @param string $a_new_type
-     *
-     * @return ilPropertyFormGUI
+     * @inheritDoc
      */
     public function initCreateForm(/*string*/ $a_new_type) : ilPropertyFormGUI
     {
@@ -137,6 +135,8 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
+     * @inheritDoc
+     *
      * @param ilObj__PLUGIN_NAME__ $a_new_object
      */
     public function afterSave(/*ilObj__PLUGIN_NAME__*/ ilObject $a_new_object)/*: void*/
@@ -256,7 +256,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getAfterCreationCmd() : string
     {
@@ -265,7 +265,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getStandardCmd() : string
     {

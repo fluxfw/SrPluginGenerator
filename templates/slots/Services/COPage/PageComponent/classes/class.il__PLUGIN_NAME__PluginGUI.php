@@ -16,7 +16,6 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const CMD_CANCEL = "cancel";
     const CMD_CREATE = "create";
-    const CMD_CREATE_PLUG = "create_plug";
     const CMD_EDIT = "edit";
     const CMD_INSERT = "insert";
     const CMD_UPDATE = "update";
@@ -32,9 +31,9 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
 
 
     /**
-     *
+     * @inheritDoc
      */
-    public function executeCommand()
+    public function executeCommand()/*:void*/
     {
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
@@ -74,18 +73,18 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
 
 
     /**
-     *
+     * @inheritDoc
      */
-    public function insert()
+    public function insert()/*:void*/
     {
         $this->edit();
     }
 
 
     /**
-     *
+     * @inheritDoc
      */
-    public function create()
+    public function create()/*:void*/
     {
         $form = $this->getForm();
 
@@ -109,9 +108,9 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
 
 
     /**
-     *
+     * @inheritDoc
      */
-    public function edit()
+    public function edit()/*:void*/
     {
         $form = $this->getForm();
 
@@ -122,7 +121,7 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     /**
      *
      */
-    public function update()
+    public function update()/*:void*/
     {
         $form = $this->getForm();
 
@@ -147,20 +146,16 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     /**
      *
      */
-    public function cancel()
+    public function cancel()/*:void*/
     {
         $this->returnToParent();
     }
 
 
     /**
-     * @param string $a_mode
-     * @param array  $a_properties
-     * @param string $plugin_version
-     *
-     * @return string
+     * @inheritDoc
      */
-    public function getElementHTML($a_mode, array $a_properties, $plugin_version) : string
+    public function getElementHTML(/*string*/ $a_mode, array $a_properties, /*string*/ $plugin_version) : string
     {
         return ""; // TODO: Implement getElementHTML
     }

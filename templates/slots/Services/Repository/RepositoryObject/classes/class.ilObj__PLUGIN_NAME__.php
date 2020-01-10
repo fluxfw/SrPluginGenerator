@@ -31,7 +31,7 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
 
 
     /**
-     *
+     * @inheritDoc
      */
     public final function initType()/*: void*/
     {
@@ -40,7 +40,7 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
 
 
     /**
-     *
+     * @inheritDoc
      */
     public function doCreate()/*: void*/
     {
@@ -53,7 +53,7 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
 
 
     /**
-     *
+     * @inheritDoc
      */
     public function doRead()/*: void*/
     {
@@ -62,7 +62,7 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
 
 
     /**
-     *
+     * @inheritDoc
      */
     public function doUpdate()/*: void*/
     {
@@ -71,7 +71,7 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
 
 
     /**
-     *
+     * @inheritDoc
      */
     public function doDelete()/*: void*/
     {
@@ -82,9 +82,9 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
 
 
     /**
+     * @inheritDoc
+     *
      * @param ilObj__PLUGIN_NAME__ $new_obj
-     * @param int                  $a_target_id
-     * @param int|null             $a_copy_id
      */
     protected function doCloneObject(/*ilObj__PLUGIN_NAME__*/ $new_obj, /*int*/ $a_target_id, /*?int*/ $a_copy_id = null)/*: void*/
     {

@@ -3,6 +3,7 @@
 ## [1.2.0]
 - Rename `Obj` to `ObjectSettings`
 - Fix author comment
+- Other improvments
 
 ## [1.1.0]
 - Adjustments for latest RemovePluginDataConfirm library

@@ -47,7 +47,7 @@ class il__PLUGIN_NAME__Plugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getPluginName() : string
     {
@@ -56,7 +56,7 @@ class il__PLUGIN_NAME__Plugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function updateLanguages($a_lang_keys = null)
     {
@@ -68,7 +68,7 @@ class il__PLUGIN_NAME__Plugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function deleteData()/*: void*/
     {

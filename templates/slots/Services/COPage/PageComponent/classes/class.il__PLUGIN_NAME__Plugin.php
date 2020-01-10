@@ -47,7 +47,7 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getPluginName() : string
     {
@@ -56,11 +56,9 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
 
 
     /**
-     * @param string $a_type
-     *
-     * @return bool
+     * @inheritDoc
      */
-    public function isValidParentType($a_type) : bool
+    public function isValidParentType(/*string*/ $a_type) : bool
     {
         // Allow in all parent types
         return true;
@@ -68,15 +66,9 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
 
 
     /**
-     * @param array  $properties
-     * @param string $plugin_version
-     *
-     * @since ILIAS 5.3
+     * @inheritDoc
      */
-    public function onDelete(/*array*/
-        $properties, /*string*/
-        $plugin_version
-    )/*: void*/
+    public function onDelete(/*array*/ $properties, /*string*/ $plugin_version)/*: void*/
     {
         if (self::dic()->ctrl()->getCmd() !== "moveAfter") {
 
@@ -85,21 +77,16 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
 
 
     /**
-     * @param array  $properties
-     * @param string $plugin_version
-     *
-     * @since ILIAS 5.3
+     * @inheritDoc
      */
-    public function onClone(/*array*/
-        &$properties, /*string*/
-        $plugin_version
-    )/*: void*/
+    public function onClone(/*array*/ &$properties, /*string*/ $plugin_version)/*: void*/
     {
+
     }
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function updateLanguages($a_lang_keys = null)
     {
@@ -111,7 +98,7 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function deleteData()/*: void*/
     {
