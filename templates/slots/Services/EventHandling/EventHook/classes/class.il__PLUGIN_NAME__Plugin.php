@@ -67,7 +67,7 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
     /**
      * @inheritDoc
      */
-    public function updateLanguages($a_lang_keys = null)
+    public function updateLanguages(/*?array*/ $a_lang_keys = null)/*:void*/
     {
         parent::updateLanguages($a_lang_keys);
 
