@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.1]
+- Fixes
+
 ## [1.2.0]
 - Rename `Obj` to `ObjectSettings`
 - Fix author comment
