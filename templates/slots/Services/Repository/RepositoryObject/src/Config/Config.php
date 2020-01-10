@@ -10,8 +10,7 @@ use srag\ActiveRecordConfig\__PLUGIN_NAME__\ActiveRecordConfig;
  *
  * @package __NAMESPACE__\Config
  *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- * @author  __RESPONSIBLE_NAME__ <__RESPONSIBLE_EMAIL__>
+ * __AUTHOR_COMMENT__
  */
 class Config extends ActiveRecordConfig
 {

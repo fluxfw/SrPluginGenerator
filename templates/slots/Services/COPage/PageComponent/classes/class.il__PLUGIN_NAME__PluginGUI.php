@@ -5,8 +5,7 @@ use srag\DIC\__PLUGIN_NAME__\DICTrait;
 /**
  * Class il__PLUGIN_NAME__PluginGUI__VERSION_COMMENT__
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- * @author            __RESPONSIBLE_NAME__ <__RESPONSIBLE_EMAIL__>
+ * __AUTHOR_COMMENT__
  *
  * @ilCtrl_isCalledBy il__PLUGIN_NAME__PluginGUI: ilPCPluggedGUI
  */

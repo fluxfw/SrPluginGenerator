@@ -3,7 +3,7 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use __NAMESPACE__\Config\Config;
-use __NAMESPACE__\Object\Obj;
+use __NAMESPACE__\ObjectSettings\ObjectSettings;
 use srag\DIC\__PLUGIN_NAME__\Util\LibraryLanguageInstaller;
 use srag\RemovePluginDataConfirm\__PLUGIN_NAME__\RepositoryObjectPluginUninstallTrait;
 
@@ -74,6 +74,6 @@ class il__PLUGIN_NAME__Plugin extends ilRepositoryObjectPlugin
     protected function deleteData()/*: void*/
     {
         self::dic()->database()->dropTable(Config::TABLE_NAME, false);
-        self::dic()->database()->dropTable(Obj::TABLE_NAME, false);
+        self::dic()->database()->dropTable(ObjectSettings::TABLE_NAME, false);
     }
 }

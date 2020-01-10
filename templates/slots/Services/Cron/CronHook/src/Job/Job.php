@@ -12,8 +12,7 @@ use srag\DIC\__PLUGIN_NAME__\DICTrait;
  *
  * @package __NAMESPACE__\Job
  *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- * @author  __RESPONSIBLE_NAME__ <__RESPONSIBLE_EMAIL__>
+ * __AUTHOR_COMMENT__
  */
 class Job extends ilCronJob
 {

@@ -1,6 +1,6 @@
 <?php
 
-use __NAMESPACE__\Object\Obj;
+use __NAMESPACE__\ObjectSettings\ObjectSettings;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
 /**
@@ -14,9 +14,9 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
     use DICTrait;
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     /**
-     * @var Obj
+     * @var ObjectSettings
      */
-    protected $object;
+    protected $object_settings;
 
 
     /**
@@ -24,7 +24,7 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
      *
      * @param int $a_ref_id
      */
-    public function __construct($a_ref_id = 0)
+    public function __construct(/*int*/ $a_ref_id = 0)
     {
         parent::__construct($a_ref_id);
     }
@@ -44,11 +44,11 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
      */
     public function doCreate()/*: void*/
     {
-        $this->object = new Obj();
+        $this->object_settings = new ObjectSettings();
 
-        $this->object->setObjId($this->id);
+        $this->object_settings->setObjId($this->id);
 
-        $this->object->store();
+        $this->object_settings->store();
     }
 
 
@@ -57,7 +57,7 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
      */
     public function doRead()/*: void*/
     {
-        $this->object = Obj::getObjectById(intval($this->id));
+        $this->object_settings = ObjectSettings::getObjectSettingsById(intval($this->id));
     }
 
 
@@ -66,7 +66,7 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
      */
     public function doUpdate()/*: void*/
     {
-        $this->object->store();
+        $this->object_settings->store();
     }
 
 
@@ -75,8 +75,8 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
      */
     public function doDelete()/*: void*/
     {
-        if ($this->object !== null) {
-            $this->object->delete();
+        if ($this->object_settings !== null) {
+            $this->object_settings->delete();
         }
     }
 
@@ -84,19 +84,15 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
     /**
      * @param ilObj__PLUGIN_NAME__ $new_obj
      * @param int                  $a_target_id
-     * @param int                  $a_copy_id
+     * @param int|null             $a_copy_id
      */
-    protected function doCloneObject(/*ilObj__PLUGIN_NAME__*/
-        $new_obj, /*int*/
-        $a_target_id, /*?int*/
-        $a_copy_id = null
-    )/*: void*/
+    protected function doCloneObject(/*ilObj__PLUGIN_NAME__*/ $new_obj, /*int*/ $a_target_id, /*?int*/ $a_copy_id = null)/*: void*/
     {
-        $new_obj->object = $this->object->copy();
+        $new_obj->object_settings = $this->object_settings->copy();
 
-        $new_obj->object->setObjId($new_obj->id);
+        $new_obj->object_settings->setObjId($new_obj->id);
 
-        $new_obj->object->store();
+        $new_obj->object_settings->store();
     }
 
 
@@ -105,7 +101,7 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
      */
     public function isOnline() : bool
     {
-        return $this->object->isOnline();
+        return $this->object_settings->isOnline();
     }
 
 
@@ -114,6 +110,6 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
      */
     public function setOnline(bool $is_online = true)/*: void*/
     {
-        $this->object->setOnline($is_online);
+        $this->object_settings->setOnline($is_online);
     }
 }

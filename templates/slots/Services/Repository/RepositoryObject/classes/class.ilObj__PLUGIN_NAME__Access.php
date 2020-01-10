@@ -1,6 +1,6 @@
 <?php
 
-use __NAMESPACE__\Object\Obj;
+use __NAMESPACE__\ObjectSettings\ObjectSettings;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
 /**
@@ -133,10 +133,10 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
     public static function _isOffline(/*?int*/
         $a_obj_id
     ) : bool {
-        $object = Obj::getObjectById(intval($a_obj_id));
+        $object_settings = ObjectSettings::getObjectSettingsById(intval($a_obj_id));
 
-        if ($object !== null) {
-            return (!$object->isOnline());
+        if ($object_settings !== null) {
+            return (!$object_settings->isOnline());
         } else {
             return true;
         }

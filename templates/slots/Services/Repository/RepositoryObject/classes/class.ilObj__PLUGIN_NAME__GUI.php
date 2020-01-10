@@ -1,13 +1,12 @@
 <?php
 
-use __NAMESPACE__\Object\ObjSettingsFormGUI;
+use __NAMESPACE__\ObjectSettings\ObjectSettingsFormGUI;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
 /**
  * Class ilObj__PLUGIN_NAME__GUI__VERSION_COMMENT__
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- * @author            __RESPONSIBLE_NAME__ <__RESPONSIBLE_EMAIL__>
+ * __AUTHOR_COMMENT__
  *
  * @ilCtrl_isCalledBy ilObj__PLUGIN_NAME__GUI: ilRepositoryGUI
  * @ilCtrl_isCalledBy ilObj__PLUGIN_NAME__GUI: ilObjPluginDispatchGUI
@@ -129,9 +128,8 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
      *
      * @return ilPropertyFormGUI
      */
-    public function initCreateForm(/*string*/
-        $a_new_type
-    ) : ilPropertyFormGUI {
+    public function initCreateForm(/*string*/ $a_new_type) : ilPropertyFormGUI
+    {
         $form = parent::initCreateForm($a_new_type);
 
         return $form;
@@ -141,9 +139,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     /**
      * @param ilObj__PLUGIN_NAME__ $a_new_object
      */
-    public function afterSave(/*ilObj__PLUGIN_NAME__*/
-        ilObject $a_new_object
-    )/*: void*/
+    public function afterSave(/*ilObj__PLUGIN_NAME__*/ ilObject $a_new_object)/*: void*/
     {
         parent::afterSave($a_new_object);
     }
@@ -174,11 +170,11 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @return ObjSettingsFormGUI
+     * @return ObjectSettingsFormGUI
      */
-    protected function getSettingsForm() : ObjSettingsFormGUI
+    protected function getSettingsForm() : ObjectSettingsFormGUI
     {
-        $form = new ObjSettingsFormGUI($this, $this->object);
+        $form = new ObjectSettingsFormGUI($this, $this->object);
 
         return $form;
     }

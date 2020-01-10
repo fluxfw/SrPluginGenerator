@@ -1,6 +1,6 @@
 <?php
 
-namespace __NAMESPACE__\Object;
+namespace __NAMESPACE__\ObjectSettings;
 
 use il__PLUGIN_NAME__Plugin;
 use ilCheckboxInputGUI;
@@ -8,17 +8,16 @@ use ilObj__PLUGIN_NAME__;
 use ilObj__PLUGIN_NAME__GUI;
 use ilTextAreaInputGUI;
 use ilTextInputGUI;
-use srag\CustomInputGUIs\__PLUGIN_NAME__\PropertyFormGUI\ObjectPropertyFormGUI;
+use srag\CustomInputGUIs\__PLUGIN_NAME__\PropertyFormGUI\ObjectSettingsPropertyFormGUI;
 
 /**
- * Class ObjSettingsFormGUI__VERSION_COMMENT__
+ * Class ObjectSettingsFormGUI__VERSION_COMMENT__
  *
- * @package __NAMESPACE__\Object
+ * @package __NAMESPACE__\ObjectSettings
  *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- * @author  __RESPONSIBLE_NAME__ <__RESPONSIBLE_EMAIL__>
+ * __AUTHOR_COMMENT__
  */
-class ObjSettingsFormGUI extends ObjectPropertyFormGUI
+class ObjectSettingsFormGUI extends ObjectPropertyFormGUI
 {
 
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
@@ -26,7 +25,7 @@ class ObjSettingsFormGUI extends ObjectPropertyFormGUI
 
 
     /**
-     * ObjSettingsFormGUI constructor
+     * ObjectSettingsFormGUI constructor
      *
      * @param ilObj__PLUGIN_NAME__GUI $parent
      * @param ilObj__PLUGIN_NAME__    $object
@@ -40,9 +39,8 @@ class ObjSettingsFormGUI extends ObjectPropertyFormGUI
     /**
      * @inheritdoc
      */
-    protected function getValue(/*string*/
-        $key
-    ) {
+    protected function getValue(/*string*/ $key)
+    {
         switch ($key) {
             case "description":
                 return $this->object->getLongDescription();
