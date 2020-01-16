@@ -5,6 +5,8 @@ namespace __NAMESPACE__\Config;
 use il__PLUGIN_NAME__ConfigGUI;
 use il__PLUGIN_NAME__Plugin;
 use ilTextInputGUI;
+use srag\ActiveRecordConfig\__PLUGIN_NAME__\Config\Config;
+use srag\ActiveRecordConfig\__PLUGIN_NAME__\Utils\ConfigTrait;
 use srag\CustomInputGUIs\__PLUGIN_NAME__\PropertyFormGUI\PropertyFormGUI;
 
 /**
@@ -17,8 +19,30 @@ use srag\CustomInputGUIs\__PLUGIN_NAME__\PropertyFormGUI\PropertyFormGUI;
 class ConfigFormGUI extends PropertyFormGUI
 {
 
+    use ConfigTrait;
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
+    const KEY_SOME = "some";
     const LANG_MODULE = il__PLUGIN_NAME__ConfigGUI::LANG_MODULE;
+    /**
+     * @var bool
+     */
+    protected static $init_config = false;
+
+
+    /**
+     *
+     */
+    public static function initConfig()/*:void*/
+    {
+        if (!self::$init_config) {
+            self::$init_config = true;
+
+            self::config()->withTableName(il__PLUGIN_NAME__Plugin::PLUGIN_ID . "_config")->withFields([
+                self::KEY_SOME => Config::TYPE_STRING
+            ]);
+            // TODO: Implement Config
+        }
+    }
 
 
     /**
@@ -39,7 +63,7 @@ class ConfigFormGUI extends PropertyFormGUI
     {
         switch ($key) {
             default:
-                return Config::getField($key);
+                return self::config()->getField($key);
         }
     }
 
@@ -59,7 +83,7 @@ class ConfigFormGUI extends PropertyFormGUI
     protected function initFields()/*: void*/
     {
         $this->fields = [
-            Config::KEY_SOME => [
+            self::KEY_SOME => [
                 self::PROPERTY_CLASS    => ilTextInputGUI::class,
                 self::PROPERTY_REQUIRED => true
             ]
@@ -93,7 +117,7 @@ class ConfigFormGUI extends PropertyFormGUI
     {
         switch ($key) {
             default:
-                Config::setField($key, $value);
+                self::config()->setField($key, $value);
                 break;
         }
     }

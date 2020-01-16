@@ -20,6 +20,7 @@ class ConfigFormGUI extends PropertyFormGUI
 
     use SrPluginGeneratorTrait;
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
+    const KEY_ROLES = "roles";
     const LANG_MODULE = ilSrPluginGeneratorConfigGUI::LANG_MODULE;
 
 
@@ -41,7 +42,7 @@ class ConfigFormGUI extends PropertyFormGUI
     {
         switch ($key) {
             default:
-                return Config::getField($key);
+                return self::srPluginGenerator()->config()->getField($key);
         }
     }
 
@@ -61,7 +62,7 @@ class ConfigFormGUI extends PropertyFormGUI
     protected function initFields()/*: void*/
     {
         $this->fields = [
-            Config::KEY_ROLES => [
+            self::KEY_ROLES => [
                 self::PROPERTY_CLASS    => ilMultiSelectInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
                 self::PROPERTY_OPTIONS  => self::srPluginGenerator()->ilias()->roles()->getAllRoles(),
@@ -95,7 +96,7 @@ class ConfigFormGUI extends PropertyFormGUI
     protected function storeValue(/*string*/ $key, $value)/*: void*/
     {
         switch ($key) {
-            case Config::KEY_ROLES:
+            case self::KEY_ROLES:
                 if ($value[0] === "") {
                     array_shift($value);
                 }
@@ -104,11 +105,11 @@ class ConfigFormGUI extends PropertyFormGUI
                     return intval($role_id);
                 }, $value);
 
-                Config::setField($key, $value);
+                self::srPluginGenerator()->config()->setField($key, $value);
                 break;
 
             default:
-                Config::setField($key, $value);
+                self::srPluginGenerator()->config()->setField($key, $value);
                 break;
         }
     }

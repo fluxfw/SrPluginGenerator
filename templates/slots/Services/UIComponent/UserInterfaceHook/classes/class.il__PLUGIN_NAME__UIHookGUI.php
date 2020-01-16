@@ -21,27 +21,4 @@ class il__PLUGIN_NAME__UIHookGUI extends ilUIHookPluginGUI
     {
 
     }
-
-
-    /**
-     * @param string $a_comp
-     * @param string $a_part
-     * @param array  $a_par
-     *
-     * @return array
-     */
-    public function getHTML(/*string*/
-        $a_comp, /*string*/
-        $a_part, /*array*/
-        $a_par = []
-    ) : array {
-        /*self::dic()->ctrl()->getLinkTargetByClass([
-            ilUIPluginRouterGUI::class,
-            GUI::class
-        ], GUI::CMD_SOME);*/
-
-        // TODO: Implement getHTML
-
-        return ["mode" => self::KEEP, "html" => ""];
-    }
 }

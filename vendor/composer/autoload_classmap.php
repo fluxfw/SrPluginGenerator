@@ -111,7 +111,6 @@ return array(
     'srag\\Plugins\\SrPluginGenerator\\Access\\Ilias' => $baseDir . '/src/Access/Ilias.php',
     'srag\\Plugins\\SrPluginGenerator\\Access\\Roles' => $baseDir . '/src/Access/Roles.php',
     'srag\\Plugins\\SrPluginGenerator\\Access\\Users' => $baseDir . '/src/Access/Users.php',
-    'srag\\Plugins\\SrPluginGenerator\\Config\\Config' => $baseDir . '/src/Config/Config.php',
     'srag\\Plugins\\SrPluginGenerator\\Config\\ConfigFormGUI' => $baseDir . '/src/Config/ConfigFormGUI.php',
     'srag\\Plugins\\SrPluginGenerator\\Generator\\Factory' => $baseDir . '/src/Generator/Factory.php',
     'srag\\Plugins\\SrPluginGenerator\\Generator\\Generator' => $baseDir . '/src/Generator/Generator.php',

@@ -8,8 +8,8 @@ use ilObj__PLUGIN_NAME__;
 use ilObj__PLUGIN_NAME__GUI;
 use ilTextAreaInputGUI;
 use ilTextInputGUI;
+use srag\CustomInputGUIs\__PLUGIN_NAME__\PropertyFormGUI\Items\Items;
 use srag\CustomInputGUIs\__PLUGIN_NAME__\PropertyFormGUI\PropertyFormGUI;
-use srag\CustomInputGUIs\PropertyFormGUI\Items\Items;
 
 /**
  * Class ObjectSettingsFormGUI__VERSION_COMMENT__

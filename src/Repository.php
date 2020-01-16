@@ -3,9 +3,12 @@
 namespace srag\Plugins\SrPluginGenerator;
 
 use ilSrPluginGeneratorPlugin;
+use srag\ActiveRecordConfig\SrPluginGenerator\Config\Config;
+use srag\ActiveRecordConfig\SrPluginGenerator\Config\Repository as ConfigRepository;
+use srag\ActiveRecordConfig\SrPluginGenerator\Utils\ConfigTrait;
 use srag\DIC\SrPluginGenerator\DICTrait;
 use srag\Plugins\SrPluginGenerator\Access\Ilias;
-use srag\Plugins\SrPluginGenerator\Config\Config;
+use srag\Plugins\SrPluginGenerator\Config\ConfigFormGUI;
 use srag\Plugins\SrPluginGenerator\Generator\Repository as GeneratorRepository;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
@@ -21,6 +24,9 @@ final class Repository
 
     use DICTrait;
     use SrPluginGeneratorTrait;
+    use ConfigTrait {
+        config as protected _config;
+    }
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     /**
      * @var self
@@ -46,7 +52,18 @@ final class Repository
      */
     private function __construct()
     {
+        $this->config()->withTableName("srplgen_config")->withFields([
+            ConfigFormGUI::KEY_ROLES => [Config::TYPE_JSON, []]
+        ]);
+    }
 
+
+    /**
+     * @inheritDoc
+     */
+    public function config() : ConfigRepository
+    {
+        return self::_config();
     }
 
 
@@ -58,7 +75,7 @@ final class Repository
         $user_id = $this->ilias()->users()->getUserId();
 
         $user_roles = self::dic()->rbacreview()->assignedGlobalRoles($user_id);
-        $config_roles = Config::getField(Config::KEY_ROLES);
+        $config_roles = $this->config()->getField(ConfigFormGUI::KEY_ROLES);
 
         foreach ($user_roles as $user_role) {
             if (in_array($user_role, $config_roles)) {
@@ -75,7 +92,7 @@ final class Repository
      */
     public function dropTables()/*:void*/
     {
-        self::dic()->database()->dropTable(Config::TABLE_NAME, false);
+        $this->config()->dropTables();
         $this->generator()->dropTables();
     }
 
@@ -103,7 +120,7 @@ final class Repository
      */
     public function installTables()/*:void*/
     {
-        Config::updateDB();
+        $this->config()->installTables();
         $this->generator()->installTables();
     }
 }
