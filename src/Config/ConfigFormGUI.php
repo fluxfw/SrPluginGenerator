@@ -5,7 +5,7 @@ namespace srag\Plugins\SrPluginGenerator\Config;
 use ilMultiSelectInputGUI;
 use ilSrPluginGeneratorConfigGUI;
 use ilSrPluginGeneratorPlugin;
-use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\ConfigPropertyFormGUI;
+use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\PropertyFormGUI;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -15,12 +15,11 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class ConfigFormGUI extends ConfigPropertyFormGUI
+class ConfigFormGUI extends PropertyFormGUI
 {
 
     use SrPluginGeneratorTrait;
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
-    const CONFIG_CLASS_NAME = Config::class;
     const LANG_MODULE = ilSrPluginGeneratorConfigGUI::LANG_MODULE;
 
 
@@ -42,7 +41,7 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
     {
         switch ($key) {
             default:
-                return parent::getValue($key);
+                return Config::getField($key);
         }
     }
 
@@ -104,12 +103,13 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
                 $value = array_map(function (string $role_id) : int {
                     return intval($role_id);
                 }, $value);
+
+                Config::setField($key, $value);
                 break;
 
             default:
+                Config::setField($key, $value);
                 break;
         }
-
-        parent::storeValue($key, $value);
     }
 }
