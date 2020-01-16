@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.3]
+- Fixes
+
 ## [1.2.2]
 - Fixes
 

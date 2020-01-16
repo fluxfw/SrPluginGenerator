@@ -8,7 +8,8 @@ use ilObj__PLUGIN_NAME__;
 use ilObj__PLUGIN_NAME__GUI;
 use ilTextAreaInputGUI;
 use ilTextInputGUI;
-use srag\CustomInputGUIs\__PLUGIN_NAME__\PropertyFormGUI\ObjectSettingsPropertyFormGUI;
+use srag\CustomInputGUIs\__PLUGIN_NAME__\PropertyFormGUI\Items\Items;
+use srag\CustomInputGUIs\__PLUGIN_NAME__\PropertyFormGUI\PropertyFormGUI;
 
 /**
  * Class ObjectSettingsFormGUI__VERSION_COMMENT__
@@ -17,11 +18,15 @@ use srag\CustomInputGUIs\__PLUGIN_NAME__\PropertyFormGUI\ObjectSettingsPropertyF
  *
  * __AUTHOR_COMMENT__
  */
-class ObjectSettingsFormGUI extends ObjectPropertyFormGUI
+class ObjectSettingsFormGUI extends PropertyFormGUI
 {
 
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const LANG_MODULE = ilObj__PLUGIN_NAME__GUI::LANG_MODULE_SETTINGS;
+    /**
+     * @var ilObj__PLUGIN_NAME__
+     */
+    protected $object;
 
 
     /**
@@ -32,6 +37,8 @@ class ObjectSettingsFormGUI extends ObjectPropertyFormGUI
      */
     public function __construct(ilObj__PLUGIN_NAME__GUI $parent, ilObj__PLUGIN_NAME__ $object)
     {
+        $this->object = $object;
+
         parent::__construct($parent, $object);
     }
 
@@ -43,10 +50,10 @@ class ObjectSettingsFormGUI extends ObjectPropertyFormGUI
     {
         switch ($key) {
             case "description":
-                return $this->object->getLongDescription();
+                return Items::getter($this->object, "long_description");
 
             default:
-                return parent::getValue($key);
+                return Items::getter($this->object, $key);
         }
     }
 
@@ -98,5 +105,33 @@ class ObjectSettingsFormGUI extends ObjectPropertyFormGUI
     protected function initTitle()/*: void*/
     {
         $this->setTitle(self::plugin()->translate("settings", self::LANG_MODULE));
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function storeValue(/*string*/ $key, $value)/*: void*/
+    {
+        switch ($key) {
+            default:
+                Items::setter($this->object, $key, $value);
+                break;
+        }
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function storeForm() : bool
+    {
+        if (!parent::storeForm()) {
+            return false;
+        }
+
+        $this->object->update();
+
+        return true;
     }
 }

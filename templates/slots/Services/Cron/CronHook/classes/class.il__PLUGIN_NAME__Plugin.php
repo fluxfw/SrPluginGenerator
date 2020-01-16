@@ -2,8 +2,9 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use __NAMESPACE__\Config\Config;
+use __NAMESPACE__\Config\ConfigFormGUI;
 use __NAMESPACE__\Job\Job;
+use srag\ActiveRecordConfig\__PLUGIN_NAME__\Utils\ConfigTrait;
 use srag\DIC\__PLUGIN_NAME__\Util\LibraryLanguageInstaller;
 use srag\RemovePluginDataConfirm\__PLUGIN_NAME__\PluginUninstallTrait;
 
@@ -16,6 +17,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
 {
 
     use PluginUninstallTrait;
+    use ConfigTrait;
     const PLUGIN_ID = "__PLUGIN_ID__";
     const PLUGIN_NAME = "__PLUGIN_NAME__";
     const PLUGIN_CLASS_NAME = self::class;
@@ -44,6 +46,15 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     public function __construct()
     {
         parent::__construct();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function init()/*:void*/
+    {
+        ConfigFormGUI::initConfig();
     }
 
 
@@ -97,6 +108,6 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
      */
     protected function deleteData()/*: void*/
     {
-        self::dic()->database()->dropTable(Config::TABLE_NAME, false);
+        self::config()->dropTables();
     }
 }
