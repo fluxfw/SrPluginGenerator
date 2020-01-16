@@ -7,7 +7,8 @@ use ilSelectInputGUI;
 use ilSrPluginGeneratorPlugin;
 use ilTextInputGUI;
 use ilUtil;
-use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\ObjectPropertyFormGUI;
+use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\Items\Items;
+use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\PropertyFormGUI;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -17,23 +18,41 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class GeneratorFormGUI extends ObjectPropertyFormGUI
+class GeneratorFormGUI extends PropertyFormGUI
 {
 
     use SrPluginGeneratorTrait;
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const LANG_MODULE = PluginGeneratorGUI::LANG_MODULE;
+    /**
+     * @var Options
+     */
+    protected $options;
 
 
     /**
      * GeneratorFormGUI constructor
      *
      * @param PluginGeneratorGUI $parent
-     * @param Options            $object
+     * @param Options            $options
      */
-    public function __construct(PluginGeneratorGUI $parent, Options $object)
+    public function __construct(PluginGeneratorGUI $parent, Options $options)
     {
-        parent::__construct($parent, $object, false);
+        $this->options = $options;
+
+        parent::__construct($parent);
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getValue(/*string*/ $key)
+    {
+        switch ($key) {
+            default:
+                return Items::getter($this->options, $key);
+        }
     }
 
 
@@ -123,6 +142,19 @@ class GeneratorFormGUI extends ObjectPropertyFormGUI
     protected function initTitle()/*: void*/
     {
         $this->setTitle($this->txt("title"));
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    protected function storeValue(/*string*/ $key, $value)/*: void*/
+    {
+        switch ($key) {
+            default:
+                Items::setter($this->options, $key, $value);
+                break;
+        }
     }
 
 
