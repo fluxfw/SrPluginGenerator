@@ -42,7 +42,7 @@ class ConfigFormGUI extends PropertyFormGUI
     {
         switch ($key) {
             default:
-                return self::srPluginGenerator()->config()->getField($key);
+                return self::srPluginGenerator()->config()->getValue($key);
         }
     }
 
@@ -105,11 +105,11 @@ class ConfigFormGUI extends PropertyFormGUI
                     return intval($role_id);
                 }, $value);
 
-                self::srPluginGenerator()->config()->setField($key, $value);
+                self::srPluginGenerator()->config()->setValue($key, $value);
                 break;
 
             default:
-                self::srPluginGenerator()->config()->setField($key, $value);
+                self::srPluginGenerator()->config()->setValue($key, $value);
                 break;
         }
     }

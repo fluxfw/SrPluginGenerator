@@ -43,25 +43,6 @@ class ObjectSettings extends ActiveRecord
 
 
     /**
-     * @param int $obj_id
-     *
-     * @return self|null
-     */
-    public static function getObjectSettingsById(int $obj_id)/*: ?self*/
-    {
-        /**
-         * @var self|null $object
-         */
-
-        $object = self::where([
-            "obj_id" => $obj_id
-        ])->first();
-
-        return $object;
-    }
-
-
-    /**
      * @var int
      *
      * @con_has_field    true
