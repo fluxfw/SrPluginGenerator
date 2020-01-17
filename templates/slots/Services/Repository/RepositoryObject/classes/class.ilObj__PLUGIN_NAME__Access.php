@@ -1,6 +1,6 @@
 <?php
 
-use __NAMESPACE__\ObjectSettings\ObjectSettings;
+use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
 /**
@@ -12,6 +12,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
 {
 
     use DICTrait;
+    use __PLUGIN_NAME__Trait;
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     /**
      * @var self
@@ -114,7 +115,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
      */
     public static function _isOffline(/*?int*/ $a_obj_id) : bool
     {
-        $object_settings = ObjectSettings::getObjectSettingsById(intval($a_obj_id));
+        $object_settings = self::__PLUGIN_NAME_CAMEL_CASE__()->objectSettings()->getObjectSettingsById(intval($a_obj_id));
 
         if ($object_settings !== null) {
             return (!$object_settings->isOnline());

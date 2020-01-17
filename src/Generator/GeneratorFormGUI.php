@@ -61,6 +61,8 @@ class GeneratorFormGUI extends PropertyFormGUI
      */
     protected function initCommands()/*: void*/
     {
+        $this->setPreventDoubleSubmission(false);
+
         $this->addCommandButton(PluginGeneratorGUI::CMD_GENERATE, $this->txt("generate"));
     }
 

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use __NAMESPACE__\Config\ConfigFormGUI;
+use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
 /**
@@ -14,6 +14,7 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
 {
 
     use DICTrait;
+    use __PLUGIN_NAME__Trait;
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const CMD_CONFIGURE = "configure";
     const CMD_UPDATE_CONFIGURE = "updateConfigure";
@@ -70,24 +71,13 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
 
 
     /**
-     * @return ConfigFormGUI
-     */
-    protected function getConfigForm() : ConfigFormGUI
-    {
-        $form = new ConfigFormGUI($this);
-
-        return $form;
-    }
-
-
-    /**
      *
      */
     protected function configure()/*: void*/
     {
         self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
 
-        $form = $this->getConfigForm();
+        $form = self::__PLUGIN_NAME_CAMEL_CASE__()->config()->factory()->newFormInstance($this);
 
         self::output()->output($form);
     }
@@ -100,7 +90,7 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
     {
         self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
 
-        $form = $this->getConfigForm();
+        $form = self::__PLUGIN_NAME_CAMEL_CASE__()->config()->factory()->newFormInstance($this);
 
         if (!$form->storeForm()) {
             self::output()->output($form);

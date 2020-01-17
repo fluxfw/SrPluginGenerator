@@ -1,5 +1,6 @@
 <?php
 
+use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
 /**
@@ -11,6 +12,7 @@ class il__PLUGIN_NAME__UIHookGUI extends ilUIHookPluginGUI
 {
 
     use DICTrait;
+    use __PLUGIN_NAME__Trait;
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
 
 
