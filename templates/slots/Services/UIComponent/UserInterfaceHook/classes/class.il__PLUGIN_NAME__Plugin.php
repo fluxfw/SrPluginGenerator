@@ -3,7 +3,6 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
-use srag\DIC\__PLUGIN_NAME__\Util\LibraryLanguageInstaller;
 use srag\RemovePluginDataConfirm\__PLUGIN_NAME__\PluginUninstallTrait;
 
 /**
@@ -63,8 +62,7 @@ class il__PLUGIN_NAME__Plugin extends ilUserInterfaceHookPlugin
     {
         parent::updateLanguages($a_lang_keys);
 
-        LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__
-            . "/../vendor/srag/removeplugindataconfirm/lang")->updateLanguages();
+        $this->installRemovePluginDataConfirmLanguages();
     }
 
 

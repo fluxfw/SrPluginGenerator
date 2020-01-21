@@ -2,6 +2,7 @@
 
 namespace __NAMESPACE__\ObjectSettings;
 
+use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use ActiveRecord;
 use arConnector;
 use il__PLUGIN_NAME__Plugin;
@@ -18,6 +19,7 @@ class ObjectSettings extends ActiveRecord
 {
 
     use DICTrait;
+    use __PLUGIN_NAME__Trait;
     const TABLE_NAME = "rep_robj___PLUGIN_ID___set";
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
 
