@@ -2,6 +2,7 @@
 
 namespace __NAMESPACE__\Job;
 
+use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use il__PLUGIN_NAME__Plugin;
 use ilCronJob;
 use ilCronJobResult;
@@ -18,7 +19,8 @@ class Job extends ilCronJob
 {
 
     use DICTrait;
-    const CRON_JOB_ID = "__PLUGIN_ID___cron";
+    use __PLUGIN_NAME__Trait;
+    const CRON_JOB_ID =  il__PLUGIN_NAME__Plugin::PLUGIN_ID . "_cron";
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
 
 

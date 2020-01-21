@@ -2,9 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use __NAMESPACE__\Job\Job;
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
-use srag\DIC\__PLUGIN_NAME__\Util\LibraryLanguageInstaller;
 use srag\RemovePluginDataConfirm\__PLUGIN_NAME__\PluginUninstallTrait;
 
 /**
@@ -62,7 +60,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
      */
     public function getCronJobInstances() : array
     {
-        return [new Job()];
+        return self::__PLUGIN_NAME_CAMEL_CASE__()->jobs()->factory()->newInstances();
     }
 
 
@@ -71,13 +69,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
      */
     public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
     {
-        switch ($a_job_id) {
-            case Job::CRON_JOB_ID:
-                return new Job();
-
-            default:
-                return null;
-        }
+        return self::__PLUGIN_NAME_CAMEL_CASE__()->jobs()->factory()->newInstanceById($a_job_id);
     }
 
 
@@ -88,8 +80,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     {
         parent::updateLanguages($a_lang_keys);
 
-        LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__
-            . "/../vendor/srag/removeplugindataconfirm/lang")->updateLanguages();
+        $this->installRemovePluginDataConfirmLanguages();
     }
 
 
