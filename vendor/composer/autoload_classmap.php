@@ -40,6 +40,7 @@ return array(
     'srag\\CustomInputGUIs\\SrPluginGenerator\\MultiLineNewInputGUI\\MultiLineNewInputGUI' => $vendorDir . '/srag/custominputguis/src/MultiLineNewInputGUI/MultiLineNewInputGUI.php',
     'srag\\CustomInputGUIs\\SrPluginGenerator\\MultiSelectSearchInputGUI\\MultiSelectSearchInput2GUI' => $vendorDir . '/srag/custominputguis/src/MultiSelectSearchInputGUI/MultiSelectSearchInput2GUI.php',
     'srag\\CustomInputGUIs\\SrPluginGenerator\\MultiSelectSearchInputGUI\\MultiSelectSearchInputGUI' => $vendorDir . '/srag/custominputguis/src/MultiSelectSearchInputGUI/MultiSelectSearchInputGUI.php',
+    'srag\\CustomInputGUIs\\SrPluginGenerator\\MultiSelectSearchNewInputGUI\\MultiSelectSearchNewInputGUI' => $vendorDir . '/srag/custominputguis/src/MultiSelectSearchNewInputGUI/MultiSelectSearchNewInputGUI.php',
     'srag\\CustomInputGUIs\\SrPluginGenerator\\NumberInputGUI\\NumberInputGUI' => $vendorDir . '/srag/custominputguis/src/NumberInputGUI/NumberInputGUI.php',
     'srag\\CustomInputGUIs\\SrPluginGenerator\\PieChart\\Component\\LegendEntry' => $vendorDir . '/srag/custominputguis/src/PieChart/Component/LegendEntry.php',
     'srag\\CustomInputGUIs\\SrPluginGenerator\\PieChart\\Component\\PieChart' => $vendorDir . '/srag/custominputguis/src/PieChart/Component/PieChart.php',

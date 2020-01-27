@@ -2,9 +2,9 @@
 
 namespace srag\Plugins\SrPluginGenerator\Config;
 
-use ilMultiSelectInputGUI;
 use ilSrPluginGeneratorConfigGUI;
 use ilSrPluginGeneratorPlugin;
+use srag\CustomInputGUIs\SrPluginGenerator\MultiSelectSearchNewInputGUI\MultiSelectSearchNewInputGUI;
 use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\PropertyFormGUI;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
@@ -63,10 +63,9 @@ class ConfigFormGUI extends PropertyFormGUI
     {
         $this->fields = [
             self::KEY_ROLES => [
-                self::PROPERTY_CLASS    => ilMultiSelectInputGUI::class,
+                self::PROPERTY_CLASS    => MultiSelectSearchNewInputGUI::class,
                 self::PROPERTY_REQUIRED => true,
-                self::PROPERTY_OPTIONS  => self::srPluginGenerator()->ilias()->roles()->getAllRoles(),
-                "enableSelectAll"       => true
+                self::PROPERTY_OPTIONS  => self::srPluginGenerator()->ilias()->roles()->getAllRoles()
             ]
         ];
     }
@@ -96,18 +95,6 @@ class ConfigFormGUI extends PropertyFormGUI
     protected function storeValue(/*string*/ $key, $value)/*: void*/
     {
         switch ($key) {
-            case self::KEY_ROLES:
-                if ($value[0] === "") {
-                    array_shift($value);
-                }
-
-                $value = array_map(function (string $role_id) : int {
-                    return intval($role_id);
-                }, $value);
-
-                self::srPluginGenerator()->config()->setValue($key, $value);
-                break;
-
             default:
                 self::srPluginGenerator()->config()->setValue($key, $value);
                 break;
