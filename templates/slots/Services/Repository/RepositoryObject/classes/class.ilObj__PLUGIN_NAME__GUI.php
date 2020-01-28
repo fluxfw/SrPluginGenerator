@@ -236,7 +236,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
             self::dic()->tabs()->addTab(self::TAB_PERMISSIONS, self::plugin()->translate(self::TAB_PERMISSIONS, "", [], false), self::dic()->ctrl()
                 ->getLinkTargetByClass([
                     self::class,
-                    ilPermissionGUI::class,
+                    ilPermissionGUI::class
                 ], self::CMD_PERMISSIONS));
         }
 
