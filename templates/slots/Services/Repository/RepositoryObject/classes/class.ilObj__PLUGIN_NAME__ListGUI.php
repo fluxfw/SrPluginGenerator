@@ -70,7 +70,7 @@ class ilObj__PLUGIN_NAME__ListGUI extends ilObjectPluginListGUI
             [
                 "permission" => "read",
                 "cmd"        => ilObj__PLUGIN_NAME__GUI::getStartCmd(),
-                "default"    => true,
+                "default"    => true
             ]
         ];
 
