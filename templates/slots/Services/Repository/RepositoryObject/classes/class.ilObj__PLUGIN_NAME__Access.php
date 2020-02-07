@@ -52,7 +52,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
         }
 
         if ($a_obj_id === null) {
-            $a_obj_id = ilObj__PLUGIN_NAME__::_lookupObjectId($a_ref_id);
+            $a_obj_id = self::dic()->objDataCache()->lookupObjId($a_ref_id);
         }
 
         if ($a_user_id == null) {
