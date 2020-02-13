@@ -75,21 +75,21 @@ class GeneratorFormGUI extends PropertyFormGUI
         ilUtil::sendInfo(self::output()->getHTML([
             $this->txt("install_steps"),
             self::dic()->ui()->factory()->listing()->ordered([
-                nl2br(str_replace("\\n", "\n", self::plugin()->translate("install_steps_1", self::LANG_MODULE, [
+                nl2br(self::plugin()->translate("install_steps_1", self::LANG_MODULE, [
                     "xxxx.zip",
                     "~/Downloads"
-                ])), false),
-                nl2br(str_replace("\\n", "\n", $this->txt("install_steps_2")) . "\n<code>" . implode("\n", [
+                ]), false),
+                nl2br($this->txt("install_steps_2") . "\n<code>" . implode("\n", [
                         "mkdir -p Customizing/global/plugins",
                         "cd Customizing/global/plugins",
                         "mv ~/Downloads/xxxx.zip xxxx.zip",
                         "unzip xxxx.zip",
                         "unlink xxxx.zip"
                     ]) . "</code>", false),
-                str_replace("\\n", "\n", $this->txt("install_steps_3")),
-                nl2br(str_replace("\\n", "\n", self::plugin()->translate("install_steps_4", self::LANG_MODULE, [
+                $this->txt("install_steps_3"),
+                nl2br(self::plugin()->translate("install_steps_4", self::LANG_MODULE, [
                     "TODO"
-                ])), false)
+                ]), false)
             ])
         ]));
 
