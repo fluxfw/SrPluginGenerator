@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.3.5]
+- Fixes
+
 ## [1.3.4]
 - Fixes
 
