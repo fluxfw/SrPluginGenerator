@@ -113,7 +113,7 @@ final class Slots
             self::USER_INTERFACE_HOOK
         ];
     /**
-     * @var self
+     * @var self|null
      */
     protected static $instance = null;
 

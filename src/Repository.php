@@ -24,7 +24,7 @@ final class Repository
     use SrPluginGeneratorTrait;
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     /**
-     * @var self
+     * @var self|null
      */
     protected static $instance = null;
 
