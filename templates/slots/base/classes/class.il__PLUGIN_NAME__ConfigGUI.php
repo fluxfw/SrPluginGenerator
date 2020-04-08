@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use __NAMESPACE__\Config\ConfigCtrl;
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
@@ -17,9 +18,6 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
     use __PLUGIN_NAME__Trait;
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const CMD_CONFIGURE = "configure";
-    const CMD_UPDATE_CONFIGURE = "updateConfigure";
-    const LANG_MODULE = "config";
-    const TAB_CONFIGURATION = "configuration";
 
 
     /**
@@ -34,19 +32,22 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
     /**
      * @inheritDoc
      */
-    public function performCommand(/*string*/ $cmd)/*:void*/
+    public function performCommand(/*string*/ $cmd) : void
     {
         $this->setTabs();
 
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
         switch (strtolower($next_class)) {
+            case strtolower(ConfigCtrl::class):
+                self::dic()->ctrl()->forwardCommand(new ConfigCtrl());
+                break;
+
             default:
                 $cmd = self::dic()->ctrl()->getCmd();
 
                 switch ($cmd) {
                     case self::CMD_CONFIGURE:
-                    case self::CMD_UPDATE_CONFIGURE:
                         $this->{$cmd}();
                         break;
 
@@ -61,10 +62,9 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
     /**
      *
      */
-    protected function setTabs()/*: void*/
+    protected function setTabs() : void
     {
-        self::dic()->tabs()->addTab(self::TAB_CONFIGURATION, self::plugin()->translate("configuration", self::LANG_MODULE), self::dic()->ctrl()
-            ->getLinkTargetByClass(self::class, self::CMD_CONFIGURE));
+        ConfigCtrl::addTabs();
 
         self::dic()->locator()->addItem(il__PLUGIN_NAME__Plugin::PLUGIN_NAME, self::dic()->ctrl()->getLinkTarget($this, self::CMD_CONFIGURE));
     }
@@ -73,33 +73,8 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
     /**
      *
      */
-    protected function configure()/*: void*/
+    protected function configure() : void
     {
-        self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
-
-        $form = self::__PLUGIN_NAME_CAMEL_CASE__()->config()->factory()->newFormInstance($this);
-
-        self::output()->output($form);
-    }
-
-
-    /**
-     *
-     */
-    protected function updateConfigure()/*: void*/
-    {
-        self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
-
-        $form = self::__PLUGIN_NAME_CAMEL_CASE__()->config()->factory()->newFormInstance($this);
-
-        if (!$form->storeForm()) {
-            self::output()->output($form);
-
-            return;
-        }
-
-        ilUtil::sendSuccess(self::plugin()->translate("configuration_saved", self::LANG_MODULE), true);
-
-        self::dic()->ctrl()->redirect($this, self::CMD_CONFIGURE);
+        self::dic()->ctrl()->redirectByClass(ConfigCtrl::class, ConfigCtrl::CMD_CONFIGURE);
     }
 }

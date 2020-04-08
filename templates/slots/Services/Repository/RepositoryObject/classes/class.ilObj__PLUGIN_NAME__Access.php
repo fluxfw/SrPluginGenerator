@@ -86,7 +86,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
      *
      * @return bool
      */
-    protected static function checkAccess(string $a_cmd, string $a_permission, /*?int*/ $a_ref_id = null, /*?int*/ $a_obj_id = null, /*?int*/ $a_user_id = null) : bool
+    protected static function checkAccess(string $a_cmd, string $a_permission, ?int $a_ref_id = null, ?int $a_obj_id = null, ?int $a_user_id = null) : bool
     {
         return self::getInstance()->_checkAccess($a_cmd, $a_permission, $a_ref_id, $a_obj_id, $a_user_id);
     }
@@ -96,7 +96,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
      * @param object|string $class
      * @param string        $cmd
      */
-    public static function redirectNonAccess($class, string $cmd = "")/*:void*/
+    public static function redirectNonAccess($class, string $cmd = "") : void
     {
         ilUtil::sendFailure(self::plugin()->translate("permission_denied", ilObj__PLUGIN_NAME__GUI::LANG_MODULE_OBJECT), true);
 
@@ -130,7 +130,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
      *
      * @return bool
      */
-    public static function hasVisibleAccess(/*?int*/ $ref_id = null) : bool
+    public static function hasVisibleAccess(?int $ref_id = null) : bool
     {
         return self::checkAccess("visible", "visible", $ref_id);
     }
@@ -141,7 +141,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
      *
      * @return bool
      */
-    public static function hasReadAccess(/*?int*/ $ref_id = null) : bool
+    public static function hasReadAccess(?int $ref_id = null) : bool
     {
         return self::checkAccess("read", "read", $ref_id);
     }
@@ -152,7 +152,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
      *
      * @return bool
      */
-    public static function hasWriteAccess(/*?int*/ $ref_id = null) : bool
+    public static function hasWriteAccess(?int $ref_id = null) : bool
     {
         return self::checkAccess("write", "write", $ref_id);
     }
@@ -163,7 +163,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
      *
      * @return bool
      */
-    public static function hasDeleteAccess(/*?int*/ $ref_id = null) : bool
+    public static function hasDeleteAccess(?int $ref_id = null) : bool
     {
         return self::checkAccess("delete", "delete", $ref_id);
     }
@@ -174,7 +174,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
      *
      * @return bool
      */
-    public static function hasEditPermissionAccess(/*?int*/ $ref_id = null) : bool
+    public static function hasEditPermissionAccess(?int $ref_id = null) : bool
     {
         return self::checkAccess("edit_permission", "edit_permission", $ref_id);
     }

@@ -35,7 +35,7 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     /**
      * @inheritDoc
      */
-    public function executeCommand()/*:void*/
+    public function executeCommand() : void
     {
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
@@ -77,7 +77,7 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     /**
      * @inheritDoc
      */
-    public function insert()/*:void*/
+    public function insert() : void
     {
         $this->edit();
     }
@@ -86,7 +86,7 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     /**
      * @inheritDoc
      */
-    public function create()/*:void*/
+    public function create() : void
     {
         $form = $this->getForm();
 
@@ -112,7 +112,7 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     /**
      * @inheritDoc
      */
-    public function edit()/*:void*/
+    public function edit() : void
     {
         $form = $this->getForm();
 
@@ -123,7 +123,7 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     /**
      *
      */
-    public function update()/*:void*/
+    public function update() : void
     {
         $form = $this->getForm();
 
@@ -148,7 +148,7 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     /**
      *
      */
-    public function cancel()/*:void*/
+    public function cancel() : void
     {
         $this->returnToParent();
     }
