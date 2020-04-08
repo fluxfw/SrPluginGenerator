@@ -3,7 +3,6 @@
 namespace __NAMESPACE__\Config;
 
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
-use il__PLUGIN_NAME__ConfigGUI;
 use il__PLUGIN_NAME__Plugin;
 use ilTextInputGUI;
 use srag\ActiveRecordConfig\__PLUGIN_NAME__\Config\Config;
@@ -22,15 +21,15 @@ class ConfigFormGUI extends PropertyFormGUI
     use __PLUGIN_NAME__Trait;
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const KEY_SOME = "some";
-    const LANG_MODULE = il__PLUGIN_NAME__ConfigGUI::LANG_MODULE;
+    const LANG_MODULE = ConfigCtrl::LANG_MODULE;
 
 
     /**
      * ConfigFormGUI constructor
      *
-     * @param il__PLUGIN_NAME__ConfigGUI $parent
+     * @param ConfigCtrl $parent
      */
-    public function __construct(il__PLUGIN_NAME__ConfigGUI $parent)
+    public function __construct(ConfigCtrl $parent)
     {
         parent::__construct($parent);
     }
@@ -51,16 +50,16 @@ class ConfigFormGUI extends PropertyFormGUI
     /**
      * @inheritDoc
      */
-    protected function initCommands()/*: void*/
+    protected function initCommands() : void
     {
-        $this->addCommandButton(il__PLUGIN_NAME__ConfigGUI::CMD_UPDATE_CONFIGURE, $this->txt("save"));
+        $this->addCommandButton(ConfigCtrl::CMD_UPDATE_CONFIGURE, $this->txt("save"));
     }
 
 
     /**
      * @inheritDoc
      */
-    protected function initFields()/*: void*/
+    protected function initFields() : void
     {
         $this->fields = [
             self::KEY_SOME => [
@@ -75,7 +74,7 @@ class ConfigFormGUI extends PropertyFormGUI
     /**
      * @inheritDoc
      */
-    protected function initId()/*: void*/
+    protected function initId() : void
     {
 
     }
@@ -84,7 +83,7 @@ class ConfigFormGUI extends PropertyFormGUI
     /**
      * @inheritDoc
      */
-    protected function initTitle()/*: void*/
+    protected function initTitle() : void
     {
         $this->setTitle($this->txt("configuration"));
     }
@@ -93,7 +92,7 @@ class ConfigFormGUI extends PropertyFormGUI
     /**
      * @inheritDoc
      */
-    protected function storeValue(/*string*/ $key, $value)/*: void*/
+    protected function storeValue(/*string*/ $key, $value) : void
     {
         switch ($key) {
             default:

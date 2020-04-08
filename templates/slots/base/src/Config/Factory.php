@@ -3,7 +3,6 @@
 namespace __NAMESPACE__\Config;
 
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
-use il__PLUGIN_NAME__ConfigGUI;
 use il__PLUGIN_NAME__Plugin;
 use srag\ActiveRecordConfig\__PLUGIN_NAME__\Config\AbstractFactory;
 
@@ -48,11 +47,11 @@ final class Factory extends AbstractFactory
 
 
     /**
-     * @param il__PLUGIN_NAME__ConfigGUI $parent
+     * @param ConfigCtrl $parent
      *
      * @return ConfigFormGUI
      */
-    public function newFormInstance(il__PLUGIN_NAME__ConfigGUI $parent) : ConfigFormGUI
+    public function newFormInstance(ConfigCtrl $parent) : ConfigFormGUI
     {
         $form = new ConfigFormGUI($parent);
 
