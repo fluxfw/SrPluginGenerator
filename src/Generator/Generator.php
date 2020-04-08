@@ -37,8 +37,7 @@ class Generator
             "php",
             "sql",
             "svg",
-            "xml",
-            "yml"
+            "xml"
         ];
     /**
      * @var Options
