@@ -20,7 +20,7 @@ final class Factory
     use __PLUGIN_NAME__Trait;
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     /**
-     * @var self
+     * @var self|null
      */
     protected static $instance = null;
 
@@ -63,7 +63,7 @@ final class Factory
      *
      * @return ilCronJob|null
      */
-    public function newInstanceById(string $job_id)/*: ?ilCronJob*/
+    public function newInstanceById(string $job_id) : ?ilCronJob
     {
         switch ($job_id) {
             case Job::CRON_JOB_ID:

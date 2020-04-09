@@ -2,7 +2,6 @@
 
 namespace srag\Plugins\SrPluginGenerator\Config;
 
-use ilSrPluginGeneratorConfigGUI;
 use ilSrPluginGeneratorPlugin;
 use srag\CustomInputGUIs\SrPluginGenerator\MultiSelectSearchNewInputGUI\MultiSelectSearchNewInputGUI;
 use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\PropertyFormGUI;
@@ -21,15 +20,15 @@ class ConfigFormGUI extends PropertyFormGUI
     use SrPluginGeneratorTrait;
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const KEY_ROLES = "roles";
-    const LANG_MODULE = ilSrPluginGeneratorConfigGUI::LANG_MODULE;
+    const LANG_MODULE = ConfigCtrl::LANG_MODULE;
 
 
     /**
      * ConfigFormGUI constructor
      *
-     * @param ilSrPluginGeneratorConfigGUI $parent
+     * @param ConfigCtrl $parent
      */
-    public function __construct(ilSrPluginGeneratorConfigGUI $parent)
+    public function __construct(ConfigCtrl $parent)
     {
         parent::__construct($parent);
     }
@@ -52,7 +51,7 @@ class ConfigFormGUI extends PropertyFormGUI
      */
     protected function initCommands()/*: void*/
     {
-        $this->addCommandButton(ilSrPluginGeneratorConfigGUI::CMD_UPDATE_CONFIGURE, $this->txt("save"));
+        $this->addCommandButton(ConfigCtrl::CMD_UPDATE_CONFIGURE, $this->txt("save"));
     }
 
 

@@ -67,7 +67,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
+    public function getCronJobInstance(/*string*/ $a_job_id) : ?ilCronJob
     {
         return self::__PLUGIN_NAME_CAMEL_CASE__()->jobs()->factory()->newInstanceById($a_job_id);
     }
@@ -76,7 +76,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function updateLanguages(/*?array*/ $a_lang_keys = null)/*:void*/
+    public function updateLanguages(/*?array*/ $a_lang_keys = null) : void
     {
         parent::updateLanguages($a_lang_keys);
 
@@ -87,7 +87,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    protected function deleteData()/*: void*/
+    protected function deleteData() : void
     {
         self::__PLUGIN_NAME_CAMEL_CASE__()->dropTables();
     }
