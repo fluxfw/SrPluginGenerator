@@ -8,6 +8,7 @@ use srag\Plugins\SrPluginGenerator\Access\Ilias;
 use srag\Plugins\SrPluginGenerator\Config\ConfigFormGUI;
 use srag\Plugins\SrPluginGenerator\Config\Repository as ConfigRepository;
 use srag\Plugins\SrPluginGenerator\Generator\Repository as GeneratorRepository;
+use srag\Plugins\SrPluginGenerator\Menu\Menu;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -115,5 +116,14 @@ final class Repository
     {
         $this->config()->installTables();
         $this->generator()->installTables();
+    }
+
+
+    /**
+     * @return Menu
+     */
+    public function menu() : Menu
+    {
+        return new Menu(self::dic()->dic(), self::plugin()->getPluginObject());
     }
 }

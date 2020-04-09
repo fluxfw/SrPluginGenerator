@@ -3,7 +3,6 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
-use srag\Plugins\SrPluginGenerator\Menu\Menu;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 use srag\RemovePluginDataConfirm\SrPluginGenerator\PluginUninstallTrait;
 
@@ -62,7 +61,7 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
      */
     public function promoteGlobalScreenProvider() : AbstractStaticPluginMainMenuProvider
     {
-        return new Menu(self::dic()->dic(), $this);
+        return self::srPluginGenerator()->menu();
     }
 
 
