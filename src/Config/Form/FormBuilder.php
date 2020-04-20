@@ -91,7 +91,7 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data) : void
+    protected function storeData(array $data)/* : void*/
     {
         self::srPluginGenerator()->config()->setValue(self::KEY_ROLES, (array) $data[self::KEY_ROLES]);
     }

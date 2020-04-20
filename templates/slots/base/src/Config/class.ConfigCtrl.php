@@ -41,7 +41,7 @@ class ConfigCtrl
     /**
      *
      */
-    public function executeCommand() : void
+    public function executeCommand()/* : void*/
     {
         $this->setTabs();
 
@@ -68,7 +68,7 @@ class ConfigCtrl
     /**
      *
      */
-    public static function addTabs() : void
+    public static function addTabs()/* : void*/
     {
         self::dic()->tabs()->addTab(self::TAB_CONFIGURATION, self::plugin()->translate("configuration", self::LANG_MODULE), self::dic()->ctrl()
             ->getLinkTargetByClass(self::class, self::CMD_CONFIGURE));
@@ -78,7 +78,7 @@ class ConfigCtrl
     /**
      *
      */
-    protected function setTabs() : void
+    protected function setTabs()/* : void*/
     {
 
     }
@@ -87,7 +87,7 @@ class ConfigCtrl
     /**
      *
      */
-    protected function configure() : void
+    protected function configure()/* : void*/
     {
         self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
 
@@ -100,7 +100,7 @@ class ConfigCtrl
     /**
      *
      */
-    protected function updateConfigure() : void
+    protected function updateConfigure()/* : void*/
     {
         self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
 

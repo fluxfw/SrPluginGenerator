@@ -69,7 +69,7 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
     /**
      * @inheritDoc
      */
-    public function onDelete(/*array*/ $properties, /*string*/ $plugin_version) : void
+    public function onDelete(/*array*/ $properties, /*string*/ $plugin_version)/* : void*/
     {
         if (self::dic()->ctrl()->getCmd() !== "moveAfter") {
 
@@ -89,7 +89,7 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
     /**
      * @inheritDoc
      */
-    public function updateLanguages(/*?array*/ $a_lang_keys = null) : void
+    public function updateLanguages(/*?array*/ $a_lang_keys = null)/* : void*/
     {
         parent::updateLanguages($a_lang_keys);
 
@@ -100,7 +100,7 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
     /**
      * @inheritDoc
      */
-    protected function deleteData() : void
+    protected function deleteData()/* : void*/
     {
         self::__PLUGIN_NAME_CAMEL_CASE__()->dropTables();
     }

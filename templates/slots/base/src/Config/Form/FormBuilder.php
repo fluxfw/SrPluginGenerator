@@ -85,7 +85,7 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data) : void
+    protected function storeData(array $data)/* : void*/
     {
         self::__PLUGIN_NAME_CAMEL_CASE__()->config()->setValue(self::KEY_SOME, strval($data[self::KEY_SOME]));
     }
