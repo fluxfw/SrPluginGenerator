@@ -21,6 +21,7 @@ class ConfigCtrl
 
     use DICTrait;
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const CMD_CONFIGURE = "configure";
     const CMD_UPDATE_CONFIGURE = "updateConfigure";
@@ -40,7 +41,7 @@ class ConfigCtrl
     /**
      *
      */
-    public function executeCommand()/*:void*/
+    public function executeCommand() : void
     {
         $this->setTabs();
 
@@ -90,7 +91,7 @@ class ConfigCtrl
     {
         self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
 
-        $form = self::__PLUGIN_NAME_CAMEL_CASE__()->config()->factory()->newFormInstance($this);
+        $form = self::__PLUGIN_NAME_CAMEL_CASE__()->config()->factory()->newFormBuilderInstance($this);
 
         self::output()->output($form);
     }
@@ -103,7 +104,7 @@ class ConfigCtrl
     {
         self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
 
-        $form = self::__PLUGIN_NAME_CAMEL_CASE__()->config()->factory()->newFormInstance($this);
+        $form = self::__PLUGIN_NAME_CAMEL_CASE__()->config()->factory()->newFormBuilderInstance($this);
 
         if (!$form->storeForm()) {
             self::output()->output($form);

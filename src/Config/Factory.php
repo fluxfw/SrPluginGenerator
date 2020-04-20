@@ -4,6 +4,7 @@ namespace srag\Plugins\SrPluginGenerator\Config;
 
 use ilSrPluginGeneratorPlugin;
 use srag\ActiveRecordConfig\SrPluginGenerator\Config\AbstractFactory;
+use srag\Plugins\SrPluginGenerator\Config\Form\FormBuilder;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -17,6 +18,7 @@ final class Factory extends AbstractFactory
 {
 
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     /**
      * @var self|null
@@ -49,11 +51,11 @@ final class Factory extends AbstractFactory
     /**
      * @param ConfigCtrl $parent
      *
-     * @return ConfigFormGUI
+     * @return FormBuilder
      */
-    public function newFormInstance(ConfigCtrl $parent) : ConfigFormGUI
+    public function newFormBuilderInstance(ConfigCtrl $parent) : FormBuilder
     {
-        $form = new ConfigFormGUI($parent);
+        $form = new FormBuilder($parent);
 
         return $form;
     }

@@ -22,6 +22,7 @@ class Menu extends AbstractStaticPluginMainMenuProvider
 
     use DICTrait;
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
 
 

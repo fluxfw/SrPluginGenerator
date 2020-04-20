@@ -20,6 +20,7 @@ class Generator
 
     use DICTrait;
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const SRAG_PREFIX = "srag\\";
     /**

@@ -5,7 +5,7 @@ namespace srag\Plugins\SrPluginGenerator;
 use ilSrPluginGeneratorPlugin;
 use srag\DIC\SrPluginGenerator\DICTrait;
 use srag\Plugins\SrPluginGenerator\Access\Ilias;
-use srag\Plugins\SrPluginGenerator\Config\ConfigFormGUI;
+use srag\Plugins\SrPluginGenerator\Config\Form\FormBuilder;
 use srag\Plugins\SrPluginGenerator\Config\Repository as ConfigRepository;
 use srag\Plugins\SrPluginGenerator\Generator\Repository as GeneratorRepository;
 use srag\Plugins\SrPluginGenerator\Menu\Menu;
@@ -23,6 +23,7 @@ final class Repository
 
     use DICTrait;
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     /**
      * @var self|null
@@ -69,7 +70,7 @@ final class Repository
         $user_id = $this->ilias()->users()->getUserId();
 
         $user_roles = self::dic()->rbac()->review()->assignedGlobalRoles($user_id);
-        $config_roles = $this->config()->getValue(ConfigFormGUI::KEY_ROLES);
+        $config_roles = $this->config()->getValue(FormBuilder::KEY_ROLES);
 
         foreach ($user_roles as $user_role) {
             if (in_array($user_role, $config_roles)) {

@@ -16,6 +16,7 @@ class ilSrPluginGeneratorConfigGUI extends ilPluginConfigGUI
 
     use DICTrait;
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const CMD_CONFIGURE = "configure";
 
