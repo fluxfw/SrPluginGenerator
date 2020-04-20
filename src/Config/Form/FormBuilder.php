@@ -68,7 +68,8 @@ class FormBuilder extends AbstractFormBuilder
     protected function getFields() : array
     {
         $roles = (new InputGUIWrapperUIInputComponent(new MultiSelectSearchNewInputGUI(self::plugin()
-            ->translate(self::KEY_ROLES, ConfigCtrl::LANG_MODULE))))->withRequired(true);
+            ->translate(self::KEY_ROLES, ConfigCtrl::LANG_MODULE))))->withByline(self::plugin()
+            ->translate(self::KEY_ROLES . "_info", ConfigCtrl::LANG_MODULE))->withRequired(true);
         $roles->getInput()->setOptions(self::srPluginGenerator()->ilias()->roles()->getAllRoles());
 
         $fields = [
