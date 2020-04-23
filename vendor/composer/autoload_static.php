@@ -13,7 +13,7 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
             'srag\\Plugins\\SrPluginGenerator\\' => 31,
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\SrPluginGenerator\\' => 27,
-            'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 39,
+            'srag\\CustomInputGUIs\\' => 21,
             'srag\\ActiveRecordConfig\\SrPluginGenerator\\' => 42,
         ),
     );
@@ -35,7 +35,7 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 
+        'srag\\CustomInputGUIs\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
@@ -168,8 +168,8 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
         'srag\\Plugins\\SrPluginGenerator\\Config\\Form\\FormBuilder' => __DIR__ . '/../..' . '/src/Config/Form/FormBuilder.php',
         'srag\\Plugins\\SrPluginGenerator\\Config\\Repository' => __DIR__ . '/../..' . '/src/Config/Repository.php',
         'srag\\Plugins\\SrPluginGenerator\\Generator\\Factory' => __DIR__ . '/../..' . '/src/Generator/Factory.php',
+        'srag\\Plugins\\SrPluginGenerator\\Generator\\Form\\FormBuilder' => __DIR__ . '/../..' . '/src/Generator/Form/FormBuilder.php',
         'srag\\Plugins\\SrPluginGenerator\\Generator\\Generator' => __DIR__ . '/../..' . '/src/Generator/Generator.php',
-        'srag\\Plugins\\SrPluginGenerator\\Generator\\GeneratorFormGUI' => __DIR__ . '/../..' . '/src/Generator/GeneratorFormGUI.php',
         'srag\\Plugins\\SrPluginGenerator\\Generator\\Options' => __DIR__ . '/../..' . '/src/Generator/Options.php',
         'srag\\Plugins\\SrPluginGenerator\\Generator\\PluginGeneratorGUI' => __DIR__ . '/../..' . '/src/Generator/class.PluginGeneratorGUI.php',
         'srag\\Plugins\\SrPluginGenerator\\Generator\\Repository' => __DIR__ . '/../..' . '/src/Generator/Repository.php',
