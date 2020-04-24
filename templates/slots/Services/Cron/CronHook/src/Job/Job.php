@@ -20,6 +20,7 @@ class Job extends ilCronJob
 
     use DICTrait;
     use __PLUGIN_NAME__Trait;
+
     const CRON_JOB_ID = il__PLUGIN_NAME__Plugin::PLUGIN_ID . "_cron";
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
 
