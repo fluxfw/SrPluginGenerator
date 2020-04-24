@@ -18,6 +18,7 @@ final class Factory
 
     use DICTrait;
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     /**
      * @var self|null
@@ -75,6 +76,9 @@ final class Factory
     }
 
 
+    /**
+     * @return Job
+     */
     public function newJobInstance() : Job
     {
         $job = new Job();
