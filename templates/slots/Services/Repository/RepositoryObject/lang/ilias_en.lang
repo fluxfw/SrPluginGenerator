@@ -3,6 +3,7 @@ obj___PLUGIN_ID___duplicate#:#Copy __PLUGIN_NAME__
 objs___PLUGIN_ID__#:#__PLUGIN_NAME__'s
 objs___PLUGIN_ID___duplicate#:#Copy __PLUGIN_NAME__'s
 rbac_create___PLUGIN_ID__#:#Create __PLUGIN_NAME__
+rep_robj_xhfp_obj_xhfp#:#__PLUGIN_NAME__
 __PLUGIN_ID___add#:#Add
 __PLUGIN_ID___delete#:#Delete
 __PLUGIN_ID___edit_permission#:#Edit permission
