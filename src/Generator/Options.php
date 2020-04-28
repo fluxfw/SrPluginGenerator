@@ -191,6 +191,8 @@ class Options implements JsonSerializable
 
 
     /**
+     * @inheritDoc
+     *
      * @return stdClass
      */
     public function jsonSerialize() : stdClass
