@@ -3,9 +3,15 @@
 namespace srag\CustomInputGUIs\SrPluginGenerator\FormBuilder;
 
 use Closure;
+use Exception;
 use ilFormPropertyDispatchGUI;
 use ILIAS\UI\Component\Input\Container\Form\Form;
+use ILIAS\UI\Component\Input\Field\DependantGroupProviding;
+use ILIAS\UI\Component\Input\Field\Radio as RadioInterface;
+use ILIAS\UI\Component\Input\Field\Section;
+use ILIAS\UI\Component\MessageBox\MessageBox;
 use ILIAS\UI\Implementation\Component\Input\Field\Group;
+use ILIAS\UI\Implementation\Component\Input\Field\Radio;
 use ilSubmitButton;
 use srag\CustomInputGUIs\SrPluginGenerator\InputGUIWrapperUIInputComponent\InputGUIWrapperUIInputComponent;
 use srag\DIC\SrPluginGenerator\DICTrait;
@@ -24,6 +30,7 @@ abstract class AbstractFormBuilder implements FormBuilder
 {
 
     use DICTrait;
+
     /**
      * @var object
      */
@@ -32,6 +39,10 @@ abstract class AbstractFormBuilder implements FormBuilder
      * @var Form|null
      */
     protected $form = null;
+    /**
+     * @var MessageBox[]
+     */
+    protected $messages = [];
 
 
     /**
@@ -39,7 +50,7 @@ abstract class AbstractFormBuilder implements FormBuilder
      *
      * @param object $parent
      */
-    public function __construct(object $parent)
+    public function __construct(/*object*/ $parent)
     {
         $this->parent = $parent;
     }
@@ -63,7 +74,7 @@ abstract class AbstractFormBuilder implements FormBuilder
     /**
      *
      */
-    public function executeCommand() : void
+    public function executeCommand()/* : void*/
     {
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
@@ -142,7 +153,7 @@ abstract class AbstractFormBuilder implements FormBuilder
 
         $html = $this->setButtonsToForm($html);
 
-        return $html;
+        return self::output()->getHTML([$this->messages, $html]);
     }
 
 
@@ -181,23 +192,96 @@ abstract class AbstractFormBuilder implements FormBuilder
     /**
      * @param Form $form
      */
-    protected function setDataToForm(Form $form) : void
+    protected function setDataToForm(Form $form)/* : void*/
     {
         $data = $this->getData();
 
         $inputs = $form->getInputs()["form"]->getInputs();
         foreach ($inputs as $key => $field) {
             if (isset($data[$key])) {
-                try {
-                    $inputs[$key] = $field->withValue($data[$key]);
-                } catch (Throwable $ex) {
+                if ($field instanceof DependantGroupProviding && !empty($field->getDependantGroup())) {
+                    $inputs2 = $field->getDependantGroup()->getInputs();
+                    if (!empty($inputs2)) {
+                        if (isset($data[$key]["value"])) {
+                            try {
+                                $inputs[$key] = $field = $field->withValue($data[$key]["value"]);
+                            } catch (Throwable $ex) {
 
+                            }
+                        }
+                        $data2 = (isset($data[$key]["group_values"]) ? $data[$key]["group_values"] : $data[$key])["dependant_group"];
+                        foreach ($inputs2 as $key2 => $field2) {
+                            if (isset($data2[$key2])) {
+                                try {
+                                    $inputs2[$key2] = $field2 = $field2->withValue($data2[$key2]);
+                                } catch (Throwable $ex) {
+
+                                }
+                            }
+                        }
+                        Closure::bind(function (array $inputs2)/* : void*/ {
+                            $this->inputs = $inputs2;
+                        }, $field->getDependantGroup(), Group::class)($inputs2);
+                        continue;
+                    }
+                } else {
+                    if ($field instanceof RadioInterface
+                        && isset($data[$key]["value"])
+                        && !empty($inputs2 = Closure::bind(function (array $data, string $key) : array {
+                            return $this->dependant_fields[$data[$key]["value"]];
+                        }, $field, Radio::class)($data, $key))
+                    ) {
+                        try {
+                            $inputs[$key] = $field = $field->withValue($data[$key]["value"]);
+                        } catch (Throwable $ex) {
+
+                        }
+                        $data2 = $data[$key]["group_values"];
+                        foreach ($inputs2 as $key2 => $field2) {
+                            if (isset($data2[$key2])) {
+                                try {
+                                    $inputs2[$key2] = $field2 = $field2->withValue($data2[$key2]);
+                                } catch (Throwable $ex) {
+
+                                }
+                            }
+                        }
+                        Closure::bind(function (array $data, string $key, array $inputs2)/* : void*/ {
+                            $this->dependant_fields[$data[$key]["value"]] = $inputs2;
+                        }, $field, Radio::class)($data, $key, $inputs2);
+                        continue;
+                    } else {
+                        if ($field instanceof Section) {
+                            $inputs2 = $field->getInputs();
+                            if (!empty($inputs2)) {
+                                $data2 = $data[$key];
+                                foreach ($inputs2 as $key2 => $field2) {
+                                    if (isset($data2[$key2])) {
+                                        try {
+                                            $inputs2[$key2] = $field2 = $field2->withValue($data2[$key2]);
+                                        } catch (Throwable $ex) {
+
+                                        }
+                                    }
+                                }
+                                Closure::bind(function (array $inputs2)/* : void*/ {
+                                    $this->inputs = $inputs2;
+                                }, $field, Group::class)($inputs2);
+                                continue;
+                            }
+                        }
+                    }
                 }
             }
+            try {
+                $inputs[$key] = $field = $field->withValue($data[$key]);
+            } catch (Throwable $ex) {
+
+            }
         }
-        Closure::bind(function () use ($inputs): void {
+        Closure::bind(function (array $inputs)/* : void*/ {
             $this->inputs = $inputs;
-        }, $form->getInputs()["form"], Group::class)();
+        }, $form->getInputs()["form"], Group::class)($inputs);
     }
 
 
@@ -212,11 +296,19 @@ abstract class AbstractFormBuilder implements FormBuilder
             $data = $this->form->getData();
 
             if (empty($data)) {
-                return false;
+                throw new Exception();
             }
 
-            $this->storeData($data["form"] ?? []);
+            $data = $data["form"] ?? [];
+
+            if (!$this->validateData($data)) {
+                throw new Exception();
+            }
+
+            $this->storeData($data);
         } catch (Throwable $ex) {
+            $this->messages[] = self::dic()->ui()->factory()->messageBox()->failure(self::dic()->language()->txt("form_input_not_valid"));
+
             return false;
         }
 
@@ -227,5 +319,16 @@ abstract class AbstractFormBuilder implements FormBuilder
     /**
      * @param array $data
      */
-    protected abstract function storeData(array $data) : void;
+    protected abstract function storeData(array $data)/* : void*/;
+
+
+    /**
+     * @param array $data
+     *
+     * @return bool
+     */
+    protected function validateData(array $data) : bool
+    {
+        return true;
+    }
 }

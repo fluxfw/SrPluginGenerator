@@ -16,6 +16,7 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
 
     use DICTrait;
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const CMD_CONFIGURE = "configure";
 
@@ -32,7 +33,7 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
     /**
      * @inheritDoc
      */
-    public function performCommand(/*string*/ $cmd) : void
+    public function performCommand(/*string*/ $cmd)/* : void*/
     {
         $this->setTabs();
 
@@ -62,7 +63,7 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
     /**
      *
      */
-    protected function setTabs() : void
+    protected function setTabs()/* : void*/
     {
         ConfigCtrl::addTabs();
 
@@ -73,7 +74,7 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
     /**
      *
      */
-    protected function configure() : void
+    protected function configure()/* : void*/
     {
         self::dic()->ctrl()->redirectByClass(ConfigCtrl::class, ConfigCtrl::CMD_CONFIGURE);
     }

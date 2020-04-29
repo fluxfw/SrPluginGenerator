@@ -13,6 +13,7 @@ class ilObj__PLUGIN_NAME__ListGUI extends ilObjectPluginListGUI
 
     use DICTrait;
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
 
 
@@ -100,7 +101,7 @@ class ilObj__PLUGIN_NAME__ListGUI extends ilObjectPluginListGUI
     /**
      * @inheritDoc
      */
-    public function initType() : void
+    public function initType()/* : void*/
     {
         $this->setType(il__PLUGIN_NAME__Plugin::PLUGIN_ID);
     }

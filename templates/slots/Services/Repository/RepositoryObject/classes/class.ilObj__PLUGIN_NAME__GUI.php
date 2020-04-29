@@ -22,6 +22,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
     use DICTrait;
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const CMD_MANAGE_CONTENTS = "manageContents";
     const CMD_PERMISSIONS = "perm";
@@ -43,7 +44,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     /**
      * @inheritDoc
      */
-    protected function afterConstructor() : void
+    protected function afterConstructor()/* : void*/
     {
 
     }
@@ -61,7 +62,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     /**
      * @param string $cmd
      */
-    public function performCommand(string $cmd) : void
+    public function performCommand(string $cmd)/* : void*/
     {
         self::dic()->help()->setScreenIdComponent(il__PLUGIN_NAME__Plugin::PLUGIN_ID);
 
@@ -103,7 +104,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     /**
      * @param string $html
      */
-    protected function show(string $html) : void
+    protected function show(string $html)/* : void*/
     {
         if (!self::dic()->ctrl()->isAsynch()) {
             self::dic()->ui()->mainTemplate()->setTitle($this->object->getTitle());
@@ -150,7 +151,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     /**
      *
      */
-    protected function manageContents() : void
+    protected function manageContents()/* : void*/
     {
         self::dic()->tabs()->activateTab(self::TAB_CONTENTS);
 
@@ -162,7 +163,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     /**
      *
      */
-    protected function showContents() : void
+    protected function showContents()/* : void*/
     {
         self::dic()->tabs()->activateTab(self::TAB_SHOW_CONTENTS);
 
@@ -185,7 +186,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     /**
      *
      */
-    protected function settings() : void
+    protected function settings()/* : void*/
     {
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
@@ -198,7 +199,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     /**
      *
      */
-    protected function settingsStore() : void
+    protected function settingsStore()/* : void*/
     {
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
@@ -219,7 +220,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     /**
      *
      */
-    protected function setTabs() : void
+    protected function setTabs()/* : void*/
     {
         self::dic()->tabs()->addTab(self::TAB_SHOW_CONTENTS, self::plugin()->translate("show_contents", self::LANG_MODULE_OBJECT), self::dic()->ctrl()
             ->getLinkTarget($this, self::CMD_SHOW_CONTENTS));

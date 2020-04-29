@@ -18,6 +18,7 @@ final class Factory
 
     use DICTrait;
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     /**
      * @var self|null
@@ -63,7 +64,7 @@ final class Factory
      *
      * @return ilCronJob|null
      */
-    public function newInstanceById(string $job_id) : ?ilCronJob
+    public function newInstanceById(string $job_id)/* : ?ilCronJob*/
     {
         switch ($job_id) {
             case Job::CRON_JOB_ID:
@@ -75,6 +76,9 @@ final class Factory
     }
 
 
+    /**
+     * @return Job
+     */
     public function newJobInstance() : Job
     {
         $job = new Job();

@@ -19,6 +19,7 @@ class ConfigFormGUI extends PropertyFormGUI
 {
 
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const KEY_SOME = "some";
     const LANG_MODULE = ConfigCtrl::LANG_MODULE;
@@ -50,7 +51,7 @@ class ConfigFormGUI extends PropertyFormGUI
     /**
      * @inheritDoc
      */
-    protected function initCommands() : void
+    protected function initCommands()/* : void*/
     {
         $this->addCommandButton(ConfigCtrl::CMD_UPDATE_CONFIGURE, $this->txt("save"));
     }
@@ -59,7 +60,7 @@ class ConfigFormGUI extends PropertyFormGUI
     /**
      * @inheritDoc
      */
-    protected function initFields() : void
+    protected function initFields()/* : void*/
     {
         $this->fields = [
             self::KEY_SOME => [
@@ -74,7 +75,7 @@ class ConfigFormGUI extends PropertyFormGUI
     /**
      * @inheritDoc
      */
-    protected function initId() : void
+    protected function initId()/* : void*/
     {
 
     }
@@ -83,7 +84,7 @@ class ConfigFormGUI extends PropertyFormGUI
     /**
      * @inheritDoc
      */
-    protected function initTitle() : void
+    protected function initTitle()/* : void*/
     {
         $this->setTitle($this->txt("configuration"));
     }
@@ -92,7 +93,7 @@ class ConfigFormGUI extends PropertyFormGUI
     /**
      * @inheritDoc
      */
-    protected function storeValue(/*string*/ $key, $value) : void
+    protected function storeValue(/*string*/ $key, $value)/* : void*/
     {
         switch ($key) {
             default:

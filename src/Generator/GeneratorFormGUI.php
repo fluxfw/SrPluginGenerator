@@ -22,6 +22,7 @@ class GeneratorFormGUI extends PropertyFormGUI
 {
 
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const LANG_MODULE = PluginGeneratorGUI::LANG_MODULE;
     /**

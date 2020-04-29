@@ -14,6 +14,7 @@ class ilSrPluginGeneratorUIHookGUI extends ilUIHookPluginGUI
 
     use DICTrait;
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
 
 

@@ -15,6 +15,7 @@ class il__PLUGIN_NAME__Plugin extends ilUserInterfaceHookPlugin
 
     use PluginUninstallTrait;
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_ID = "__PLUGIN_ID__";
     const PLUGIN_NAME = "__PLUGIN_NAME__";
     const PLUGIN_CLASS_NAME = self::class;
@@ -58,7 +59,7 @@ class il__PLUGIN_NAME__Plugin extends ilUserInterfaceHookPlugin
     /**
      * @inheritDoc
      */
-    public function updateLanguages(/*?array*/ $a_lang_keys = null) : void
+    public function updateLanguages(/*?array*/ $a_lang_keys = null)/* : void*/
     {
         parent::updateLanguages($a_lang_keys);
 
@@ -69,7 +70,7 @@ class il__PLUGIN_NAME__Plugin extends ilUserInterfaceHookPlugin
     /**
      * @inheritDoc
      */
-    protected function deleteData() : void
+    protected function deleteData()/* : void*/
     {
         self::__PLUGIN_NAME_CAMEL_CASE__()->dropTables();
     }

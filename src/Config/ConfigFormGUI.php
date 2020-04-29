@@ -18,6 +18,7 @@ class ConfigFormGUI extends PropertyFormGUI
 {
 
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const KEY_ROLES = "roles";
     const LANG_MODULE = ConfigCtrl::LANG_MODULE;
