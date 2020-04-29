@@ -19,6 +19,7 @@ final class Repository extends AbstractRepository
 {
 
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     /**
      * @var self|null

@@ -20,6 +20,7 @@ class PluginGeneratorGUI
 
     use DICTrait;
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const CMD_FILL = "fill";
     const CMD_GENERATE = "generate";

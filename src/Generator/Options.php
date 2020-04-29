@@ -20,6 +20,7 @@ class Options implements JsonSerializable
 
     use DICTrait;
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const DEFAULT_NAMESPACE = "srag\\Plugins\\__PLUGIN_NAME__\\";
     const DEFAULT_RESPONSIBLE_NAME = "studer + raimann ag - Team Custom 1";

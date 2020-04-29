@@ -58,7 +58,7 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
     /**
      * @inheritDoc
      */
-    public function handleEvent(/*string*/ $a_component, /*string*/ $a_event, /*array*/ $a_parameter) : void
+    public function handleEvent(/*string*/ $a_component, /*string*/ $a_event, /*array*/ $a_parameter)/* : void*/
     {
         // TODO: Implement handleEvent
     }
@@ -67,7 +67,7 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
     /**
      * @inheritDoc
      */
-    public function updateLanguages(/*?array*/ $a_lang_keys = null) : void
+    public function updateLanguages(/*?array*/ $a_lang_keys = null)/* : void*/
     {
         parent::updateLanguages($a_lang_keys);
 
@@ -78,7 +78,7 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
     /**
      * @inheritDoc
      */
-    protected function deleteData() : void
+    protected function deleteData()/* : void*/
     {
         self::__PLUGIN_NAME_CAMEL_CASE__()->dropTables();
     }

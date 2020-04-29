@@ -17,6 +17,7 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
 
     use PluginUninstallTrait;
     use SrPluginGeneratorTrait;
+
     const PLUGIN_ID = "srplugingenerator";
     const PLUGIN_NAME = "SrPluginGenerator";
     const PLUGIN_CLASS_NAME = self::class;

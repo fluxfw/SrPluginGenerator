@@ -17,6 +17,7 @@ final class Factory extends AbstractFactory
 {
 
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     /**
      * @var self|null

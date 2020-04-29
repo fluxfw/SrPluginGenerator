@@ -18,6 +18,7 @@ final class Slots
 
     use DICTrait;
     use SrPluginGeneratorTrait;
+
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const SLOTS_TEMPLATE_DIR = __DIR__ . "/../../templates/slots";
     const BASE_COMPONENT_MODULES = IL_COMP_MODULE;
