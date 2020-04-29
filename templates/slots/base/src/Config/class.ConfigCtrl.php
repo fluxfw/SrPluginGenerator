@@ -41,7 +41,7 @@ class ConfigCtrl
     /**
      *
      */
-    public function executeCommand()/*:void*/
+    public function executeCommand()/* : void*/
     {
         $this->setTabs();
 

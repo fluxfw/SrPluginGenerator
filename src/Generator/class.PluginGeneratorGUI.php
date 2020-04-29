@@ -47,7 +47,7 @@ class PluginGeneratorGUI
     {
         $this->options = self::srPluginGenerator()->generator()->factory()->newOptionsInstance();
 
-        if (!self::SrPluginGenerator()->currentUserHasRole()) {
+        if (!self::srPluginGenerator()->currentUserHasRole()) {
             die();
         }
 
