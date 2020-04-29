@@ -15,6 +15,7 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
 
     use PluginUninstallTrait;
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_ID = "__PLUGIN_ID__";
     const PLUGIN_NAME = "__PLUGIN_NAME__";
     const PLUGIN_CLASS_NAME = self::class;

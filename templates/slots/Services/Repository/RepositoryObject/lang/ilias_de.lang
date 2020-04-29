@@ -3,6 +3,7 @@ obj___PLUGIN_ID___duplicate#:#__PLUGIN_NAME__ kopieren
 objs___PLUGIN_ID__#:#__PLUGIN_NAME__'s
 objs___PLUGIN_ID___duplicate#:#__PLUGIN_NAME__'s kopieren
 rbac_create___PLUGIN_ID__#:#__PLUGIN_NAME__ anlegen
+rep_robj___PLUGIN_ID___obj_xhfp#:#__PLUGIN_NAME__
 __PLUGIN_ID___add#:#Hinzufügen
 __PLUGIN_ID___delete#:#Löschen
 __PLUGIN_ID___edit_permission#:#Rechte bearbeiten

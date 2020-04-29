@@ -19,6 +19,7 @@ class ConfigFormGUI extends PropertyFormGUI
 {
 
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const KEY_SOME = "some";
     const LANG_MODULE = ConfigCtrl::LANG_MODULE;

@@ -18,6 +18,7 @@ final class Repository
 
     use DICTrait;
     use __PLUGIN_NAME__Trait;
+
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     /**
      * @var self|null

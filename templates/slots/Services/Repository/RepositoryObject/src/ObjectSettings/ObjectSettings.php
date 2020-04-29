@@ -20,6 +20,7 @@ class ObjectSettings extends ActiveRecord
 
     use DICTrait;
     use __PLUGIN_NAME__Trait;
+
     const TABLE_NAME = "rep_robj_" . il__PLUGIN_NAME__Plugin::PLUGIN_ID . "_set";
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
 
