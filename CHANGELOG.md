@@ -1,5 +1,8 @@
 # Changelog
 
+## [x]
+- Add lucene search (Generated repository objects)
+
 ## [1.4.0]
 - Fixes
 
