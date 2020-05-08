@@ -1,1 +1,1 @@
-## __PLUGIN_NAME__-Description
+## __PLUGIN_NAME__ Description

@@ -8,7 +8,7 @@ See in [doc/DOCUMENTATION.md](./doc/DOCUMENTATION.md)
 
 ## Installation
 
-### Install __PLUGIN_NAME__-Plugin
+### Install __PLUGIN_NAME__ Plugin
 Start at your ILIAS root directory
 ```bash
 mkdir -p Customizing/global/plugins/__PLUGIN_SLOT__

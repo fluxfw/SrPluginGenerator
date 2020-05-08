@@ -1,8 +1,14 @@
 This is an OpenSource project by studer + raimann ag, CH-Burgdorf (https://studer-raimann.ch)
 
+## Description
+See in [doc/DESCRIPTION.md](./doc/DESCRIPTION.md)
+
+## Documentation
+See in [doc/DOCUMENTATION.md](./doc/DOCUMENTATION.md)
+
 ## Installation
 
-### Install SrPluginGenerator-Plugin
+### Install SrPluginGenerator Plugin
 Please ensure `composer` is installed on your server
 
 Start at your ILIAS root directory
@@ -17,9 +23,6 @@ You can access plugin generator with the follow static url
 ```
 https://your-domain/goto.php?target=uihk_srplugingenerator
 ```
-
-### Some screenshots
-TODO
 
 ### Requirements
 * ILIAS 5.4
