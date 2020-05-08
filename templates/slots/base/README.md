@@ -1,4 +1,4 @@
-# __PLUGIN_NAME__
+# __PLUGIN_NAME__ ILIAS Plugin
 
 ## Installation
 Start at your ILIAS root directory. It is assumed the generated downloaded plugin `__PLUGIN_ID__.zip` is in your download folder `~/Downloads`. Otherwise please adjust the commands below

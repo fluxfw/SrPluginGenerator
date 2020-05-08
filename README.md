@@ -1,4 +1,4 @@
-# SrPluginGenerator
+# SrPluginGenerator ILIAS Plugin
 
 This is an OpenSource project by studer + raimann ag, CH-Burgdorf (https://studer-raimann.ch)
 
@@ -18,11 +18,6 @@ cd Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
 git clone https://github.com/studer-raimann/SrPluginGenerator.git SrPluginGenerator
 ```
 Update and activate the plugin in the ILIAS Plugin Administration
-
-You can access plugin generator with the follow static url
-```
-https://your-domain/goto.php?target=uihk_srplugingenerator
-```
 
 ## Requirements
 * ILIAS 5.4
