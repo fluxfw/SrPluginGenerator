@@ -1,6 +1,6 @@
-## Installation
+# __PLUGIN_NAME__
 
-### Install __PLUGIN_NAME__ Plugin
+## Installation
 Start at your ILIAS root directory. It is assumed the generated downloaded plugin `__PLUGIN_ID__.zip` is in your download folder `~/Downloads`. Otherwise please adjust the commands below
 
 Run the follow commands:
@@ -16,6 +16,6 @@ Update and activate the plugin in the ILIAS Plugin Administration
 
 Look after `TODO`'s in the plugin code. May you can remove some files (For example config) depending on your use. Also override this inital Readme
 
-### Requirements
+## Requirements
 * ILIAS 5.4
 * PHP >=7.0
