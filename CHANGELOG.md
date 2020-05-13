@@ -1,5 +1,8 @@
 # Changelog
 
+## [x]
+- ILIAS 6 support
+
 ## [1.4.1]
 - Add lucene search (Generated repository objects)
 
