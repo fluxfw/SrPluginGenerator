@@ -54,16 +54,16 @@
         },
         {
             "name": "srag/custominputguis",
-            "version": "v0.34.7",
+            "version": "v0.34.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/CustomInputGUIs.git",
-                "reference": "199aac4514002339c545b038e620d75157e881e0"
+                "reference": "9867f3bfa3288505637630dbe5fb5813f8e8d682"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/199aac4514002339c545b038e620d75157e881e0",
-                "reference": "199aac4514002339c545b038e620d75157e881e0",
+                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/9867f3bfa3288505637630dbe5fb5813f8e8d682",
+                "reference": "9867f3bfa3288505637630dbe5fb5813f8e8d682",
                 "shasum": ""
             },
             "require": {
@@ -97,20 +97,20 @@
                 "input",
                 "table"
             ],
-            "time": "2020-04-23T12:36:19+00:00"
+            "time": "2020-05-13T05:54:22+00:00"
         },
         {
             "name": "srag/dic",
-            "version": "v0.20.4",
+            "version": "v0.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/DIC.git",
-                "reference": "b5f107eddf513280f7c9ca7e05e7a42eb8d9fc95"
+                "reference": "d56b98201b1b826802e7272fb5ee685b4a507394"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/b5f107eddf513280f7c9ca7e05e7a42eb8d9fc95",
-                "reference": "b5f107eddf513280f7c9ca7e05e7a42eb8d9fc95",
+                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/d56b98201b1b826802e7272fb5ee685b4a507394",
+                "reference": "d56b98201b1b826802e7272fb5ee685b4a507394",
                 "shasum": ""
             },
             "require": {
@@ -119,7 +119,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\DIC\\SrPluginGenerator\\": "src/"
+                    "srag\\DIC\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -142,7 +142,7 @@
                 "globals",
                 "trait"
             ],
-            "time": "2020-03-26T12:38:05+00:00"
+            "time": "2020-05-13T05:51:15+00:00"
         },
         {
             "name": "srag/librariesnamespacechanger",

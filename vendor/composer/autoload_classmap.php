@@ -98,7 +98,6 @@ return array(
     'srag\\DIC\\SrPluginGenerator\\DICTrait' => $vendorDir . '/srag/dic/src/DICTrait.php',
     'srag\\DIC\\SrPluginGenerator\\DIC\\AbstractDIC' => $vendorDir . '/srag/dic/src/DIC/AbstractDIC.php',
     'srag\\DIC\\SrPluginGenerator\\DIC\\DICInterface' => $vendorDir . '/srag/dic/src/DIC/DICInterface.php',
-    'srag\\DIC\\SrPluginGenerator\\DIC\\Implementation\\ILIAS53DIC' => $vendorDir . '/srag/dic/src/DIC/Implementation/ILIAS53DIC.php',
     'srag\\DIC\\SrPluginGenerator\\DIC\\Implementation\\ILIAS54DIC' => $vendorDir . '/srag/dic/src/DIC/Implementation/ILIAS54DIC.php',
     'srag\\DIC\\SrPluginGenerator\\DIC\\Implementation\\ILIAS60DIC' => $vendorDir . '/srag/dic/src/DIC/Implementation/ILIAS60DIC.php',
     'srag\\DIC\\SrPluginGenerator\\Database\\AbstractILIASDatabaseDetector' => $vendorDir . '/srag/dic/src/Database/AbstractILIASDatabaseDetector.php',
