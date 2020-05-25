@@ -12,8 +12,8 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
             'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\' => 47,
             'srag\\Plugins\\SrPluginGenerator\\' => 31,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\SrPluginGenerator\\' => 27,
-            'srag\\CustomInputGUIs\\' => 21,
+            'srag\\DIC\\' => 9,
+            'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 39,
             'srag\\ActiveRecordConfig\\SrPluginGenerator\\' => 42,
         ),
     );
@@ -31,11 +31,11 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\SrPluginGenerator\\' => 
+        'srag\\DIC\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
