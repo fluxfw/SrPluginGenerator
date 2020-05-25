@@ -12,7 +12,7 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
             'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\' => 47,
             'srag\\Plugins\\SrPluginGenerator\\' => 31,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
+            'srag\\DIC\\SrPluginGenerator\\' => 27,
             'srag\\CustomInputGUIs\\' => 21,
             'srag\\ActiveRecordConfig\\SrPluginGenerator\\' => 42,
         ),
@@ -31,7 +31,7 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrPluginGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
@@ -62,6 +62,7 @@ class ComposerStaticInit89105897143b3414bd1ae6908146fe0e
         'srag\\ActiveRecordConfig\\SrPluginGenerator\\Exception\\ActiveRecordConfigException' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Exception/ActiveRecordConfigException.php',
         'srag\\CustomInputGUIs\\SrPluginGenerator\\CheckboxInputGUI\\AjaxCheckbox' => __DIR__ . '/..' . '/srag/custominputguis/src/AjaxCheckbox/AjaxCheckbox.php',
         'srag\\CustomInputGUIs\\SrPluginGenerator\\CheckboxInputGUI\\CheckboxInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/CheckboxInputGUI/CheckboxInputGUI.php',
+        'srag\\CustomInputGUIs\\SrPluginGenerator\\ColorPickerInputGUI\\ColorPickerInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/ColorPickerInputGUI/ColorPickerInputGUI.php',
         'srag\\CustomInputGUIs\\SrPluginGenerator\\CustomInputGUIs' => __DIR__ . '/..' . '/srag/custominputguis/src/CustomInputGUIs.php',
         'srag\\CustomInputGUIs\\SrPluginGenerator\\CustomInputGUIsTrait' => __DIR__ . '/..' . '/srag/custominputguis/src/CustomInputGUIsTrait.php',
         'srag\\CustomInputGUIs\\SrPluginGenerator\\DateDurationInputGUI\\DateDurationInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/DateDurationInputGUI/DateDurationInputGUI.php',

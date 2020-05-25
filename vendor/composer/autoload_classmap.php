@@ -22,6 +22,7 @@ return array(
     'srag\\ActiveRecordConfig\\SrPluginGenerator\\Exception\\ActiveRecordConfigException' => $vendorDir . '/srag/activerecordconfig/src/Exception/ActiveRecordConfigException.php',
     'srag\\CustomInputGUIs\\SrPluginGenerator\\CheckboxInputGUI\\AjaxCheckbox' => $vendorDir . '/srag/custominputguis/src/AjaxCheckbox/AjaxCheckbox.php',
     'srag\\CustomInputGUIs\\SrPluginGenerator\\CheckboxInputGUI\\CheckboxInputGUI' => $vendorDir . '/srag/custominputguis/src/CheckboxInputGUI/CheckboxInputGUI.php',
+    'srag\\CustomInputGUIs\\SrPluginGenerator\\ColorPickerInputGUI\\ColorPickerInputGUI' => $vendorDir . '/srag/custominputguis/src/ColorPickerInputGUI/ColorPickerInputGUI.php',
     'srag\\CustomInputGUIs\\SrPluginGenerator\\CustomInputGUIs' => $vendorDir . '/srag/custominputguis/src/CustomInputGUIs.php',
     'srag\\CustomInputGUIs\\SrPluginGenerator\\CustomInputGUIsTrait' => $vendorDir . '/srag/custominputguis/src/CustomInputGUIsTrait.php',
     'srag\\CustomInputGUIs\\SrPluginGenerator\\DateDurationInputGUI\\DateDurationInputGUI' => $vendorDir . '/srag/custominputguis/src/DateDurationInputGUI/DateDurationInputGUI.php',
