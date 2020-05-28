@@ -3,6 +3,8 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
+use ILIAS\DI\Container;
+use srag\CustomInputGUIs\__PLUGIN_NAME__\Loader\CustomInputGUIsLoaderDetector;
 use srag\RemovePluginDataConfirm\__PLUGIN_NAME__\PluginUninstallTrait;
 
 /**
@@ -73,5 +75,14 @@ class il__PLUGIN_NAME__Plugin extends ilUserInterfaceHookPlugin
     protected function deleteData()/* : void*/
     {
         self::__PLUGIN_NAME_CAMEL_CASE__()->dropTables();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    {
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 }
