@@ -1,8 +1,14 @@
+# SrPluginGenerator ILIAS Plugin
+
 This is an OpenSource project by studer + raimann ag, CH-Burgdorf (https://studer-raimann.ch)
 
-## Installation
+## Description
+See in [doc/DESCRIPTION.md](./doc/DESCRIPTION.md)
 
-### Install SrPluginGenerator-Plugin
+## Documentation
+See in [doc/DOCUMENTATION.md](./doc/DOCUMENTATION.md)
+
+## Installation
 Please ensure `composer` is installed on your server
 
 Start at your ILIAS root directory
@@ -13,26 +19,18 @@ git clone https://github.com/studer-raimann/SrPluginGenerator.git SrPluginGenera
 ```
 Update and activate the plugin in the ILIAS Plugin Administration
 
-You can access plugin generator with the follow static url
-```
-https://your-domain/goto.php?target=uihk_srplugingenerator
-```
-
-### Some screenshots
-TODO
-
-### Requirements
-* ILIAS 5.4
+## Requirements
+* ILIAS 5.4 or ILIAS 6
 * PHP >=7.0
 
-### Adjustment suggestions
+## Adjustment suggestions
 * External users can report suggestions and bugs at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_PLUGGEN
 * Adjustment suggestions by pull requests via github
 * Customer of studer + raimann ag: 
 	* Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/PLUGGEN
 	* Bug reports under https://jira.studer-raimann.ch/projects/PLUGGEN
 
-### ILIAS Plugin SLA
+## ILIAS Plugin SLA
 Wir lieben und leben die Philosophie von Open Source Software! Die meisten unserer Entwicklungen, welche wir im Kundenauftrag oder in Eigenleistung entwickeln, stellen wir öffentlich allen Interessierten kostenlos unter https://github.com/studer-raimann zur Verfügung.
 
 Setzen Sie eines unserer Plugins professionell ein? Sichern Sie sich mittels SLA die termingerechte Verfügbarkeit dieses Plugins auch für die kommenden ILIAS Versionen. Informieren Sie sich hierzu unter https://studer-raimann.ch/produkte/ilias-plugins/plugin-sla.

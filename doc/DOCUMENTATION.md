@@ -1,0 +1,1 @@
+# SrPluginGenerator ILIAS Plugin Documentation

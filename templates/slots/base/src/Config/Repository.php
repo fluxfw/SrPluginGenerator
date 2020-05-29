@@ -2,6 +2,7 @@
 
 namespace __NAMESPACE__\Config;
 
+use __NAMESPACE__\Config\Form\FormBuilder;
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use il__PLUGIN_NAME__Plugin;
 use srag\ActiveRecordConfig\__PLUGIN_NAME__\Config\AbstractFactory;
@@ -75,7 +76,7 @@ final class Repository extends AbstractRepository
     protected function getFields() : array
     {
         return [
-            ConfigFormGUI::KEY_SOME => Config::TYPE_STRING
+            FormBuilder::KEY_SOME => Config::TYPE_STRING
         ];
     }
 }

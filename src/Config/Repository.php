@@ -6,6 +6,7 @@ use ilSrPluginGeneratorPlugin;
 use srag\ActiveRecordConfig\SrPluginGenerator\Config\AbstractFactory;
 use srag\ActiveRecordConfig\SrPluginGenerator\Config\AbstractRepository;
 use srag\ActiveRecordConfig\SrPluginGenerator\Config\Config;
+use srag\Plugins\SrPluginGenerator\Config\Form\FormBuilder;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -75,7 +76,7 @@ final class Repository extends AbstractRepository
     protected function getFields() : array
     {
         return [
-            ConfigFormGUI::KEY_ROLES => [Config::TYPE_JSON, []]
+            FormBuilder::KEY_ROLES => [Config::TYPE_JSON, []]
         ];
     }
 }

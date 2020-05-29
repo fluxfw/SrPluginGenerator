@@ -87,7 +87,7 @@ class PluginGeneratorGUI
      */
     protected function fill()/*: void*/
     {
-        $form = self::srPluginGenerator()->generator()->factory()->newFormInstance($this, $this->options);
+        $form = self::srPluginGenerator()->generator()->factory()->newFormBuilderInstance($this, $this->options);
 
         self::output()->output($form, true);
     }
@@ -98,7 +98,7 @@ class PluginGeneratorGUI
      */
     protected function generate()/*: void*/
     {
-        $form = self::srPluginGenerator()->generator()->factory()->newFormInstance($this, $this->options);
+        $form = self::srPluginGenerator()->generator()->factory()->newFormBuilderInstance($this, $this->options);
 
         if (!$form->storeForm()) {
             self::output()->output($form, true);

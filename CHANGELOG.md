@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.5.0]
+- ILIAS 6 support
+- Generate `exchangeUIRendererAfterInitialization`
+
 ## [1.4.1]
 - Add lucene search (Generated repository objects)
 

@@ -1,1 +1,1 @@
-## __PLUGIN_NAME__-Documentation
+# __PLUGIN_NAME__ ILIAS Plugin Documentation
