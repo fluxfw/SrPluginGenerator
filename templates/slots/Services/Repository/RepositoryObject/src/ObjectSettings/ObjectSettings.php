@@ -88,10 +88,9 @@ class ObjectSettings extends ActiveRecord
         switch ($field_name) {
             case "is_online":
                 return ($field_value ? 1 : 0);
-                break;
 
             default:
-                return null;
+                return parent::sleep($field_name);
         }
     }
 
@@ -111,7 +110,7 @@ class ObjectSettings extends ActiveRecord
                 break;
 
             default:
-                return null;
+                return parent::wakeUp($field_name, $field_value);
         }
     }
 
