@@ -61,6 +61,15 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
+    protected function shouldUseOneUpdateStepOnly() : bool
+    {
+        return true;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     public function getCronJobInstances() : array
     {
         return self::__PLUGIN_NAME_CAMEL_CASE__()->jobs()->factory()->newInstances();

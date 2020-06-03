@@ -91,6 +91,15 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
     /**
      * @inheritDoc
      */
+    protected function shouldUseOneUpdateStepOnly() : bool
+    {
+        return true;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     public function updateLanguages(/*?array*/ $a_lang_keys = null)/* : void*/
     {
         parent::updateLanguages($a_lang_keys);

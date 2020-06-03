@@ -73,7 +73,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\CustomInputGUIs\\": "src/"
+                    "srag\\CustomInputGUIs\\SrPluginGenerator\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -189,16 +189,16 @@
         },
         {
             "name": "srag/removeplugindataconfirm",
-            "version": "v0.6.3",
+            "version": "v0.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/RemovePluginDataConfirm.git",
-                "reference": "d3faed97ec4e5d9a20bf2c8a80cc395997caf591"
+                "reference": "fa45bd96920e5a28577810c3d28900dc8083fc6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/RemovePluginDataConfirm/zipball/d3faed97ec4e5d9a20bf2c8a80cc395997caf591",
-                "reference": "d3faed97ec4e5d9a20bf2c8a80cc395997caf591",
+                "url": "https://api.github.com/repos/studer-raimann/RemovePluginDataConfirm/zipball/fa45bd96920e5a28577810c3d28900dc8083fc6f",
+                "reference": "fa45bd96920e5a28577810c3d28900dc8083fc6f",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +208,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\RemovePluginDataConfirm\\SrPluginGenerator\\": "src/"
+                    "srag\\RemovePluginDataConfirm\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -232,7 +232,7 @@
                 "plugin",
                 "uninstall"
             ],
-            "time": "2020-01-21T08:23:18+00:00"
+            "time": "2020-06-02T12:52:50+00:00"
         }
     ],
     "packages-dev": [],

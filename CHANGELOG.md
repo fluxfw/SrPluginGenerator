@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.5.1]
+- `shouldUseOneUpdateStepOnly`
+
 ## [1.5.0]
 - ILIAS 6 support
 - Generate `exchangeUIRendererAfterInitialization`

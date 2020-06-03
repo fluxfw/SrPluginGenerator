@@ -61,6 +61,15 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
     /**
      * @inheritDoc
      */
+    protected function shouldUseOneUpdateStepOnly() : bool
+    {
+        return true;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     public function handleEvent(/*string*/ $a_component, /*string*/ $a_event, /*array*/ $a_parameter)/* : void*/
     {
         // TODO: Implement handleEvent
