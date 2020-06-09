@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . "/vendor/srag/dic/src/PHPVersionChecker.php";
+require_once __DIR__ . "/vendor/autoload.php";
 
 $id = "__PLUGIN_ID__";
-$version = "0.1.0";
-$ilias_min_version = "5.4.0";
-$ilias_max_version = "6.999";
+$version = "__INIT_PLUGIN_VERSION__";
+$ilias_min_version = "__MIN_ILIAS_VERSION__";
+$ilias_max_version = "__MAX_ILIAS_VERSION__";
 $responsible = "__RESPONSIBLE_NAME__";
 $responsible_mail = "__RESPONSIBLE_EMAIL__";

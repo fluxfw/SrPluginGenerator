@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.0]
+- ILIAS versions config
+- More features config
+
 ## [1.5.1]
 - `shouldUseOneUpdateStepOnly`
 

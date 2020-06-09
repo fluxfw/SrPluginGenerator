@@ -142,7 +142,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
      *
      * @param ilObj__PLUGIN_NAME__ $a_new_object
      */
-    public function afterSave(/*ilObj__PLUGIN_NAME__*/ ilObject $a_new_object) : void
+    public function afterSave(/*ilObj__PLUGIN_NAME__*/ ilObject $a_new_object)/* : void*/
     {
         parent::afterSave($a_new_object);
     }

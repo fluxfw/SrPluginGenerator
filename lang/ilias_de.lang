@@ -3,14 +3,33 @@ config_configuration_saved#:#Konfiguration gespeichert
 config_roles#:#Rollen
 config_roles_info#:#Nur für die ausgewählten Rollen anzeigen
 config_save#:#Speichern
+plugin_generator_enable_autogenerate_plugin_php_and_xml_script#:#%1$s-Script um %2$s und %3$s automatisch anhand von %4$s zu generieren
+plugin_generator_enable_php72backport_script#:#%1$s-Script %2$s
+plugin_generator_enable_php72backport_script_info#:#Wird aufgrund der Libraries benötigt
+plugin_generator_enable_php_min_version_checker#:#PHP-Min.-Version-Checker
+plugin_generator_enable_php_min_version_checker_info#:#Verständliche Fehlermeldung
+plugin_generator_enable_should_use_one_update_step_only#:#Nur einen Update-Schritt verwenden
+plugin_generator_enable_should_use_one_update_step_only_info#:#Führt bei einem Plugin-Update den 1. Update-Schritt erneut aus
+plugin_generator_enable_update_plugin_readme_script#:#%1$s-Script um %2$s automatisch anhand von %3$s zu updaten
+plugin_generator_enable_update_plugin_readme_script_info#:#ILIAS min./max. Version, PHP Version
+plugin_generator_features#:#Weitere Features
+plugin_generator_features_info#:#Können auch nach Generation von Hand aktiviert/deaktiviert werden\nWenn deaktiviert, wird legendlich das Feature an sich deaktiviert, dessen Struktur bleibt vorhanden
 plugin_generator_generate#:#Generieren
+plugin_generator_init_plugin_version#:#Initiale Plugin-Version
+plugin_generator_init_plugin_version_info#:#Nur Zahlen oder Punkte
 plugin_generator_install_steps#:#Installations-Schritte
 plugin_generator_install_steps_1#:#Im ILIAS-Root-Verzeichnis beginnen\nEs wird angenommen das generierte Plugin %1$s wurde in Ihrem Download-Ordner %2$s heruntergladen - ansonst bitte Befehle unten anpassen
 plugin_generator_install_steps_2#:#Folgende Befehle ausführen
 plugin_generator_install_steps_3#:#Das Plugin in den ILIAS-Plugin-Administration aktualisieren und aktivieren
 plugin_generator_install_steps_4#:#Nach %s's im Plugin-Code suchen\nMöglicherweise können Sie einige Dateien entfernen (Z. Bsp. Konfiguration) abhängig Ihrer Benutzung\nAuch das Initial-Readme überschreiben
+plugin_generator_max_ilias_version#:#Max. ILIAS-Version
+plugin_generator_max_ilias_version_info#:#Nur Zahlen oder Punkte
+plugin_generator_min_ilias_version#:#Min. ILIAS-Version
+plugin_generator_min_ilias_version_info#:#Nur Zahlen oder Punkte
+plugin_generator_min_php_version#:#Min. PHP-Version
+plugin_generator_min_php_version_info#:#Fix aufgrund der Struktur
 plugin_generator_namespace#:#Namespace
-plugin_generator_namespace_info#:#Nur Buchstaben oder Backslashes - __PLUGIN_NAME__ als Platzhalter für Plugin-Name
+plugin_generator_namespace_info#:#Nur Buchstaben oder Backslashes - %s als Platzhalter für Plugin-Name
 plugin_generator_plugin_id#:#Plugin-ID
 plugin_generator_plugin_id_info#:#Nur Kleinbuchstaben oder Zahlen - Mit einem Kleinbuchstaben beginnen - Repository-Objekte nur 4 Zeichen und mit x beginnen
 plugin_generator_plugin_name#:#Plugin-Name

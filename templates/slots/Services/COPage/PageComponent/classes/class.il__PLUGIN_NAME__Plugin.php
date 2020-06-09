@@ -82,7 +82,7 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
     /**
      * @inheritDoc
      */
-    public function onClone(/*array*/ &$properties, /*string*/ $plugin_version) : void
+    public function onClone(/*array*/ &$properties, /*string*/ $plugin_version)/* : void*/
     {
 
     }
@@ -93,7 +93,7 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
      */
     protected function shouldUseOneUpdateStepOnly() : bool
     {
-        return true;
+        return __SHOULD_USE_ONE_UPDATE_STEP_ONLY__;
     }
 
 

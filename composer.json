@@ -1,6 +1,12 @@
 {
   "name": "srag/plugins/srplugingenerator",
   "description": "",
+  "version": "2.0.0",
+  "ilias_plugin": {
+    "id": "srplugingenerator",
+    "ilias_min_version": "5.4.0",
+    "ilias_max_version": "6.999"
+  },
   "type": "project",
   "keywords": [
     "ILIAS",
@@ -33,6 +39,9 @@
     },
     "classmap": [
       "classes/"
+    ],
+    "files": [
+      "vendor/srag/dic/src/PHPVersionChecker.php"
     ]
   },
   "config": {
@@ -43,7 +52,9 @@
   "scripts": {
     "pre-autoload-dump": [
       "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
-      "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport"
+      "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport",
+      "srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
+      "srag\\LibrariesNamespaceChanger\\UpdatePluginReadme::updatePluginReadme"
     ]
   }
 }

@@ -3,14 +3,33 @@ config_configuration_saved#:#Configuration saved
 config_roles#:#Roles
 config_roles_info#:#Show for selected roles only
 config_save#:#Save
+plugin_generator_enable_autogenerate_plugin_php_and_xml_script#:#%1$s script for auto generate %2$s and %3$s from %4$s
+plugin_generator_enable_php72backport_script#:#%1$s script %2$s
+plugin_generator_enable_php72backport_script_info#:#Needed due to the libraries
+plugin_generator_enable_php_min_version_checker#:#PHP min. version checker
+plugin_generator_enable_php_min_version_checker_info#:#Understandable error message
+plugin_generator_enable_should_use_one_update_step_only#:#Should use one update step only
+plugin_generator_enable_should_use_one_update_step_only_info#:#Executes the first update step again with a plugin update
+plugin_generator_enable_update_plugin_readme_script#:#%1$s script for auto update %2$s from %3$s
+plugin_generator_enable_update_plugin_readme_script_info#:#ILIAS min./max. version, PHP version
+plugin_generator_features#:#More features
+plugin_generator_features_info#:#Can also be enabled/disabled by hand after generation\nIf deactivated, the feature itself is just deactivated, its structure is remain
 plugin_generator_generate#:#Generate
+plugin_generator_init_plugin_version#:#Initial plugin version
+plugin_generator_init_plugin_version_info#:#Only numbers and points
 plugin_generator_install_steps#:#Install steps
 plugin_generator_install_steps_1#:#Start at your ILIAS root directory\nIt is assumed the generated plugin %1$s is downloaded in your download folder %2$s - otherwise please adjust the commands below
 plugin_generator_install_steps_2#:#Run the follow commands
 plugin_generator_install_steps_3#:#Update and activate the plugin in the ILIAS plugin administration
 plugin_generator_install_steps_4#:#Look after %s's in plugin code\nMay you can remove some files (For example config) depending on your use\nAlso override inital Readme
+plugin_generator_max_ilias_version#:#Max. ILIAS version
+plugin_generator_max_ilias_version_info#:#Only numbers and points
+plugin_generator_min_ilias_version#:#Min. ILIAS version
+plugin_generator_min_ilias_version_info#:#Only numbers and points
+plugin_generator_min_php_version#:#Min. PHP version
+plugin_generator_min_php_version_info#:#Fixed due to the structure
 plugin_generator_namespace#:#Namespace
-plugin_generator_namespace_info#:#Only letters or backslashes - __PLUGIN_NAME__ as placeholder for plugin name
+plugin_generator_namespace_info#:#Only letters or backslashes - %s as placeholder for plugin name
 plugin_generator_plugin_id#:#Plugin id
 plugin_generator_plugin_id_info#:#Only lowercase letters or numbers - Begin with a lowercase letter - Repository objects only 4 characters and begin with x
 plugin_generator_plugin_name#:#Plugin name
