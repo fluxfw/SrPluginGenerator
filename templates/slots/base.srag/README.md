@@ -18,7 +18,7 @@ git clone https://github.com/studer-raimann/__PLUGIN_NAME__.git __PLUGIN_NAME__
 Update, activate and config the plugin in the ILIAS Plugin Administration
 
 ## Requirements
-* ILIAS __MIN_ILIAS_VERSION__-__MAX_ILIAS_VERSION__
+* ILIAS __MIN_ILIAS_VERSION__ - __MAX_ILIAS_VERSION__
 * PHP >=__MIN_PHP_VERSION__
 
 ## Adjustment suggestions
