@@ -165,6 +165,9 @@ class Generator
         if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
             $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
         }
+        if ($this->options->isEnableUpdatePluginReadmeScript()) {
+            $composer_scripts[] = "srag\LibrariesNamespaceChanger\UpdatePluginReadme::updatePluginReadme";
+        }
 
         $this->placeholders = [
             "AUTHOR_COMMENT"                  => $author_comment,

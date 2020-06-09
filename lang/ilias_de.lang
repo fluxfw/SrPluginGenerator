@@ -10,6 +10,8 @@ plugin_generator_enable_php_min_version_checker#:#PHP-Min.-Version-Checker
 plugin_generator_enable_php_min_version_checker_info#:#Verständliche Fehlermeldung
 plugin_generator_enable_should_use_one_update_step_only#:#Nur einen Update-Schritt verwenden
 plugin_generator_enable_should_use_one_update_step_only_info#:#Führt bei einem Plugin-Update den 1. Update-Schritt erneut aus
+plugin_generator_enable_update_plugin_readme_script#:#%1$s-Script um %2$s automatisch von %3$s zu updaten
+plugin_generator_enable_update_plugin_readme_script_info#:#ILIAS min./max. Version, PHP Version
 plugin_generator_features#:#Weitere Features
 plugin_generator_features_info#:#Können auch nach Generation von Hand aktiviert/deaktiviert werden\nWenn deaktiviert, wird legendlich das Feature an sich deaktiviert, dessen Struktur bleibt vorhanden
 plugin_generator_generate#:#Generieren

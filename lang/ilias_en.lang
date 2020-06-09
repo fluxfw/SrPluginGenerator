@@ -10,6 +10,8 @@ plugin_generator_enable_php_min_version_checker#:#PHP min. version checker
 plugin_generator_enable_php_min_version_checker_info#:#Understandable error message
 plugin_generator_enable_should_use_one_update_step_only#:#Should use one update step only
 plugin_generator_enable_should_use_one_update_step_only_info#:#Executes the first update step again with a plugin update
+plugin_generator_enable_update_plugin_readme_script#:#%1$s script for auto update %2$s from %3$s
+plugin_generator_enable_update_plugin_readme_script_info#:#ILIAS min./max. version, PHP version
 plugin_generator_features#:#More features
 plugin_generator_features_info#:#Can also be enabled/disabled by hand after generation\nIf deactivated, the feature itself is just deactivated, its structure is remain
 plugin_generator_generate#:#Generate
@@ -25,7 +27,7 @@ plugin_generator_max_ilias_version_info#:#Only numbers and points
 plugin_generator_min_ilias_version#:#Min. ILIAS version
 plugin_generator_min_ilias_version_info#:#Only numbers and points
 plugin_generator_min_php_version#:#Min. PHP version
-plugin_generator_min_php_version_info#:#Fix due to the structure
+plugin_generator_min_php_version_info#:#Fixed due to the structure
 plugin_generator_namespace#:#Namespace
 plugin_generator_namespace_info#:#Only letters or backslashes - %s as placeholder for plugin name
 plugin_generator_plugin_id#:#Plugin id
