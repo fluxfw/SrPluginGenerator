@@ -82,7 +82,7 @@ class il__PLUGIN_NAME__Plugin extends ilPageComponentPlugin
     /**
      * @inheritDoc
      */
-    public function onClone(/*array*/ &$properties, /*string*/ $plugin_version) : void
+    public function onClone(/*array*/ &$properties, /*string*/ $plugin_version)/* : void*/
     {
 
     }

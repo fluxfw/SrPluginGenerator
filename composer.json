@@ -1,7 +1,7 @@
 {
   "name": "srag/plugins/srplugingenerator",
   "description": "",
-  "version": "1.5.1",
+  "version": "2.0.0",
   "ilias_plugin": {
     "id": "srplugingenerator",
     "ilias_min_version": "5.4.0",
