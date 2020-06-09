@@ -6,6 +6,7 @@ use Closure;
 use ilCheckboxInputGUI;
 use ILIAS\UI\Implementation\Component\Input\Field\Group;
 use ilSrPluginGeneratorPlugin;
+use ilTextInputGUI;
 use srag\CustomInputGUIs\SrPluginGenerator\FormBuilder\AbstractFormBuilder;
 use srag\CustomInputGUIs\SrPluginGenerator\InputGUIWrapperUIInputComponent\InputGUIWrapperUIInputComponent;
 use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\Items\Items;
@@ -105,7 +106,7 @@ class FormBuilder extends AbstractFormBuilder
             "min_php_version"     => (self::version()->is6()
                 ? self::dic()->ui()->factory()->input()->field()->text(self::plugin()
                     ->translate("min_php_version", PluginGeneratorGUI::LANG_MODULE))
-                : new InputGUIWrapperUIInputComponent(new ilCheckboxInputGUI(self::plugin()
+                : new InputGUIWrapperUIInputComponent(new ilTextInputGUI(self::plugin()
                     ->translate("min_php_version", PluginGeneratorGUI::LANG_MODULE))))->withByline(self::plugin()
                 ->translate("min_php_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true)->withDisabled(true),
             "namespace"           => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("namespace", PluginGeneratorGUI::LANG_MODULE),
