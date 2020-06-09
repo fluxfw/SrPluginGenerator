@@ -66,7 +66,14 @@ class FormBuilder extends AbstractFormBuilder
         $data = [];
 
         foreach (array_keys($this->getFields()) as $key) {
-            $data[$key] = Items::getter($this->options, $key);
+            if ($key === "features") {
+                $data[$key] = [];
+                foreach (array_keys($this->getFields()[$key]->getInputs()) as $key2) {
+                    $data[$key][$key2] = Items::getter($this->options, $key2);
+                }
+            } else {
+                $data[$key] = Items::getter($this->options, $key);
+            }
         }
 
         return $data;
@@ -79,18 +86,46 @@ class FormBuilder extends AbstractFormBuilder
     protected function getFields() : array
     {
         $fields = [
-            "plugin_id"         => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("plugin_id", PluginGeneratorGUI::LANG_MODULE),
+            "plugin_id"           => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("plugin_id", PluginGeneratorGUI::LANG_MODULE),
                 self::plugin()->translate("plugin_id_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
-            "project_key"       => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("project_key", PluginGeneratorGUI::LANG_MODULE),
+            "project_key"         => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("project_key", PluginGeneratorGUI::LANG_MODULE),
                 self::plugin()->translate("project_key_info", PluginGeneratorGUI::LANG_MODULE)),
-            "plugin_name"       => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("plugin_name", PluginGeneratorGUI::LANG_MODULE),
+            "plugin_name"         => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("plugin_name", PluginGeneratorGUI::LANG_MODULE),
                 self::plugin()->translate("plugin_name_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
-            "plugin_slot"       => self::dic()->ui()->factory()->input()->field()->select(self::plugin()->translate("plugin_slot", PluginGeneratorGUI::LANG_MODULE),
+            "plugin_slot"         => self::dic()->ui()->factory()->input()->field()->select(self::plugin()->translate("plugin_slot", PluginGeneratorGUI::LANG_MODULE),
                 ["" => ""] + self::srPluginGenerator()->generator()->slots()->getSlots())->withRequired(true),
-            "namespace"         => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("namespace", PluginGeneratorGUI::LANG_MODULE),
+            "init_plugin_version" => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("init_plugin_version", PluginGeneratorGUI::LANG_MODULE),
+                self::plugin()->translate("init_plugin_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
+            "min_ilias_version"   => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("min_ilias_version", PluginGeneratorGUI::LANG_MODULE),
+                self::plugin()->translate("min_ilias_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
+            "max_ilias_version"   => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("max_ilias_version", PluginGeneratorGUI::LANG_MODULE),
+                self::plugin()->translate("max_ilias_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
+            "namespace"           => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("namespace", PluginGeneratorGUI::LANG_MODULE),
                 self::plugin()->translate("namespace_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
-            "responsible_name"  => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("responsible_name", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
-            "responsible_email" => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("responsible_email", PluginGeneratorGUI::LANG_MODULE))->withRequired(true)
+            "responsible_name"    => self::dic()
+                ->ui()
+                ->factory()
+                ->input()
+                ->field()
+                ->text(self::plugin()->translate("responsible_name", PluginGeneratorGUI::LANG_MODULE))
+                ->withRequired(true),
+            "responsible_email"   => self::dic()
+                ->ui()
+                ->factory()
+                ->input()
+                ->field()
+                ->text(self::plugin()->translate("responsible_email", PluginGeneratorGUI::LANG_MODULE))
+                ->withRequired(true),
+            "features"            => self::dic()->ui()->factory()->input()->field()->section([
+                "enable_php_min_version_checker"                => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                    ->translate("enable_php_min_version_checker", PluginGeneratorGUI::LANG_MODULE), self::plugin()
+                    ->translate("enable_php_min_version_checker_info", PluginGeneratorGUI::LANG_MODULE)),
+                "enable_should_use_one_update_step_only"        => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                    ->translate("enable_should_use_one_update_step_only", PluginGeneratorGUI::LANG_MODULE), self::plugin()
+                    ->translate("enable_should_use_one_update_step_only_info", PluginGeneratorGUI::LANG_MODULE)),
+                "enable_autogenerate_plugin_php_and_xml_script" => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                    ->translate("enable_autogenerate_plugin_php_and_xml_script", PluginGeneratorGUI::LANG_MODULE, ["plugin.php", "plugin.xml", "composer.json"]))
+            ], self::plugin()->translate("features", PluginGeneratorGUI::LANG_MODULE), nl2br(self::plugin()->translate("features_info", PluginGeneratorGUI::LANG_MODULE), false))
         ];
 
         return $fields;
@@ -142,7 +177,13 @@ class FormBuilder extends AbstractFormBuilder
     protected function storeData(array $data)/* : void*/
     {
         foreach (array_keys($this->getFields()) as $key) {
-            Items::setter($this->options, $key, $data[$key]);
+            if ($key === "features") {
+                foreach (array_keys($this->getFields()[$key]->getInputs()) as $key2) {
+                    Items::setter($this->options, $key2, $data[$key][$key2]);
+                }
+            } else {
+                Items::setter($this->options, $key, $data[$key]);
+            }
         }
     }
 
@@ -166,6 +207,14 @@ class FormBuilder extends AbstractFormBuilder
             $inputs["plugin_name"] = $inputs["plugin_name"]->withError(self::dic()->language()->txt("msg_wrong_format"));
 
             $ok = false;
+        }
+
+        foreach (["init_plugin_version", "min_ilias_version", "max_ilias_version"] as $key) {
+            if (!preg_match("/^[0-9]+(\.[0-9]+)+$/", strval($data[$key]))) {
+                $inputs[$key] = $inputs[$key]->withError(self::dic()->language()->txt("msg_wrong_format"));
+
+                $ok = false;
+            }
         }
 
         if (!preg_match("/^([A-Za-z(__PLUGIN_NAME__)]+\\\\)+$/", strval($data["namespace"]))) {

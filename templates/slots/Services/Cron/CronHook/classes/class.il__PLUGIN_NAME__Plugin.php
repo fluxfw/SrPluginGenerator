@@ -63,7 +63,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
      */
     protected function shouldUseOneUpdateStepOnly() : bool
     {
-        return true;
+        return __SHOULD_USE_ONE_UPDATE_STEP_ONLY__;
     }
 
 

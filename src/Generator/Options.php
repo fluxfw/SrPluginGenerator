@@ -22,6 +22,9 @@ class Options implements JsonSerializable
     use SrPluginGeneratorTrait;
 
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
+    const DEFAULT_INIT_PLUGIN_VERSION = "0.1.0";
+    const DEFAULT_MAX_ILIAS_VERSION = "6.999";
+    const DEFAULT_MIN_ILIAS_VERSION = "5.4.0";
     const DEFAULT_NAMESPACE = "srag\\Plugins\\__PLUGIN_NAME__\\";
     const DEFAULT_RESPONSIBLE_NAME = "studer + raimann ag - Team Custom 1";
     const DEFAULT_RESPONSIBLE_EMAIL = "support-custom1@studer-raimann.ch";
@@ -44,6 +47,18 @@ class Options implements JsonSerializable
     /**
      * @var string
      */
+    protected $init_plugin_version = self::DEFAULT_INIT_PLUGIN_VERSION;
+    /**
+     * @var string
+     */
+    protected $min_ilias_version = self::DEFAULT_MIN_ILIAS_VERSION;
+    /**
+     * @var string
+     */
+    protected $max_ilias_version = self::DEFAULT_MAX_ILIAS_VERSION;
+    /**
+     * @var string
+     */
     protected $namespace = self::DEFAULT_NAMESPACE;
     /**
      * @var string
@@ -53,6 +68,18 @@ class Options implements JsonSerializable
      * @var string
      */
     protected $responsible_email = self::DEFAULT_RESPONSIBLE_EMAIL;
+    /**
+     * @var bool
+     */
+    protected $enable_php_min_version_checker = false;
+    /**
+     * @var bool
+     */
+    protected $enable_should_use_one_update_step_only = false;
+    /**
+     * @var bool
+     */
+    protected $enable_autogenerate_plugin_php_and_xml_script = false;
 
 
     /**
@@ -139,6 +166,60 @@ class Options implements JsonSerializable
     /**
      * @return string
      */
+    public function getInitPluginVersion() : string
+    {
+        return $this->init_plugin_version;
+    }
+
+
+    /**
+     * @param string $init_plugin_version
+     */
+    public function setInitPluginVersion(string $init_plugin_version)/* : void*/
+    {
+        $this->init_plugin_version = $init_plugin_version;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getMinIliasVersion() : string
+    {
+        return $this->min_ilias_version;
+    }
+
+
+    /**
+     * @param string $min_ilias_version
+     */
+    public function setMinIliasVersion(string $min_ilias_version)/* : void*/
+    {
+        $this->min_ilias_version = $min_ilias_version;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getMaxIliasVersion() : string
+    {
+        return $this->max_ilias_version;
+    }
+
+
+    /**
+     * @param string $max_ilias_version
+     */
+    public function setMaxIliasVersion(string $max_ilias_version)/* : void*/
+    {
+        $this->max_ilias_version = $max_ilias_version;
+    }
+
+
+    /**
+     * @return string
+     */
     public function getNamespace() : string
     {
         return $this->namespace;
@@ -187,6 +268,60 @@ class Options implements JsonSerializable
     public function setResponsibleEmail(string $responsible_email)/*: void*/
     {
         $this->responsible_email = $responsible_email;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isEnablePhpMinVersionChecker() : bool
+    {
+        return $this->enable_php_min_version_checker;
+    }
+
+
+    /**
+     * @param bool $enable_php_min_version_checker
+     */
+    public function setEnablePhpMinVersionChecker(bool $enable_php_min_version_checker)/*: void*/
+    {
+        $this->enable_php_min_version_checker = $enable_php_min_version_checker;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isEnableShouldUseOneUpdateStepOnly() : bool
+    {
+        return $this->enable_should_use_one_update_step_only;
+    }
+
+
+    /**
+     * @param bool $enable_should_use_one_update_step_only
+     */
+    public function setEnableShouldUseOneUpdateStepOnly(bool $enable_should_use_one_update_step_only)/*: void*/
+    {
+        $this->enable_should_use_one_update_step_only = $enable_should_use_one_update_step_only;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isEnableAutogeneratePluginPhpAndXmlScript() : bool
+    {
+        return $this->enable_autogenerate_plugin_php_and_xml_script;
+    }
+
+
+    /**
+     * @param bool $enable_autogenerate_plugin_php_and_xml_script
+     */
+    public function setEnableAutogeneratePluginPhpAndXmlScript(bool $enable_autogenerate_plugin_php_and_xml_script)/*: void*/
+    {
+        $this->enable_autogenerate_plugin_php_and_xml_script = $enable_autogenerate_plugin_php_and_xml_script;
     }
 
 

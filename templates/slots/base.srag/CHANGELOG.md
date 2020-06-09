@@ -1,4 +1,4 @@
 # Changelog
 
-## [0.1.0]
+## [__INIT_PLUGIN_VERSION__]
 - First version

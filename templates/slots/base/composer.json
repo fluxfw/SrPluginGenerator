@@ -1,11 +1,11 @@
 {
   "name": "__NAMESPACE_SLASHES__",
   "description": "",
-  "version": "0.1.0",
+  "version": "__INIT_PLUGIN_VERSION__",
   "ilias_plugin": {
     "id": "__PLUGIN_ID__",
-    "ilias_min_version": "5.4.0",
-    "ilias_max_version": "6.999"
+    "ilias_min_version": "__MIN_ILIAS_VERSION__",
+    "ilias_max_version": "__MAX_ILIAS_VERSION__"
   },
   "type": "project",
   "keywords": [
@@ -38,7 +38,7 @@
       "classes/"
     ],
     "files": [
-      "vendor/srag/dic/src/PHPVersionChecker.php"
+      __COMPOSER_AUTOLOAD_FILES__
     ]
   },
   "config": {
@@ -48,9 +48,7 @@
   },
   "scripts": {
     "pre-autoload-dump": [
-      "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
-      "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport",
-      "srag\\LibrariesNamespaceChanger\\GeneratePluginPhp::generatePluginPhp"
+      __COMPOSER_SCRIPTS__
     ]
   }
 }
