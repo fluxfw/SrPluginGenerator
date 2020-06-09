@@ -17,5 +17,5 @@ Update and activate the plugin in the ILIAS Plugin Administration
 Look after `TODO`'s in the plugin code. May you can remove some files (For example config) depending on your use. Also override this inital Readme
 
 ## Requirements
-* ILIAS 5.4 or ILIAS 6
-* PHP >=7.0
+* ILIAS __MIN_ILIAS_VERSION__-__MAX_ILIAS_VERSION__
+* PHP >=__MIN_PHP_VERSION__

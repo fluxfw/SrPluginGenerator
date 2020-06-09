@@ -157,9 +157,11 @@ class Generator
         }
 
         $composer_scripts = [
-            "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
-            "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport"
+            "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces"
         ];
+        if ($this->options->isEnablePhp72backportScript()) {
+            $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport";
+        }
         if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
             $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
         }
@@ -175,6 +177,7 @@ class Generator
             "INIT_PLUGIN_VERSION"             => $this->options->getInitPluginVersion(),
             "MAX_ILIAS_VERSION"               => $this->options->getMaxIliasVersion(),
             "MIN_ILIAS_VERSION"               => $this->options->getMinIliasVersion(),
+            "MIN_PHP_VERSION"                 => $this->options->getMinPhpVersion(),
             "NAMESPACE"                       => $namespace,
             "NAMESPACE_ESCAPED"               => str_replace("\\", "\\\\", $namespace),
             "NAMESPACE_SLASHES"               => str_replace("\\", "/", $namespace),

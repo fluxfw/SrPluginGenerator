@@ -18,8 +18,8 @@ git clone https://github.com/studer-raimann/__PLUGIN_NAME__.git __PLUGIN_NAME__
 Update, activate and config the plugin in the ILIAS Plugin Administration
 
 ## Requirements
-* ILIAS 5.4 or ILIAS 6
-* PHP >=7.0
+* ILIAS __MIN_ILIAS_VERSION__-__MAX_ILIAS_VERSION__
+* PHP >=__MIN_PHP_VERSION__
 
 ## Adjustment suggestions
 * External users can report suggestions and bugs at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu___PROJECT_KEY__

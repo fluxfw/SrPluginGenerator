@@ -25,6 +25,7 @@ class Options implements JsonSerializable
     const DEFAULT_INIT_PLUGIN_VERSION = "0.1.0";
     const DEFAULT_MAX_ILIAS_VERSION = "6.999";
     const DEFAULT_MIN_ILIAS_VERSION = "5.4.0";
+    const DEFAULT_MIN_PHP_VERSION = "7.0";
     const DEFAULT_NAMESPACE = "srag\\Plugins\\__PLUGIN_NAME__\\";
     const DEFAULT_RESPONSIBLE_NAME = "studer + raimann ag - Team Custom 1";
     const DEFAULT_RESPONSIBLE_EMAIL = "support-custom1@studer-raimann.ch";
@@ -59,6 +60,10 @@ class Options implements JsonSerializable
     /**
      * @var string
      */
+    protected $min_php_version = self::DEFAULT_MIN_PHP_VERSION;
+    /**
+     * @var string
+     */
     protected $namespace = self::DEFAULT_NAMESPACE;
     /**
      * @var string
@@ -68,6 +73,10 @@ class Options implements JsonSerializable
      * @var string
      */
     protected $responsible_email = self::DEFAULT_RESPONSIBLE_EMAIL;
+    /**
+     * @var bool
+     */
+    protected $enable_php72backport_script = true;
     /**
      * @var bool
      */
@@ -220,6 +229,24 @@ class Options implements JsonSerializable
     /**
      * @return string
      */
+    public function getMinPhpVersion() : string
+    {
+        return $this->min_php_version;
+    }
+
+
+    /**
+     * @param string $min_php_version
+     */
+    public function setMinPhpVersion(string $min_php_version)/* : void*/
+    {
+        $this->min_php_version = $min_php_version;
+    }
+
+
+    /**
+     * @return string
+     */
     public function getNamespace() : string
     {
         return $this->namespace;
@@ -268,6 +295,24 @@ class Options implements JsonSerializable
     public function setResponsibleEmail(string $responsible_email)/*: void*/
     {
         $this->responsible_email = $responsible_email;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isEnablePhp72backportScript() : bool
+    {
+        return $this->enable_php72backport_script;
+    }
+
+
+    /**
+     * @param bool $enable_php72backport_script
+     */
+    public function setEnablePhp72backportScript(bool $enable_php72backport_script)/* : void*/
+    {
+        $this->enable_php72backport_script = $enable_php72backport_script;
     }
 
 
