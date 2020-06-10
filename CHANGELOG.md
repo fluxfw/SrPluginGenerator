@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.1]
+- Fixes
+
 ## [2.0.0]
 - ILIAS versions config
 - More features config
