@@ -3,6 +3,7 @@
 namespace srag\CustomInputGUIs\SrPluginGenerator\InputGUIWrapperUIInputComponent;
 
 use Closure;
+use ilCheckboxInputGUI;
 use ilFormPropertyGUI;
 use ILIAS\Data\Factory as DataFactory;
 use ILIAS\Transformation\Factory as TransformationFactory;
@@ -241,7 +242,9 @@ class InputGUIWrapperUIInputComponent extends Input
      */
     public function withValue($value) : self
     {
-        Items::setValueToItem($this->input, $value);
+        if (!($value === null && $this->input instanceof ilCheckboxInputGUI && $this->isDisabled())) {
+            Items::setValueToItem($this->input, $value);
+        }
 
         return $this;
     }
