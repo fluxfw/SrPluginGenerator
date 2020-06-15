@@ -27,6 +27,15 @@ final class Factory
 
 
     /**
+     * Factory constructor
+     */
+    private function __construct()
+    {
+
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance() : self
@@ -40,11 +49,19 @@ final class Factory
 
 
     /**
-     * Factory constructor
+     * @param string $job_id
+     *
+     * @return ilCronJob|null
      */
-    private function __construct()
+    public function newInstanceById(string $job_id) : ?ilCronJob
     {
+        switch ($job_id) {
+            case Job::CRON_JOB_ID:
+                return $this->newJobInstance();
 
+            default:
+                return null;
+        }
     }
 
 
@@ -56,23 +73,6 @@ final class Factory
         return [
             $this->newJobInstance()
         ];
-    }
-
-
-    /**
-     * @param string $job_id
-     *
-     * @return ilCronJob|null
-     */
-    public function newInstanceById(string $job_id)/* : ?ilCronJob*/
-    {
-        switch ($job_id) {
-            case Job::CRON_JOB_ID:
-                return $this->newJobInstance();
-
-            default:
-                return null;
-        }
     }
 
 

@@ -23,7 +23,6 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     use DICTrait;
     use __PLUGIN_NAME__Trait;
 
-    const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const CMD_MANAGE_CONTENTS = "manageContents";
     const CMD_PERMISSIONS = "perm";
     const CMD_SETTINGS = "settings";
@@ -31,6 +30,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     const CMD_SHOW_CONTENTS = "showContents";
     const LANG_MODULE_OBJECT = "object";
     const LANG_MODULE_SETTINGS = "settings";
+    const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const TAB_CONTENTS = "contents";
     const TAB_PERMISSIONS = "perm_settings";
     const TAB_SETTINGS = "settings";
@@ -42,11 +42,44 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
+     * @return string
+     */
+    public static function getStartCmd() : string
+    {
+        if (ilObj__PLUGIN_NAME__Access::hasWriteAccess()) {
+            return self::CMD_MANAGE_CONTENTS;
+        } else {
+            return self::CMD_SHOW_CONTENTS;
+        }
+    }
+
+
+    /**
+     * @inheritDoc
+     *
+     * @param ilObj__PLUGIN_NAME__ $a_new_object
+     */
+    public function afterSave(/*ilObj__PLUGIN_NAME__*/ ilObject $a_new_object) : void
+    {
+        parent::afterSave($a_new_object);
+    }
+
+
+    /**
      * @inheritDoc
      */
-    protected function afterConstructor()/* : void*/
+    public function getAfterCreationCmd() : string
     {
+        return self::getStartCmd();
+    }
 
+
+    /**
+     * @inheritDoc
+     */
+    public function getStandardCmd() : string
+    {
+        return self::getStartCmd();
     }
 
 
@@ -60,9 +93,20 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
+     * @inheritDoc
+     */
+    public function initCreateForm(/*string*/ $a_new_type) : ilPropertyFormGUI
+    {
+        $form = parent::initCreateForm($a_new_type);
+
+        return $form;
+    }
+
+
+    /**
      * @param string $cmd
      */
-    public function performCommand(string $cmd)/* : void*/
+    public function performCommand(string $cmd) : void
     {
         self::dic()->help()->setScreenIdComponent(il__PLUGIN_NAME__Plugin::PLUGIN_ID);
 
@@ -102,73 +146,11 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @param string $html
-     */
-    protected function show(string $html)/* : void*/
-    {
-        if (!self::dic()->ctrl()->isAsynch()) {
-            self::dic()->ui()->mainTemplate()->setTitle($this->object->getTitle());
-
-            self::dic()->ui()->mainTemplate()->setDescription($this->object->getDescription());
-
-            if (!$this->object->isOnline()) {
-                self::dic()->ui()->mainTemplate()->setAlertProperties([
-                    [
-                        "alert"    => true,
-                        "property" => self::plugin()->translate("status", self::LANG_MODULE_OBJECT),
-                        "value"    => self::plugin()->translate("offline", self::LANG_MODULE_OBJECT)
-                    ]
-                ]);
-            }
-        }
-
-        self::output()->output($html);
-    }
-
-
-    /**
      * @inheritDoc
      */
-    public function initCreateForm(/*string*/ $a_new_type) : ilPropertyFormGUI
+    protected function afterConstructor() : void
     {
-        $form = parent::initCreateForm($a_new_type);
 
-        return $form;
-    }
-
-
-    /**
-     * @inheritDoc
-     *
-     * @param ilObj__PLUGIN_NAME__ $a_new_object
-     */
-    public function afterSave(/*ilObj__PLUGIN_NAME__*/ ilObject $a_new_object)/* : void*/
-    {
-        parent::afterSave($a_new_object);
-    }
-
-
-    /**
-     *
-     */
-    protected function manageContents()/* : void*/
-    {
-        self::dic()->tabs()->activateTab(self::TAB_CONTENTS);
-
-        // TODO: Implement manageContents
-        $this->show("");
-    }
-
-
-    /**
-     *
-     */
-    protected function showContents()/* : void*/
-    {
-        self::dic()->tabs()->activateTab(self::TAB_SHOW_CONTENTS);
-
-        // TODO: Implement showContents
-        $this->show("");
     }
 
 
@@ -186,41 +168,19 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     /**
      *
      */
-    protected function settings()/* : void*/
+    protected function manageContents() : void
     {
-        self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
+        self::dic()->tabs()->activateTab(self::TAB_CONTENTS);
 
-        $form = $this->getSettingsForm();
-
-        self::output()->output($form);
+        // TODO: Implement manageContents
+        $this->show("");
     }
 
 
     /**
      *
      */
-    protected function settingsStore()/* : void*/
-    {
-        self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
-
-        $form = $this->getSettingsForm();
-
-        if (!$form->storeForm()) {
-            self::output()->output($form);
-
-            return;
-        }
-
-        ilUtil::sendSuccess(self::plugin()->translate("saved", self::LANG_MODULE_SETTINGS), true);
-
-        self::dic()->ctrl()->redirect($this, self::CMD_SETTINGS);
-    }
-
-
-    /**
-     *
-     */
-    protected function setTabs()/* : void*/
+    protected function setTabs() : void
     {
         self::dic()->tabs()->addTab(self::TAB_SHOW_CONTENTS, self::plugin()->translate("show_contents", self::LANG_MODULE_OBJECT), self::dic()->ctrl()
             ->getLinkTarget($this, self::CMD_SHOW_CONTENTS));
@@ -246,32 +206,72 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @return string
+     *
      */
-    public static function getStartCmd() : string
+    protected function settings() : void
     {
-        if (ilObj__PLUGIN_NAME__Access::hasWriteAccess()) {
-            return self::CMD_MANAGE_CONTENTS;
-        } else {
-            return self::CMD_SHOW_CONTENTS;
+        self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
+
+        $form = $this->getSettingsForm();
+
+        self::output()->output($form);
+    }
+
+
+    /**
+     *
+     */
+    protected function settingsStore() : void
+    {
+        self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
+
+        $form = $this->getSettingsForm();
+
+        if (!$form->storeForm()) {
+            self::output()->output($form);
+
+            return;
         }
+
+        ilUtil::sendSuccess(self::plugin()->translate("saved", self::LANG_MODULE_SETTINGS), true);
+
+        self::dic()->ctrl()->redirect($this, self::CMD_SETTINGS);
     }
 
 
     /**
-     * @inheritDoc
+     * @param string $html
      */
-    public function getAfterCreationCmd() : string
+    protected function show(string $html) : void
     {
-        return self::getStartCmd();
+        if (!self::dic()->ctrl()->isAsynch()) {
+            self::dic()->ui()->mainTemplate()->setTitle($this->object->getTitle());
+
+            self::dic()->ui()->mainTemplate()->setDescription($this->object->getDescription());
+
+            if (!$this->object->isOnline()) {
+                self::dic()->ui()->mainTemplate()->setAlertProperties([
+                    [
+                        "alert"    => true,
+                        "property" => self::plugin()->translate("status", self::LANG_MODULE_OBJECT),
+                        "value"    => self::plugin()->translate("offline", self::LANG_MODULE_OBJECT)
+                    ]
+                ]);
+            }
+        }
+
+        self::output()->output($html);
     }
 
 
     /**
-     * @inheritDoc
+     *
      */
-    public function getStandardCmd() : string
+    protected function showContents() : void
     {
-        return self::getStartCmd();
+        self::dic()->tabs()->activateTab(self::TAB_SHOW_CONTENTS);
+
+        // TODO: Implement showContents
+        $this->show("");
     }
 }

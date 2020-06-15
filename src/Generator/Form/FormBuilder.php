@@ -3,12 +3,9 @@
 namespace srag\Plugins\SrPluginGenerator\Generator\Form;
 
 use Closure;
-use ilCheckboxInputGUI;
 use ILIAS\UI\Implementation\Component\Input\Field\Group;
 use ilSrPluginGeneratorPlugin;
-use ilTextInputGUI;
 use srag\CustomInputGUIs\SrPluginGenerator\FormBuilder\AbstractFormBuilder;
-use srag\CustomInputGUIs\SrPluginGenerator\InputGUIWrapperUIInputComponent\InputGUIWrapperUIInputComponent;
 use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\Items\Items;
 use srag\Plugins\SrPluginGenerator\Generator\Options;
 use srag\Plugins\SrPluginGenerator\Generator\PluginGeneratorGUI;
@@ -45,6 +42,36 @@ class FormBuilder extends AbstractFormBuilder
         $this->options = $options;
 
         parent::__construct($parent);
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function render() : string
+    {
+        $this->messages[] = self::dic()->ui()->factory()->messageBox()->info(self::output()->getHTML([
+            self::plugin()->translate("install_steps", PluginGeneratorGUI::LANG_MODULE),
+            self::dic()->ui()->factory()->listing()->ordered([
+                nl2br(self::plugin()->translate("install_steps_1", PluginGeneratorGUI::LANG_MODULE, [
+                    "xxxx.zip",
+                    "~/Downloads"
+                ]), false),
+                nl2br(self::plugin()->translate("install_steps_2", PluginGeneratorGUI::LANG_MODULE) . "\n<code>" . implode("\n", [
+                        "mkdir -p Customizing/global/plugins",
+                        "cd Customizing/global/plugins",
+                        "mv ~/Downloads/xxxx.zip xxxx.zip",
+                        "unzip xxxx.zip",
+                        "unlink xxxx.zip"
+                    ]) . "</code>", false),
+                self::plugin()->translate("install_steps_3", PluginGeneratorGUI::LANG_MODULE),
+                nl2br(self::plugin()->translate("install_steps_4", PluginGeneratorGUI::LANG_MODULE, [
+                    "TODO"
+                ]), false)
+            ])
+        ]));
+
+        return parent::render();
     }
 
 
@@ -103,12 +130,12 @@ class FormBuilder extends AbstractFormBuilder
                 self::plugin()->translate("min_ilias_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
             "max_ilias_version"   => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("max_ilias_version", PluginGeneratorGUI::LANG_MODULE),
                 self::plugin()->translate("max_ilias_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
-            "min_php_version"     => (self::version()->is6()
-                ? self::dic()->ui()->factory()->input()->field()->text(self::plugin()
-                    ->translate("min_php_version", PluginGeneratorGUI::LANG_MODULE))
-                : new InputGUIWrapperUIInputComponent(new ilTextInputGUI(self::plugin()
-                    ->translate("min_php_version", PluginGeneratorGUI::LANG_MODULE))))->withByline(self::plugin()
-                ->translate("min_php_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true)->withDisabled(true),
+            "min_php_version"     => self::dic()->ui()->factory()->input()->field()->select(self::plugin()
+                ->translate("min_php_version", PluginGeneratorGUI::LANG_MODULE), [
+                Options::DEFAULT_MIN_PHP_VERSION => Options::DEFAULT_MIN_PHP_VERSION,
+                "7.2"                            => "7.2"
+            ], self::plugin()
+                ->translate("min_php_version_info", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport", Options::DEFAULT_MIN_PHP_VERSION]))->withRequired(true),
             "namespace"           => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("namespace", PluginGeneratorGUI::LANG_MODULE),
                 self::plugin()->translate("namespace_info", PluginGeneratorGUI::LANG_MODULE, ["__PLUGIN_NAME__"]))->withRequired(true),
             "responsible_name"    => self::dic()
@@ -126,12 +153,9 @@ class FormBuilder extends AbstractFormBuilder
                 ->text(self::plugin()->translate("responsible_email", PluginGeneratorGUI::LANG_MODULE))
                 ->withRequired(true),
             "features"            => self::dic()->ui()->factory()->input()->field()->section([
-                "enable_php72backport_script"                   => (self::version()->is6()
-                    ? self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                        ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]))
-                    : new InputGUIWrapperUIInputComponent(new ilCheckboxInputGUI(self::plugin()
-                        ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]))))->withByline(self::plugin()
-                    ->translate("enable_php72backport_script_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true)->withDisabled(true),
+                "enable_php72backport_script"                   => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                    ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]), self::plugin()
+                    ->translate("enable_php72backport_script_info", PluginGeneratorGUI::LANG_MODULE, ["7.2"])),
                 "enable_php_min_version_checker"                => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
                     ->translate("enable_php_min_version_checker", PluginGeneratorGUI::LANG_MODULE), self::plugin()
                     ->translate("enable_php_min_version_checker_info", PluginGeneratorGUI::LANG_MODULE)),
@@ -162,49 +186,15 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    public function render() : string
-    {
-        $this->messages[] = self::dic()->ui()->factory()->messageBox()->info(self::output()->getHTML([
-            self::plugin()->translate("install_steps", PluginGeneratorGUI::LANG_MODULE),
-            self::dic()->ui()->factory()->listing()->ordered([
-                nl2br(self::plugin()->translate("install_steps_1", PluginGeneratorGUI::LANG_MODULE, [
-                    "xxxx.zip",
-                    "~/Downloads"
-                ]), false),
-                nl2br(self::plugin()->translate("install_steps_2", PluginGeneratorGUI::LANG_MODULE) . "\n<code>" . implode("\n", [
-                        "mkdir -p Customizing/global/plugins",
-                        "cd Customizing/global/plugins",
-                        "mv ~/Downloads/xxxx.zip xxxx.zip",
-                        "unzip xxxx.zip",
-                        "unlink xxxx.zip"
-                    ]) . "</code>", false),
-                self::plugin()->translate("install_steps_3", PluginGeneratorGUI::LANG_MODULE),
-                nl2br(self::plugin()->translate("install_steps_4", PluginGeneratorGUI::LANG_MODULE, [
-                    "TODO"
-                ]), false)
-            ])
-        ]));
-
-        return parent::render();
-    }
-
-
-    /**
-     * @inheritDoc
-     */
     protected function storeData(array $data)/* : void*/
     {
         foreach (array_keys($this->getFields()) as $key) {
             if ($key === "features") {
                 foreach (array_keys($this->getFields()[$key]->getInputs()) as $key2) {
-                    if ($key2 !== "enable_php72backport_script") {
-                        Items::setter($this->options, $key2, $data[$key][$key2]);
-                    }
+                    Items::setter($this->options, $key2, $data[$key][$key2]);
                 }
             } else {
-                if ($key !== "min_php_version") {
-                    Items::setter($this->options, $key, $data[$key]);
-                }
+                Items::setter($this->options, $key, $data[$key]);
             }
         }
     }

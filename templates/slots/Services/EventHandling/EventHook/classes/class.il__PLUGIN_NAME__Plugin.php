@@ -18,13 +18,22 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
     use PluginUninstallTrait;
     use __PLUGIN_NAME__Trait;
 
+    const PLUGIN_CLASS_NAME = self::class;
     const PLUGIN_ID = "__PLUGIN_ID__";
     const PLUGIN_NAME = "__PLUGIN_NAME__";
-    const PLUGIN_CLASS_NAME = self::class;
     /**
      * @var self|null
      */
     protected static $instance = null;
+
+
+    /**
+     * il__PLUGIN_NAME__Plugin constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 
     /**
@@ -41,11 +50,11 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
 
 
     /**
-     * il__PLUGIN_NAME__Plugin constructor
+     * @inheritDoc
      */
-    public function __construct()
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
     {
-        parent::__construct();
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 
 
@@ -61,16 +70,7 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
     /**
      * @inheritDoc
      */
-    protected function shouldUseOneUpdateStepOnly() : bool
-    {
-        return __SHOULD_USE_ONE_UPDATE_STEP_ONLY__;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function handleEvent(/*string*/ $a_component, /*string*/ $a_event, /*array*/ $a_parameter)/* : void*/
+    public function handleEvent(/*string*/ $a_component, /*string*/ $a_event, /*array*/ $a_parameter) : void
     {
         // TODO: Implement handleEvent
     }
@@ -79,7 +79,7 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
     /**
      * @inheritDoc
      */
-    public function updateLanguages(/*?array*/ $a_lang_keys = null)/* : void*/
+    public function updateLanguages(/*?array*/ $a_lang_keys = null) : void
     {
         parent::updateLanguages($a_lang_keys);
 
@@ -90,7 +90,7 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
     /**
      * @inheritDoc
      */
-    protected function deleteData()/* : void*/
+    protected function deleteData() : void
     {
         self::__PLUGIN_NAME_CAMEL_CASE__()->dropTables();
     }
@@ -99,8 +99,8 @@ class il__PLUGIN_NAME__Plugin extends ilEventHookPlugin
     /**
      * @inheritDoc
      */
-    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    protected function shouldUseOneUpdateStepOnly() : bool
     {
-        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
+        return __SHOULD_USE_ONE_UPDATE_STEP_ONLY__;
     }
 }

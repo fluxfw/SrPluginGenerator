@@ -18,13 +18,22 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     use PluginUninstallTrait;
     use __PLUGIN_NAME__Trait;
 
+    const PLUGIN_CLASS_NAME = self::class;
     const PLUGIN_ID = "__PLUGIN_ID__";
     const PLUGIN_NAME = "__PLUGIN_NAME__";
-    const PLUGIN_CLASS_NAME = self::class;
     /**
      * @var self|null
      */
     protected static $instance = null;
+
+
+    /**
+     * il__PLUGIN_NAME__Plugin constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 
     /**
@@ -41,29 +50,20 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
 
 
     /**
-     * il__PLUGIN_NAME__Plugin constructor
+     * @inheritDoc
      */
-    public function __construct()
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
     {
-        parent::__construct();
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 
 
     /**
      * @inheritDoc
      */
-    public function getPluginName() : string
+    public function getCronJobInstance(/*string*/ $a_job_id) : ?ilCronJob
     {
-        return self::PLUGIN_NAME;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function shouldUseOneUpdateStepOnly() : bool
-    {
-        return __SHOULD_USE_ONE_UPDATE_STEP_ONLY__;
+        return self::__PLUGIN_NAME_CAMEL_CASE__()->jobs()->factory()->newInstanceById($a_job_id);
     }
 
 
@@ -79,16 +79,16 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function getCronJobInstance(/*string*/ $a_job_id)/* : ?ilCronJob*/
+    public function getPluginName() : string
     {
-        return self::__PLUGIN_NAME_CAMEL_CASE__()->jobs()->factory()->newInstanceById($a_job_id);
+        return self::PLUGIN_NAME;
     }
 
 
     /**
      * @inheritDoc
      */
-    public function updateLanguages(/*?array*/ $a_lang_keys = null)/* : void*/
+    public function updateLanguages(/*?array*/ $a_lang_keys = null) : void
     {
         parent::updateLanguages($a_lang_keys);
 
@@ -99,7 +99,7 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    protected function deleteData()/* : void*/
+    protected function deleteData() : void
     {
         self::__PLUGIN_NAME_CAMEL_CASE__()->dropTables();
     }
@@ -108,8 +108,8 @@ class il__PLUGIN_NAME__Plugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    protected function shouldUseOneUpdateStepOnly() : bool
     {
-        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
+        return __SHOULD_USE_ONE_UPDATE_STEP_ONLY__;
     }
 }

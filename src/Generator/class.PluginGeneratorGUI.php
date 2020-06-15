@@ -21,10 +21,10 @@ class PluginGeneratorGUI
     use DICTrait;
     use SrPluginGeneratorTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const CMD_FILL = "fill";
     const CMD_GENERATE = "generate";
     const LANG_MODULE = "plugin_generator";
+    const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     /**
      * @var Options
      */
@@ -76,15 +76,6 @@ class PluginGeneratorGUI
     /**
      *
      */
-    protected function setTabs()/*: void*/
-    {
-
-    }
-
-
-    /**
-     *
-     */
     protected function fill()/*: void*/
     {
         $form = self::srPluginGenerator()->generator()->factory()->newFormBuilderInstance($this, $this->options);
@@ -109,5 +100,14 @@ class PluginGeneratorGUI
         $generator = self::srPluginGenerator()->generator()->factory()->newGeneratorInstance($this->options);
 
         $generator->generate();
+    }
+
+
+    /**
+     *
+     */
+    protected function setTabs()/*: void*/
+    {
+
     }
 }

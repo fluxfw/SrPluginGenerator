@@ -26,6 +26,15 @@ final class Repository
 
 
     /**
+     * Repository constructor
+     */
+    private function __construct()
+    {
+
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance() : self
@@ -39,18 +48,9 @@ final class Repository
 
 
     /**
-     * Repository constructor
-     */
-    private function __construct()
-    {
-
-    }
-
-
-    /**
      * @internal
      */
-    public function dropTables()/* : void*/
+    public function dropTables() : void
     {
 
     }
@@ -68,7 +68,7 @@ final class Repository
     /**
      * @internal
      */
-    public function installTables()/* : void*/
+    public function installTables() : void
     {
 
     }

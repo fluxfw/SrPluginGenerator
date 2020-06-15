@@ -22,10 +22,10 @@ class ConfigCtrl
     use DICTrait;
     use __PLUGIN_NAME__Trait;
 
-    const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const CMD_CONFIGURE = "configure";
     const CMD_UPDATE_CONFIGURE = "updateConfigure";
     const LANG_MODULE = "config";
+    const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const TAB_CONFIGURATION = "configuration";
 
 
@@ -41,7 +41,17 @@ class ConfigCtrl
     /**
      *
      */
-    public function executeCommand()/* : void*/
+    public static function addTabs() : void
+    {
+        self::dic()->tabs()->addTab(self::TAB_CONFIGURATION, self::plugin()->translate("configuration", self::LANG_MODULE), self::dic()->ctrl()
+            ->getLinkTargetByClass(self::class, self::CMD_CONFIGURE));
+    }
+
+
+    /**
+     *
+     */
+    public function executeCommand() : void
     {
         $this->setTabs();
 
@@ -68,26 +78,7 @@ class ConfigCtrl
     /**
      *
      */
-    public static function addTabs()/* : void*/
-    {
-        self::dic()->tabs()->addTab(self::TAB_CONFIGURATION, self::plugin()->translate("configuration", self::LANG_MODULE), self::dic()->ctrl()
-            ->getLinkTargetByClass(self::class, self::CMD_CONFIGURE));
-    }
-
-
-    /**
-     *
-     */
-    protected function setTabs()/* : void*/
-    {
-
-    }
-
-
-    /**
-     *
-     */
-    protected function configure()/* : void*/
+    protected function configure() : void
     {
         self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
 
@@ -100,7 +91,16 @@ class ConfigCtrl
     /**
      *
      */
-    protected function updateConfigure()/* : void*/
+    protected function setTabs() : void
+    {
+
+    }
+
+
+    /**
+     *
+     */
+    protected function updateConfigure() : void
     {
         self::dic()->tabs()->activateTab(self::TAB_CONFIGURATION);
 

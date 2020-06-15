@@ -19,13 +19,22 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
     use PluginUninstallTrait;
     use SrPluginGeneratorTrait;
 
+    const PLUGIN_CLASS_NAME = self::class;
     const PLUGIN_ID = "srplugingenerator";
     const PLUGIN_NAME = "SrPluginGenerator";
-    const PLUGIN_CLASS_NAME = self::class;
     /**
      * @var self|null
      */
     protected static $instance = null;
+
+
+    /**
+     * ilSrPluginGeneratorPlugin constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 
     /**
@@ -42,11 +51,11 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * ilSrPluginGeneratorPlugin constructor
+     * @inheritDoc
      */
-    public function __construct()
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
     {
-        parent::__construct();
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 
 
@@ -65,15 +74,6 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
     public function promoteGlobalScreenProvider() : AbstractStaticPluginMainMenuProvider
     {
         return self::srPluginGenerator()->menu();
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function shouldUseOneUpdateStepOnly() : bool
-    {
-        return true;
     }
 
 
@@ -100,8 +100,8 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
     /**
      * @inheritDoc
      */
-    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    protected function shouldUseOneUpdateStepOnly() : bool
     {
-        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
+        return true;
     }
 }
