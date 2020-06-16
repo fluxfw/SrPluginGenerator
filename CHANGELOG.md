@@ -1,7 +1,7 @@
 # Changelog
 
-## [x]
-- Config for min. PHP version/`PHP72Backport` script
+## [2.1.0]
+- Min. PHP version config
 
 ## [2.0.1]
 - Fixes
