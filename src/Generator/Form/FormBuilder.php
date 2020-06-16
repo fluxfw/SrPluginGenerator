@@ -4,9 +4,9 @@ namespace srag\Plugins\SrPluginGenerator\Generator\Form;
 
 use Closure;
 use ilCheckboxInputGUI;
+use ILIAS\UI\Component\Input\Field\Radio;
 use ILIAS\UI\Implementation\Component\Input\Field\Group;
 use ilSrPluginGeneratorPlugin;
-use ilTextInputGUI;
 use srag\CustomInputGUIs\SrPluginGenerator\FormBuilder\AbstractFormBuilder;
 use srag\CustomInputGUIs\SrPluginGenerator\InputGUIWrapperUIInputComponent\InputGUIWrapperUIInputComponent;
 use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\Items\Items;
@@ -51,117 +51,6 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function getButtons() : array
-    {
-        $buttons = [
-            PluginGeneratorGUI::CMD_GENERATE => self::plugin()->translate("generate", PluginGeneratorGUI::LANG_MODULE)
-        ];
-
-        return $buttons;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function getData() : array
-    {
-        $data = [];
-
-        foreach (array_keys($this->getFields()) as $key) {
-            if ($key === "features") {
-                $data[$key] = [];
-                foreach (array_keys($this->getFields()[$key]->getInputs()) as $key2) {
-                    $data[$key][$key2] = Items::getter($this->options, $key2);
-                }
-            } else {
-                $data[$key] = Items::getter($this->options, $key);
-            }
-        }
-
-        return $data;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function getFields() : array
-    {
-        $fields = [
-            "plugin_id"           => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("plugin_id", PluginGeneratorGUI::LANG_MODULE),
-                self::plugin()->translate("plugin_id_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
-            "project_key"         => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("project_key", PluginGeneratorGUI::LANG_MODULE),
-                self::plugin()->translate("project_key_info", PluginGeneratorGUI::LANG_MODULE)),
-            "plugin_name"         => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("plugin_name", PluginGeneratorGUI::LANG_MODULE),
-                self::plugin()->translate("plugin_name_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
-            "plugin_slot"         => self::dic()->ui()->factory()->input()->field()->select(self::plugin()->translate("plugin_slot", PluginGeneratorGUI::LANG_MODULE),
-                ["" => ""] + self::srPluginGenerator()->generator()->slots()->getSlots())->withRequired(true),
-            "init_plugin_version" => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("init_plugin_version", PluginGeneratorGUI::LANG_MODULE),
-                self::plugin()->translate("init_plugin_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
-            "min_ilias_version"   => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("min_ilias_version", PluginGeneratorGUI::LANG_MODULE),
-                self::plugin()->translate("min_ilias_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
-            "max_ilias_version"   => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("max_ilias_version", PluginGeneratorGUI::LANG_MODULE),
-                self::plugin()->translate("max_ilias_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
-            "min_php_version"     => (self::version()->is6()
-                ? self::dic()->ui()->factory()->input()->field()->text(self::plugin()
-                    ->translate("min_php_version", PluginGeneratorGUI::LANG_MODULE))
-                : new InputGUIWrapperUIInputComponent(new ilTextInputGUI(self::plugin()
-                    ->translate("min_php_version", PluginGeneratorGUI::LANG_MODULE))))->withByline(self::plugin()
-                ->translate("min_php_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true)->withDisabled(true),
-            "namespace"           => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("namespace", PluginGeneratorGUI::LANG_MODULE),
-                self::plugin()->translate("namespace_info", PluginGeneratorGUI::LANG_MODULE, ["__PLUGIN_NAME__"]))->withRequired(true),
-            "responsible_name"    => self::dic()
-                ->ui()
-                ->factory()
-                ->input()
-                ->field()
-                ->text(self::plugin()->translate("responsible_name", PluginGeneratorGUI::LANG_MODULE))
-                ->withRequired(true),
-            "responsible_email"   => self::dic()
-                ->ui()
-                ->factory()
-                ->input()
-                ->field()
-                ->text(self::plugin()->translate("responsible_email", PluginGeneratorGUI::LANG_MODULE))
-                ->withRequired(true),
-            "features"            => self::dic()->ui()->factory()->input()->field()->section([
-                "enable_php72backport_script"                   => (self::version()->is6()
-                    ? self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                        ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]))
-                    : new InputGUIWrapperUIInputComponent(new ilCheckboxInputGUI(self::plugin()
-                        ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]))))->withByline(self::plugin()
-                    ->translate("enable_php72backport_script_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true)->withDisabled(true),
-                "enable_php_min_version_checker"                => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                    ->translate("enable_php_min_version_checker", PluginGeneratorGUI::LANG_MODULE), self::plugin()
-                    ->translate("enable_php_min_version_checker_info", PluginGeneratorGUI::LANG_MODULE)),
-                "enable_should_use_one_update_step_only"        => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                    ->translate("enable_should_use_one_update_step_only", PluginGeneratorGUI::LANG_MODULE), self::plugin()
-                    ->translate("enable_should_use_one_update_step_only_info", PluginGeneratorGUI::LANG_MODULE)),
-                "enable_autogenerate_plugin_php_and_xml_script" => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                    ->translate("enable_autogenerate_plugin_php_and_xml_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "plugin.php", "plugin.xml", "composer.json"])),
-                "enable_update_plugin_readme_script"            => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                    ->translate("enable_update_plugin_readme_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "README.md", "composer.json"]), self::plugin()
-                    ->translate("enable_update_plugin_readme_script_info", PluginGeneratorGUI::LANG_MODULE))
-            ], self::plugin()->translate("features", PluginGeneratorGUI::LANG_MODULE), nl2br(self::plugin()->translate("features_info", PluginGeneratorGUI::LANG_MODULE), false))
-        ];
-
-        return $fields;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function getTitle() : string
-    {
-        return self::plugin()->translate("title", PluginGeneratorGUI::LANG_MODULE);
-    }
-
-
-    /**
-     * @inheritDoc
-     */
     public function render() : string
     {
         $this->messages[] = self::dic()->ui()->factory()->messageBox()->info(self::output()->getHTML([
@@ -192,19 +81,137 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
+    protected function getButtons() : array
+    {
+        $buttons = [
+            PluginGeneratorGUI::CMD_GENERATE => self::plugin()->translate("generate", PluginGeneratorGUI::LANG_MODULE)
+        ];
+
+        return $buttons;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getData() : array
+    {
+        $data = [];
+
+        foreach (array_keys($this->getFields()) as $key) {
+            if ($key === "features") {
+                $data[$key] = [];
+                foreach (array_keys($this->getFields()[$key]->getInputs()) as $key2) {
+                    if ($key2 !== "enable_php72backport_script") {
+                        $data[$key][$key2] = Items::getter($this->options, $key2);
+                    }
+                }
+            } else {
+                $data[$key] = Items::getter($this->options, $key);
+            }
+        }
+
+        return $data;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getFields() : array
+    {
+        $fields = [
+            "plugin_id"           => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("plugin_id", PluginGeneratorGUI::LANG_MODULE),
+                self::plugin()->translate("plugin_id_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
+            "project_key"         => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("project_key", PluginGeneratorGUI::LANG_MODULE),
+                self::plugin()->translate("project_key_info", PluginGeneratorGUI::LANG_MODULE)),
+            "plugin_name"         => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("plugin_name", PluginGeneratorGUI::LANG_MODULE),
+                self::plugin()->translate("plugin_name_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
+            "plugin_slot"         => self::dic()->ui()->factory()->input()->field()->select(self::plugin()->translate("plugin_slot", PluginGeneratorGUI::LANG_MODULE),
+                ["" => ""] + self::srPluginGenerator()->generator()->slots()->getSlots())->withRequired(true),
+            "init_plugin_version" => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("init_plugin_version", PluginGeneratorGUI::LANG_MODULE),
+                self::plugin()->translate("init_plugin_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
+            "min_ilias_version"   => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("min_ilias_version", PluginGeneratorGUI::LANG_MODULE),
+                self::plugin()->translate("min_ilias_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
+            "max_ilias_version"   => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("max_ilias_version", PluginGeneratorGUI::LANG_MODULE),
+                self::plugin()->translate("max_ilias_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
+            "min_php_version"     => array_reduce(array_keys(Options::PHP_VERSIONS), function (Radio $radio, string $php_version) : Radio {
+                $radio = $radio->withOption($php_version, Options::PHP_VERSIONS[$php_version], ($php_version === Options::DEFAULT_MIN_PHP_VERSION ? self::plugin()
+                    ->translate("min_php_version_70_info", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]) : null));
+
+                return $radio;
+            }, self::dic()->ui()->factory()->input()->field()->radio(self::plugin()
+                ->translate("min_php_version", PluginGeneratorGUI::LANG_MODULE))->withRequired(true)),
+            "namespace"           => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("namespace", PluginGeneratorGUI::LANG_MODULE),
+                self::plugin()->translate("namespace_info", PluginGeneratorGUI::LANG_MODULE, ["__PLUGIN_NAME__"]))->withRequired(true),
+            "responsible_name"    => self::dic()
+                ->ui()
+                ->factory()
+                ->input()
+                ->field()
+                ->text(self::plugin()->translate("responsible_name", PluginGeneratorGUI::LANG_MODULE))
+                ->withRequired(true),
+            "responsible_email"   => self::dic()
+                ->ui()
+                ->factory()
+                ->input()
+                ->field()
+                ->text(self::plugin()->translate("responsible_email", PluginGeneratorGUI::LANG_MODULE))
+                ->withRequired(true),
+            "features"            => self::dic()->ui()->factory()->input()->field()->section([
+                "enable_librariesnamespacechanger_script"       => (self::version()->is6()
+                    ? self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                        ->translate("enable_librariesnamespacechanger_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "LibrariesNamespaceChanger"]))
+                    : new InputGUIWrapperUIInputComponent(new ilCheckboxInputGUI(self::plugin()
+                        ->translate("enable_librariesnamespacechanger_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "LibrariesNamespaceChanger"]))))->withByline(nl2br(self::plugin()
+                    ->translate("enable_librariesnamespacechanger_script_info", PluginGeneratorGUI::LANG_MODULE), false))->withRequired(true)->withDisabled(true),
+                "enable_php72backport_script"                   => (self::version()->is6()
+                    ? self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                        ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]))
+                    : new InputGUIWrapperUIInputComponent(new ilCheckboxInputGUI(self::plugin()
+                        ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]))))->withByline(self::plugin()
+                    ->translate("enable_php72backport_script_info", PluginGeneratorGUI::LANG_MODULE))->withDisabled(true),
+                "enable_min_php_version_checker"                => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                    ->translate("enable_min_php_version_checker", PluginGeneratorGUI::LANG_MODULE), self::plugin()
+                    ->translate("enable_min_php_version_checker_info", PluginGeneratorGUI::LANG_MODULE)),
+                "enable_should_use_one_update_step_only"        => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                    ->translate("enable_should_use_one_update_step_only", PluginGeneratorGUI::LANG_MODULE), self::plugin()
+                    ->translate("enable_should_use_one_update_step_only_info", PluginGeneratorGUI::LANG_MODULE)),
+                "enable_autogenerate_plugin_php_and_xml_script" => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                    ->translate("enable_autogenerate_plugin_php_and_xml_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "plugin.php", "plugin.xml", "composer.json"])),
+                "enable_update_plugin_readme_script"            => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                    ->translate("enable_update_plugin_readme_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "README.md", "composer.json"]), self::plugin()
+                    ->translate("enable_update_plugin_readme_script_info", PluginGeneratorGUI::LANG_MODULE))
+            ], self::plugin()->translate("features", PluginGeneratorGUI::LANG_MODULE), nl2br(self::plugin()->translate("features_info", PluginGeneratorGUI::LANG_MODULE), false))
+        ];
+
+        return $fields;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getTitle() : string
+    {
+        return self::plugin()->translate("title", PluginGeneratorGUI::LANG_MODULE);
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     protected function storeData(array $data)/* : void*/
     {
         foreach (array_keys($this->getFields()) as $key) {
             if ($key === "features") {
                 foreach (array_keys($this->getFields()[$key]->getInputs()) as $key2) {
-                    if ($key2 !== "enable_php72backport_script") {
+                    if (!in_array($key2, ["enable_librariesnamespacechanger_script", "enable_php72backport_script"])) {
                         Items::setter($this->options, $key2, $data[$key][$key2]);
                     }
                 }
             } else {
-                if ($key !== "min_php_version") {
-                    Items::setter($this->options, $key, $data[$key]);
-                }
+                Items::setter($this->options, $key, $data[$key]);
             }
         }
     }

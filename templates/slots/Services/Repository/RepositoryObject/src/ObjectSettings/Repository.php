@@ -27,6 +27,15 @@ final class Repository
 
 
     /**
+     * Repository constructor
+     */
+    private function __construct()
+    {
+
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance() : self
@@ -36,15 +45,6 @@ final class Repository
         }
 
         return self::$instance;
-    }
-
-
-    /**
-     * Repository constructor
-     */
-    private function __construct()
-    {
-
     }
 
 
@@ -62,7 +62,7 @@ final class Repository
     /**
      * @param ObjectSettings $object_settings
      */
-    public function deleteObjectSettings(ObjectSettings $object_settings)/* : void*/
+    public function deleteObjectSettings(ObjectSettings $object_settings) : void
     {
         $object_settings->delete();
     }
@@ -71,7 +71,7 @@ final class Repository
     /**
      * @internal
      */
-    public function dropTables()/* : void*/
+    public function dropTables() : void
     {
         self::dic()->database()->dropTable(ObjectSettings::TABLE_NAME, false);
     }
@@ -91,7 +91,7 @@ final class Repository
      *
      * @return ObjectSettings|null
      */
-    public function getObjectSettingsById(int $obj_id)/* : ?ObjectSettings*/
+    public function getObjectSettingsById(int $obj_id) : ?ObjectSettings
     {
         /**
          * @var ObjectSettings|null $object_settings
@@ -108,7 +108,7 @@ final class Repository
     /**
      * @internal
      */
-    public function installTables()/* : void*/
+    public function installTables() : void
     {
         ObjectSettings::updateDB();
     }
@@ -117,7 +117,7 @@ final class Repository
     /**
      * @param ObjectSettings $object_settings
      */
-    public function storeObjectSettings(ObjectSettings $object_settings)/* : void*/
+    public function storeObjectSettings(ObjectSettings $object_settings) : void
     {
         $object_settings->store();
     }

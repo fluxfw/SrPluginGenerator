@@ -28,19 +28,6 @@ final class Factory
 
 
     /**
-     * @return self
-     */
-    public static function getInstance() : self
-    {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
-    }
-
-
-    /**
      * Factory constructor
      */
     private function __construct()
@@ -50,13 +37,15 @@ final class Factory
 
 
     /**
-     * @return Options
+     * @return self
      */
-    public function newOptionsInstance() : Options
+    public static function getInstance() : self
     {
-        $options = new Options();
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
 
-        return $options;
+        return self::$instance;
     }
 
 
@@ -84,5 +73,16 @@ final class Factory
         $generator = new Generator($options);
 
         return $generator;
+    }
+
+
+    /**
+     * @return Options
+     */
+    public function newOptionsInstance() : Options
+    {
+        $options = new Options();
+
+        return $options;
     }
 }

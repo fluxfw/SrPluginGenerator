@@ -16,12 +16,12 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     use DICTrait;
     use __PLUGIN_NAME__Trait;
 
-    const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const CMD_CANCEL = "cancel";
     const CMD_CREATE = "create";
     const CMD_EDIT = "edit";
     const CMD_INSERT = "insert";
     const CMD_UPDATE = "update";
+    const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
 
 
     /**
@@ -34,60 +34,18 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
 
 
     /**
-     * @inheritDoc
+     *
      */
-    public function executeCommand()/* : void*/
+    public function cancel() : void
     {
-        $next_class = self::dic()->ctrl()->getNextClass($this);
-
-        switch (strtolower($next_class)) {
-            default:
-                $cmd = self::dic()->ctrl()->getCmd();
-
-                switch ($cmd) {
-                    case self::CMD_CANCEL:
-                    case self::CMD_CREATE:
-                    case self::CMD_EDIT:
-                    case self::CMD_INSERT:
-                    case self::CMD_UPDATE:
-                        $this->{$cmd}();
-                        break;
-
-                    default:
-                        break;
-                }
-                break;
-        }
-    }
-
-
-    /**
-     * @return ilPropertyFormGUI
-     */
-    protected function getForm() : ilPropertyFormGUI
-    {
-        $form = new ilPropertyFormGUI();
-
-        // TODO: Implement getForm
-        // TODO: Use seperate class
-
-        return $form;
+        $this->returnToParent();
     }
 
 
     /**
      * @inheritDoc
      */
-    public function insert()/* : void*/
-    {
-        $this->edit();
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function create()/* : void*/
+    public function create() : void
     {
         $form = $this->getForm();
 
@@ -113,7 +71,7 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
     /**
      * @inheritDoc
      */
-    public function edit()/* : void*/
+    public function edit() : void
     {
         $form = $this->getForm();
 
@@ -122,9 +80,55 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
 
 
     /**
+     * @inheritDoc
+     */
+    public function executeCommand() : void
+    {
+        $next_class = self::dic()->ctrl()->getNextClass($this);
+
+        switch (strtolower($next_class)) {
+            default:
+                $cmd = self::dic()->ctrl()->getCmd();
+
+                switch ($cmd) {
+                    case self::CMD_CANCEL:
+                    case self::CMD_CREATE:
+                    case self::CMD_EDIT:
+                    case self::CMD_INSERT:
+                    case self::CMD_UPDATE:
+                        $this->{$cmd}();
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+        }
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getElementHTML(/*string*/ $a_mode, array $a_properties, /*string*/ $plugin_version) : string
+    {
+        return ""; // TODO: Implement getElementHTML
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function insert() : void
+    {
+        $this->edit();
+    }
+
+
+    /**
      *
      */
-    public function update()/* : void*/
+    public function update() : void
     {
         $form = $this->getForm();
 
@@ -147,19 +151,15 @@ class il__PLUGIN_NAME__PluginGUI extends ilPageComponentPluginGUI
 
 
     /**
-     *
+     * @return ilPropertyFormGUI
      */
-    public function cancel()/* : void*/
+    protected function getForm() : ilPropertyFormGUI
     {
-        $this->returnToParent();
-    }
+        $form = new ilPropertyFormGUI();
 
+        // TODO: Implement getForm
+        // TODO: Use seperate class
 
-    /**
-     * @inheritDoc
-     */
-    public function getElementHTML(/*string*/ $a_mode, array $a_properties, /*string*/ $plugin_version) : string
-    {
-        return ""; // TODO: Implement getElementHTML
+        return $form;
     }
 }

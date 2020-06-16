@@ -30,20 +30,6 @@ class CustomInputGUIsLoaderDetector extends AbstractLoaderDetector
 
 
     /**
-     *
-     */
-    private static function fixCtrlNamespaceCurrentUrl()/*:void*/
-    {
-        if (!self::$has_fix_ctrl_namespace_current_url) {
-            self::$has_fix_ctrl_namespace_current_url = true;
-
-            // Fix language select meta bar which current ctrl gui has namespaces (public page)
-            $_SERVER["REQUEST_URI"] = str_replace("\\", "%5C", $_SERVER["REQUEST_URI"]);
-        }
-    }
-
-
-    /**
      * @return callable
      */
     public static function exchangeUIRendererAfterInitialization() : callable
@@ -67,6 +53,20 @@ class CustomInputGUIsLoaderDetector extends AbstractLoaderDetector
 
             return new DefaultRenderer(new self($previous_renderer_loader));
         };
+    }
+
+
+    /**
+     *
+     */
+    private static function fixCtrlNamespaceCurrentUrl()/*:void*/
+    {
+        if (!self::$has_fix_ctrl_namespace_current_url) {
+            self::$has_fix_ctrl_namespace_current_url = true;
+
+            // Fix language select meta bar which current ctrl gui has namespaces (public page)
+            $_SERVER["REQUEST_URI"] = str_replace("\\", "%5C", $_SERVER["REQUEST_URI"]);
+        }
     }
 
 

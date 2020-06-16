@@ -19,8 +19,8 @@ class FormBuilder extends AbstractFormBuilder
 
     use __PLUGIN_NAME__Trait;
 
-    const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     const KEY_SOME = "some";
+    const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
 
 
     /**
@@ -85,7 +85,7 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data)/* : void*/
+    protected function storeData(array $data) : void
     {
         self::__PLUGIN_NAME_CAMEL_CASE__()->config()->setValue(self::KEY_SOME, strval($data[self::KEY_SOME]));
     }

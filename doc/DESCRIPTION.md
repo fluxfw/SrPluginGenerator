@@ -11,4 +11,5 @@ This plugin is installed at : https://plgen.studer-raimann.ch
 
 Form:
 
-![Form](./images/form.png)
+![Form 1](./images/form_1.png)
+![Form 2](./images/form_2.png)

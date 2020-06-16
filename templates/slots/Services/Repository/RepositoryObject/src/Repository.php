@@ -29,6 +29,15 @@ final class Repository
 
 
     /**
+     * Repository constructor
+     */
+    private function __construct()
+    {
+
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance() : self
@@ -38,15 +47,6 @@ final class Repository
         }
 
         return self::$instance;
-    }
-
-
-    /**
-     * Repository constructor
-     */
-    private function __construct()
-    {
-
     }
 
 
@@ -62,7 +62,7 @@ final class Repository
     /**
      *
      */
-    public function dropTables()/* : void*/
+    public function dropTables() : void
     {
         $this->config()->dropTables();
         $this->objectSettings()->dropTables();
@@ -72,7 +72,7 @@ final class Repository
     /**
      *
      */
-    public function installTables()/* : void*/
+    public function installTables() : void
     {
         $this->config()->installTables();
         $this->objectSettings()->installTables();

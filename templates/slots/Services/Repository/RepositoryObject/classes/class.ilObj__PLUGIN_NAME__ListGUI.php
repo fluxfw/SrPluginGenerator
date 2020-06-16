@@ -40,6 +40,25 @@ class ilObj__PLUGIN_NAME__ListGUI extends ilObjectPluginListGUI
     /**
      * @inheritDoc
      */
+    public function getProperties() : array
+    {
+        $props = [];
+
+        if (ilObj__PLUGIN_NAME__Access::_isOffline($this->obj_id)) {
+            $props[] = [
+                "alert"    => true,
+                "property" => self::plugin()->translate("status", ilObj__PLUGIN_NAME__GUI::LANG_MODULE_OBJECT),
+                "value"    => self::plugin()->translate("offline", ilObj__PLUGIN_NAME__GUI::LANG_MODULE_OBJECT)
+            ];
+        }
+
+        return $props;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     public function initCommands() : array
     {
         $this->commands_enabled = true;
@@ -82,26 +101,7 @@ class ilObj__PLUGIN_NAME__ListGUI extends ilObjectPluginListGUI
     /**
      * @inheritDoc
      */
-    public function getProperties() : array
-    {
-        $props = [];
-
-        if (ilObj__PLUGIN_NAME__Access::_isOffline($this->obj_id)) {
-            $props[] = [
-                "alert"    => true,
-                "property" => self::plugin()->translate("status", ilObj__PLUGIN_NAME__GUI::LANG_MODULE_OBJECT),
-                "value"    => self::plugin()->translate("offline", ilObj__PLUGIN_NAME__GUI::LANG_MODULE_OBJECT)
-            ];
-        }
-
-        return $props;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function initType()/* : void*/
+    public function initType() : void
     {
         $this->setType(il__PLUGIN_NAME__Plugin::PLUGIN_ID);
     }

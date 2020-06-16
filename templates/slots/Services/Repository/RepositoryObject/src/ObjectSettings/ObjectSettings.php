@@ -21,16 +21,38 @@ class ObjectSettings extends ActiveRecord
     use DICTrait;
     use __PLUGIN_NAME__Trait;
 
-    const TABLE_NAME = "rep_robj_" . il__PLUGIN_NAME__Plugin::PLUGIN_ID . "_set";
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
+    const TABLE_NAME = "rep_robj_" . il__PLUGIN_NAME__Plugin::PLUGIN_ID . "_set";
+    /**
+     * @var bool
+     *
+     * @con_has_field    true
+     * @con_fieldtype    integer
+     * @con_length       1
+     * @con_is_notnull   true
+     */
+    protected $is_online = false;
+    /**
+     * @var int
+     *
+     * @con_has_field    true
+     * @con_fieldtype    integer
+     * @con_length       8
+     * @con_is_notnull   true
+     * @con_is_primary   true
+     */
+    protected $obj_id;
 
 
     /**
-     * @inheritDoc
+     * ObjectSettings constructor
+     *
+     * @param int              $primary_key_value
+     * @param arConnector|null $connector
      */
-    public function getConnectorContainerName() : string
+    public function __construct(/*int*/ $primary_key_value = 0, arConnector $connector = null)
     {
-        return self::TABLE_NAME;
+        parent::__construct($primary_key_value, $connector);
     }
 
 
@@ -46,35 +68,47 @@ class ObjectSettings extends ActiveRecord
 
 
     /**
-     * @var int
-     *
-     * @con_has_field    true
-     * @con_fieldtype    integer
-     * @con_length       8
-     * @con_is_notnull   true
-     * @con_is_primary   true
+     * @inheritDoc
      */
-    protected $obj_id;
-    /**
-     * @var bool
-     *
-     * @con_has_field    true
-     * @con_fieldtype    integer
-     * @con_length       1
-     * @con_is_notnull   true
-     */
-    protected $is_online = false;
-
-
-    /**
-     * ObjectSettings constructor
-     *
-     * @param int              $primary_key_value
-     * @param arConnector|null $connector
-     */
-    public function __construct(/*int*/ $primary_key_value = 0, arConnector $connector = null)
+    public function getConnectorContainerName() : string
     {
-        parent::__construct($primary_key_value, $connector);
+        return self::TABLE_NAME;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getObjId() : int
+    {
+        return $this->obj_id;
+    }
+
+
+    /**
+     * @param int $obj_id
+     */
+    public function setObjId(int $obj_id) : void
+    {
+        $this->obj_id = $obj_id;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isOnline() : bool
+    {
+        return $this->is_online;
+    }
+
+
+    /**
+     * @param bool $is_online
+     */
+    public function setOnline(bool $is_online = true) : void
+    {
+        $this->is_online = $is_online;
     }
 
 
@@ -112,41 +146,5 @@ class ObjectSettings extends ActiveRecord
             default:
                 return parent::wakeUp($field_name, $field_value);
         }
-    }
-
-
-    /**
-     * @return int
-     */
-    public function getObjId() : int
-    {
-        return $this->obj_id;
-    }
-
-
-    /**
-     * @param int $obj_id
-     */
-    public function setObjId(int $obj_id)/* : void*/
-    {
-        $this->obj_id = $obj_id;
-    }
-
-
-    /**
-     * @return bool
-     */
-    public function isOnline() : bool
-    {
-        return $this->is_online;
-    }
-
-
-    /**
-     * @param bool $is_online
-     */
-    public function setOnline(bool $is_online = true)/* : void*/
-    {
-        $this->is_online = $is_online;
     }
 }

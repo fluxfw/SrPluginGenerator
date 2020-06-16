@@ -29,6 +29,15 @@ class Menu extends AbstractStaticPluginMainMenuProvider
     /**
      * @inheritDoc
      */
+    public function getStaticSubItems() : array
+    {
+        return [];
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     public function getStaticTopItems() : array
     {
         return [
@@ -42,14 +51,5 @@ class Menu extends AbstractStaticPluginMainMenuProvider
                     return self::srPluginGenerator()->currentUserHasRole();
                 })
         ];
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function getStaticSubItems() : array
-    {
-        return [];
     }
 }

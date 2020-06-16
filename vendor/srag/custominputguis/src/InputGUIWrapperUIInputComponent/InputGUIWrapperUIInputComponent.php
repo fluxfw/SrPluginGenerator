@@ -75,6 +75,15 @@ class InputGUIWrapperUIInputComponent extends Input
 
 
     /**
+     * @param ilFormPropertyGUI $input
+     */
+    public function setInput(ilFormPropertyGUI $input)/* : void*/
+    {
+        $this->input = $input;
+    }
+
+
+    /**
      * @inheritDoc
      */
     public function getLabel()/*:string*/
@@ -86,31 +95,20 @@ class InputGUIWrapperUIInputComponent extends Input
     /**
      * @inheritDoc
      */
+    public function getUpdateOnLoadCode() : Closure
+    {
+        return function (string $id) : string {
+            return "";
+        };
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     public function getValue()
     {
         return Items::getValueFromItem($this->input);
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function getConstraintForRequirement()/*:?Constraint*/
-    {
-        if (self::version()->is6()) {
-            return new InputGUIWrapperConstraint($this->input, $this->data_factory, self::dic()->language());
-        } else {
-            return new InputGUIWrapperConstraint54($this->input, $this->data_factory, self::dic()->language());
-        }
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function isClientSideValueOk($value) : bool
-    {
-        return $this->input->checkInput();
     }
 
 
@@ -129,15 +127,6 @@ class InputGUIWrapperUIInputComponent extends Input
     public function isRequired()/*:bool*/
     {
         return $this->input->getRequired();
-    }
-
-
-    /**
-     * @param ilFormPropertyGUI $input
-     */
-    public function setInput(ilFormPropertyGUI $input)/* : void*/
-    {
-        $this->input = $input;
     }
 
 
@@ -253,10 +242,21 @@ class InputGUIWrapperUIInputComponent extends Input
     /**
      * @inheritDoc
      */
-    public function getUpdateOnLoadCode() : Closure
+    protected function getConstraintForRequirement()/*:?Constraint*/
     {
-        return function (string $id) : string {
-            return "";
-        };
+        if (self::version()->is6()) {
+            return new InputGUIWrapperConstraint($this->input, $this->data_factory, self::dic()->language());
+        } else {
+            return new InputGUIWrapperConstraint54($this->input, $this->data_factory, self::dic()->language());
+        }
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function isClientSideValueOk($value) : bool
+    {
+        return $this->input->checkInput();
     }
 }

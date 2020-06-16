@@ -70,6 +70,8 @@ Complete your `composer.json` with
     "id": "x",
     "ilias_min_version": "x.y.z",
     "ilias_max_version": "x.y.z",
+    "learning_progress": true,
+    "supports_export": true,
     "events": [
       {
         "id": "X/Y",

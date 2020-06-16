@@ -21,8 +21,8 @@ class FormBuilder extends AbstractFormBuilder
 
     use SrPluginGeneratorTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const KEY_ROLES = "roles";
+    const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
 
 
     /**
