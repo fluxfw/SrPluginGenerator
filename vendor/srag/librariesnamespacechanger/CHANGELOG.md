@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.9.7]
+- Add some regexp to `PHP72Backport`
+- Skip some folders
+
+## [0.9.6]
+- `GeneratePluginPhpAndXml`: No empty `<events>`
+
+## [0.9.5]
+- `GeneratePluginPhpAndXml`: `learning_progress` and `supports_export`
+
 ## [0.9.4]
 - Fix
 

@@ -220,14 +220,15 @@ class Generator
         }
 
         $composer_autoload_files = [];
-        if ($this->options->isEnablePhpMinVersionChecker()) {
+        if ($this->options->isEnableMinPhpVersionChecker()) {
             $composer_autoload_files[] = "vendor/srag/dic/src/PHPVersionChecker.php";
         }
 
-        $composer_scripts = [
-            "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces"
-        ];
-        if ($this->options->isEnablePhp72backportScript() || $this->options->getMinPhpVersion() === Options::DEFAULT_MIN_PHP_VERSION) {
+        $composer_scripts = [];
+        if ($this->options->isEnableLibrariesnamespacechangerScript()) {
+            $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces";
+        }
+        if ($this->options->isEnablePhp72backportScript()) {
             $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport";
         }
         if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {

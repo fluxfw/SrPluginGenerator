@@ -28,6 +28,11 @@ class Options implements JsonSerializable
     const DEFAULT_NAMESPACE = "srag\\Plugins\\__PLUGIN_NAME__\\";
     const DEFAULT_RESPONSIBLE_EMAIL = "support-custom1@studer-raimann.ch";
     const DEFAULT_RESPONSIBLE_NAME = "studer + raimann ag - Team Custom 1";
+    const PHP_VERSIONS
+        = [
+            self::DEFAULT_MIN_PHP_VERSION => self::DEFAULT_MIN_PHP_VERSION,
+            "7.2"                         => "7.2"
+        ];
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     /**
      * @var bool
@@ -36,11 +41,15 @@ class Options implements JsonSerializable
     /**
      * @var bool
      */
-    protected $enable_php72backport_script = false;
+    protected $enable_librariesnamespacechanger_script = true;
     /**
      * @var bool
      */
-    protected $enable_php_min_version_checker = false;
+    protected $enable_min_php_version_checker = false;
+    /**
+     * @var bool
+     */
+    protected $enable_php72backport_script = false;
     /**
      * @var bool
      */
@@ -323,8 +332,48 @@ class Options implements JsonSerializable
     /**
      * @return bool
      */
+    public function isEnableLibrariesnamespacechangerScript() : bool
+    {
+        return $this->enable_librariesnamespacechanger_script;
+    }
+
+
+    /**
+     * @param bool $enable_librariesnamespacechanger_script
+     */
+    public function setEnableLibrariesnamespacechangerScript(bool $enable_librariesnamespacechanger_script)/* : void*/
+    {
+        $this->enable_librariesnamespacechanger_script = $enable_librariesnamespacechanger_script;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isEnableMinPhpVersionChecker() : bool
+    {
+        return $this->enable_min_php_version_checker;
+    }
+
+
+    /**
+     * @param bool $enable_min_php_version_checker
+     */
+    public function setEnableMinPhpVersionChecker(bool $enable_min_php_version_checker)/*: void*/
+    {
+        $this->enable_min_php_version_checker = $enable_min_php_version_checker;
+    }
+
+
+    /**
+     * @return bool
+     */
     public function isEnablePhp72backportScript() : bool
     {
+        if ($this->min_php_version === self::DEFAULT_MIN_PHP_VERSION) {
+            return true;
+        }
+
         return $this->enable_php72backport_script;
     }
 
@@ -335,24 +384,6 @@ class Options implements JsonSerializable
     public function setEnablePhp72backportScript(bool $enable_php72backport_script)/* : void*/
     {
         $this->enable_php72backport_script = $enable_php72backport_script;
-    }
-
-
-    /**
-     * @return bool
-     */
-    public function isEnablePhpMinVersionChecker() : bool
-    {
-        return $this->enable_php_min_version_checker;
-    }
-
-
-    /**
-     * @param bool $enable_php_min_version_checker
-     */
-    public function setEnablePhpMinVersionChecker(bool $enable_php_min_version_checker)/*: void*/
-    {
-        $this->enable_php_min_version_checker = $enable_php_min_version_checker;
     }
 
 
