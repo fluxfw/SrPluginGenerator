@@ -3,9 +3,7 @@
   "description": "",
   "version": "__INIT_PLUGIN_VERSION__",
   "ilias_plugin": {
-    "id": "__PLUGIN_ID__",
-    "ilias_min_version": "__MIN_ILIAS_VERSION__",
-    "ilias_max_version": "__MAX_ILIAS_VERSION__"
+    __ILIAS_PLUGIN__
   },
   "type": "project",
   "keywords": [

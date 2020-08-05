@@ -238,6 +238,16 @@ class Generator
             $composer_scripts[] = "srag\LibrariesNamespaceChanger\UpdatePluginReadme::updatePluginReadme";
         }
 
+        $ilias_plugin = [
+            "id"                => "__PLUGIN_ID__",
+            "ilias_min_version" => "__MIN_ILIAS_VERSION__",
+            "ilias_max_version" => "__MAX_ILIAS_VERSION__"
+        ];
+        if ($this->options->getPluginSlot() === Slots::REPOSITORY_OBJECT) {
+            $ilias_plugin["lucene_search"] = true;
+        }
+        $ilias_plugin["slot"] = $this->options->getPluginSlot();
+
         $this->placeholders = [
             "AUTHOR_COMMENT"                  => $author_comment,
             "COMPOSER_AUTOLOAD_FILES"         => implode(",
@@ -246,6 +256,10 @@ class Generator
             }, $composer_autoload_files)),
             "COMPOSER_SCRIPTS"                => implode(",
       ", array_map("json_encode", $composer_scripts)),
+            "ILIAS_PLUGIN"                    => implode(",
+    ", array_map(function (string $key, $value) : string {
+                return json_encode($key, JSON_UNESCAPED_SLASHES) . ": " . json_encode($value, JSON_UNESCAPED_SLASHES);
+            }, array_keys($ilias_plugin), $ilias_plugin)),
             "INIT_PLUGIN_VERSION"             => $this->options->getInitPluginVersion(),
             "MAX_ILIAS_VERSION"               => $this->options->getMaxIliasVersion(),
             "MIN_ILIAS_VERSION"               => $this->options->getMinIliasVersion(),

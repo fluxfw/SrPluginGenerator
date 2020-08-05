@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.2.0]
+- Plugin slot in `composer.json`
+- Auto update `LuceneObjectDefinition.xml` for repository objects
+
 ## [2.1.0]
 - Min. PHP version config
 
