@@ -240,16 +240,14 @@ class Generator
 
         $ilias_plugin = [
             "id"                => "__PLUGIN_ID__",
+            "name"              => "__PLUGIN_NAME__",
             "ilias_min_version" => "__MIN_ILIAS_VERSION__",
             "ilias_max_version" => "__MAX_ILIAS_VERSION__"
         ];
         if ($this->options->getPluginSlot() === Slots::REPOSITORY_OBJECT) {
             $ilias_plugin["lucene_search"] = true;
         }
-        $ilias_plugin = array_merge($ilias_plugin, [
-            "name" => "__PLUGIN_NAME__",
-            "slot" => "__PLUGIN_SLOT__"
-        ]);
+        $ilias_plugin["slot"] = "__PLUGIN_SLOT__";
 
         $this->placeholders = [
             "AUTHOR_COMMENT"                  => $author_comment,
