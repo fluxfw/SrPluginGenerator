@@ -246,7 +246,10 @@ class Generator
         if ($this->options->getPluginSlot() === Slots::REPOSITORY_OBJECT) {
             $ilias_plugin["lucene_search"] = true;
         }
-        $ilias_plugin["slot"] = $this->options->getPluginSlot();
+        $ilias_plugin = array_merge($ilias_plugin, [
+            "name" => "__PLUGIN_NAME__",
+            "slot" => "__PLUGIN_SLOT__"
+        ]);
 
         $this->placeholders = [
             "AUTHOR_COMMENT"                  => $author_comment,
