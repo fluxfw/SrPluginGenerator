@@ -22,7 +22,7 @@ class ilObj__PLUGIN_NAME__ListGUI extends ilObjectPluginListGUI
      *
      * @param int $a_context
      */
-    public function __construct(int $a_context = self::CONTEXT_REPOSITORY)
+    public function __construct(/*int*/ $a_context = self::CONTEXT_REPOSITORY)
     {
         parent::__construct($a_context);
     }

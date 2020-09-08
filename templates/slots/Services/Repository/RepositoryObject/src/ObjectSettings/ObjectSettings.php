@@ -50,7 +50,7 @@ class ObjectSettings extends ActiveRecord
      * @param int              $primary_key_value
      * @param arConnector|null $connector
      */
-    public function __construct(/*int*/ $primary_key_value = 0, arConnector $connector = null)
+    public function __construct(/*int*/ $primary_key_value = 0, /*?*/ arConnector $connector = null)
     {
         parent::__construct($primary_key_value, $connector);
     }
@@ -137,11 +137,9 @@ class ObjectSettings extends ActiveRecord
         switch ($field_name) {
             case "obj_id":
                 return intval($field_value);
-                break;
 
             case "is_online":
                 return boolval($field_value);
-                break;
 
             default:
                 return parent::wakeUp($field_name, $field_value);

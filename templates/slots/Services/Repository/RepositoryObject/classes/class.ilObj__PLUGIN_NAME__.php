@@ -38,7 +38,7 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
      */
     public function doCreate() : void
     {
-        $this->object_settings = new ObjectSettings();
+        $this->object_settings = self::__PLUGIN_NAME_CAMEL_CASE__()->objectSettings()->factory()->newInstance();
 
         $this->object_settings->setObjId($this->id);
 

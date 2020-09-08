@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.2.1]
+- Fixes
+
 ## [2.2.0]
 - Plugin slot and name in `composer.json`
 - Auto update `LuceneObjectDefinition.xml` for repository objects
