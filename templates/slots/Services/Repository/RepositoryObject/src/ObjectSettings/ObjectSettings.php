@@ -137,11 +137,9 @@ class ObjectSettings extends ActiveRecord
         switch ($field_name) {
             case "obj_id":
                 return intval($field_value);
-                break;
 
             case "is_online":
                 return boolval($field_value);
-                break;
 
             default:
                 return parent::wakeUp($field_name, $field_value);

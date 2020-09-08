@@ -33,7 +33,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
     /**
      * @inheritDoc
      */
-    public static function _isOffline(/*?int*/ $a_obj_id) : bool
+    public static function _isOffline(/*int*/ $a_obj_id) : bool
     {
         $object_settings = self::__PLUGIN_NAME_CAMEL_CASE__()->objectSettings()->getObjectSettingsById(intval($a_obj_id));
 
@@ -107,7 +107,7 @@ class ilObj__PLUGIN_NAME__Access extends ilObjectPluginAccess
      *
      * @return bool
      */
-    public static function hasWriteAccess(int $ref_id = null) : bool
+    public static function hasWriteAccess(?int $ref_id = null) : bool
     {
         return self::checkAccess("write", "write", $ref_id);
     }
