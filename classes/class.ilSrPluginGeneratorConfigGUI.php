@@ -43,12 +43,12 @@ class ilSrPluginGeneratorConfigGUI extends ilPluginConfigGUI
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
         switch (strtolower($next_class)) {
-            case strtolower(DevToolsCtrl::class):
-                self::dic()->ctrl()->forwardCommand(new DevToolsCtrl($this, self::plugin()));
-                break;
-
             case strtolower(ConfigCtrl::class):
                 self::dic()->ctrl()->forwardCommand(new ConfigCtrl());
+                break;
+
+            case strtolower(DevToolsCtrl::class):
+                self::dic()->ctrl()->forwardCommand(new DevToolsCtrl($this, self::plugin()));
                 break;
 
             default:
