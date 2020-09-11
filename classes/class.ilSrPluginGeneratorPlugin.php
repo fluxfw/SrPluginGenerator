@@ -85,6 +85,8 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
         parent::updateLanguages($a_lang_keys);
 
         $this->installRemovePluginDataConfirmLanguages();
+
+        DevToolsCtrl::installLanguages(self::plugin());
     }
 
 

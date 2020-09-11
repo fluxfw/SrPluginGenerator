@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.3.0]
+- Dev tools
+
 ## [2.2.1]
 - Fixes
 

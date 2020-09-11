@@ -4,12 +4,13 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use __NAMESPACE__\Config\ConfigCtrl;
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
+use srag\DIC\__PLUGIN_NAME__\DevTools\DevToolsCtrl;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
 /**
  * Class il__PLUGIN_NAME__ConfigGUI__VERSION_COMMENT__
  *
- * __AUTHOR_COMMENT__
+ * __AUTHOR_COMMENT____CONFIG_CTRL_CALLS__
  */
 class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
 {
@@ -40,8 +41,7 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
         switch (strtolower($next_class)) {
-            case strtolower(ConfigCtrl::class):
-                self::dic()->ctrl()->forwardCommand(new ConfigCtrl());
+            case __CONFIG_CTRL_EXECUTE__;
                 break;
 
             default:
@@ -74,7 +74,7 @@ class il__PLUGIN_NAME__ConfigGUI extends ilPluginConfigGUI
      */
     protected function setTabs() : void
     {
-        ConfigCtrl::addTabs();
+        __CONFIG_TABS__;
 
         self::dic()->locator()->addItem(il__PLUGIN_NAME__Plugin::PLUGIN_NAME, self::dic()->ctrl()->getLinkTarget($this, self::CMD_CONFIGURE));
     }

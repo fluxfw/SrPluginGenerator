@@ -159,6 +159,13 @@ class FormBuilder extends AbstractFormBuilder
                 ->text(self::plugin()->translate("responsible_email", PluginGeneratorGUI::LANG_MODULE))
                 ->withRequired(true),
             "features"            => self::dic()->ui()->factory()->input()->field()->section([
+                "enable_dev_tools"                              => self::dic()
+                    ->ui()
+                    ->factory()
+                    ->input()
+                    ->field()
+                    ->checkbox(self::plugin()->translate("enable_dev_tools", PluginGeneratorGUI::LANG_MODULE))
+                    ->withByline(nl2br(self::plugin()->translate("enable_dev_tools_info", PluginGeneratorGUI::LANG_MODULE), false)),
                 "enable_librariesnamespacechanger_script"       => (self::version()->is6()
                     ? self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
                         ->translate("enable_librariesnamespacechanger_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "LibrariesNamespaceChanger"]))

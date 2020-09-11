@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use srag\DIC\SrPluginGenerator\DevTools\DevToolsCtrl;
 use srag\DIC\SrPluginGenerator\DICTrait;
 use srag\Plugins\SrPluginGenerator\Config\ConfigCtrl;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
@@ -9,7 +10,9 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 /**
  * Class ilSrPluginGeneratorConfigGUI
  *
- * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
+ * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
+ *
+ * @ilCtrl_isCalledBy srag\DIC\SrPluginGenerator\DevTools\DevToolsCtrl: ilSrPluginGeneratorConfigGUI
  */
 class ilSrPluginGeneratorConfigGUI extends ilPluginConfigGUI
 {
@@ -40,6 +43,10 @@ class ilSrPluginGeneratorConfigGUI extends ilPluginConfigGUI
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
         switch (strtolower($next_class)) {
+            case strtolower(DevToolsCtrl::class):
+                self::dic()->ctrl()->forwardCommand(new DevToolsCtrl($this, self::plugin()));
+                break;
+
             case strtolower(ConfigCtrl::class):
                 self::dic()->ctrl()->forwardCommand(new ConfigCtrl());
                 break;
@@ -75,6 +82,8 @@ class ilSrPluginGeneratorConfigGUI extends ilPluginConfigGUI
     protected function setTabs()/*: void*/
     {
         ConfigCtrl::addTabs();
+
+        DevToolsCtrl::addTabs(self::plugin());
 
         self::dic()->locator()->addItem(ilSrPluginGeneratorPlugin::PLUGIN_NAME, self::dic()->ctrl()->getLinkTarget($this, self::CMD_CONFIGURE));
     }

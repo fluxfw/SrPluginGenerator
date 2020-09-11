@@ -81,6 +81,7 @@ return array(
     'srag\\DIC\\SrPluginGenerator\\Database\\DatabaseInterface' => $vendorDir . '/srag/dic/src/Database/DatabaseInterface.php',
     'srag\\DIC\\SrPluginGenerator\\Database\\PdoContextHelper' => $vendorDir . '/srag/dic/src/Database/PdoContextHelper.php',
     'srag\\DIC\\SrPluginGenerator\\Database\\PdoStatementContextHelper' => $vendorDir . '/srag/dic/src/Database/PdoStatementContextHelper.php',
+    'srag\\DIC\\SrPluginGenerator\\DevTools\\DevToolsCtrl' => $vendorDir . '/srag/dic/src/DevTools/class.DevToolsCtrl.php',
     'srag\\DIC\\SrPluginGenerator\\Exception\\DICException' => $vendorDir . '/srag/dic/src/Exception/DICException.php',
     'srag\\DIC\\SrPluginGenerator\\Loader\\AbstractLoaderDetector' => $vendorDir . '/srag/dic/src/Loader/AbstractLoaderDetector.php',
     'srag\\DIC\\SrPluginGenerator\\Output\\Output' => $vendorDir . '/srag/dic/src/Output/Output.php',
