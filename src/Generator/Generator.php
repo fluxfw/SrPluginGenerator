@@ -266,8 +266,8 @@ class Generator
 
         if ($this->options->isEnableDevTools()) {
             $config_ctrl_class[] = "@ilCtrl_isCalledBy srag\DIC\__PLUGIN_NAME__\DevTools\DevToolsCtrl: il__PLUGIN_NAME__ConfigGUI";
-            array_unshift($config_ctrl_execute, "strtolower(DevToolsCtrl::class):
-                self::dic()->ctrl()->forwardCommand(new DevToolsCtrl(\$this, self::plugin()))");
+            $config_ctrl_execute[] = "strtolower(DevToolsCtrl::class):
+                self::dic()->ctrl()->forwardCommand(new DevToolsCtrl(\$this, self::plugin()))";
             $config_tabs[] = "DevToolsCtrl::addTabs(self::plugin())";
             $update_languages[] = "DevToolsCtrl::installLanguages(self::plugin())";
         }
