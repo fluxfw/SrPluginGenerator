@@ -1,7 +1,7 @@
 {
   "name": "srag/plugins/srplugingenerator",
   "description": "",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "ilias_plugin": {
     "id": "srplugingenerator",
     "name": "SrPluginGenerator",
@@ -43,7 +43,8 @@
       "classes/"
     ],
     "files": [
-      "vendor/srag/dic/src/PHPVersionChecker.php"
+      "vendor/srag/dic/src/PHPVersionChecker.php",
+      "vendor/srag/dic/src/Ilias7PreWarn.php"
     ]
   },
   "config": {

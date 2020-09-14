@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b28a60007866a71422175b20f3027a09",
+    "content-hash": "d5a47a561180a8cff4dfd404a3d12961",
     "packages": [
         {
             "name": "srag/activerecordconfig",
@@ -28,7 +28,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\ActiveRecordConfig\\SrPluginGenerator\\": "src/"
+                    "srag\\ActiveRecordConfig\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -73,7 +73,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\CustomInputGUIs\\SrPluginGenerator\\": "src/"
+                    "srag\\CustomInputGUIs\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -101,16 +101,16 @@
         },
         {
             "name": "srag/dic",
-            "version": "v0.26.0",
+            "version": "v0.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/DIC.git",
-                "reference": "51afc373d1c9c8ee0fd26c381ed1a81e295afb3f"
+                "reference": "b646eaf28195e1f5c8930d2780709e907c4842c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/51afc373d1c9c8ee0fd26c381ed1a81e295afb3f",
-                "reference": "51afc373d1c9c8ee0fd26c381ed1a81e295afb3f",
+                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/b646eaf28195e1f5c8930d2780709e907c4842c3",
+                "reference": "b646eaf28195e1f5c8930d2780709e907c4842c3",
                 "shasum": ""
             },
             "require": {
@@ -119,7 +119,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\DIC\\SrPluginGenerator\\": "src/"
+                    "srag\\DIC\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -142,7 +142,7 @@
                 "globals",
                 "trait"
             ],
-            "time": "2020-09-10T10:49:18+00:00"
+            "time": "2020-09-14T08:52:50+00:00"
         },
         {
             "name": "srag/librariesnamespacechanger",
@@ -208,7 +208,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\RemovePluginDataConfirm\\SrPluginGenerator\\": "src/"
+                    "srag\\RemovePluginDataConfirm\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
