@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.3.2]
+- Main menu icon
+
 ## [2.3.1]
 - `Ilias7PreWarn`
 
