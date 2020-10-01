@@ -18,7 +18,7 @@ class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
             'srag\\Plugins\\SrPluginGenerator\\' => 31,
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\SrPluginGenerator\\' => 27,
-            'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 39,
+            'srag\\CustomInputGUIs\\' => 21,
             'srag\\ActiveRecordConfig\\SrPluginGenerator\\' => 42,
         ),
     );
@@ -40,7 +40,7 @@ class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 
+        'srag\\CustomInputGUIs\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
@@ -111,7 +111,7 @@ class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
         'srag\\CustomInputGUIs\\SrPluginGenerator\\TextInputGUI\\TextInputGUIWithModernAutoComplete' => __DIR__ . '/..' . '/srag/custominputguis/src/TextInputGUI/TextInputGUIWithModernAutoComplete.php',
         'srag\\CustomInputGUIs\\SrPluginGenerator\\UIInputComponentWrapperInputGUI\\UIInputComponentWrapperInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/UIInputComponentWrapperInputGUI/UIInputComponentWrapperInputGUI.php',
         'srag\\CustomInputGUIs\\SrPluginGenerator\\UIInputComponentWrapperInputGUI\\UIInputComponentWrapperNameSource' => __DIR__ . '/..' . '/srag/custominputguis/src/UIInputComponentWrapperInputGUI/UIInputComponentWrapperNameSource.php',
-        'srag\\CustomInputGUIs\\SrPluginGenerator\\ViewControlModeUI\\ViewControlModeUI' => __DIR__ . '/..' . '/srag/custominputguis/src/ViewControlModeGUI/ViewControlModeUI.php',
+        'srag\\CustomInputGUIs\\SrPluginGenerator\\ViewControlModeUI\\ViewControlModeUI' => __DIR__ . '/..' . '/srag/custominputguis/src/ViewControlModeUI/ViewControlModeUI.php',
         'srag\\CustomInputGUIs\\SrPluginGenerator\\Waiter\\Waiter' => __DIR__ . '/..' . '/srag/custominputguis/src/Waiter/Waiter.php',
         'srag\\CustomInputGUIs\\SrPluginGenerator\\WeekdayInputGUI\\WeekdayInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/WeekdayInputGUI/WeekdayInputGUI.php',
         'srag\\DIC\\SrPluginGenerator\\DICStatic' => __DIR__ . '/..' . '/srag/dic/src/DICStatic.php',
