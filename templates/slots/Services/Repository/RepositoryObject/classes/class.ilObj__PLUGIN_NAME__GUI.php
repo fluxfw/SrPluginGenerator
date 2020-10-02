@@ -1,6 +1,5 @@
 <?php
 
-use __NAMESPACE__\ObjectSettings\Form\FormBuilder;
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
@@ -155,17 +154,6 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
 
 
     /**
-     * @return FormBuilder
-     */
-    protected function getSettingsForm() : FormBuilder
-    {
-        $form = new FormBuilder($this, $this->object);
-
-        return $form;
-    }
-
-
-    /**
      *
      */
     protected function manageContents() : void
@@ -212,7 +200,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     {
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
-        $form = $this->getSettingsForm();
+        $form = self::__PLUGIN_NAME_CAMEL_CASE__()->objectSettings()->factory()->newFormBuilderInstance($this, $this->object);
 
         self::output()->output($form);
     }
@@ -225,7 +213,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     {
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
-        $form = $this->getSettingsForm();
+        $form = self::__PLUGIN_NAME_CAMEL_CASE__()->objectSettings()->factory()->newFormBuilderInstance($this, $this->object);
 
         if (!$form->storeForm()) {
             self::output()->output($form);
