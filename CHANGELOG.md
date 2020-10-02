@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.3.3]
+- Fix
+
 ## [2.3.2]
 - Main menu icon
 

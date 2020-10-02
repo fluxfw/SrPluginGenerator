@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5a47a561180a8cff4dfd404a3d12961",
+    "content-hash": "521610e0211f82f244f011d077051f0e",
     "packages": [
         {
             "name": "srag/activerecordconfig",
@@ -54,16 +54,16 @@
         },
         {
             "name": "srag/custominputguis",
-            "version": "v0.39.0",
+            "version": "v0.39.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/CustomInputGUIs.git",
-                "reference": "ed5104c739424334a27d14d0fa8ffb765051444b"
+                "reference": "be9e4867480a3879c6fe4154248aad50ea76995b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/ed5104c739424334a27d14d0fa8ffb765051444b",
-                "reference": "ed5104c739424334a27d14d0fa8ffb765051444b",
+                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/be9e4867480a3879c6fe4154248aad50ea76995b",
+                "reference": "be9e4867480a3879c6fe4154248aad50ea76995b",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\CustomInputGUIs\\SrPluginGenerator\\": "src/"
+                    "srag\\CustomInputGUIs\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -97,7 +97,7 @@
                 "input",
                 "table"
             ],
-            "time": "2020-09-02T06:57:44+00:00"
+            "time": "2020-10-01T05:37:14+00:00"
         },
         {
             "name": "srag/dic",

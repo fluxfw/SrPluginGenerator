@@ -92,6 +92,6 @@ class FormBuilder extends AbstractFormBuilder
      */
     protected function storeData(array $data)/* : void*/
     {
-        self::srPluginGenerator()->config()->setValue(self::KEY_ROLES, (array) $data[self::KEY_ROLES]);
+        self::srPluginGenerator()->config()->setValue(self::KEY_ROLES, MultiSelectSearchNewInputGUI::cleanValues((array) $data[self::KEY_ROLES]));
     }
 }
