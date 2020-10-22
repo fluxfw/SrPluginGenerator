@@ -2,8 +2,10 @@
   "name": "__NAMESPACE_SLASHES__",
   "description": "",
   "version": "__INIT_PLUGIN_VERSION__",
-  "ilias_plugin": {
-    __ILIAS_PLUGIN__
+  "extra": {
+    "ilias_plugin": {
+      __ILIAS_PLUGIN__
+    }
   },
   "type": "project",
   "keywords": [

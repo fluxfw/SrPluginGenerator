@@ -292,7 +292,7 @@ class Generator
             "COMPOSER_SCRIPTS"                => implode(",
       ", array_map("json_encode", $composer_scripts)),
             "ILIAS_PLUGIN"                    => implode(",
-    ", array_map(function (string $key, $value) : string {
+      ", array_map(function (string $key, $value) : string {
                 return json_encode($key, JSON_UNESCAPED_SLASHES) . ": " . json_encode($value, JSON_UNESCAPED_SLASHES);
             }, array_keys($ilias_plugin), $ilias_plugin)),
             "INIT_PLUGIN_VERSION"             => $this->options->getInitPluginVersion(),

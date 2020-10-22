@@ -1,5 +1,7 @@
 # SrPluginGenerator ILIAS Plugin Description
 
+Please ensure `composer` is installed on your server
+
 Generates ILIAS base plugins and deliver as download as ZIP file
 
 You can access plugin generator from the main menu entry or with the follow static url
