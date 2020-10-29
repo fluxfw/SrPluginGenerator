@@ -1,5 +1,8 @@
 # Changelog
 
+## [x]
+- Footer permanent link
+
 ## [2.3.3]
 - Fix
 
