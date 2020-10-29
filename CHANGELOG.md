@@ -1,6 +1,7 @@
 # Changelog
 
 ## [x]
+- Auto generate plugin readme script
 - Footer permanent link
 
 ## [2.3.3]
