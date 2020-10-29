@@ -3,6 +3,7 @@
 ## [x]
 - Auto generate plugin readme script
 - Footer permanent link
+- Translate plugin SLA to english
 
 ## [2.3.3]
 - Fix
