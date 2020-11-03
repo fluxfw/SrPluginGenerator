@@ -5,7 +5,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use ILIAS\DI\Container;
 use srag\CustomInputGUIs\__PLUGIN_NAME__\Loader\CustomInputGUIsLoaderDetector;
-use srag\DIC\__PLUGIN_NAME__\DevTools\DevToolsCtrl;
+use srag\DevTools\__PLUGIN_NAME__\DevToolsCtrl;
 use srag\RemovePluginDataConfirm\__PLUGIN_NAME__\RepositoryObjectPluginUninstallTrait;
 
 /**

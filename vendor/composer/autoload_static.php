@@ -17,6 +17,7 @@ class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
             'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\' => 47,
             'srag\\Plugins\\SrPluginGenerator\\' => 31,
             'srag\\LibrariesNamespaceChanger\\' => 31,
+            'srag\\DevTools\\' => 14,
             'srag\\DIC\\SrPluginGenerator\\' => 27,
             'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 39,
             'srag\\ActiveRecordConfig\\SrPluginGenerator\\' => 42,
@@ -35,6 +36,10 @@ class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
         'srag\\LibrariesNamespaceChanger\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
+        ),
+        'srag\\DevTools\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/srag/devtools/src',
         ),
         'srag\\DIC\\SrPluginGenerator\\' => 
         array (
@@ -139,6 +144,7 @@ class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
         'srag\\DIC\\SrPluginGenerator\\Util\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/dic/src/Util/LibraryLanguageInstaller.php',
         'srag\\DIC\\SrPluginGenerator\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrPluginGenerator\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
+        'srag\\DevTools\\SrPluginGenerator\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/devtools/src/class.DevToolsCtrl.php',
         'srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginPhpAndXml.php',
         'srag\\LibrariesNamespaceChanger\\GeneratePluginReadme' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginReadme.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',

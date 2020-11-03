@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use srag\DIC\SrPluginGenerator\DevTools\DevToolsCtrl;
+use srag\DevTools\SrPluginGenerator\DevToolsCtrl;
 use srag\DIC\SrPluginGenerator\DICTrait;
 use srag\Plugins\SrPluginGenerator\Config\ConfigCtrl;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
@@ -12,7 +12,7 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
  *
  * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  *
- * @ilCtrl_isCalledBy srag\DIC\SrPluginGenerator\DevTools\DevToolsCtrl: ilSrPluginGeneratorConfigGUI
+ * @ilCtrl_isCalledBy srag\DevTools\SrPluginGenerator\DevToolsCtrl: ilSrPluginGeneratorConfigGUI
  */
 class ilSrPluginGeneratorConfigGUI extends ilPluginConfigGUI
 {
