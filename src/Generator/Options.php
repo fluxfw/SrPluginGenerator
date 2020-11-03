@@ -63,10 +63,6 @@ class Options implements JsonSerializable
      */
     protected $enable_should_use_one_update_step_only = false;
     /**
-     * @var bool
-     */
-    protected $enable_update_plugin_readme_script = false;
-    /**
      * @var string
      */
     protected $init_plugin_version = self::DEFAULT_INIT_PLUGIN_VERSION;
@@ -446,24 +442,6 @@ class Options implements JsonSerializable
     public function setEnableShouldUseOneUpdateStepOnly(bool $enable_should_use_one_update_step_only)/*: void*/
     {
         $this->enable_should_use_one_update_step_only = $enable_should_use_one_update_step_only;
-    }
-
-
-    /**
-     * @return bool
-     */
-    public function isEnableUpdatePluginReadmeScript() : bool
-    {
-        return $this->enable_update_plugin_readme_script;
-    }
-
-
-    /**
-     * @param bool $enable_update_plugin_readme_script
-     */
-    public function setEnableUpdatePluginReadmeScript(bool $enable_update_plugin_readme_script)/* : void*/
-    {
-        $this->enable_update_plugin_readme_script = $enable_update_plugin_readme_script;
     }
 
 

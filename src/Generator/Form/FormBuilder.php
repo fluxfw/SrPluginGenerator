@@ -187,10 +187,7 @@ class FormBuilder extends AbstractFormBuilder
                 "enable_autogenerate_plugin_php_and_xml_script" => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
                     ->translate("enable_autogenerate_plugin_php_and_xml_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "plugin.php", "plugin.xml", "composer.json"])),
                 "enable_autogenerate_plugin_readme_script"      => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                    ->translate("enable_autogenerate_plugin_readme_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "README.md", "composer.json"])),
-                "enable_update_plugin_readme_script"            => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                    ->translate("enable_update_plugin_readme_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "README.md", "composer.json"]), self::plugin()
-                    ->translate("enable_update_plugin_readme_script_info", PluginGeneratorGUI::LANG_MODULE))
+                    ->translate("enable_autogenerate_plugin_readme_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "README.md", "composer.json"]))
             ], self::plugin()->translate("features", PluginGeneratorGUI::LANG_MODULE), nl2br(self::plugin()->translate("features_info", PluginGeneratorGUI::LANG_MODULE), false))
         ];
 

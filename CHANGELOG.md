@@ -5,6 +5,7 @@
 - Footer permanent link
 - Translate plugin SLA to english
 - Adjust new DevTools
+- Remove update plugin readme script
 
 ## [2.3.3]
 - Fix

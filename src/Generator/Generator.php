@@ -235,11 +235,7 @@ class Generator
             $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
         }
         if ($this->options->isEnableAutogeneratePluginReadmeScript()) {
-            $composer_scripts[] = "srag\LibrariesNamespaceChanger\UpdatePluginReadme::generatePluginReadme";
-        } else {
-            if ($this->options->isEnableUpdatePluginReadmeScript()) {
-                $composer_scripts[] = "srag\LibrariesNamespaceChanger\UpdatePluginReadme::updatePluginReadme";
-            }
+            $composer_scripts[] = "srag\LibrariesNamespaceChanger\GeneratePluginReadme::generatePluginReadme";
         }
 
         $requires = [
@@ -289,7 +285,7 @@ class Generator
         ksort($requires);
 
         $this->placeholders = [
-            "REQUIRES"                    => implode(",
+            "REQUIRES"                        => implode(",
     ", array_map(function (string $key, $value) : string {
                 return json_encode($key, JSON_UNESCAPED_SLASHES) . ": " . json_encode($value, JSON_UNESCAPED_SLASHES);
             }, array_keys($requires), $requires)),
