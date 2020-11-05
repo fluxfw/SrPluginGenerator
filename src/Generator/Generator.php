@@ -204,6 +204,15 @@ class Generator
      */
     protected function parsePlaceholders()/*: void*/
     {
+        $requires = [
+            "php"                            => ">=__MIN_PHP_VERSION__",
+            "srag/activerecordconfig"        => ">=0.1.0",
+            "srag/custominputguis"           => ">=0.1.0",
+            "srag/dic"                       => ">=0.1.0",
+            "srag/librariesnamespacechanger" => ">=0.1.0",
+            "srag/removeplugindataconfirm"   => ">=0.1.0"
+        ];
+
         $authors = [
             ["__RESPONSIBLE_NAME__", "__RESPONSIBLE_EMAIL__"]
         ];
@@ -231,21 +240,16 @@ class Generator
         if ($this->options->isEnablePhp72backportScript()) {
             $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport";
         }
-        if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
-            $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
-        }
-        if ($this->options->isEnableAutogeneratePluginReadmeScript()) {
-            $composer_scripts[] = "srag\LibrariesNamespaceChanger\GeneratePluginReadme::generatePluginReadme";
-        }
 
-        $requires = [
-            "php"                            => ">=__MIN_PHP_VERSION__",
-            "srag/activerecordconfig"        => ">=0.1.0",
-            "srag/custominputguis"           => ">=0.1.0",
-            "srag/dic"                       => ">=0.1.0",
-            "srag/librariesnamespacechanger" => ">=0.1.0",
-            "srag/removeplugindataconfirm"   => ">=0.1.0"
-        ];
+        if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript() || $this->options->isEnableAutogeneratePluginReadmeScript()) {
+            $requires["srag/generateplugininfoshelper"] = ">=0.1.0";
+            if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
+                $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
+            }
+            if ($this->options->isEnableAutogeneratePluginReadmeScript()) {
+                $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginReadme::generatePluginReadme";
+            }
+        }
 
         $ilias_plugin = [
             "id"                => "__PLUGIN_ID__",
@@ -346,7 +350,7 @@ class Generator
 
         ilUtil::makeDirParents($composer_home);
 
-        exec("export COMPOSER_HOME=" . escapeshellarg($composer_home) . "&&composer update -d " . escapeshellarg($this->temp_dir));
+        exec("export COMPOSER_HOME=" . escapeshellarg($composer_home) . "&&composer update -d " . escapeshellarg($this->temp_dir) . "&&composer du -d " . escapeshellarg($this->temp_dir));
     }
 
 
