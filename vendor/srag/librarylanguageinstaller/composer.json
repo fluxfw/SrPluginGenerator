@@ -1,15 +1,15 @@
 {
-  "name": "srag/dic",
-  "description": "Use all ILIAS globals in your class",
-  "version": "0.29.0",
+  "name": "srag/librarylanguageinstaller",
+  "description": "Install additional and external lang files for a plugin",
+  "version": "1.0.1",
   "type": "library",
   "keywords": [
     "ILIAS",
-    "DIC",
-    "Trait",
-    "globals"
+    "Installer",
+    "Language",
+    "Library"
   ],
-  "homepage": "https://github.com/studer-raimann/DIC",
+  "homepage": "https://github.com/studer-raimann/LibraryLanguageInstaller",
   "license": "GPL-3.0-only",
   "authors": [
     {
@@ -20,14 +20,15 @@
     }
   ],
   "support": {
-    "issues": "https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_LDIC"
+    "issues": "https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_LLANGINST"
   },
   "require": {
-    "php": ">=7.0"
+    "php": ">=7.0",
+    "srag/dic": ">=0.1.0"
   },
   "autoload": {
     "psr-4": {
-      "srag\\DIC\\SrPluginGenerator\\": "src/"
+      "srag\\LibraryLanguageInstaller\\SrPluginGenerator\\": "src/"
     }
   },
   "config": {
