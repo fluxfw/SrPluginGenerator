@@ -5,9 +5,6 @@ This is an OpenSource project by studer + raimann ag, CH-Burgdorf (https://stude
 ## Description
 See in [doc/DESCRIPTION.md](./doc/DESCRIPTION.md)
 
-## Documentation
-See in [doc/DOCUMENTATION.md](./doc/DOCUMENTATION.md)
-
 ## Installation
 Start at your ILIAS root directory
 ```bash
