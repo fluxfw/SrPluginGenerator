@@ -13,7 +13,7 @@
     "Plugin"
   ],
   "homepage": "https://github.com/studer-raimann/__PLUGIN_NAME__",
-  "license": "GPL-3.0-only",
+  "license": "__LICENSE__",
   "authors": [
     {
       "name": "__RESPONSIBLE_NAME__",

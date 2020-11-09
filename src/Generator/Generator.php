@@ -316,6 +316,7 @@ class Generator
                 return json_encode($key, JSON_UNESCAPED_SLASHES) . ": " . json_encode($value, JSON_UNESCAPED_SLASHES);
             }, array_keys($ilias_plugin), $ilias_plugin)),
             "INIT_PLUGIN_VERSION"             => $this->options->getInitPluginVersion(),
+            "LICENSE"                         => "GPL-3.0-only",
             "MAX_ILIAS_VERSION"               => $this->options->getMaxIliasVersion(),
             "MIN_ILIAS_VERSION"               => $this->options->getMinIliasVersion(),
             "MIN_PHP_VERSION"                 => $this->options->getMinPhpVersion(),
