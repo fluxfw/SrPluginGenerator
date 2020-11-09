@@ -12,7 +12,7 @@ return array(
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
     'srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\' => array($vendorDir . '/srag/generateplugininfoshelper/src'),
     'srag\\DevTools\\SrPluginGenerator\\' => array($vendorDir . '/srag/devtools/src'),
-    'srag\\DIC\\' => array($vendorDir . '/srag/dic/src'),
+    'srag\\DIC\\SrPluginGenerator\\' => array($vendorDir . '/srag/dic/src'),
     'srag\\CustomInputGUIs\\SrPluginGenerator\\' => array($vendorDir . '/srag/custominputguis/src'),
     'srag\\ActiveRecordConfig\\SrPluginGenerator\\' => array($vendorDir . '/srag/activerecordconfig/src'),
 );

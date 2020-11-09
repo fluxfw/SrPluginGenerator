@@ -286,6 +286,8 @@ class Generator
             $update_languages[] = "DevToolsCtrl::installLanguages(self::plugin())";
         }
 
+        "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN"
+
         ksort($requires);
 
         $this->placeholders = [
