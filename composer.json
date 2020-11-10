@@ -1,13 +1,16 @@
 {
   "name": "srag/plugins/srplugingenerator",
-  "description": "",
-  "version": "2.3.3",
-  "ilias_plugin": {
-    "id": "srplugingenerator",
-    "name": "SrPluginGenerator",
-    "ilias_min_version": "5.4.0",
-    "ilias_max_version": "6.999",
-    "slot": "Services/UIComponent/UserInterfaceHook"
+  "description": "srag ILIAS plugin generator",
+  "version": "2.4.0",
+  "extra": {
+    "ilias_plugin": {
+      "id": "srplugingenerator",
+      "name": "SrPluginGenerator",
+      "ilias_min_version": "5.4.0",
+      "ilias_max_version": "6.999",
+      "slot": "Services/UIComponent/UserInterfaceHook"
+    },
+    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN"
   },
   "type": "project",
   "keywords": [
@@ -31,7 +34,9 @@
     "php": ">=7.0",
     "srag/activerecordconfig": ">=0.1.0",
     "srag/custominputguis": ">=0.1.0",
+    "srag/devtools": ">=0.1.0",
     "srag/dic": ">=0.1.0",
+    "srag/generateplugininfoshelper": ">=0.1.0",
     "srag/librariesnamespacechanger": ">=0.1.0",
     "srag/removeplugindataconfirm": ">=0.1.0"
   },
@@ -56,8 +61,8 @@
     "pre-autoload-dump": [
       "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
       "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport",
-      "srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
-      "srag\\LibrariesNamespaceChanger\\UpdatePluginReadme::updatePluginReadme"
+      "srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
+      "srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\GeneratePluginReadme::generatePluginReadme"
     ]
   }
 }

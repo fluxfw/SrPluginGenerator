@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0]
+- Auto generate plugin readme script
+- Footer permanent link (Repository object plugins)
+- Adjust new DevTools
+- Remove update plugin readme script
+- Adjust new GeneratePluginInfosHelper
+
 ## [2.3.3]
 - Fix
 

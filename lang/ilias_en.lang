@@ -4,6 +4,7 @@ config_roles#:#Roles
 config_roles_info#:#Show for selected roles only
 config_save#:#Save
 plugin_generator_enable_autogenerate_plugin_php_and_xml_script#:#%1$s script for auto generate %2$s and %3$s from %4$s
+plugin_generator_enable_autogenerate_plugin_readme_script#%1$s script for auto generate %2$s from %3$s (srag)
 plugin_generator_enable_dev_tools#:#Dev tools
 plugin_generator_enable_dev_tools_info#:#More tools for development in global plugin config, for instance reload plugin ctrl structure
 plugin_generator_enable_librariesnamespacechanger_script#:#%1$s script %2$s
@@ -14,8 +15,6 @@ plugin_generator_enable_php72backport_script#:#%1$s script %2$s
 plugin_generator_enable_php72backport_script_info#:#Dependents on min. PHP version
 plugin_generator_enable_should_use_one_update_step_only#:#Should use one update step only
 plugin_generator_enable_should_use_one_update_step_only_info#:#Executes the first update step again with a plugin update
-plugin_generator_enable_update_plugin_readme_script#:#%1$s script for auto update %2$s from %3$s
-plugin_generator_enable_update_plugin_readme_script_info#:#ILIAS min./max. version, PHP version
 plugin_generator_features#:#More features
 plugin_generator_features_info#:#Can also be enabled/disabled by hand after generation\nIf deactivated, the feature itself is just deactivated, its structure is remain
 plugin_generator_generate#:#Generate

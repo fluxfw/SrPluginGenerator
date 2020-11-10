@@ -41,6 +41,10 @@ class Options implements JsonSerializable
     /**
      * @var bool
      */
+    protected $enable_autogenerate_plugin_readme_script = false;
+    /**
+     * @var bool
+     */
     protected $enable_dev_tools = false;
     /**
      * @var bool
@@ -58,10 +62,6 @@ class Options implements JsonSerializable
      * @var bool
      */
     protected $enable_should_use_one_update_step_only = false;
-    /**
-     * @var bool
-     */
-    protected $enable_update_plugin_readme_script = false;
     /**
      * @var string
      */
@@ -336,6 +336,24 @@ class Options implements JsonSerializable
     /**
      * @return bool
      */
+    public function isEnableAutogeneratePluginReadmeScript() : bool
+    {
+        return $this->enable_autogenerate_plugin_readme_script;
+    }
+
+
+    /**
+     * @param bool $enable_autogenerate_plugin_readme_script
+     */
+    public function setEnableAutogeneratePluginReadmeScript(bool $enable_autogenerate_plugin_readme_script)/* : void*/
+    {
+        $this->enable_autogenerate_plugin_readme_script = $enable_autogenerate_plugin_readme_script;
+    }
+
+
+    /**
+     * @return bool
+     */
     public function isEnableDevTools() : bool
     {
         return $this->enable_dev_tools;
@@ -424,24 +442,6 @@ class Options implements JsonSerializable
     public function setEnableShouldUseOneUpdateStepOnly(bool $enable_should_use_one_update_step_only)/*: void*/
     {
         $this->enable_should_use_one_update_step_only = $enable_should_use_one_update_step_only;
-    }
-
-
-    /**
-     * @return bool
-     */
-    public function isEnableUpdatePluginReadmeScript() : bool
-    {
-        return $this->enable_update_plugin_readme_script;
-    }
-
-
-    /**
-     * @param bool $enable_update_plugin_readme_script
-     */
-    public function setEnableUpdatePluginReadmeScript(bool $enable_update_plugin_readme_script)/* : void*/
-    {
-        $this->enable_update_plugin_readme_script = $enable_update_plugin_readme_script;
     }
 
 

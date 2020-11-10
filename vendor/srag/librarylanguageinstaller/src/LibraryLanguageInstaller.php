@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\DIC\SrPluginGenerator\Util;
+namespace srag\LibraryLanguageInstaller\SrPluginGenerator;
 
 use ilDBConstants;
 use ilGlobalCache;
@@ -12,7 +12,7 @@ use srag\DIC\SrPluginGenerator\Plugin\PluginInterface;
 /**
  * Class LibraryLanguageInstaller
  *
- * @package srag\DIC\SrPluginGenerator\Util
+ * @package srag\LibraryLanguageInstaller\SrPluginGenerator
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

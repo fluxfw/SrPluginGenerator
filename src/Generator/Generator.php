@@ -121,7 +121,7 @@ class Generator
 
         exec("cp -r " . escapeshellarg($base_template_dir) . " " . escapeshellarg($this->temp_dir));
 
-        if (substr($this->options->getNamespace(), 0, strlen(self::SRAG_PREFIX)) === self::SRAG_PREFIX) {
+        if ($this->isSragPlugin()) {
             exec("cp -r " . escapeshellarg($base_template_dir) . ".srag/* " . escapeshellarg($this->temp_dir));
         }
 
@@ -187,6 +187,15 @@ class Generator
 
 
     /**
+     * @return bool
+     */
+    protected function isSragPlugin() : bool
+    {
+        return (substr($this->options->getNamespace(), 0, strlen(self::SRAG_PREFIX)) === self::SRAG_PREFIX);
+    }
+
+
+    /**
      *
      */
     protected function log()/*: void*/
@@ -204,6 +213,28 @@ class Generator
      */
     protected function parsePlaceholders()/*: void*/
     {
+        $requires = [
+            "php"                            => ">=__MIN_PHP_VERSION__",
+            "srag/activerecordconfig"        => ">=0.1.0",
+            "srag/custominputguis"           => ">=0.1.0",
+            "srag/dic"                       => ">=0.1.0",
+            "srag/librariesnamespacechanger" => ">=0.1.0",
+            "srag/removeplugindataconfirm"   => ">=0.1.0"
+        ];
+
+        $extra = [
+            "ilias_plugin" => [
+                "id"                => "__PLUGIN_ID__",
+                "name"              => "__PLUGIN_NAME__",
+                "ilias_min_version" => "__MIN_ILIAS_VERSION__",
+                "ilias_max_version" => "__MAX_ILIAS_VERSION__"
+            ]
+        ];
+        if ($this->options->getPluginSlot() === Slots::REPOSITORY_OBJECT) {
+            $extra["ilias_plugin"]["lucene_search"] = true;
+        }
+        $extra["ilias_plugin"]["slot"] = "__PLUGIN_SLOT__";
+
         $authors = [
             ["__RESPONSIBLE_NAME__", "__RESPONSIBLE_EMAIL__"]
         ];
@@ -231,23 +262,17 @@ class Generator
         if ($this->options->isEnablePhp72backportScript()) {
             $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport";
         }
-        if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
-            $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
-        }
-        if ($this->options->isEnableUpdatePluginReadmeScript()) {
-            $composer_scripts[] = "srag\LibrariesNamespaceChanger\UpdatePluginReadme::updatePluginReadme";
-        }
 
-        $ilias_plugin = [
-            "id"                => "__PLUGIN_ID__",
-            "name"              => "__PLUGIN_NAME__",
-            "ilias_min_version" => "__MIN_ILIAS_VERSION__",
-            "ilias_max_version" => "__MAX_ILIAS_VERSION__"
-        ];
-        if ($this->options->getPluginSlot() === Slots::REPOSITORY_OBJECT) {
-            $ilias_plugin["lucene_search"] = true;
+        if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript() || ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript())) {
+            $requires["srag/generateplugininfoshelper"] = ">=0.1.0";
+            if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
+                $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
+            }
+            if ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript()) {
+                $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginReadme::generatePluginReadme";
+                $extra["generate_plugin_readme_template"] = "SRAG_ILIAS_PLUGIN";
+            }
         }
-        $ilias_plugin["slot"] = "__PLUGIN_SLOT__";
 
         $config_ctrl_class = [];
 
@@ -265,12 +290,26 @@ class Generator
         ];
 
         if ($this->options->isEnableDevTools()) {
-            $config_ctrl_class[] = "@ilCtrl_isCalledBy srag\DIC\__PLUGIN_NAME__\DevTools\DevToolsCtrl: il__PLUGIN_NAME__ConfigGUI";
+            $requires["srag/devtools"] = ">=0.1.0";
+            $config_ctrl_class[] = "@ilCtrl_isCalledBy srag\DevTools\__PLUGIN_NAME__\DevToolsCtrl: il__PLUGIN_NAME__ConfigGUI";
             $config_ctrl_execute[] = "strtolower(DevToolsCtrl::class):
                 self::dic()->ctrl()->forwardCommand(new DevToolsCtrl(\$this, self::plugin()))";
             $config_tabs[] = "DevToolsCtrl::addTabs(self::plugin())";
             $update_languages[] = "DevToolsCtrl::installLanguages(self::plugin())";
         }
+
+        ksort($requires);
+
+        $plugin_composer_json = json_decode(file_get_contents($this->temp_dir . "/composer.json"), true);
+        $plugin_composer_json["require"] = $requires;
+        $plugin_composer_json["extra"] = $extra;
+        $plugin_composer_json["autoload"]["files"] = $composer_autoload_files;
+        $plugin_composer_json["scripts"]["pre-autoload-dump"] = $composer_scripts;
+        file_put_contents($this->temp_dir . "/composer.json", preg_replace_callback("/\n( +)/", function (array $matches) : string {
+                return "
+" . str_repeat(" ", (strlen($matches[1]) / 2));
+            }, json_encode($plugin_composer_json, JSON_UNESCAPED_SLASHES + JSON_PRETTY_PRINT)) . "
+");
 
         $this->placeholders = [
             "AUTHOR_COMMENT"                  => $author_comment,
@@ -285,17 +324,8 @@ class Generator
             "CONFIG_TABS"                     => implode(";
 
         ", $config_tabs),
-            "COMPOSER_AUTOLOAD_FILES"         => implode(",
-      ", array_map(function (string $file) : string {
-                return json_encode($file, JSON_UNESCAPED_SLASHES);
-            }, $composer_autoload_files)),
-            "COMPOSER_SCRIPTS"                => implode(",
-      ", array_map("json_encode", $composer_scripts)),
-            "ILIAS_PLUGIN"                    => implode(",
-    ", array_map(function (string $key, $value) : string {
-                return json_encode($key, JSON_UNESCAPED_SLASHES) . ": " . json_encode($value, JSON_UNESCAPED_SLASHES);
-            }, array_keys($ilias_plugin), $ilias_plugin)),
             "INIT_PLUGIN_VERSION"             => $this->options->getInitPluginVersion(),
+            "LICENSE"                         => "GPL-3.0-only",
             "MAX_ILIAS_VERSION"               => $this->options->getMaxIliasVersion(),
             "MIN_ILIAS_VERSION"               => $this->options->getMinIliasVersion(),
             "MIN_PHP_VERSION"                 => $this->options->getMinPhpVersion(),
@@ -330,7 +360,7 @@ class Generator
 
         ilUtil::makeDirParents($composer_home);
 
-        exec("export COMPOSER_HOME=" . escapeshellarg($composer_home) . "&&composer update -d " . escapeshellarg($this->temp_dir));
+        exec("export COMPOSER_HOME=" . escapeshellarg($composer_home) . "&&composer update -d " . escapeshellarg($this->temp_dir) . "&&composer du -d " . escapeshellarg($this->temp_dir));
     }
 
 

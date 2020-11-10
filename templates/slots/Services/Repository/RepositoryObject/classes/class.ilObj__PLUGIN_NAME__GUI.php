@@ -108,6 +108,7 @@ class ilObj__PLUGIN_NAME__GUI extends ilObjectPluginGUI
     public function performCommand(string $cmd) : void
     {
         self::dic()->help()->setScreenIdComponent(il__PLUGIN_NAME__Plugin::PLUGIN_ID);
+        self::dic()->ui()->mainTemplate()->setPermanentLink(il__PLUGIN_NAME__Plugin::PLUGIN_ID, $this->object->getRefId());
 
         $next_class = self::dic()->ctrl()->getNextClass($this);
 

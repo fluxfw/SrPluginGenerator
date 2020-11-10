@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.41.1]
+- Generate readme
+
+## [0.41.0]
+- Generate readme
+
+## [0.40.0]
+- Custom hooks for `CustomInputGUIsLoaderDetector::getRendererFor`
+
+## [0.39.3]
+- Fix not required `ilDateTimeInputGUI` in `InputGUIWrapperUIInputComponent`
+
+## [0.39.2]
+- Use `DataFactory` from dic
+
 ## [0.39.1]
 - Make `cleanValues` static in `MultiSelectSearchNewInputGUI`
 

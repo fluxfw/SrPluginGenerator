@@ -4,7 +4,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use __NAMESPACE__\Config\ConfigCtrl;
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
-use srag\DIC\__PLUGIN_NAME__\DevTools\DevToolsCtrl;
+use srag\DevTools\__PLUGIN_NAME__\DevToolsCtrl;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 
 /**
