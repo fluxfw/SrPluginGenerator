@@ -1,6 +1,6 @@
 # __PLUGIN_NAME__ ILIAS Plugin
 
-__SHORT_DESCRIPTION__
+Short description
 
 This is an OpenSource project by studer + raimann ag, CH-Burgdorf (https://studer-raimann.ch)
 
@@ -20,7 +20,7 @@ Update, activate and config the plugin in the ILIAS Plugin Administration
 
 ## Description
 
-__LONG_DESCRIPTION__
+Long description
 
 ## Requirements
 

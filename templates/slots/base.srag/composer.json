@@ -1,12 +1,8 @@
 {
   "name": "__NAMESPACE_SLASHES__",
-  "description": "",
+  "description": "Short description",
   "version": "__INIT_PLUGIN_VERSION__",
-  "extra": {
-    "ilias_plugin": {
-      __ILIAS_PLUGIN__
-    }
-  },
+  "extra": {},
   "type": "project",
   "keywords": [
     "ILIAS",
@@ -25,9 +21,7 @@
   "support": {
     "issues": "https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu___PROJECT_KEY__"
   },
-  "require": {
-    __REQUIRES__
-  },
+  "require": {},
   "autoload": {
     "psr-4": {
       "__NAMESPACE_ESCAPED__\\": "src/"
@@ -35,9 +29,7 @@
     "classmap": [
       "classes/"
     ],
-    "files": [
-      __COMPOSER_AUTOLOAD_FILES__
-    ]
+    "files": []
   },
   "config": {
     "classmap-authoritative": true,
@@ -45,8 +37,6 @@
     "sort-packages": true
   },
   "scripts": {
-    "pre-autoload-dump": [
-      __COMPOSER_SCRIPTS__
-    ]
+    "pre-autoload-dump": []
   }
 }

@@ -121,7 +121,7 @@ class Generator
 
         exec("cp -r " . escapeshellarg($base_template_dir) . " " . escapeshellarg($this->temp_dir));
 
-        if (substr($this->options->getNamespace(), 0, strlen(self::SRAG_PREFIX)) === self::SRAG_PREFIX) {
+        if ($this->isSragPlugin()) {
             exec("cp -r " . escapeshellarg($base_template_dir) . ".srag/* " . escapeshellarg($this->temp_dir));
         }
 
@@ -187,6 +187,15 @@ class Generator
 
 
     /**
+     * @return bool
+     */
+    protected function isSragPlugin() : bool
+    {
+        return (substr($this->options->getNamespace(), 0, strlen(self::SRAG_PREFIX)) === self::SRAG_PREFIX);
+    }
+
+
+    /**
      *
      */
     protected function log()/*: void*/
@@ -212,6 +221,19 @@ class Generator
             "srag/librariesnamespacechanger" => ">=0.1.0",
             "srag/removeplugindataconfirm"   => ">=0.1.0"
         ];
+
+        $extra = [
+            "ilias_plugin" => [
+                "id"                => "__PLUGIN_ID__",
+                "name"              => "__PLUGIN_NAME__",
+                "ilias_min_version" => "__MIN_ILIAS_VERSION__",
+                "ilias_max_version" => "__MAX_ILIAS_VERSION__"
+            ]
+        ];
+        if ($this->options->getPluginSlot() === Slots::REPOSITORY_OBJECT) {
+            $extra["ilias_plugin"]["lucene_search"] = true;
+        }
+        $extra["ilias_plugin"]["slot"] = "__PLUGIN_SLOT__";
 
         $authors = [
             ["__RESPONSIBLE_NAME__", "__RESPONSIBLE_EMAIL__"]
@@ -241,26 +263,16 @@ class Generator
             $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport";
         }
 
-        if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript() || $this->options->isEnableAutogeneratePluginReadmeScript()) {
+        if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript() || ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript())) {
             $requires["srag/generateplugininfoshelper"] = ">=0.1.0";
             if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
                 $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
             }
-            if ($this->options->isEnableAutogeneratePluginReadmeScript()) {
+            if ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript()) {
                 $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginReadme::generatePluginReadme";
+                $extra["generate_plugin_readme_template"] = "SRAG_ILIAS_PLUGIN";
             }
         }
-
-        $ilias_plugin = [
-            "id"                => "__PLUGIN_ID__",
-            "name"              => "__PLUGIN_NAME__",
-            "ilias_min_version" => "__MIN_ILIAS_VERSION__",
-            "ilias_max_version" => "__MAX_ILIAS_VERSION__"
-        ];
-        if ($this->options->getPluginSlot() === Slots::REPOSITORY_OBJECT) {
-            $ilias_plugin["lucene_search"] = true;
-        }
-        $ilias_plugin["slot"] = "__PLUGIN_SLOT__";
 
         $config_ctrl_class = [];
 
@@ -286,15 +298,20 @@ class Generator
             $update_languages[] = "DevToolsCtrl::installLanguages(self::plugin())";
         }
 
-        "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN"
-
         ksort($requires);
 
+        $plugin_composer_json = json_decode(file_get_contents($this->temp_dir . "/composer.json"), true);
+        $plugin_composer_json["require"] = $requires;
+        $plugin_composer_json["extra"] = $extra;
+        $plugin_composer_json["autoload"]["files"] = $composer_autoload_files;
+        $plugin_composer_json["scripts"]["pre-autoload-dump"] = $composer_scripts;
+        file_put_contents($this->temp_dir . "/composer.json", preg_replace_callback("/\n( +)/", function (array $matches) : string {
+                return "
+" . str_repeat(" ", (strlen($matches[1]) / 2));
+            }, json_encode($plugin_composer_json, JSON_UNESCAPED_SLASHES + JSON_PRETTY_PRINT)) . "
+");
+
         $this->placeholders = [
-            "REQUIRES"                        => implode(",
-    ", array_map(function (string $key, $value) : string {
-                return json_encode($key, JSON_UNESCAPED_SLASHES) . ": " . json_encode($value, JSON_UNESCAPED_SLASHES);
-            }, array_keys($requires), $requires)),
             "AUTHOR_COMMENT"                  => $author_comment,
             "CONFIG_CTRL_CALLS"               => (!empty($config_ctrl_class) ? "
  *
@@ -307,16 +324,6 @@ class Generator
             "CONFIG_TABS"                     => implode(";
 
         ", $config_tabs),
-            "COMPOSER_AUTOLOAD_FILES"         => implode(",
-      ", array_map(function (string $file) : string {
-                return json_encode($file, JSON_UNESCAPED_SLASHES);
-            }, $composer_autoload_files)),
-            "COMPOSER_SCRIPTS"                => implode(",
-      ", array_map("json_encode", $composer_scripts)),
-            "ILIAS_PLUGIN"                    => implode(",
-      ", array_map(function (string $key, $value) : string {
-                return json_encode($key, JSON_UNESCAPED_SLASHES) . ": " . json_encode($value, JSON_UNESCAPED_SLASHES);
-            }, array_keys($ilias_plugin), $ilias_plugin)),
             "INIT_PLUGIN_VERSION"             => $this->options->getInitPluginVersion(),
             "LICENSE"                         => "GPL-3.0-only",
             "MAX_ILIAS_VERSION"               => $this->options->getMaxIliasVersion(),
