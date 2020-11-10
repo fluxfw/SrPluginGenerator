@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
+class ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee
 {
     public static $files = array (
         '686d9d793dd43120267e946295062404' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
@@ -14,20 +14,20 @@ class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\' => 47,
+            'srag\\RemovePluginDataConfirm\\' => 29,
             'srag\\Plugins\\SrPluginGenerator\\' => 31,
-            'srag\\LibraryLanguageInstaller\\SrPluginGenerator\\' => 48,
+            'srag\\LibraryLanguageInstaller\\' => 30,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\' => 49,
-            'srag\\DevTools\\SrPluginGenerator\\' => 32,
-            'srag\\DIC\\SrPluginGenerator\\' => 27,
-            'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 39,
-            'srag\\ActiveRecordConfig\\SrPluginGenerator\\' => 42,
+            'srag\\GeneratePluginInfosHelper\\' => 31,
+            'srag\\DevTools\\' => 14,
+            'srag\\DIC\\' => 9,
+            'srag\\CustomInputGUIs\\' => 21,
+            'srag\\ActiveRecordConfig\\' => 24,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\' => 
+        'srag\\RemovePluginDataConfirm\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
@@ -35,7 +35,7 @@ class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-        'srag\\LibraryLanguageInstaller\\SrPluginGenerator\\' => 
+        'srag\\LibraryLanguageInstaller\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/librarylanguageinstaller/src',
         ),
@@ -43,23 +43,23 @@ class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\' => 
+        'srag\\GeneratePluginInfosHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src',
         ),
-        'srag\\DevTools\\SrPluginGenerator\\' => 
+        'srag\\DevTools\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/devtools/src',
         ),
-        'srag\\DIC\\SrPluginGenerator\\' => 
+        'srag\\DIC\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 
+        'srag\\CustomInputGUIs\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\SrPluginGenerator\\' => 
+        'srag\\ActiveRecordConfig\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),
@@ -186,9 +186,9 @@ class ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitb8ea810134af6ad7d7e72112a32dc725::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee::$classMap;
 
         }, null, ClassLoader::class);
     }

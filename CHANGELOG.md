@@ -1,5 +1,8 @@
 # Changelog
 
+## [x]
+- Min. PHP 7.2
+
 ## [2.4.0]
 - Auto generate plugin readme script
 - Footer permanent link (Repository object plugins)

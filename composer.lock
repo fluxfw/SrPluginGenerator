@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61d53facc864cc5df53635cac9f7447f",
+    "content-hash": "cbbab39f1bbea0ec49030883aadef82e",
     "packages": [
         {
             "name": "srag/activerecordconfig",
@@ -451,7 +451,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0"
+        "php": ">=7.2"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"

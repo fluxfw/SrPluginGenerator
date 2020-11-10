@@ -129,7 +129,7 @@ class Options implements JsonSerializable
     /**
      * @param string $init_plugin_version
      */
-    public function setInitPluginVersion(string $init_plugin_version)/* : void*/
+    public function setInitPluginVersion(string $init_plugin_version) : void
     {
         $this->init_plugin_version = $init_plugin_version;
     }
@@ -147,7 +147,7 @@ class Options implements JsonSerializable
     /**
      * @param string $max_ilias_version
      */
-    public function setMaxIliasVersion(string $max_ilias_version)/* : void*/
+    public function setMaxIliasVersion(string $max_ilias_version) : void
     {
         $this->max_ilias_version = $max_ilias_version;
     }
@@ -165,7 +165,7 @@ class Options implements JsonSerializable
     /**
      * @param string $min_ilias_version
      */
-    public function setMinIliasVersion(string $min_ilias_version)/* : void*/
+    public function setMinIliasVersion(string $min_ilias_version) : void
     {
         $this->min_ilias_version = $min_ilias_version;
     }
@@ -183,7 +183,7 @@ class Options implements JsonSerializable
     /**
      * @param string $min_php_version
      */
-    public function setMinPhpVersion(string $min_php_version)/* : void*/
+    public function setMinPhpVersion(string $min_php_version) : void
     {
         $this->min_php_version = $min_php_version;
     }
@@ -201,7 +201,7 @@ class Options implements JsonSerializable
     /**
      * @param string $namespace
      */
-    public function setNamespace(string $namespace)/*: void*/
+    public function setNamespace(string $namespace) : void
     {
         $this->namespace = $namespace;
     }
@@ -219,7 +219,7 @@ class Options implements JsonSerializable
     /**
      * @param string $plugin_id
      */
-    public function setPluginId(string $plugin_id)/*: void*/
+    public function setPluginId(string $plugin_id) : void
     {
         $this->plugin_id = $plugin_id;
     }
@@ -237,7 +237,7 @@ class Options implements JsonSerializable
     /**
      * @param string $plugin_name
      */
-    public function setPluginName(string $plugin_name)/*: void*/
+    public function setPluginName(string $plugin_name) : void
     {
         $this->plugin_name = $plugin_name;
     }
@@ -255,7 +255,7 @@ class Options implements JsonSerializable
     /**
      * @param string $plugin_slot
      */
-    public function setPluginSlot(string $plugin_slot)/*: void*/
+    public function setPluginSlot(string $plugin_slot) : void
     {
         $this->plugin_slot = $plugin_slot;
     }
@@ -273,7 +273,7 @@ class Options implements JsonSerializable
     /**
      * @param string $project_key
      */
-    public function setProjectKey(string $project_key)/*: void*/
+    public function setProjectKey(string $project_key) : void
     {
         $this->project_key = $project_key;
     }
@@ -291,7 +291,7 @@ class Options implements JsonSerializable
     /**
      * @param string $responsible_email
      */
-    public function setResponsibleEmail(string $responsible_email)/*: void*/
+    public function setResponsibleEmail(string $responsible_email) : void
     {
         $this->responsible_email = $responsible_email;
     }
@@ -309,7 +309,7 @@ class Options implements JsonSerializable
     /**
      * @param string $responsible_name
      */
-    public function setResponsibleName(string $responsible_name)/*: void*/
+    public function setResponsibleName(string $responsible_name) : void
     {
         $this->responsible_name = $responsible_name;
     }
@@ -327,7 +327,7 @@ class Options implements JsonSerializable
     /**
      * @param bool $enable_autogenerate_plugin_php_and_xml_script
      */
-    public function setEnableAutogeneratePluginPhpAndXmlScript(bool $enable_autogenerate_plugin_php_and_xml_script)/*: void*/
+    public function setEnableAutogeneratePluginPhpAndXmlScript(bool $enable_autogenerate_plugin_php_and_xml_script) : void
     {
         $this->enable_autogenerate_plugin_php_and_xml_script = $enable_autogenerate_plugin_php_and_xml_script;
     }
@@ -345,7 +345,7 @@ class Options implements JsonSerializable
     /**
      * @param bool $enable_autogenerate_plugin_readme_script
      */
-    public function setEnableAutogeneratePluginReadmeScript(bool $enable_autogenerate_plugin_readme_script)/* : void*/
+    public function setEnableAutogeneratePluginReadmeScript(bool $enable_autogenerate_plugin_readme_script) : void
     {
         $this->enable_autogenerate_plugin_readme_script = $enable_autogenerate_plugin_readme_script;
     }
@@ -363,7 +363,7 @@ class Options implements JsonSerializable
     /**
      * @param bool $enable_dev_tools
      */
-    public function setEnableDevTools(bool $enable_dev_tools)/*: void*/
+    public function setEnableDevTools(bool $enable_dev_tools) : void
     {
         $this->enable_dev_tools = $enable_dev_tools;
     }
@@ -381,7 +381,7 @@ class Options implements JsonSerializable
     /**
      * @param bool $enable_librariesnamespacechanger_script
      */
-    public function setEnableLibrariesnamespacechangerScript(bool $enable_librariesnamespacechanger_script)/* : void*/
+    public function setEnableLibrariesnamespacechangerScript(bool $enable_librariesnamespacechanger_script) : void
     {
         $this->enable_librariesnamespacechanger_script = $enable_librariesnamespacechanger_script;
     }
@@ -399,7 +399,7 @@ class Options implements JsonSerializable
     /**
      * @param bool $enable_min_php_version_checker
      */
-    public function setEnableMinPhpVersionChecker(bool $enable_min_php_version_checker)/*: void*/
+    public function setEnableMinPhpVersionChecker(bool $enable_min_php_version_checker) : void
     {
         $this->enable_min_php_version_checker = $enable_min_php_version_checker;
     }
@@ -421,7 +421,7 @@ class Options implements JsonSerializable
     /**
      * @param bool $enable_php72backport_script
      */
-    public function setEnablePhp72backportScript(bool $enable_php72backport_script)/* : void*/
+    public function setEnablePhp72backportScript(bool $enable_php72backport_script) : void
     {
         $this->enable_php72backport_script = $enable_php72backport_script;
     }
@@ -439,7 +439,7 @@ class Options implements JsonSerializable
     /**
      * @param bool $enable_should_use_one_update_step_only
      */
-    public function setEnableShouldUseOneUpdateStepOnly(bool $enable_should_use_one_update_step_only)/*: void*/
+    public function setEnableShouldUseOneUpdateStepOnly(bool $enable_should_use_one_update_step_only) : void
     {
         $this->enable_should_use_one_update_step_only = $enable_should_use_one_update_step_only;
     }
