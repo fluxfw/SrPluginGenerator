@@ -8,6 +8,11 @@ This is an OpenSource project by studer + raimann ag, CH-Burgdorf (https://stude
 
 This project is licensed under the GPL-3.0-only license
 
+## Requirements
+
+* ILIAS 5.4.0 - 6.999
+* PHP >=7.2
+
 ## Installation
 
 Start at your ILIAS root directory
@@ -35,13 +40,8 @@ This plugin is installed at : https://plgen.studer-raimann.ch
 
 Form:
 
-![Form 1](./doc/images/form_1.png)
-![Form 2](./doc/images/form_2.png)
-
-## Requirements
-
-* ILIAS 5.4.0 - 6.999
-* PHP >=7.2
+![Form 1](../doc/images/form_1.png)
+![Form 2](../doc/images/form_2.png)
 
 ## Adjustment suggestions
 

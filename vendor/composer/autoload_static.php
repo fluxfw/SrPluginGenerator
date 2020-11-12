@@ -14,20 +14,20 @@ class ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\' => 29,
+            'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\' => 47,
             'srag\\Plugins\\SrPluginGenerator\\' => 31,
-            'srag\\LibraryLanguageInstaller\\' => 30,
+            'srag\\LibraryLanguageInstaller\\SrPluginGenerator\\' => 48,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\GeneratePluginInfosHelper\\' => 31,
-            'srag\\DevTools\\' => 14,
-            'srag\\DIC\\' => 9,
-            'srag\\CustomInputGUIs\\' => 21,
-            'srag\\ActiveRecordConfig\\' => 24,
+            'srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\' => 49,
+            'srag\\DevTools\\SrPluginGenerator\\' => 32,
+            'srag\\DIC\\SrPluginGenerator\\' => 27,
+            'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 39,
+            'srag\\ActiveRecordConfig\\SrPluginGenerator\\' => 42,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\' => 
+        'srag\\RemovePluginDataConfirm\\SrPluginGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
@@ -35,7 +35,7 @@ class ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-        'srag\\LibraryLanguageInstaller\\' => 
+        'srag\\LibraryLanguageInstaller\\SrPluginGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/librarylanguageinstaller/src',
         ),
@@ -43,23 +43,23 @@ class ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\GeneratePluginInfosHelper\\' => 
+        'srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src',
         ),
-        'srag\\DevTools\\' => 
+        'srag\\DevTools\\SrPluginGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/devtools/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrPluginGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\' => 
+        'srag\\ActiveRecordConfig\\SrPluginGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),

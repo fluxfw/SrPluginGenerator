@@ -1,6 +1,7 @@
 # Changelog
 
-## [x]
+## [2.5.0]
+- Use GeneratePluginInfosHelper too for generate once if not enabled
 - Min. PHP 7.2
 
 ## [2.4.0]

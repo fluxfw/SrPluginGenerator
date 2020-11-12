@@ -6,6 +6,8 @@ use ilLog;
 use ilSrPluginGeneratorPlugin;
 use ilUtil;
 use srag\DIC\SrPluginGenerator\DICTrait;
+use srag\GeneratePluginInfosHelper\SrPluginGenerator\GeneratePluginPhpAndXml;
+use srag\GeneratePluginInfosHelper\SrPluginGenerator\GeneratePluginReadme;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -21,6 +23,7 @@ class Generator
     use DICTrait;
     use SrPluginGeneratorTrait;
 
+    const GENERATE_PLUGIN_README_TEMPLATE = "SRAG_ILIAS_PLUGIN";
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const SRAG_PREFIX = "srag\\";
     /**
@@ -270,7 +273,7 @@ class Generator
             }
             if ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript()) {
                 $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginReadme::generatePluginReadme";
-                $extra["generate_plugin_readme_template"] = "SRAG_ILIAS_PLUGIN";
+                $extra["generate_plugin_readme_template"] = self::GENERATE_PLUGIN_README_TEMPLATE;
             }
         }
 
@@ -361,6 +364,14 @@ class Generator
         ilUtil::makeDirParents($composer_home);
 
         exec("export COMPOSER_HOME=" . escapeshellarg($composer_home) . "&&composer update -d " . escapeshellarg($this->temp_dir) . "&&composer du -d " . escapeshellarg($this->temp_dir));
+
+        if (!$this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
+            GeneratePluginPhpAndXml::getInstance()->doGeneratePluginPhpAndXml($this->temp_dir);
+        }
+
+        if ($this->isSragPlugin() && !$this->options->isEnableAutogeneratePluginReadmeScript()) {
+            GeneratePluginReadme::getInstance()->doGeneratePluginReadme($this->temp_dir, self::GENERATE_PLUGIN_README_TEMPLATE);
+        }
     }
 
 
