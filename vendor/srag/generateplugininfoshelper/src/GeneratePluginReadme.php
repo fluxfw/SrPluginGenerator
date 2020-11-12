@@ -90,7 +90,7 @@ final class GeneratePluginReadme
         }
 
         if (file_exists($project_root . "/" . self::PLUGIN_LONG_DESCRIPTION)) {
-            $long_description = str_replace("../docs/", "./doc/", trim(file_get_contents($project_root . "/" . self::PLUGIN_LONG_DESCRIPTION)));
+            $long_description = str_replace("../doc/", "./doc/", trim(file_get_contents($project_root . "/" . self::PLUGIN_LONG_DESCRIPTION)));
         } else {
             $long_description = "";
         }

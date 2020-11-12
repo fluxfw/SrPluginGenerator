@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbbab39f1bbea0ec49030883aadef82e",
+    "content-hash": "c4635dfb645fca56997f94873d225e98",
     "packages": [
         {
             "name": "srag/activerecordconfig",
@@ -233,16 +233,16 @@
         },
         {
             "name": "srag/generateplugininfoshelper",
-            "version": "2.4.4",
+            "version": "2.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/GeneratePluginInfosHelper.git",
-                "reference": "8730cbc61b708633d9baed154af13e1ec0b3d853"
+                "reference": "cb928c61cd60d1d62afe71c368bfed06833bfa85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/8730cbc61b708633d9baed154af13e1ec0b3d853",
-                "reference": "8730cbc61b708633d9baed154af13e1ec0b3d853",
+                "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/cb928c61cd60d1d62afe71c368bfed06833bfa85",
+                "reference": "cb928c61cd60d1d62afe71c368bfed06833bfa85",
                 "shasum": ""
             },
             "require": {
@@ -277,7 +277,7 @@
                 "helper",
                 "plugin"
             ],
-            "time": "2020-11-12T14:00:36+00:00"
+            "time": "2020-11-12T14:15:19+00:00"
         },
         {
             "name": "srag/librariesnamespacechanger",
