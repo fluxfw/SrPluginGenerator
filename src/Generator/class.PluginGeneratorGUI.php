@@ -43,7 +43,7 @@ class PluginGeneratorGUI
     /**
      *
      */
-    public function executeCommand()/*: void*/
+    public function executeCommand() : void
     {
         $this->options = self::srPluginGenerator()->generator()->factory()->newOptionsInstance();
 
@@ -76,7 +76,7 @@ class PluginGeneratorGUI
     /**
      *
      */
-    protected function fill()/*: void*/
+    protected function fill() : void
     {
         $form = self::srPluginGenerator()->generator()->factory()->newFormBuilderInstance($this, $this->options);
 
@@ -87,7 +87,7 @@ class PluginGeneratorGUI
     /**
      *
      */
-    protected function generate()/*: void*/
+    protected function generate() : void
     {
         $form = self::srPluginGenerator()->generator()->factory()->newFormBuilderInstance($this, $this->options);
 
@@ -106,7 +106,7 @@ class PluginGeneratorGUI
     /**
      *
      */
-    protected function setTabs()/*: void*/
+    protected function setTabs() : void
     {
 
     }

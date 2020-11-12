@@ -6,6 +6,8 @@ use ilLog;
 use ilSrPluginGeneratorPlugin;
 use ilUtil;
 use srag\DIC\SrPluginGenerator\DICTrait;
+use srag\GeneratePluginInfosHelper\SrPluginGenerator\GeneratePluginPhpAndXml;
+use srag\GeneratePluginInfosHelper\SrPluginGenerator\GeneratePluginReadme;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -21,6 +23,7 @@ class Generator
     use DICTrait;
     use SrPluginGeneratorTrait;
 
+    const GENERATE_PLUGIN_README_TEMPLATE = "SRAG_ILIAS_PLUGIN";
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const SRAG_PREFIX = "srag\\";
     /**
@@ -85,7 +88,7 @@ class Generator
     /**
      *
      */
-    public function generate()/*: void*/
+    public function generate() : void
     {
         $this->copyToTemp();
 
@@ -104,7 +107,7 @@ class Generator
     /**
      *
      */
-    protected function copyToTemp()/*: void*/
+    protected function copyToTemp() : void
     {
         $base_template_dir = Slots::SLOTS_TEMPLATE_DIR . "/base";
         $template_dir = Slots::SLOTS_TEMPLATE_DIR . "/" . $this->options->getPluginSlot();
@@ -134,7 +137,7 @@ class Generator
     /**
      *
      */
-    protected function deliver()/*: void*/
+    protected function deliver() : void
     {
         ilUtil::deliverFile($this->temp_file, $this->deliver_name, "", false, true, true);
     }
@@ -143,7 +146,7 @@ class Generator
     /**
      * @param string $dir
      */
-    protected function handleFiles(string $dir)/*: void*/
+    protected function handleFiles(string $dir) : void
     {
         $files = scandir($dir);
 
@@ -163,7 +166,7 @@ class Generator
     /**
      * @param string $file
      */
-    protected function handlePlaceholders(string $file)/*: void*/
+    protected function handlePlaceholders(string $file) : void
     {
         // Replace placeholders in code
         $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
@@ -198,7 +201,7 @@ class Generator
     /**
      *
      */
-    protected function log()/*: void*/
+    protected function log() : void
     {
         $client_ip = $_SERVER["HTTP_X_FORWARDED_FOR"] ?? $_SERVER["REMOTE_ADDR"];
 
@@ -211,7 +214,7 @@ class Generator
     /**
      *
      */
-    protected function parsePlaceholders()/*: void*/
+    protected function parsePlaceholders() : void
     {
         $requires = [
             "php"                            => ">=__MIN_PHP_VERSION__",
@@ -270,7 +273,7 @@ class Generator
             }
             if ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript()) {
                 $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginReadme::generatePluginReadme";
-                $extra["generate_plugin_readme_template"] = "SRAG_ILIAS_PLUGIN";
+                $extra["generate_plugin_readme_template"] = self::GENERATE_PLUGIN_README_TEMPLATE;
             }
         }
 
@@ -354,20 +357,28 @@ class Generator
     /**
      *
      */
-    protected function runComposerUpdate()/*: void*/
+    protected function runComposerUpdate() : void
     {
         $composer_home = self::srPluginGenerator()->generator()->getDataFolder() . "/composer";
 
         ilUtil::makeDirParents($composer_home);
 
         exec("export COMPOSER_HOME=" . escapeshellarg($composer_home) . "&&composer update -d " . escapeshellarg($this->temp_dir) . "&&composer du -d " . escapeshellarg($this->temp_dir));
+
+        if (!$this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
+            GeneratePluginPhpAndXml::getInstance()->doGeneratePluginPhpAndXml($this->temp_dir);
+        }
+
+        if ($this->isSragPlugin() && !$this->options->isEnableAutogeneratePluginReadmeScript()) {
+            GeneratePluginReadme::getInstance()->doGeneratePluginReadme($this->temp_dir, self::GENERATE_PLUGIN_README_TEMPLATE);
+        }
     }
 
 
     /**
      *
      */
-    protected function zip()/*: void*/
+    protected function zip() : void
     {
         ilUtil::zip($this->temp_base_dir, $this->temp_file, true);
 

@@ -30,7 +30,7 @@ class ilSrPluginGeneratorUIHookGUI extends ilUIHookPluginGUI
     /**
      * @inheritDoc
      */
-    public function gotoHook()/*: void*/
+    public function gotoHook() : void
     {
         $target = filter_input(INPUT_GET, "target");
 

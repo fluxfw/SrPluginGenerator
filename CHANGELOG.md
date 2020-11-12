@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.5.0]
+- Use GeneratePluginInfosHelper too for generate once if not enabled
+- Min. PHP 7.2
+
 ## [2.4.0]
 - Auto generate plugin readme script
 - Footer permanent link (Repository object plugins)

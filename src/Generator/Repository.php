@@ -52,7 +52,7 @@ final class Repository
     /**
      * @internal
      */
-    public function dropTables()/*: void*/
+    public function dropTables() : void
     {
         ilUtil::delDir($this->getDataFolder());
         ilUtil::delDir($this->getTempFolder());
@@ -98,7 +98,7 @@ final class Repository
     /**
      * @internal
      */
-    public function installTables()/*: void*/
+    public function installTables() : void
     {
 
     }

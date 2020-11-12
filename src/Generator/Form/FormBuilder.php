@@ -207,7 +207,7 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data)/* : void*/
+    protected function storeData(array $data) : void
     {
         foreach (array_keys($this->getFields()) as $key) {
             if ($key === "features") {
@@ -273,7 +273,7 @@ class FormBuilder extends AbstractFormBuilder
             }
         }
 
-        Closure::bind(function (array $inputs)/* : void*/ {
+        Closure::bind(function (array $inputs) : void {
             $this->inputs = $inputs;
         }, $this->form->getInputs()["form"], Group::class)($inputs);
 

@@ -1,7 +1,7 @@
 {
   "name": "srag/plugins/srplugingenerator",
   "description": "srag ILIAS plugin generator",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "extra": {
     "ilias_plugin": {
       "id": "srplugingenerator",
@@ -31,7 +31,7 @@
     "issues": "https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_PLUGGEN"
   },
   "require": {
-    "php": ">=7.0",
+    "php": ">=7.2",
     "srag/activerecordconfig": ">=0.1.0",
     "srag/custominputguis": ">=0.1.0",
     "srag/devtools": ">=0.1.0",
@@ -60,7 +60,6 @@
   "scripts": {
     "pre-autoload-dump": [
       "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
-      "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport",
       "srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
       "srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\GeneratePluginReadme::generatePluginReadme"
     ]
