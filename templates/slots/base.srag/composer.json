@@ -1,5 +1,5 @@
 {
-  "name": "__NAMESPACE_SLASHES__",
+  "name": "__COMPOSER_NAME__",
   "description": "Short description",
   "version": "__INIT_PLUGIN_VERSION__",
   "extra": {},
@@ -27,7 +27,8 @@
       "__NAMESPACE_ESCAPED__\\": "src/"
     },
     "classmap": [
-      "classes/"
+      "classes/",
+      "src/Config/class.ConfigCtrl.php"
     ],
     "files": []
   },

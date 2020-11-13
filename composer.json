@@ -1,7 +1,7 @@
 {
-  "name": "srag/plugins/srplugingenerator",
+  "name": "srag/srplugingenerator",
   "description": "srag ILIAS plugin generator",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "extra": {
     "ilias_plugin": {
       "id": "srplugingenerator",
@@ -45,7 +45,9 @@
       "srag\\Plugins\\SrPluginGenerator\\": "src/"
     },
     "classmap": [
-      "classes/"
+      "classes/",
+      "src/Config/class.ConfigCtrl.php",
+      "src/Generator/class.PluginGeneratorGUI.php"
     ],
     "files": [
       "vendor/srag/dic/src/PHPVersionChecker.php",
