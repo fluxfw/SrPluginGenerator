@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.5.1]
+- Fix composer 2
+
 ## [2.5.0]
 - Use GeneratePluginInfosHelper too for generate once if not enabled
 - Min. PHP 7.2

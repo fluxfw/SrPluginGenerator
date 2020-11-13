@@ -172,17 +172,13 @@ class Generator
         $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
         if (in_array($ext, self::$parse_placeholders_exts)) {
             $code = file_get_contents($file);
-            foreach ($this->placeholders as $key => $value) {
-                $code = str_replace("__" . $key . "__", $value, $code);
-            }
+            $code = $this->handlePlaceholdersCode($code);
             file_put_contents($file, $code);
         }
 
         // Replace placeholders in filename
         $old_file = $file;
-        foreach ($this->placeholders as $key => $value) {
-            $file = str_replace("__" . $key . "__", $value, $file);
-        }
+        $file = $this->handlePlaceholdersCode($file);
         if ($old_file !== $file) {
             rename($old_file, $file);
         }
@@ -316,6 +312,7 @@ class Generator
 
         $this->placeholders = [
             "AUTHOR_COMMENT"                  => $author_comment,
+            "COMPOSER_NAME"                   => "",
             "CONFIG_CTRL_CALLS"               => (!empty($config_ctrl_class) ? "
  *
  * " . implode("
@@ -334,7 +331,6 @@ class Generator
             "MIN_PHP_VERSION"                 => $this->options->getMinPhpVersion(),
             "NAMESPACE"                       => $namespace,
             "NAMESPACE_ESCAPED"               => str_replace("\\", "\\\\", $namespace),
-            "NAMESPACE_SLASHES"               => str_replace("\\", "/", $namespace),
             "PLUGIN_NAME"                     => $this->options->getPluginName(),
             "PLUGIN_NAME_CAMEL_CASE"          => lcfirst($this->options->getPluginName()),
             "PLUGIN_ID"                       => $this->options->getPluginId(),
@@ -350,7 +346,26 @@ class Generator
             "VERSION"                         => self::plugin()->getPluginObject()->getVersion()
         ];
 
+        $composer_name = explode("\\", strtolower($this->handlePlaceholdersCode($namespace)));
+        $composer_name = $composer_name[0] . "/" . $composer_name[count($composer_name) - 1];
+        $this->placeholders["COMPOSER_NAME"] = $composer_name;
+
         $this->handleFiles($this->temp_dir);
+    }
+
+
+    /**
+     * @param string $code
+     *
+     * @return string
+     */
+    protected function handlePlaceholdersCode(string $code) : string
+    {
+        foreach ($this->placeholders as $key => $value) {
+            $code = str_replace("__" . $key . "__", $value, $code);
+        }
+
+        return $code;
     }
 
 
