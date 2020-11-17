@@ -292,7 +292,7 @@ class Generator
 
             if ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript()) {
                 $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginReadme::generatePluginReadme";
-                $extra["generate_plugin_readme_template"] = self::GENERATE_PLUGIN_README_TEMPLATE;
+                $this->extra["generate_plugin_readme_template"] = self::GENERATE_PLUGIN_README_TEMPLATE;
             }
 
             $plugin_composer_json["version"] = $this->options->getInitPluginVersion();
