@@ -243,23 +243,23 @@
     },
     {
         "name": "srag/generateplugininfoshelper",
-        "version": "2.4.5",
-        "version_normalized": "2.4.5.0",
+        "version": "2.6.0",
+        "version_normalized": "2.6.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/studer-raimann/GeneratePluginInfosHelper.git",
-            "reference": "cb928c61cd60d1d62afe71c368bfed06833bfa85"
+            "reference": "ba69bc820a45df076f1c65601ee75697236eccc7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/cb928c61cd60d1d62afe71c368bfed06833bfa85",
-            "reference": "cb928c61cd60d1d62afe71c368bfed06833bfa85",
+            "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/ba69bc820a45df076f1c65601ee75697236eccc7",
+            "reference": "ba69bc820a45df076f1c65601ee75697236eccc7",
             "shasum": ""
         },
         "require": {
             "php": ">=7.0"
         },
-        "time": "2020-11-12T14:15:19+00:00",
+        "time": "2020-11-17T08:37:46+00:00",
         "type": "library",
         "extra": {
             "generate_plugin_readme_template": "SRAG_LIBRARY"

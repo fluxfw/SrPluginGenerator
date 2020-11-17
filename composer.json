@@ -1,7 +1,7 @@
 {
   "name": "srag/srplugingenerator",
   "description": "srag ILIAS plugin generator",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "extra": {
     "ilias_plugin": {
       "id": "srplugingenerator",

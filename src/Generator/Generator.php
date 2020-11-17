@@ -49,6 +49,10 @@ class Generator
      */
     protected $deliver_name = null;
     /**
+     * @var array
+     */
+    protected $extra = [];
+    /**
      * @var Options
      */
     protected $options;
@@ -186,6 +190,21 @@ class Generator
 
 
     /**
+     * @param string $code
+     *
+     * @return string
+     */
+    protected function handlePlaceholdersCode(string $code) : string
+    {
+        foreach ($this->placeholders as $key => $value) {
+            $code = str_replace("__" . $key . "__", $value, $code);
+        }
+
+        return $code;
+    }
+
+
+    /**
      * @return bool
      */
     protected function isSragPlugin() : bool
@@ -212,6 +231,8 @@ class Generator
      */
     protected function parsePlaceholders() : void
     {
+        $plugin_composer_json = json_decode(file_get_contents($this->temp_dir . "/composer.json"), true);
+
         $requires = [
             "php"                            => ">=__MIN_PHP_VERSION__",
             "srag/activerecordconfig"        => ">=0.1.0",
@@ -221,18 +242,18 @@ class Generator
             "srag/removeplugindataconfirm"   => ">=0.1.0"
         ];
 
-        $extra = [
+        $this->extra = [
             "ilias_plugin" => [
-                "id"                => "__PLUGIN_ID__",
-                "name"              => "__PLUGIN_NAME__",
-                "ilias_min_version" => "__MIN_ILIAS_VERSION__",
-                "ilias_max_version" => "__MAX_ILIAS_VERSION__"
+                "id"                => $this->options->getPluginId(),
+                "name"              => $this->options->getPluginName(),
+                "ilias_min_version" => $this->options->getMinIliasVersion(),
+                "ilias_max_version" => $this->options->getMaxIliasVersion()
             ]
         ];
         if ($this->options->getPluginSlot() === Slots::REPOSITORY_OBJECT) {
-            $extra["ilias_plugin"]["lucene_search"] = true;
+            $this->extra["ilias_plugin"]["lucene_search"] = true;
         }
-        $extra["ilias_plugin"]["slot"] = "__PLUGIN_SLOT__";
+        $this->extra["ilias_plugin"]["slot"] = $this->options->getPluginSlot();
 
         $authors = [
             ["__RESPONSIBLE_NAME__", "__RESPONSIBLE_EMAIL__"]
@@ -264,13 +285,21 @@ class Generator
 
         if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript() || ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript())) {
             $requires["srag/generateplugininfoshelper"] = ">=0.1.0";
+
             if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
                 $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
             }
+
             if ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript()) {
                 $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginReadme::generatePluginReadme";
                 $extra["generate_plugin_readme_template"] = self::GENERATE_PLUGIN_README_TEMPLATE;
             }
+
+            $plugin_composer_json["version"] = $this->options->getInitPluginVersion();
+            $plugin_composer_json["extra"] = $this->extra;
+        } else {
+            unset($plugin_composer_json["version"]);
+            unset($plugin_composer_json["extra"]);
         }
 
         $config_ctrl_class = [];
@@ -299,9 +328,7 @@ class Generator
 
         ksort($requires);
 
-        $plugin_composer_json = json_decode(file_get_contents($this->temp_dir . "/composer.json"), true);
         $plugin_composer_json["require"] = $requires;
-        $plugin_composer_json["extra"] = $extra;
         $plugin_composer_json["autoload"]["files"] = $composer_autoload_files;
         $plugin_composer_json["scripts"]["pre-autoload-dump"] = $composer_scripts;
         file_put_contents($this->temp_dir . "/composer.json", preg_replace_callback("/\n( +)/", function (array $matches) : string {
@@ -355,21 +382,6 @@ class Generator
 
 
     /**
-     * @param string $code
-     *
-     * @return string
-     */
-    protected function handlePlaceholdersCode(string $code) : string
-    {
-        foreach ($this->placeholders as $key => $value) {
-            $code = str_replace("__" . $key . "__", $value, $code);
-        }
-
-        return $code;
-    }
-
-
-    /**
      *
      */
     protected function runComposerUpdate() : void
@@ -381,11 +393,11 @@ class Generator
         exec("export COMPOSER_HOME=" . escapeshellarg($composer_home) . "&&composer update -d " . escapeshellarg($this->temp_dir) . "&&composer du -d " . escapeshellarg($this->temp_dir));
 
         if (!$this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
-            GeneratePluginPhpAndXml::getInstance()->doGeneratePluginPhpAndXml($this->temp_dir);
+            GeneratePluginPhpAndXml::getInstance()->doGeneratePluginPhpAndXml($this->temp_dir, $this->options->getInitPluginVersion(), $this->extra["ilias_plugin"]);
         }
 
         if ($this->isSragPlugin() && !$this->options->isEnableAutogeneratePluginReadmeScript()) {
-            GeneratePluginReadme::getInstance()->doGeneratePluginReadme($this->temp_dir, self::GENERATE_PLUGIN_README_TEMPLATE);
+            GeneratePluginReadme::getInstance()->doGeneratePluginReadme($this->temp_dir, self::GENERATE_PLUGIN_README_TEMPLATE, $this->options->getInitPluginVersion(), $this->extra["ilias_plugin"]);
         }
     }
 
