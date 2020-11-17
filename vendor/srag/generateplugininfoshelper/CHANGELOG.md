@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.6.0]
+- Possibility to pass `$version` manually
+
+## [2.5.0]
+- Possibility to pass `$extra_ilias_plugin` manually
+
 ## [2.4.5]
 - Fix doc folder
 
