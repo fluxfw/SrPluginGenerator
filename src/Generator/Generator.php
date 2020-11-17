@@ -329,7 +329,9 @@ class Generator
         ksort($requires);
 
         $plugin_composer_json["require"] = $requires;
-        $plugin_composer_json["autoload"]["files"] = $composer_autoload_files;
+        if (!empty($composer_autoload_files)) {
+            $plugin_composer_json["autoload"]["files"] = $composer_autoload_files;
+        }
         $plugin_composer_json["scripts"]["pre-autoload-dump"] = $composer_scripts;
         file_put_contents($this->temp_dir . "/composer.json", preg_replace_callback("/\n( +)/", function (array $matches) : string {
                 return "

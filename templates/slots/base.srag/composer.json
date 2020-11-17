@@ -29,8 +29,7 @@
     "classmap": [
       "classes/",
       "src/Config/class.ConfigCtrl.php"
-    ],
-    "files": []
+    ]
   },
   "config": {
     "classmap-authoritative": true,
