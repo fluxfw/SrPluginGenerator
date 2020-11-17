@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.6.1]
+- Generate `composer.json>autoload>files` only has such
+
 ## [2.6.0]
 - Generate `composer.json>version` and `composer.json>extra` only if using GeneratePluginInfosHelper
 
