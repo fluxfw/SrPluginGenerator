@@ -2,7 +2,7 @@
 
 # srag/generateplugininfoshelper Library
 
-Generate plugin infos helper
+Automatic generate plugin infos such README.md, plugin.php, plugin.xml, ... from composer.json
 
 This is an OpenSource project by studer + raimann ag, CH-Burgdorf (https://studer-raimann.ch)
 
@@ -28,7 +28,7 @@ Tip: Because of multiple autoloaders of plugins, it could be, that different ver
 
 So I recommand to use [srag/librariesnamespacechanger](https://packagist.org/packages/srag/librariesnamespacechanger) in your plugin.
 
-## GeneratePluginPhpAndXml
+### GeneratePluginPhpAndXml
 
 Generate `plugin.php` and `plugin.xml` and `LuceneObjectDefinition.xml` for ILIAS plugins from `composer.json`
 
@@ -68,9 +68,9 @@ Complete your `composer.json` with
   ...
 ```
 
-### Composer script
+#### Composer script
 
-#### Automatic
+##### Automatic
 
 ```json
   ...
@@ -85,7 +85,7 @@ Complete your `composer.json` with
 composer du
 ```
 
-#### Manual
+##### Manual
 
 ```json
   ...
@@ -100,7 +100,7 @@ composer du
 composer run generate-plugin-php-and-xml
 ```
 
-### In code
+#### In code
 
 ```php
 ...
@@ -110,7 +110,7 @@ GeneratePluginPhpAndXml::getInstance()->doGeneratePluginPhpAndXml(string $projec
 ...
 ```
 
-## GeneratePluginReadme
+### GeneratePluginReadme
 
 Auto generate `README.md`
 
@@ -126,9 +126,9 @@ Complete your `composer.json` with
   ...
 ```
 
-### Composer script
+#### Composer script
 
-#### Automatic
+##### Automatic
 
 ```json
   ...
@@ -143,7 +143,7 @@ Complete your `composer.json` with
 composer du
 ```
 
-#### Manual
+##### Manual
 
 ```json
   ...
@@ -158,7 +158,7 @@ composer du
 composer run generate-plugin-readme
 ```
 
-### In code
+#### In code
 
 ```php
 ...
@@ -174,5 +174,6 @@ GeneratePluginReadme::getInstance()->doGeneratePluginReadme(string $project_root
 
 ## Adjustment suggestions
 
-* External users can report suggestions and bugs at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_LGENPLUGINFHELP
-* Adjustment suggestions by pull requests via github
+You can report bugs or suggestions at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_LGENPLUGINFHELP
+
+There is no guarantee this can be fixed or implemented

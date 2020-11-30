@@ -18,7 +18,7 @@ Tip: Because of multiple autoloaders of plugins, it could be, that different ver
 
 So I recommand to use [srag/librariesnamespacechanger](https://packagist.org/packages/srag/librariesnamespacechanger) in your plugin.
 
-## GeneratePluginPhpAndXml
+### GeneratePluginPhpAndXml
 
 Generate `plugin.php` and `plugin.xml` and `LuceneObjectDefinition.xml` for ILIAS plugins from `composer.json`
 
@@ -58,9 +58,9 @@ Complete your `composer.json` with
   ...
 ```
 
-### Composer script
+#### Composer script
 
-#### Automatic
+##### Automatic
 
 ```json
   ...
@@ -75,7 +75,7 @@ Complete your `composer.json` with
 composer du
 ```
 
-#### Manual
+##### Manual
 
 ```json
   ...
@@ -90,7 +90,7 @@ composer du
 composer run generate-plugin-php-and-xml
 ```
 
-### In code
+#### In code
 
 ```php
 ...
@@ -100,7 +100,7 @@ GeneratePluginPhpAndXml::getInstance()->doGeneratePluginPhpAndXml(string $projec
 ...
 ```
 
-## GeneratePluginReadme
+### GeneratePluginReadme
 
 Auto generate `README.md`
 
@@ -116,9 +116,9 @@ Complete your `composer.json` with
   ...
 ```
 
-### Composer script
+#### Composer script
 
-#### Automatic
+##### Automatic
 
 ```json
   ...
@@ -133,7 +133,7 @@ Complete your `composer.json` with
 composer du
 ```
 
-#### Manual
+##### Manual
 
 ```json
   ...
@@ -148,7 +148,7 @@ composer du
 composer run generate-plugin-readme
 ```
 
-### In code
+#### In code
 
 ```php
 ...

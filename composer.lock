@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82c93c45a8868ea127aaab69285522e0",
+    "content-hash": "f56a5c5cdce5c696b3e0509332fb53fc",
     "packages": [
         {
             "name": "srag/activerecordconfig",
@@ -187,16 +187,16 @@
         },
         {
             "name": "srag/dic",
-            "version": "0.30.2",
+            "version": "0.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/DIC.git",
-                "reference": "314c0a13a9e9970a012ca727148aa0ac148d50dd"
+                "reference": "de8dd1ff734ba8dc42178180dcdaee20058c10aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/314c0a13a9e9970a012ca727148aa0ac148d50dd",
-                "reference": "314c0a13a9e9970a012ca727148aa0ac148d50dd",
+                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/de8dd1ff734ba8dc42178180dcdaee20058c10aa",
+                "reference": "de8dd1ff734ba8dc42178180dcdaee20058c10aa",
                 "shasum": ""
             },
             "require": {
@@ -238,20 +238,20 @@
                 "globals",
                 "trait"
             ],
-            "time": "2020-11-13T09:09:28+00:00"
+            "time": "2020-11-25T11:02:47+00:00"
         },
         {
             "name": "srag/generateplugininfoshelper",
-            "version": "2.6.0",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/GeneratePluginInfosHelper.git",
-                "reference": "ba69bc820a45df076f1c65601ee75697236eccc7"
+                "reference": "c27b765782c9533f6f6f67e2b1a705f52df377a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/ba69bc820a45df076f1c65601ee75697236eccc7",
-                "reference": "ba69bc820a45df076f1c65601ee75697236eccc7",
+                "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/c27b765782c9533f6f6f67e2b1a705f52df377a1",
+                "reference": "c27b765782c9533f6f6f67e2b1a705f52df377a1",
                 "shasum": ""
             },
             "require": {
@@ -263,7 +263,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\GeneratePluginInfosHelper\\": "src/"
+                    "srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -278,7 +278,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Generate plugin infos helper",
+            "description": "Automatic generate plugin infos such README.md, plugin.php, plugin.xml, ... from composer.json",
             "homepage": "https://github.com/studer-raimann/GeneratePluginInfosHelper",
             "keywords": [
                 "Infos",
@@ -286,7 +286,7 @@
                 "helper",
                 "plugin"
             ],
-            "time": "2020-11-17T08:37:46+00:00"
+            "time": "2020-11-30T14:15:16+00:00"
         },
         {
             "name": "srag/librariesnamespacechanger",

@@ -182,8 +182,8 @@ require_once __DIR__ . "/vendor/autoload.php";
 <plugin id="' . htmlspecialchars(strval($extra_ilias_plugin["id"])) . '">
 	' . (!empty($extra_ilias_plugin["events"]) ? '<events>
 		' . implode('
-		', array_map(function (stdClass $event) : string {
-                    return '<event id="' . htmlspecialchars($event->id) . '" type="' . htmlspecialchars($event->type) . '" />';
+		', array_map(function (array $event) : string {
+                    return '<event id="' . htmlspecialchars($event["id"]) . '" type="' . htmlspecialchars($event["type"]) . '" />';
                 }, (array) $extra_ilias_plugin["events"])) . '
 	</events>' : '') . '
 </plugin>
