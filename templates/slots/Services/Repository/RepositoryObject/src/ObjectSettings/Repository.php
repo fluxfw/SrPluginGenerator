@@ -24,6 +24,10 @@ final class Repository
      * @var self|null
      */
     protected static $instance = null;
+    /**
+     * @var ObjectSettings[]
+     */
+    protected $object_settings_by_id = [];
 
 
     /**
@@ -65,6 +69,8 @@ final class Repository
     public function deleteObjectSettings(ObjectSettings $object_settings) : void
     {
         $object_settings->delete();
+
+        unset($this->object_settings_by_id[$object_settings->getObjId()]);
     }
 
 
@@ -93,15 +99,13 @@ final class Repository
      */
     public function getObjectSettingsById(int $obj_id) : ?ObjectSettings
     {
-        /**
-         * @var ObjectSettings|null $object_settings
-         */
+        if ($this->object_settings_by_id[$obj_id] === null) {
+            $this->object_settings_by_id[$obj_id] = ObjectSettings::where([
+                "obj_id" => $obj_id
+            ])->first();
+        }
 
-        $object_settings = ObjectSettings::where([
-            "obj_id" => $obj_id
-        ])->first();
-
-        return $object_settings;
+        return $this->object_settings_by_id[$obj_id];
     }
 
 
@@ -120,5 +124,7 @@ final class Repository
     public function storeObjectSettings(ObjectSettings $object_settings) : void
     {
         $object_settings->store();
+
+        $this->object_settings_by_id[$object_settings->getObjId()] = $object_settings;
     }
 }
