@@ -3,12 +3,10 @@
 namespace srag\Plugins\SrPluginGenerator\Generator\Form;
 
 use Closure;
-use ilCheckboxInputGUI;
 use ILIAS\UI\Component\Input\Field\Radio;
 use ILIAS\UI\Implementation\Component\Input\Field\Group;
 use ilSrPluginGeneratorPlugin;
 use srag\CustomInputGUIs\SrPluginGenerator\FormBuilder\AbstractFormBuilder;
-use srag\CustomInputGUIs\SrPluginGenerator\InputGUIWrapperUIInputComponent\InputGUIWrapperUIInputComponent;
 use srag\CustomInputGUIs\SrPluginGenerator\PropertyFormGUI\Items\Items;
 use srag\Plugins\SrPluginGenerator\Generator\Options;
 use srag\Plugins\SrPluginGenerator\Generator\PluginGeneratorGUI;
@@ -166,17 +164,11 @@ class FormBuilder extends AbstractFormBuilder
                     ->field()
                     ->checkbox(self::plugin()->translate("enable_dev_tools", PluginGeneratorGUI::LANG_MODULE))
                     ->withByline(nl2br(self::plugin()->translate("enable_dev_tools_info", PluginGeneratorGUI::LANG_MODULE), false)),
-                "enable_librariesnamespacechanger_script"       => (self::version()->is6()
-                    ? self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                        ->translate("enable_librariesnamespacechanger_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "LibrariesNamespaceChanger"]))
-                    : new InputGUIWrapperUIInputComponent(new ilCheckboxInputGUI(self::plugin()
-                        ->translate("enable_librariesnamespacechanger_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "LibrariesNamespaceChanger"]))))->withByline(nl2br(self::plugin()
+                "enable_librariesnamespacechanger_script"       => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                    ->translate("enable_librariesnamespacechanger_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "LibrariesNamespaceChanger"]))->withByline(nl2br(self::plugin()
                     ->translate("enable_librariesnamespacechanger_script_info", PluginGeneratorGUI::LANG_MODULE), false))->withRequired(true)->withDisabled(true),
-                "enable_php72backport_script"                   => (self::version()->is6()
-                    ? self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                        ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]))
-                    : new InputGUIWrapperUIInputComponent(new ilCheckboxInputGUI(self::plugin()
-                        ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]))))->withByline(self::plugin()
+                "enable_php72backport_script"                   => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
+                    ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]))->withByline(self::plugin()
                     ->translate("enable_php72backport_script_info", PluginGeneratorGUI::LANG_MODULE))->withDisabled(true),
                 "enable_min_php_version_checker"                => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
                     ->translate("enable_min_php_version_checker", PluginGeneratorGUI::LANG_MODULE), self::plugin()

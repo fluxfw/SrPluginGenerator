@@ -10,7 +10,7 @@ This project is licensed under the GPL-3.0-only license
 
 ## Requirements
 
-* ILIAS 5.4.0 - 6.999
+* ILIAS 6.0 - 6.999
 * PHP >=7.2
 
 ## Installation
