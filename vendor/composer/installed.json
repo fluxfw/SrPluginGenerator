@@ -59,17 +59,17 @@
     },
     {
         "name": "srag/custominputguis",
-        "version": "0.41.2",
-        "version_normalized": "0.41.2.0",
+        "version": "0.41.3",
+        "version_normalized": "0.41.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/studer-raimann/CustomInputGUIs.git",
-            "reference": "cbbbb3cf2e9857db12a349bcf878192b7bb0ea18"
+            "reference": "26384f04d1a0ae72c53e0598c6e3580dcfedd88c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/cbbbb3cf2e9857db12a349bcf878192b7bb0ea18",
-            "reference": "cbbbb3cf2e9857db12a349bcf878192b7bb0ea18",
+            "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/26384f04d1a0ae72c53e0598c6e3580dcfedd88c",
+            "reference": "26384f04d1a0ae72c53e0598c6e3580dcfedd88c",
             "shasum": ""
         },
         "require": {
@@ -79,7 +79,7 @@
         "require-dev": {
             "srag/generateplugininfoshelper": ">=0.1.0"
         },
-        "time": "2020-11-13T09:45:09+00:00",
+        "time": "2021-01-20T06:25:40+00:00",
         "type": "library",
         "extra": {
             "ilias_plugin": {
@@ -186,17 +186,17 @@
     },
     {
         "name": "srag/dic",
-        "version": "0.31.0",
-        "version_normalized": "0.31.0.0",
+        "version": "0.31.3",
+        "version_normalized": "0.31.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/studer-raimann/DIC.git",
-            "reference": "de8dd1ff734ba8dc42178180dcdaee20058c10aa"
+            "reference": "05671be74b361e1cc95862323836d13af411996b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/de8dd1ff734ba8dc42178180dcdaee20058c10aa",
-            "reference": "de8dd1ff734ba8dc42178180dcdaee20058c10aa",
+            "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/05671be74b361e1cc95862323836d13af411996b",
+            "reference": "05671be74b361e1cc95862323836d13af411996b",
             "shasum": ""
         },
         "require": {
@@ -205,7 +205,7 @@
         "require-dev": {
             "srag/generateplugininfoshelper": ">=0.1.0"
         },
-        "time": "2020-11-25T11:02:47+00:00",
+        "time": "2020-12-10T12:28:26+00:00",
         "type": "library",
         "extra": {
             "ilias_plugin": {
@@ -243,26 +243,27 @@
     },
     {
         "name": "srag/generateplugininfoshelper",
-        "version": "2.6.2",
-        "version_normalized": "2.6.2.0",
+        "version": "2.7.0",
+        "version_normalized": "2.7.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/studer-raimann/GeneratePluginInfosHelper.git",
-            "reference": "c27b765782c9533f6f6f67e2b1a705f52df377a1"
+            "reference": "956ee613281520d4b7a6e10bfc18480987ddbeed"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/c27b765782c9533f6f6f67e2b1a705f52df377a1",
-            "reference": "c27b765782c9533f6f6f67e2b1a705f52df377a1",
+            "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/956ee613281520d4b7a6e10bfc18480987ddbeed",
+            "reference": "956ee613281520d4b7a6e10bfc18480987ddbeed",
             "shasum": ""
         },
         "require": {
             "php": ">=7.0"
         },
-        "time": "2020-11-30T14:15:16+00:00",
+        "time": "2021-01-20T07:38:03+00:00",
         "type": "library",
         "extra": {
-            "generate_plugin_readme_template": "SRAG_LIBRARY"
+            "generate_plugin_readme_template": "SRAG_LIBRARY",
+            "long_description_template": "src/LONG_DESCRIPTION.md"
         },
         "installation-source": "dist",
         "autoload": {
