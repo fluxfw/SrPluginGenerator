@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.8.0]
+- Remove ILIAS 5.4 support
+
 ## [2.7.0]
 - `long_description_template` config
 

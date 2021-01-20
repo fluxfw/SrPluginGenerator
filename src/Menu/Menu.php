@@ -2,7 +2,6 @@
 
 namespace srag\Plugins\SrPluginGenerator\Menu;
 
-use ILIAS\GlobalScreen\Scope\MainMenu\Factory\AbstractBaseItem;
 use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
 use ILIAS\UI\Component\Symbol\Icon\Standard;
 use ilSrPluginGeneratorPlugin;
@@ -43,30 +42,16 @@ class Menu extends AbstractStaticPluginMainMenuProvider
     public function getStaticTopItems() : array
     {
         return [
-            $this->symbol($this->mainmenu->topLinkItem($this->if->identifier(ilSrPluginGeneratorPlugin::PLUGIN_ID))
+            $this->mainmenu->topLinkItem($this->if->identifier(ilSrPluginGeneratorPlugin::PLUGIN_ID))
                 ->withTitle(self::plugin()->translate("title", PluginGeneratorGUI::LANG_MODULE))
                 ->withAction(self::srPluginGenerator()->generator()->getLink())
+                ->withSymbol(self::dic()->ui()->factory()->symbol()->icon()->standard(Standard::CMPS, ilSrPluginGeneratorPlugin::PLUGIN_NAME)->withIsOutlined(true))
                 ->withAvailableCallable(function () : bool {
                     return self::plugin()->getPluginObject()->isActive();
                 })
                 ->withVisibilityCallable(function () : bool {
                     return self::srPluginGenerator()->currentUserHasRole();
-                }))
+                })
         ];
-    }
-
-
-    /**
-     * @param AbstractBaseItem $entry
-     *
-     * @return AbstractBaseItem
-     */
-    protected function symbol(AbstractBaseItem $entry) : AbstractBaseItem
-    {
-        if (self::version()->is6()) {
-            $entry = $entry->withSymbol(self::dic()->ui()->factory()->symbol()->icon()->standard(Standard::CMPS, ilSrPluginGeneratorPlugin::PLUGIN_NAME)->withIsOutlined(true));
-        }
-
-        return $entry;
     }
 }
