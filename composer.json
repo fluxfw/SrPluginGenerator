@@ -1,7 +1,7 @@
 {
   "name": "srag/srplugingenerator",
   "description": "srag ILIAS plugin generator",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "extra": {
     "ilias_plugin": {
       "id": "srplugingenerator",
@@ -10,12 +10,16 @@
       "ilias_max_version": "6.999",
       "slot": "Services/UIComponent/UserInterfaceHook"
     },
-    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN"
+    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN",
+    "long_description_template": "src/LONG_DESCRIPTION.md"
   },
   "type": "project",
   "keywords": [
-    "ILIAS",
-    "Plugin"
+    "generator",
+    "ilias",
+    "interface",
+    "plugin",
+    "user"
   ],
   "homepage": "https://github.com/studer-raimann/SrPluginGenerator",
   "license": "GPL-3.0-only",

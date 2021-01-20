@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.7.0]
+- `long_description_template` config
+
+## [2.6.2]
+- Fix generate `plugin.xml`
+
+## [2.6.1]
+- Update readme
+- Update `Adjustment suggestions`
+
 ## [2.6.0]
 - Possibility to pass `$version` manually
 

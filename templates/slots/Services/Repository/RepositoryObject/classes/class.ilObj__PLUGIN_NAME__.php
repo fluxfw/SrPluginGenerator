@@ -17,9 +17,9 @@ class ilObj__PLUGIN_NAME__ extends ilObjectPlugin
 
     const PLUGIN_CLASS_NAME = il__PLUGIN_NAME__Plugin::class;
     /**
-     * @var ObjectSettings
+     * @var ObjectSettings|null
      */
-    protected $object_settings;
+    protected $object_settings = null;
 
 
     /**

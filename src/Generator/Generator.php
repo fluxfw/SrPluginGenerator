@@ -24,6 +24,7 @@ class Generator
     use SrPluginGeneratorTrait;
 
     const GENERATE_PLUGIN_README_TEMPLATE = "SRAG_ILIAS_PLUGIN";
+    const LONG_DESCRIPTION_TEMPLATE = "src/LONG_DESCRIPTION.md";
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const SRAG_PREFIX = "srag\\";
     /**
@@ -293,6 +294,7 @@ class Generator
             if ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript()) {
                 $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginReadme::generatePluginReadme";
                 $this->extra["generate_plugin_readme_template"] = self::GENERATE_PLUGIN_README_TEMPLATE;
+                $this->extra["long_description_template"] = self::LONG_DESCRIPTION_TEMPLATE;
             }
 
             $plugin_composer_json["version"] = $this->options->getInitPluginVersion();
@@ -399,7 +401,8 @@ class Generator
         }
 
         if ($this->isSragPlugin() && !$this->options->isEnableAutogeneratePluginReadmeScript()) {
-            GeneratePluginReadme::getInstance()->doGeneratePluginReadme($this->temp_dir, self::GENERATE_PLUGIN_README_TEMPLATE, $this->options->getInitPluginVersion(), $this->extra["ilias_plugin"]);
+            GeneratePluginReadme::getInstance()
+                ->doGeneratePluginReadme($this->temp_dir, self::GENERATE_PLUGIN_README_TEMPLATE, self::LONG_DESCRIPTION_TEMPLATE, $this->options->getInitPluginVersion(), $this->extra["ilias_plugin"]);
         }
     }
 

@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.7.0]
+- `long_description_template` config
+
 ## [2.6.1]
 - Generate `composer.json>autoload>files` only has such
 

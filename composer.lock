@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82c93c45a8868ea127aaab69285522e0",
+    "content-hash": "fa82691a0c0dbe804f3d0b21649d0844",
     "packages": [
         {
             "name": "srag/activerecordconfig",
@@ -64,16 +64,16 @@
         },
         {
             "name": "srag/custominputguis",
-            "version": "0.41.2",
+            "version": "0.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/CustomInputGUIs.git",
-                "reference": "cbbbb3cf2e9857db12a349bcf878192b7bb0ea18"
+                "reference": "26384f04d1a0ae72c53e0598c6e3580dcfedd88c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/cbbbb3cf2e9857db12a349bcf878192b7bb0ea18",
-                "reference": "cbbbb3cf2e9857db12a349bcf878192b7bb0ea18",
+                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/26384f04d1a0ae72c53e0598c6e3580dcfedd88c",
+                "reference": "26384f04d1a0ae72c53e0598c6e3580dcfedd88c",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\CustomInputGUIs\\SrPluginGenerator\\": "src/"
+                    "srag\\CustomInputGUIs\\": "src/"
                 },
                 "classmap": [
                     "src/MultiSelectSearchNewInputGUI/class.ObjectChildrenAjaxAutoCompleteCtrl.php",
@@ -123,7 +123,7 @@
                 "input",
                 "table"
             ],
-            "time": "2020-11-13T09:45:09+00:00"
+            "time": "2021-01-20T06:25:40+00:00"
         },
         {
             "name": "srag/devtools",
@@ -187,16 +187,16 @@
         },
         {
             "name": "srag/dic",
-            "version": "0.30.2",
+            "version": "0.31.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/DIC.git",
-                "reference": "314c0a13a9e9970a012ca727148aa0ac148d50dd"
+                "reference": "05671be74b361e1cc95862323836d13af411996b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/314c0a13a9e9970a012ca727148aa0ac148d50dd",
-                "reference": "314c0a13a9e9970a012ca727148aa0ac148d50dd",
+                "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/05671be74b361e1cc95862323836d13af411996b",
+                "reference": "05671be74b361e1cc95862323836d13af411996b",
                 "shasum": ""
             },
             "require": {
@@ -215,7 +215,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\DIC\\SrPluginGenerator\\": "src/"
+                    "srag\\DIC\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -238,20 +238,20 @@
                 "globals",
                 "trait"
             ],
-            "time": "2020-11-13T09:09:28+00:00"
+            "time": "2020-12-10T12:28:26+00:00"
         },
         {
             "name": "srag/generateplugininfoshelper",
-            "version": "2.6.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/GeneratePluginInfosHelper.git",
-                "reference": "ba69bc820a45df076f1c65601ee75697236eccc7"
+                "reference": "956ee613281520d4b7a6e10bfc18480987ddbeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/ba69bc820a45df076f1c65601ee75697236eccc7",
-                "reference": "ba69bc820a45df076f1c65601ee75697236eccc7",
+                "url": "https://api.github.com/repos/studer-raimann/GeneratePluginInfosHelper/zipball/956ee613281520d4b7a6e10bfc18480987ddbeed",
+                "reference": "956ee613281520d4b7a6e10bfc18480987ddbeed",
                 "shasum": ""
             },
             "require": {
@@ -259,7 +259,8 @@
             },
             "type": "library",
             "extra": {
-                "generate_plugin_readme_template": "SRAG_LIBRARY"
+                "generate_plugin_readme_template": "SRAG_LIBRARY",
+                "long_description_template": "src/LONG_DESCRIPTION.md"
             },
             "autoload": {
                 "psr-4": {
@@ -278,7 +279,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Generate plugin infos helper",
+            "description": "Automatic generate plugin infos such README.md, plugin.php, plugin.xml, ... from composer.json",
             "homepage": "https://github.com/studer-raimann/GeneratePluginInfosHelper",
             "keywords": [
                 "Infos",
@@ -286,7 +287,7 @@
                 "helper",
                 "plugin"
             ],
-            "time": "2020-11-17T08:37:46+00:00"
+            "time": "2021-01-20T07:38:03+00:00"
         },
         {
             "name": "srag/librariesnamespacechanger",

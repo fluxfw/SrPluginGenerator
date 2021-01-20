@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.31.3]
+- Cache `ilMMItemRepository`
+
+## [0.31.2]
+- Fix no DIC index for `ilTemplate` in `FixUITemplateInCronContext`
+
+## [0.31.1]
+- Not call `ilTemplate` constructor in `FixUITemplateInCronContext`
+
+## [0.31.0]
+- `FixUITemplateInCronContext`
+
 ## [0.30.2]
 - Move doc/DESCRIPTION.md to src/LONG_DESCRIPTION.md
 
