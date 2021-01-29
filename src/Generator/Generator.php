@@ -2,7 +2,6 @@
 
 namespace srag\Plugins\SrPluginGenerator\Generator;
 
-use ilLog;
 use ilSrPluginGeneratorPlugin;
 use ilUtil;
 use srag\DIC\SrPluginGenerator\DICTrait;
@@ -102,8 +101,6 @@ class Generator
         $this->runComposerUpdate();
 
         $this->zip();
-
-        $this->log();
 
         $this->deliver();
     }
@@ -211,19 +208,6 @@ class Generator
     protected function isSragPlugin() : bool
     {
         return (substr($this->options->getNamespace(), 0, strlen(self::SRAG_PREFIX)) === self::SRAG_PREFIX);
-    }
-
-
-    /**
-     *
-     */
-    protected function log() : void
-    {
-        $client_ip = $_SERVER["HTTP_X_FORWARDED_FOR"] ?? $_SERVER["REMOTE_ADDR"];
-
-        $log = new ilLog(self::srPluginGenerator()->generator()->getDataFolder(), "generator.log", ilSrPluginGeneratorPlugin::PLUGIN_ID);
-
-        $log->write($client_ip . " " . json_encode($this->options, JSON_UNESCAPED_SLASHES));
     }
 
 

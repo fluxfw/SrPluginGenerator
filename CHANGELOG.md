@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.8.1]
+- Remove log
+
 ## [2.8.0]
 - Remove ILIAS 5.4 support
 
