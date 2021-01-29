@@ -2,6 +2,8 @@
 
 namespace __NAMESPACE__\Config;
 
+require_once __DIR__ . "/../../vendor/autoload.php";
+
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use il__PLUGIN_NAME__Plugin;
 use ilUtil;

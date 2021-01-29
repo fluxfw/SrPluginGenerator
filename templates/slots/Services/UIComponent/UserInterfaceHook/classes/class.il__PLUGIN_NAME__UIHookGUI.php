@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/../vendor/autoload.php";
+
 use __NAMESPACE__\Utils\__PLUGIN_NAME__Trait;
 use srag\DIC\__PLUGIN_NAME__\DICTrait;
 

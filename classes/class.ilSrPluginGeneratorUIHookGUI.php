@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/../vendor/autoload.php";
+
 use srag\DIC\SrPluginGenerator\DICTrait;
 use srag\Plugins\SrPluginGenerator\Generator\PluginGeneratorGUI;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;

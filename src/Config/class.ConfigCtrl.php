@@ -2,6 +2,8 @@
 
 namespace srag\Plugins\SrPluginGenerator\Config;
 
+require_once __DIR__ . "/../../vendor/autoload.php";
+
 use ilSrPluginGeneratorPlugin;
 use ilUtil;
 use srag\DIC\SrPluginGenerator\DICTrait;
