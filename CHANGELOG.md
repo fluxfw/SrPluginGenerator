@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.8.2]
+- Update project url
+
 ## [2.8.1]
 - Remove log
 
