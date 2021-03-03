@@ -20,7 +20,7 @@ Start at your ILIAS root directory
 ```bash
 mkdir -p Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
 cd Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
-git clone https://github.com/studer-raimann/SrPluginGenerator.git SrPluginGenerator
+git clone https://github.com/fluxfw/SrPluginGenerator.git SrPluginGenerator
 ```
 
 Update, activate and config the plugin in the ILIAS Plugin Administration

@@ -8,7 +8,6 @@ class ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee
 {
     public static $files = array (
         '91f96498c975be6f3dca03e9d5644b57' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
-        '7d4e693f7921ec698a03bcb85b33d290' => __DIR__ . '/..' . '/srag/dic/src/Ilias7PreWarn.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -143,7 +142,6 @@ class ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee
         'srag\\DIC\\SrPluginGenerator\\Database\\PdoContextHelper' => __DIR__ . '/..' . '/srag/dic/src/Database/PdoContextHelper.php',
         'srag\\DIC\\SrPluginGenerator\\Database\\PdoStatementContextHelper' => __DIR__ . '/..' . '/srag/dic/src/Database/PdoStatementContextHelper.php',
         'srag\\DIC\\SrPluginGenerator\\Exception\\DICException' => __DIR__ . '/..' . '/srag/dic/src/Exception/DICException.php',
-        'srag\\DIC\\SrPluginGenerator\\Ilias7PreWarn' => __DIR__ . '/..' . '/srag/dic/src/Ilias7PreWarn.php',
         'srag\\DIC\\SrPluginGenerator\\Loader\\AbstractLoaderDetector' => __DIR__ . '/..' . '/srag/dic/src/Loader/AbstractLoaderDetector.php',
         'srag\\DIC\\SrPluginGenerator\\Output\\Output' => __DIR__ . '/..' . '/srag/dic/src/Output/Output.php',
         'srag\\DIC\\SrPluginGenerator\\Output\\OutputInterface' => __DIR__ . '/..' . '/srag/dic/src/Output/OutputInterface.php',

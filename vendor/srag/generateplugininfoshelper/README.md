@@ -47,6 +47,7 @@ Complete your `composer.json` with
       "learning_progress": true | false,
       "lucene_search": true | false,
       "supports_export": true | false,
+      "supports_cli_setup": true | false,
       "slot": "x/y/z"
       "events": [
         {

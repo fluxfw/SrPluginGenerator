@@ -1,14 +1,15 @@
 {
   "name": "srag/srplugingenerator",
   "description": "srag ILIAS plugin generator",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "extra": {
     "ilias_plugin": {
       "id": "srplugingenerator",
       "name": "SrPluginGenerator",
       "ilias_min_version": "6.0",
       "ilias_max_version": "6.999",
-      "slot": "Services/UIComponent/UserInterfaceHook"
+      "slot": "Services/UIComponent/UserInterfaceHook",
+      "supports_cli_setup": true
     },
     "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN",
     "long_description_template": "src/LONG_DESCRIPTION.md"
@@ -21,7 +22,7 @@
     "plugin",
     "user"
   ],
-  "homepage": "https://github.com/studer-raimann/SrPluginGenerator",
+  "homepage": "https://github.com/fluxfw/SrPluginGenerator",
   "license": "GPL-3.0-only",
   "authors": [
     {
@@ -54,8 +55,7 @@
       "src/Generator/class.PluginGeneratorGUI.php"
     ],
     "files": [
-      "vendor/srag/dic/src/PHPVersionChecker.php",
-      "vendor/srag/dic/src/Ilias7PreWarn.php"
+      "vendor/srag/dic/src/PHPVersionChecker.php"
     ]
   },
   "config": {
