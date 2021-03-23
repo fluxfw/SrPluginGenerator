@@ -18,9 +18,6 @@
       "role": "Developer"
     }
   ],
-  "support": {
-    "issues": "https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu___PROJECT_KEY__"
-  },
   "require": {},
   "autoload": {
     "psr-4": {
