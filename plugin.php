@@ -4,7 +4,7 @@
 require_once __DIR__ . "/vendor/autoload.php";
 
 $id = "srplugingenerator";
-$version = "2.8.2";
+$version = "2.8.3";
 $ilias_min_version = "6.0";
 $ilias_max_version = "6.999";
 $responsible = "studer + raimann ag - Team Custom 1";

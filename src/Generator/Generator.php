@@ -22,7 +22,7 @@ class Generator
     use DICTrait;
     use SrPluginGeneratorTrait;
 
-    const GENERATE_PLUGIN_README_TEMPLATE = "SRAG_ILIAS_PLUGIN";
+    const GENERATE_PLUGIN_README_TEMPLATE = "ILIAS_PLUGIN";
     const LONG_DESCRIPTION_TEMPLATE = "src/LONG_DESCRIPTION.md";
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const SRAG_PREFIX = "srag\\";

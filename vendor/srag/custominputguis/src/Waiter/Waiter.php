@@ -2,8 +2,11 @@
 
 namespace srag\CustomInputGUIs\SrPluginGenerator\Waiter;
 
+use ilGlobalTemplateInterface;
 use ilTemplate;
 use srag\DIC\SrPluginGenerator\DICTrait;
+use srag\DIC\SrPluginGenerator\Plugin\PluginInterface;
+use srag\DIC\SrPluginGenerator\Version\PluginVersionParameter;
 
 /**
  * Class Waiter
@@ -41,22 +44,28 @@ final class Waiter
 
 
     /**
-     * @param string          $type
-     * @param ilTemplate|ilGlobalPageTemplate|null $tpl
+     * @param string                                    $type
+     * @param ilTemplate|ilGlobalTemplateInterface|null $tpl
+     * @param PluginInterface|null                      $plugin
      */
-    public static final function init(string $type, /*?ilGlobalPageTemplate*/ $tpl = null)/*: void*/
+    public static final function init(string $type, /*?ilGlobalTemplateInterface*/ $tpl = null,/*?*/ PluginInterface $plugin = null)/*: void*/
     {
         $tpl = $tpl ?? self::dic()->ui()->mainTemplate();
 
         if (self::$init === false) {
             self::$init = true;
 
+            $version_parameter = PluginVersionParameter::getInstance();
+            if ($plugin !== null) {
+                $version_parameter = $version_parameter->withPlugin($plugin);
+            }
+
             $dir = __DIR__;
             $dir = "./" . substr($dir, strpos($dir, "/Customizing/") + 1);
 
-            $tpl->addCss($dir . "/css/waiter.css");
+            $tpl->addCss($version_parameter->appendToUrl($dir . "/css/waiter.css"));
 
-            $tpl->addJavaScript($dir . "/js/waiter.min.js");
+            $tpl->addJavaScript($version_parameter->appendToUrl($dir . "/js/waiter.min.js", $dir . "/js/waiter.js"));
         }
 
         $tpl->addOnLoadCode('il.waiter.init("' . $type . '");');
