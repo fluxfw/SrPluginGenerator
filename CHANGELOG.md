@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.8.4]
+- Ignore not supported languages
+
 ## [2.8.3]
 - Update readme
 

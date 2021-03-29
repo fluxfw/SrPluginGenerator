@@ -60,17 +60,17 @@
     },
     {
         "name": "srag/custominputguis",
-        "version": "0.42.4",
-        "version_normalized": "0.42.4.0",
+        "version": "0.42.6",
+        "version_normalized": "0.42.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/fluxfw/CustomInputGUIs.git",
-            "reference": "84e73ffa3dfd9bd906ef8fe48e1c3199338b5d83"
+            "reference": "879ffdedfd47d799914b4c1e2ce6b5887dfee2b8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fluxfw/CustomInputGUIs/zipball/84e73ffa3dfd9bd906ef8fe48e1c3199338b5d83",
-            "reference": "84e73ffa3dfd9bd906ef8fe48e1c3199338b5d83",
+            "url": "https://api.github.com/repos/fluxfw/CustomInputGUIs/zipball/879ffdedfd47d799914b4c1e2ce6b5887dfee2b8",
+            "reference": "879ffdedfd47d799914b4c1e2ce6b5887dfee2b8",
             "shasum": ""
         },
         "require": {
@@ -80,7 +80,7 @@
         "require-dev": {
             "srag/generateplugininfoshelper": ">=0.1.0"
         },
-        "time": "2021-03-23T12:49:24+00:00",
+        "time": "2021-03-29T07:11:05+00:00",
         "type": "library",
         "extra": {
             "ilias_plugin": {
@@ -126,17 +126,17 @@
     },
     {
         "name": "srag/devtools",
-        "version": "1.2.7",
-        "version_normalized": "1.2.7.0",
+        "version": "1.2.9",
+        "version_normalized": "1.2.9.0",
         "source": {
             "type": "git",
             "url": "https://github.com/fluxfw/DevTools.git",
-            "reference": "73de451e2e4f05e36381977e3f1da51ba7175e53"
+            "reference": "664fb2a6166909b6d8366b1cc643fc236b2c80f4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fluxfw/DevTools/zipball/73de451e2e4f05e36381977e3f1da51ba7175e53",
-            "reference": "73de451e2e4f05e36381977e3f1da51ba7175e53",
+            "url": "https://api.github.com/repos/fluxfw/DevTools/zipball/664fb2a6166909b6d8366b1cc643fc236b2c80f4",
+            "reference": "664fb2a6166909b6d8366b1cc643fc236b2c80f4",
             "shasum": ""
         },
         "require": {
@@ -147,7 +147,7 @@
         "require-dev": {
             "srag/generateplugininfoshelper": ">=0.1.0"
         },
-        "time": "2021-03-23T12:50:24+00:00",
+        "time": "2021-03-29T07:11:30+00:00",
         "type": "library",
         "extra": {
             "ilias_plugin": {
@@ -410,17 +410,17 @@
     },
     {
         "name": "srag/removeplugindataconfirm",
-        "version": "0.7.4",
-        "version_normalized": "0.7.4.0",
+        "version": "0.7.6",
+        "version_normalized": "0.7.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/fluxfw/RemovePluginDataConfirm.git",
-            "reference": "0b41f6670381ff1b79518f087d73f5b3a0c97ca2"
+            "reference": "c9ef8dde2b8db1814c195cef620fb26d36703225"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fluxfw/RemovePluginDataConfirm/zipball/0b41f6670381ff1b79518f087d73f5b3a0c97ca2",
-            "reference": "0b41f6670381ff1b79518f087d73f5b3a0c97ca2",
+            "url": "https://api.github.com/repos/fluxfw/RemovePluginDataConfirm/zipball/c9ef8dde2b8db1814c195cef620fb26d36703225",
+            "reference": "c9ef8dde2b8db1814c195cef620fb26d36703225",
             "shasum": ""
         },
         "require": {
@@ -431,7 +431,7 @@
         "require-dev": {
             "srag/generateplugininfoshelper": ">=0.1.0"
         },
-        "time": "2021-03-23T12:48:13+00:00",
+        "time": "2021-03-29T07:10:46+00:00",
         "type": "library",
         "extra": {
             "ilias_plugin": {
