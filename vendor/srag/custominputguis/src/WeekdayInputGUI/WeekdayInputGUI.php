@@ -13,9 +13,6 @@ use srag\DIC\SrPluginGenerator\DICTrait;
  * Class WeekdayInputGUI
  *
  * @package srag\CustomInputGUIs\SrPluginGenerator\WeekdayInputGUI
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- * @author  Theodor Truffer <tt@studer-raimann.ch>
  */
 class WeekdayInputGUI extends ilFormPropertyGUI implements ilTableFilterItem
 {

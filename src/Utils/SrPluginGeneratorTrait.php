@@ -8,8 +8,6 @@ use srag\Plugins\SrPluginGenerator\Repository;
  * Trait SrPluginGeneratorTrait
  *
  * @package srag\Plugins\SrPluginGenerator\Utils
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 trait SrPluginGeneratorTrait
 {
