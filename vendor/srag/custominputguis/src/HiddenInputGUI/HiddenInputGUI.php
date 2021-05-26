@@ -10,8 +10,6 @@ use srag\DIC\SrPluginGenerator\DICTrait;
  * Class HiddenInputGUI
  *
  * @package srag\CustomInputGUIs\SrPluginGenerator\HiddenInputGUI
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class HiddenInputGUI extends ilHiddenInputGUI
 {

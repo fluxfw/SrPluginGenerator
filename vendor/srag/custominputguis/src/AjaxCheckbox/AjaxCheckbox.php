@@ -12,8 +12,6 @@ use srag\DIC\SrPluginGenerator\Version\PluginVersionParameter;
  * Class AjaxCheckbox
  *
  * @package srag\CustomInputGUIs\SrPluginGenerator\AjaxCheckbox
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class AjaxCheckbox
 {

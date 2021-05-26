@@ -8,13 +8,13 @@
     "ILIAS",
     "Plugin"
   ],
-  "homepage": "https://github.com/studer-raimann/__PLUGIN_NAME__",
+  "homepage": "https://github.com/fluxapps/__PLUGIN_NAME__",
   "license": "__LICENSE__",
   "authors": [
     {
       "name": "__RESPONSIBLE_NAME__",
       "email": "__RESPONSIBLE_EMAIL__",
-      "homepage": "https://studer-raimann.ch",
+      "homepage": "https://fluxlabs.ch",
       "role": "Developer"
     }
   ],

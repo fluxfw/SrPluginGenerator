@@ -11,8 +11,6 @@ use srag\DIC\SrPluginGenerator\DICTrait;
  * Class AbstractRenderer
  *
  * @package srag\CustomInputGUIs\SrPluginGenerator\InputGUIWrapperUIInputComponent
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractRenderer extends Renderer
 {

@@ -10,8 +10,6 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
  * Class Users
  *
  * @package srag\Plugins\SrPluginGenerator\Access
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class Users
 {

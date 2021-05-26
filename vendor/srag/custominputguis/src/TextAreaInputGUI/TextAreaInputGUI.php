@@ -10,9 +10,6 @@ use srag\DIC\SrPluginGenerator\DICTrait;
  * Class TextAreaInputGUI
  *
  * @package srag\CustomInputGUIs\SrPluginGenerator\TextAreaInputGUI
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- * @author  Fabian Schmid <fs@studer-raimann.ch>
  */
 class TextAreaInputGUI extends ilTextAreaInputGUI
 {

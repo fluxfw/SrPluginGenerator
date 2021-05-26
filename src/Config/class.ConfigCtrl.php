@@ -14,8 +14,6 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
  *
  * @package           srag\Plugins\SrPluginGenerator\Config
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\Plugins\SrPluginGenerator\Config\ConfigCtrl: ilSrPluginGeneratorConfigGUI
  */
 class ConfigCtrl

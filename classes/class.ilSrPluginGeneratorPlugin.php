@@ -11,8 +11,6 @@ use srag\RemovePluginDataConfirm\SrPluginGenerator\PluginUninstallTrait;
 
 /**
  * Class ilSrPluginGeneratorPlugin
- *
- * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
 {

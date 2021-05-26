@@ -12,8 +12,6 @@ use stdClass;
  * Class Options
  *
  * @package srag\Plugins\SrPluginGenerator\Generator
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class Options implements JsonSerializable
 {
@@ -26,8 +24,8 @@ class Options implements JsonSerializable
     const DEFAULT_MIN_ILIAS_VERSION = "5.4.0";
     const DEFAULT_MIN_PHP_VERSION = "7.0";
     const DEFAULT_NAMESPACE = "srag\\Plugins\\__PLUGIN_NAME__\\";
-    const DEFAULT_RESPONSIBLE_EMAIL = "support-custom1@studer-raimann.ch";
-    const DEFAULT_RESPONSIBLE_NAME = "studer + raimann ag - Team Custom 1";
+    const DEFAULT_RESPONSIBLE_EMAIL = "support@fluxlabs.ch";
+    const DEFAULT_RESPONSIBLE_NAME = "fluxlabs";
     const PHP_VERSIONS
         = [
             self::DEFAULT_MIN_PHP_VERSION => self::DEFAULT_MIN_PHP_VERSION,

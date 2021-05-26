@@ -12,8 +12,6 @@ use srag\DIC\SrPluginGenerator\Version\VersionInterface;
  * Interface DICStaticInterface
  *
  * @package srag\DIC\SrPluginGenerator
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 interface DICStaticInterface
 {

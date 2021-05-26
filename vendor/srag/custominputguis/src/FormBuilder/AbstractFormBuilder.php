@@ -24,8 +24,6 @@ use Throwable;
  *
  * @package      srag\CustomInputGUIs\SrPluginGenerator\FormBuilder
  *
- * @author       studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_Calls srag\CustomInputGUIs\SrPluginGenerator\FormBuilder\AbstractFormBuilder: ilFormPropertyDispatchGUI
  */
 abstract class AbstractFormBuilder implements FormBuilder

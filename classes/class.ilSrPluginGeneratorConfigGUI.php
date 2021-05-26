@@ -10,8 +10,6 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 /**
  * Class ilSrPluginGeneratorConfigGUI
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\DevTools\SrPluginGenerator\DevToolsCtrl: ilSrPluginGeneratorConfigGUI
  */
 class ilSrPluginGeneratorConfigGUI extends ilPluginConfigGUI
