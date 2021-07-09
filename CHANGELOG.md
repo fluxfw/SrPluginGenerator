@@ -1,7 +1,7 @@
 # Changelog
 
 ## [2.9.0]
-- 
+- ILIAS 7 support
 
 ## [2.8.6]
 - Change utils url

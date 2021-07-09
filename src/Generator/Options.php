@@ -20,7 +20,7 @@ class Options implements JsonSerializable
     use SrPluginGeneratorTrait;
 
     const DEFAULT_INIT_PLUGIN_VERSION = "0.1.0";
-    const DEFAULT_MAX_ILIAS_VERSION = "6.999";
+    const DEFAULT_MAX_ILIAS_VERSION = "7.999";
     const DEFAULT_MIN_ILIAS_VERSION = "6.0";
     const DEFAULT_MIN_PHP_VERSION = "7.2";
     const DEFAULT_NAMESPACE = "srag\\Plugins\\__PLUGIN_NAME__\\";
