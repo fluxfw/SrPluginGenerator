@@ -13,8 +13,6 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
  * Class Menu
  *
  * @package srag\Plugins\SrPluginGenerator\Menu
- *
- * @since   ILIAS 5.4
  */
 class Menu extends AbstractStaticPluginMainMenuProvider
 {
