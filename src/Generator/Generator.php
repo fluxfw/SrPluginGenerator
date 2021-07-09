@@ -262,9 +262,6 @@ class Generator
         if ($this->options->isEnableLibrariesnamespacechangerScript()) {
             $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces";
         }
-        if ($this->options->isEnablePhp72backportScript()) {
-            $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport";
-        }
 
         if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript() || ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript())) {
             $requires["srag/generateplugininfoshelper"] = ">=0.1.0";

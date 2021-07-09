@@ -55,10 +55,6 @@ class Options implements JsonSerializable
     /**
      * @var bool
      */
-    protected $enable_php72backport_script = false;
-    /**
-     * @var bool
-     */
     protected $enable_should_use_one_update_step_only = false;
     /**
      * @var string
@@ -400,28 +396,6 @@ class Options implements JsonSerializable
     public function setEnableMinPhpVersionChecker(bool $enable_min_php_version_checker) : void
     {
         $this->enable_min_php_version_checker = $enable_min_php_version_checker;
-    }
-
-
-    /**
-     * @return bool
-     */
-    public function isEnablePhp72backportScript() : bool
-    {
-        if ($this->min_php_version === self::DEFAULT_MIN_PHP_VERSION) {
-            return true;
-        }
-
-        return $this->enable_php72backport_script;
-    }
-
-
-    /**
-     * @param bool $enable_php72backport_script
-     */
-    public function setEnablePhp72backportScript(bool $enable_php72backport_script) : void
-    {
-        $this->enable_php72backport_script = $enable_php72backport_script;
     }
 
 
