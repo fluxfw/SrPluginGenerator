@@ -2,6 +2,8 @@
 
 ## [2.9.0]
 - ILIAS 7 support
+- Remove generate deprecated PHP72Backport script
+- Remove generate ILIAS 5.4/PHP 7.0
 
 ## [2.8.6]
 - Change utils url
