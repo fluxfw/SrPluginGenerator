@@ -3,7 +3,7 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\DI\Container;
-use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
+use ILIAS\GlobalScreen\Provider\PluginProviderCollection;
 use srag\CustomInputGUIs\SrPluginGenerator\Loader\CustomInputGUIsLoaderDetector;
 use srag\DevTools\SrPluginGenerator\DevToolsCtrl;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
@@ -25,6 +25,10 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
      * @var self|null
      */
     protected static $instance = null;
+    /**
+     * @var PluginProviderCollection|null
+     */
+    protected static $pluginProviderCollection = null;
 
 
     /**
@@ -33,6 +37,8 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
     public function __construct()
     {
         parent::__construct();
+
+        $this->provider_collection = self::getPluginProviderCollection(); // Fix overflow
     }
 
 
@@ -46,6 +52,21 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
         }
 
         return self::$instance;
+    }
+
+
+    /**
+     * @return PluginProviderCollection
+     */
+    protected static function getPluginProviderCollection() : PluginProviderCollection
+    {
+        if (self::$pluginProviderCollection === null) {
+            self::$pluginProviderCollection = new PluginProviderCollection();
+
+            self::$pluginProviderCollection->setMainBarProvider(self::srPluginGenerator()->menu());
+        }
+
+        return self::$pluginProviderCollection;
     }
 
 
@@ -64,15 +85,6 @@ class ilSrPluginGeneratorPlugin extends ilUserInterfaceHookPlugin
     public function getPluginName() : string
     {
         return self::PLUGIN_NAME;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function promoteGlobalScreenProvider() : AbstractStaticPluginMainMenuProvider
-    {
-        return self::srPluginGenerator()->menu();
     }
 
 

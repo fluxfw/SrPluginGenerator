@@ -98,9 +98,7 @@ class FormBuilder extends AbstractFormBuilder
             if ($key === "features") {
                 $data[$key] = [];
                 foreach (array_keys($this->getFields()[$key]->getInputs()) as $key2) {
-                    if ($key2 !== "enable_php72backport_script") {
-                        $data[$key][$key2] = Items::getter($this->options, $key2);
-                    }
+                    $data[$key][$key2] = Items::getter($this->options, $key2);
                 }
             } else {
                 $data[$key] = Items::getter($this->options, $key);
@@ -132,8 +130,7 @@ class FormBuilder extends AbstractFormBuilder
             "max_ilias_version"   => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("max_ilias_version", PluginGeneratorGUI::LANG_MODULE),
                 self::plugin()->translate("max_ilias_version_info", PluginGeneratorGUI::LANG_MODULE))->withRequired(true),
             "min_php_version"     => array_reduce(array_keys(Options::PHP_VERSIONS), function (Radio $radio, string $php_version) : Radio {
-                $radio = $radio->withOption($php_version, Options::PHP_VERSIONS[$php_version], ($php_version === Options::DEFAULT_MIN_PHP_VERSION ? self::plugin()
-                    ->translate("min_php_version_70_info", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]) : null));
+                $radio = $radio->withOption($php_version, Options::PHP_VERSIONS[$php_version]);
 
                 return $radio;
             }, self::dic()->ui()->factory()->input()->field()->radio(self::plugin()
@@ -165,9 +162,6 @@ class FormBuilder extends AbstractFormBuilder
                 "enable_librariesnamespacechanger_script"       => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
                     ->translate("enable_librariesnamespacechanger_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "LibrariesNamespaceChanger"]))->withByline(nl2br(self::plugin()
                     ->translate("enable_librariesnamespacechanger_script_info", PluginGeneratorGUI::LANG_MODULE), false))->withRequired(true)->withDisabled(true),
-                "enable_php72backport_script"                   => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                    ->translate("enable_php72backport_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "PHP72Backport"]))->withByline(self::plugin()
-                    ->translate("enable_php72backport_script_info", PluginGeneratorGUI::LANG_MODULE))->withDisabled(true),
                 "enable_min_php_version_checker"                => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
                     ->translate("enable_min_php_version_checker", PluginGeneratorGUI::LANG_MODULE), self::plugin()
                     ->translate("enable_min_php_version_checker_info", PluginGeneratorGUI::LANG_MODULE)),
@@ -175,9 +169,7 @@ class FormBuilder extends AbstractFormBuilder
                     ->translate("enable_should_use_one_update_step_only", PluginGeneratorGUI::LANG_MODULE), self::plugin()
                     ->translate("enable_should_use_one_update_step_only_info", PluginGeneratorGUI::LANG_MODULE)),
                 "enable_autogenerate_plugin_php_and_xml_script" => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                    ->translate("enable_autogenerate_plugin_php_and_xml_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "plugin.php", "plugin.xml", "composer.json"])),
-                "enable_autogenerate_plugin_readme_script"      => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                    ->translate("enable_autogenerate_plugin_readme_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "README.md", "composer.json"]))
+                    ->translate("enable_autogenerate_plugin_php_and_xml_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "plugin.php", "plugin.xml", "composer.json"]))
             ], self::plugin()->translate("features", PluginGeneratorGUI::LANG_MODULE), nl2br(self::plugin()->translate("features_info", PluginGeneratorGUI::LANG_MODULE), false))
         ];
 
@@ -202,7 +194,7 @@ class FormBuilder extends AbstractFormBuilder
         foreach (array_keys($this->getFields()) as $key) {
             if ($key === "features") {
                 foreach (array_keys($this->getFields()[$key]->getInputs()) as $key2) {
-                    if (!in_array($key2, ["enable_librariesnamespacechanger_script", "enable_php72backport_script"])) {
+                    if ($key2 !== "enable_librariesnamespacechanger_script") {
                         Items::setter($this->options, $key2, $data[$key][$key2]);
                     }
                 }

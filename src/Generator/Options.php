@@ -20,26 +20,21 @@ class Options implements JsonSerializable
     use SrPluginGeneratorTrait;
 
     const DEFAULT_INIT_PLUGIN_VERSION = "0.1.0";
-    const DEFAULT_MAX_ILIAS_VERSION = "6.999";
-    const DEFAULT_MIN_ILIAS_VERSION = "5.4.0";
-    const DEFAULT_MIN_PHP_VERSION = "7.0";
+    const DEFAULT_MAX_ILIAS_VERSION = "7.999";
+    const DEFAULT_MIN_ILIAS_VERSION = "6.0";
+    const DEFAULT_MIN_PHP_VERSION = "7.2";
     const DEFAULT_NAMESPACE = "srag\\Plugins\\__PLUGIN_NAME__\\";
     const DEFAULT_RESPONSIBLE_EMAIL = "support@fluxlabs.ch";
     const DEFAULT_RESPONSIBLE_NAME = "fluxlabs";
     const PHP_VERSIONS
         = [
-            self::DEFAULT_MIN_PHP_VERSION => self::DEFAULT_MIN_PHP_VERSION,
-            "7.2"                         => "7.2"
+            self::DEFAULT_MIN_PHP_VERSION => self::DEFAULT_MIN_PHP_VERSION
         ];
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     /**
      * @var bool
      */
     protected $enable_autogenerate_plugin_php_and_xml_script = false;
-    /**
-     * @var bool
-     */
-    protected $enable_autogenerate_plugin_readme_script = false;
     /**
      * @var bool
      */
@@ -52,10 +47,6 @@ class Options implements JsonSerializable
      * @var bool
      */
     protected $enable_min_php_version_checker = false;
-    /**
-     * @var bool
-     */
-    protected $enable_php72backport_script = false;
     /**
      * @var bool
      */
@@ -334,24 +325,6 @@ class Options implements JsonSerializable
     /**
      * @return bool
      */
-    public function isEnableAutogeneratePluginReadmeScript() : bool
-    {
-        return $this->enable_autogenerate_plugin_readme_script;
-    }
-
-
-    /**
-     * @param bool $enable_autogenerate_plugin_readme_script
-     */
-    public function setEnableAutogeneratePluginReadmeScript(bool $enable_autogenerate_plugin_readme_script) : void
-    {
-        $this->enable_autogenerate_plugin_readme_script = $enable_autogenerate_plugin_readme_script;
-    }
-
-
-    /**
-     * @return bool
-     */
     public function isEnableDevTools() : bool
     {
         return $this->enable_dev_tools;
@@ -400,28 +373,6 @@ class Options implements JsonSerializable
     public function setEnableMinPhpVersionChecker(bool $enable_min_php_version_checker) : void
     {
         $this->enable_min_php_version_checker = $enable_min_php_version_checker;
-    }
-
-
-    /**
-     * @return bool
-     */
-    public function isEnablePhp72backportScript() : bool
-    {
-        if ($this->min_php_version === self::DEFAULT_MIN_PHP_VERSION) {
-            return true;
-        }
-
-        return $this->enable_php72backport_script;
-    }
-
-
-    /**
-     * @param bool $enable_php72backport_script
-     */
-    public function setEnablePhp72backportScript(bool $enable_php72backport_script) : void
-    {
-        $this->enable_php72backport_script = $enable_php72backport_script;
     }
 
 

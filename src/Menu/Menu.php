@@ -2,7 +2,7 @@
 
 namespace srag\Plugins\SrPluginGenerator\Menu;
 
-use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticPluginMainMenuProvider;
+use ILIAS\GlobalScreen\Scope\MainMenu\Provider\AbstractStaticMainMenuPluginProvider;
 use ILIAS\UI\Component\Symbol\Icon\Standard;
 use ilSrPluginGeneratorPlugin;
 use srag\DIC\SrPluginGenerator\DICTrait;
@@ -13,10 +13,8 @@ use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
  * Class Menu
  *
  * @package srag\Plugins\SrPluginGenerator\Menu
- *
- * @since   ILIAS 5.4
  */
-class Menu extends AbstractStaticPluginMainMenuProvider
+class Menu extends AbstractStaticMainMenuPluginProvider
 {
 
     use DICTrait;

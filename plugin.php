@@ -4,9 +4,8 @@
 require_once __DIR__ . "/vendor/autoload.php";
 
 $id = "srplugingenerator";
-$version = "2.8.6";
+$version = "2.9.0";
 $ilias_min_version = "6.0";
-$ilias_max_version = "6.999";
+$ilias_max_version = "7.999";
 $responsible = "fluxlabs";
 $responsible_mail = "support@fluxlabs.ch";
-$supports_cli_setup = true;
