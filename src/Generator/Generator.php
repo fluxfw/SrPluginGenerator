@@ -20,8 +20,6 @@ class Generator
     use DICTrait;
     use SrPluginGeneratorTrait;
 
-    const GENERATE_PLUGIN_README_TEMPLATE = "ILIAS_PLUGIN";
-    const LONG_DESCRIPTION_TEMPLATE = "src/LONG_DESCRIPTION.md";
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
     const SRAG_PREFIX = "srag\\";
     /**
@@ -263,17 +261,11 @@ class Generator
             $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces";
         }
 
-        if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript() || ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript())) {
+        if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
             $requires["srag/generateplugininfoshelper"] = ">=0.1.0";
 
             if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
                 $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
-            }
-
-            if ($this->isSragPlugin() && $this->options->isEnableAutogeneratePluginReadmeScript()) {
-                $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginReadme::generatePluginReadme";
-                $this->extra["generate_plugin_readme_template"] = self::GENERATE_PLUGIN_README_TEMPLATE;
-                $this->extra["long_description_template"] = self::LONG_DESCRIPTION_TEMPLATE;
             }
 
             $plugin_composer_json["version"] = $this->options->getInitPluginVersion();
@@ -379,10 +371,12 @@ class Generator
             GeneratePluginPhpAndXml::getInstance()->doGeneratePluginPhpAndXml($this->temp_dir, $this->options->getInitPluginVersion(), $this->extra["ilias_plugin"]);
         }
 
-        if ($this->isSragPlugin() && !$this->options->isEnableAutogeneratePluginReadmeScript()) {
+        if ($this->isSragPlugin()) {
             GeneratePluginReadme::getInstance()
-                ->doGeneratePluginReadme($this->temp_dir, self::GENERATE_PLUGIN_README_TEMPLATE, self::LONG_DESCRIPTION_TEMPLATE, $this->options->getInitPluginVersion(), $this->extra["ilias_plugin"]);
+                ->doGeneratePluginReadme($this->temp_dir, "ILIAS_PLUGIN", "src/LONG_DESCRIPTION.md", $this->options->getInitPluginVersion(), $this->extra["ilias_plugin"]);
         }
+
+        unlink($this->temp_dir . "/src/LONG_DESCRIPTION.md");
     }
 
 

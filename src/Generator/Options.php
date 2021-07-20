@@ -38,10 +38,6 @@ class Options implements JsonSerializable
     /**
      * @var bool
      */
-    protected $enable_autogenerate_plugin_readme_script = false;
-    /**
-     * @var bool
-     */
     protected $enable_dev_tools = false;
     /**
      * @var bool
@@ -323,24 +319,6 @@ class Options implements JsonSerializable
     public function setEnableAutogeneratePluginPhpAndXmlScript(bool $enable_autogenerate_plugin_php_and_xml_script) : void
     {
         $this->enable_autogenerate_plugin_php_and_xml_script = $enable_autogenerate_plugin_php_and_xml_script;
-    }
-
-
-    /**
-     * @return bool
-     */
-    public function isEnableAutogeneratePluginReadmeScript() : bool
-    {
-        return $this->enable_autogenerate_plugin_readme_script;
-    }
-
-
-    /**
-     * @param bool $enable_autogenerate_plugin_readme_script
-     */
-    public function setEnableAutogeneratePluginReadmeScript(bool $enable_autogenerate_plugin_readme_script) : void
-    {
-        $this->enable_autogenerate_plugin_readme_script = $enable_autogenerate_plugin_readme_script;
     }
 
 

@@ -4,7 +4,6 @@ config_roles#:#Rollen
 config_roles_info#:#Nur für die ausgewählten Rollen anzeigen
 config_save#:#Speichern
 plugin_generator_enable_autogenerate_plugin_php_and_xml_script#:#%1$s-Script um %2$s und %3$s automatisch anhand von %4$s zu generieren
-plugin_generator_enable_autogenerate_plugin_readme_script#:#%1$s-Script um %2$s automatisch anhand von %3$s zu generieren (srag-Vorlage)
 plugin_generator_enable_dev_tools#:#Dev-Tools
 plugin_generator_enable_dev_tools_info#:#Weitere Tools für Entwicklung in Globalen-Plugin-Config, z. Bsp. Plugin-Ctrl-Struktur neu laden
 plugin_generator_enable_librariesnamespacechanger_script#:#%1$s-Script %2$s
