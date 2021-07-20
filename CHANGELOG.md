@@ -1,6 +1,7 @@
 # Changelog
 
 ## [2.9.0]
+- Switched to main branch
 - ILIAS 7 support
 - Remove generate deprecated PHP72Backport script
 - Remove generate deprecated GeneratePluginReadme
