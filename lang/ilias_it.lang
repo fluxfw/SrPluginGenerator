@@ -1,0 +1,41 @@
+config_configuration#:#Configurazione
+config_configuration_saved#:#Configurazione salvata
+config_roles#:#Ruoli
+config_roles_info#:#Mostra solo ai ruoli indicati
+config_save#:#Salva
+plugin_generator_enable_autogenerate_plugin_php_and_xml_script#:#Script %1$s per generazione automatica di %2$s e %3$s da %4$s
+plugin_generator_enable_dev_tools#:#Strumenti di sviluppo
+plugin_generator_enable_dev_tools_info#:#Opzioni aggiuntive nella configurazione globale del plugin, ad esempio ricarica la struttura del Ctrl
+plugin_generator_enable_librariesnamespacechanger_script#:#Script %1$s %2$s
+plugin_generator_enable_librariesnamespacechanger_script_info#:#Le librerie (indifferentemente dalla versione) possono essere usate in diversi plugin\nÈ pertanto obbligatorio.
+plugin_generator_enable_min_php_version_checker#:#Verifica la versione minima di PHP
+plugin_generator_enable_min_php_version_checker_info#:#Mostra un messaggio di errore comprensibile in caso non sia rispettata.
+plugin_generator_enable_should_use_one_update_step_only#:#Singolo step di aggiornamento
+plugin_generator_enable_should_use_one_update_step_only_info#:#Esegue nuovamente il primo step di aggiornamento dopo l'aggiornamento del plugin.
+plugin_generator_features#:#Altre opzioni
+plugin_generator_features_info#:#Queste opzioni possono essere attivate o disattivate anche manualmente dopo la generazione.\nSe disattivate, la sola opzione è disattivata, ma la sua struttura rimane.
+plugin_generator_generate#:#Genera
+plugin_generator_init_plugin_version#:#Versione iniziale del plugin
+plugin_generator_init_plugin_version_info#:#Solo numeri e punti
+plugin_generator_install_steps#:#Step per l'installazione di un plugin generato
+plugin_generator_install_steps_1#:#Parti dalla radice di ILIAS\nSi presume che il plugin generato %1$s viene scaricato nella tua cartella dei download %2$s; altrimenti va opportunamente modificato il comando sottostante.
+plugin_generator_install_steps_2#:#Esegui i seguenti comandi:
+plugin_generator_install_steps_3#:#Aggiorna e attiva il plugin dalla pagina di amministrazione di ILIAS.
+plugin_generator_install_steps_4#:#Cerca %s nel codice del plugin.\nPuoi rimuovere alcuni file (come il file config) in base all'utilizzo che desideri.\nInoltre, sovrascrivi il file readme iniziale.
+plugin_generator_max_ilias_version#:#Versione massima di ILIAS
+plugin_generator_max_ilias_version_info#:#Solo numeri e punti
+plugin_generator_min_ilias_version#:#Versione minima di ILIAS
+plugin_generator_min_ilias_version_info#:#Solo numeri e punti
+plugin_generator_min_php_version#:#Versione minima di PHP
+plugin_generator_namespace#:#Namespace
+plugin_generator_namespace_info#:#Solo lettere o backslash (usa __PLUGIN_NAME__ come segnaposto per il nome del plugin).
+plugin_generator_plugin_id#:#ID del plugin
+plugin_generator_plugin_id_info#:#Solo lettere minuscole e numeri (inizia con una lettera minuscola). Per gli oggetti del Repository usa solo 4 caratteri e inizia con 'x'.
+plugin_generator_plugin_name#:#Nome del plugin
+plugin_generator_plugin_name_info#:#Solo lettere e numeri (inizia con una lettera maiuscola).
+plugin_generator_plugin_slot#:#Slot del plugin
+plugin_generator_project_key#:#Nome del Progetto
+plugin_generator_project_key_info#:#Jira, ...
+plugin_generator_responsible_email#:#Mail del responsabile
+plugin_generator_responsible_name#:#Nome del responsabile
+plugin_generator_title#:#Generatore di plugin
