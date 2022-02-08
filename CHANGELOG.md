@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.9.1]
+- Fix may unlink LONG_DESCRIPTION.md
+
 ## [2.9.0]
 - Switched to main branch
 - ILIAS 7 support
