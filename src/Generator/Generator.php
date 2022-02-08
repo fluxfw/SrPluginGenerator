@@ -374,9 +374,8 @@ class Generator
         if ($this->isSragPlugin()) {
             GeneratePluginReadme::getInstance()
                 ->doGeneratePluginReadme($this->temp_dir, "ILIAS_PLUGIN", "src/LONG_DESCRIPTION.md", $this->options->getInitPluginVersion(), $this->extra["ilias_plugin"]);
+            unlink($this->temp_dir . "/src/LONG_DESCRIPTION.md");
         }
-
-        unlink($this->temp_dir . "/src/LONG_DESCRIPTION.md");
     }
 
 
