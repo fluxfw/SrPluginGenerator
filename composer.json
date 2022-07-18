@@ -1,16 +1,7 @@
 {
   "name": "srag/srplugingenerator",
   "description": "srag ILIAS plugin generator",
-  "version": "2.9.1",
-  "extra": {
-    "ilias_plugin": {
-      "id": "srplugingenerator",
-      "name": "SrPluginGenerator",
-      "ilias_min_version": "6.0",
-      "ilias_max_version": "7.999",
-      "slot": "Services/UIComponent/UserInterfaceHook"
-    }
-  },
+  "version": "2.10.0",
   "type": "project",
   "keywords": [
     "generator",
@@ -19,23 +10,13 @@
     "plugin",
     "user"
   ],
-  "homepage": "https://github.com/fluxapps/SrPluginGenerator",
   "license": "GPL-3.0-only",
-  "authors": [
-    {
-      "name": "fluxlabs",
-      "email": "support@fluxlabs.ch",
-      "homepage": "https://fluxlabs.ch",
-      "role": "Developer"
-    }
-  ],
   "require": {
     "php": ">=7.2",
     "srag/activerecordconfig": ">=0.1.0",
     "srag/custominputguis": ">=0.1.0",
     "srag/devtools": ">=0.1.0",
     "srag/dic": ">=0.1.0",
-    "srag/generateplugininfoshelper": ">=0.1.0",
     "srag/librariesnamespacechanger": ">=0.1.0",
     "srag/removeplugindataconfirm": ">=0.1.0"
   },
@@ -59,11 +40,7 @@
   },
   "scripts": {
     "pre-autoload-dump": [
-      "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
-      "srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\GeneratePluginPhpAndXml::generatePluginPhpAndXml"
-    ],
-    "update-version": [
-      "srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\UpdateVersion::updateVersion"
+      "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces"
     ]
   }
 }

@@ -17,7 +17,6 @@ class ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee
             'srag\\Plugins\\SrPluginGenerator\\' => 31,
             'srag\\LibraryLanguageInstaller\\SrPluginGenerator\\' => 48,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\' => 49,
             'srag\\DevTools\\SrPluginGenerator\\' => 32,
             'srag\\DIC\\SrPluginGenerator\\' => 27,
             'srag\\CustomInputGUIs\\SrPluginGenerator\\' => 39,
@@ -41,10 +40,6 @@ class ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee
         'srag\\LibrariesNamespaceChanger\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
-        ),
-        'srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src',
         ),
         'srag\\DevTools\\SrPluginGenerator\\' => 
         array (
@@ -138,9 +133,6 @@ class ComposerStaticInit946fbd03ba2e142c28eefd970c8262ee
         'srag\\DIC\\SrPluginGenerator\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrPluginGenerator\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
         'srag\\DevTools\\SrPluginGenerator\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/devtools/src/class.DevToolsCtrl.php',
-        'srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginPhpAndXml.php',
-        'srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\GeneratePluginReadme' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginReadme.php',
-        'srag\\GeneratePluginInfosHelper\\SrPluginGenerator\\UpdateVersion' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/UpdateVersion.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
         'srag\\LibraryLanguageInstaller\\SrPluginGenerator\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/librarylanguageinstaller/src/LibraryLanguageInstaller.php',
         'srag\\Plugins\\SrPluginGenerator\\Access\\Ilias' => __DIR__ . '/../..' . '/src/Access/Ilias.php',
