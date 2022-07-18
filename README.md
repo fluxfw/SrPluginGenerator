@@ -16,7 +16,7 @@ Start at your ILIAS root directory
 ```bash
 mkdir -p Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
 cd Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
-git clone https://github.com/fluxapps/SrPluginGenerator.git SrPluginGenerator
+git clone https://github.com/fluxfw/SrPluginGenerator.git SrPluginGenerator
 ```
 
 Update, activate and config the plugin in the ILIAS Plugin Administration
@@ -32,8 +32,6 @@ You can access plugin generator from the main menu entry or with the follow stat
 ```
 https://your-domain/goto.php?target=uihk_srplugingenerator
 ```
-
-This plugin is installed at : https://plgen.studer-raimann.ch
 
 Form:
 

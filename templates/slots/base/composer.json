@@ -1,8 +1,6 @@
 {
   "name": "__COMPOSER_NAME__",
   "description": "Short description",
-  "version": "",
-  "extra": {},
   "type": "project",
   "keywords": [
     "ILIAS",

@@ -5,8 +5,6 @@ namespace srag\Plugins\SrPluginGenerator\Generator;
 use ilSrPluginGeneratorPlugin;
 use ilUtil;
 use srag\DIC\SrPluginGenerator\DICTrait;
-use srag\GeneratePluginInfosHelper\SrPluginGenerator\GeneratePluginPhpAndXml;
-use srag\GeneratePluginInfosHelper\SrPluginGenerator\GeneratePluginReadme;
 use srag\Plugins\SrPluginGenerator\Utils\SrPluginGeneratorTrait;
 
 /**
@@ -21,7 +19,6 @@ class Generator
     use SrPluginGeneratorTrait;
 
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
-    const SRAG_PREFIX = "srag\\";
     /**
      * @var array
      */
@@ -44,10 +41,6 @@ class Generator
      * @var string|null
      */
     protected $deliver_name = null;
-    /**
-     * @var array
-     */
-    protected $extra = [];
     /**
      * @var Options
      */
@@ -122,10 +115,6 @@ class Generator
 
         exec("cp -r " . escapeshellarg($base_template_dir) . " " . escapeshellarg($this->temp_dir));
 
-        if ($this->isSragPlugin()) {
-            exec("cp -r " . escapeshellarg($base_template_dir) . ".srag/* " . escapeshellarg($this->temp_dir));
-        }
-
         exec("cp -r " . escapeshellarg($template_dir) . "/* " . escapeshellarg($this->temp_dir));
 
         $this->deliver_name = $this->options->getPluginId() . ".zip";
@@ -199,15 +188,6 @@ class Generator
 
 
     /**
-     * @return bool
-     */
-    protected function isSragPlugin() : bool
-    {
-        return (substr($this->options->getNamespace(), 0, strlen(self::SRAG_PREFIX)) === self::SRAG_PREFIX);
-    }
-
-
-    /**
      *
      */
     protected function parsePlaceholders() : void
@@ -223,25 +203,9 @@ class Generator
             "srag/removeplugindataconfirm"   => ">=0.1.0"
         ];
 
-        $this->extra = [
-            "ilias_plugin" => [
-                "id"                => $this->options->getPluginId(),
-                "name"              => $this->options->getPluginName(),
-                "ilias_min_version" => $this->options->getMinIliasVersion(),
-                "ilias_max_version" => $this->options->getMaxIliasVersion()
-            ]
-        ];
-        if ($this->options->getPluginSlot() === Slots::REPOSITORY_OBJECT) {
-            $this->extra["ilias_plugin"]["lucene_search"] = true;
-        }
-        $this->extra["ilias_plugin"]["slot"] = $this->options->getPluginSlot();
-
         $authors = [
             ["__RESPONSIBLE_NAME__", "__RESPONSIBLE_EMAIL__"]
         ];
-        if ($this->options->getResponsibleName() !== Options::DEFAULT_RESPONSIBLE_NAME || $this->options->getResponsibleEmail() !== Options::DEFAULT_RESPONSIBLE_EMAIL) {
-            $authors[] = [Options::DEFAULT_RESPONSIBLE_NAME, Options::DEFAULT_RESPONSIBLE_EMAIL];
-        }
         $author_comment = implode("\n * ", array_map(function (array $author) : string {
             return "@author " . $author[0] . " <" . $author[1] . ">";
         }, $authors));
@@ -259,20 +223,6 @@ class Generator
         $composer_scripts = [];
         if ($this->options->isEnableLibrariesnamespacechangerScript()) {
             $composer_scripts[] = "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces";
-        }
-
-        if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
-            $requires["srag/generateplugininfoshelper"] = ">=0.1.0";
-
-            if ($this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
-                $composer_scripts[] = "srag\\GeneratePluginInfosHelper\\__PLUGIN_NAME__\\GeneratePluginPhpAndXml::generatePluginPhpAndXml";
-            }
-
-            $plugin_composer_json["version"] = $this->options->getInitPluginVersion();
-            $plugin_composer_json["extra"] = $this->extra;
-        } else {
-            unset($plugin_composer_json["version"]);
-            unset($plugin_composer_json["extra"]);
         }
 
         $config_ctrl_class = [];
@@ -366,16 +316,6 @@ class Generator
         ilUtil::makeDirParents($composer_home);
 
         exec("export COMPOSER_HOME=" . escapeshellarg($composer_home) . "&&composer update -d " . escapeshellarg($this->temp_dir) . "&&composer du -d " . escapeshellarg($this->temp_dir));
-
-        if (!$this->options->isEnableAutogeneratePluginPhpAndXmlScript()) {
-            GeneratePluginPhpAndXml::getInstance()->doGeneratePluginPhpAndXml($this->temp_dir, $this->options->getInitPluginVersion(), $this->extra["ilias_plugin"]);
-        }
-
-        if ($this->isSragPlugin()) {
-            GeneratePluginReadme::getInstance()
-                ->doGeneratePluginReadme($this->temp_dir, "ILIAS_PLUGIN", "src/LONG_DESCRIPTION.md", $this->options->getInitPluginVersion(), $this->extra["ilias_plugin"]);
-            unlink($this->temp_dir . "/src/LONG_DESCRIPTION.md");
-        }
     }
 
 

@@ -167,9 +167,7 @@ class FormBuilder extends AbstractFormBuilder
                     ->translate("enable_min_php_version_checker_info", PluginGeneratorGUI::LANG_MODULE)),
                 "enable_should_use_one_update_step_only"        => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
                     ->translate("enable_should_use_one_update_step_only", PluginGeneratorGUI::LANG_MODULE), self::plugin()
-                    ->translate("enable_should_use_one_update_step_only_info", PluginGeneratorGUI::LANG_MODULE)),
-                "enable_autogenerate_plugin_php_and_xml_script" => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
-                    ->translate("enable_autogenerate_plugin_php_and_xml_script", PluginGeneratorGUI::LANG_MODULE, ["Composer", "plugin.php", "plugin.xml", "composer.json"]))
+                    ->translate("enable_should_use_one_update_step_only_info", PluginGeneratorGUI::LANG_MODULE))
             ], self::plugin()->translate("features", PluginGeneratorGUI::LANG_MODULE), nl2br(self::plugin()->translate("features_info", PluginGeneratorGUI::LANG_MODULE), false))
         ];
 

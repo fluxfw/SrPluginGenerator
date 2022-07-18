@@ -24,17 +24,11 @@ class Options implements JsonSerializable
     const DEFAULT_MIN_ILIAS_VERSION = "6.0";
     const DEFAULT_MIN_PHP_VERSION = "7.2";
     const DEFAULT_NAMESPACE = "srag\\Plugins\\__PLUGIN_NAME__\\";
-    const DEFAULT_RESPONSIBLE_EMAIL = "support@fluxlabs.ch";
-    const DEFAULT_RESPONSIBLE_NAME = "fluxlabs";
     const PHP_VERSIONS
         = [
             self::DEFAULT_MIN_PHP_VERSION => self::DEFAULT_MIN_PHP_VERSION
         ];
     const PLUGIN_CLASS_NAME = ilSrPluginGeneratorPlugin::class;
-    /**
-     * @var bool
-     */
-    protected $enable_autogenerate_plugin_php_and_xml_script = false;
     /**
      * @var bool
      */
@@ -90,11 +84,11 @@ class Options implements JsonSerializable
     /**
      * @var string
      */
-    protected $responsible_email = self::DEFAULT_RESPONSIBLE_EMAIL;
+    protected $responsible_email = "";
     /**
      * @var string
      */
-    protected $responsible_name = self::DEFAULT_RESPONSIBLE_NAME;
+    protected $responsible_name = "";
 
 
     /**
@@ -301,24 +295,6 @@ class Options implements JsonSerializable
     public function setResponsibleName(string $responsible_name) : void
     {
         $this->responsible_name = $responsible_name;
-    }
-
-
-    /**
-     * @return bool
-     */
-    public function isEnableAutogeneratePluginPhpAndXmlScript() : bool
-    {
-        return $this->enable_autogenerate_plugin_php_and_xml_script;
-    }
-
-
-    /**
-     * @param bool $enable_autogenerate_plugin_php_and_xml_script
-     */
-    public function setEnableAutogeneratePluginPhpAndXmlScript(bool $enable_autogenerate_plugin_php_and_xml_script) : void
-    {
-        $this->enable_autogenerate_plugin_php_and_xml_script = $enable_autogenerate_plugin_php_and_xml_script;
     }
 
 
